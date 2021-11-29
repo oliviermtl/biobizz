@@ -1,7 +1,26 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-	purge: ['./src/**/*.svelte', './src/**/*.css'],
+	purge: {
+		content: ['./src/**/*.svelte', './src/**/*.html'],
+		options: {
+			safelist: [
+				'bg-rootjuice',
+				'bg-biogrow',
+				'bg-biobloom',
+				'bg-topmax',
+				'bg-bioheaven',
+				'bg-biodown',
+				'bg-bioup',
+				'bg-calmag',
+				'grid-cols-1',
+				'grid-cols-2',
+				'grid-cols-3',
+				'grid-cols-4',
+				'grid-cols-5'
+			]
+		}
+	},
 	darkMode: false,
 	theme: {
 		colors: {

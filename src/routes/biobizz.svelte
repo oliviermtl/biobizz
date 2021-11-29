@@ -1,15 +1,24 @@
 <script>
+	// Icons
+	import FaThermometerFull from 'svelte-icons/fa/FaThermometerFull.svelte';
+	import FaThermometerQuarter from 'svelte-icons/fa/FaThermometerQuarter.svelte';
+	import FaTint from 'svelte-icons/fa/FaTint.svelte';
+
 	import { differenceInCalendarWeeks } from 'date-fns';
 	import RangeSlider from 'svelte-range-slider-pips';
-	const bucketLiters = 9;
+	let bucketLiters = [9];
 	const dateGrowStart = new Date(2021, 10, 3);
 	const today = new Date();
 	let currentWeek = differenceInCalendarWeeks(today, dateGrowStart);
 	let growStages = ['Vegetative', 'Flowering'];
 	let parameters = {
-		humidity: [70, 70, 65, 60, 60, 50, 50],
-		temp_day: [25],
-		temp_night: [18]
+		humidity: {
+			label: 'Humidity',
+			values: [70, 70, 65, 60, 60, 50, 50],
+			icon: 'FaTint'
+		},
+		temp_day: { label: 'Temperature Day', values: [25], icon: 'FaThermometerFull' },
+		temp_night: { label: 'Temperature Night', values: [18], icon: 'FaThermometerQuarter' }
 	};
 	let nutes = {
 		rootjuice: [4, 0],
@@ -34,24 +43,45 @@
 	};
 </script>
 
-<div class="justify-center flex">
-	{today.toLocaleDateString('de-DE', {
-		weekday: 'long',
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric'
-	})}
+<!-- Optimal conditions -->
+<div
+	class=" justify-center items-center flex flex-col bg-white rounded drop-shadow-sm sm:p-4 py-1 absolute bottom-0 left-0 right-0"
+>
+	<p>Parametres Optimum</p>
+	<div class="flex">
+		{#each Object.entries(parameters) as [param, val]}
+			<div class="grid-cols-3 items-center bg-gray-300 m-2 p-1 relative self-center">
+				<div class="flex flex-row items-center align-center justify-center self-center">
+					<div class="w-4 h-4 mr-3 ml-2 ">
+						{#if val.icon === 'FaThermometerFull'} <FaThermometerFull />{/if}
+						{#if val.icon === 'FaThermometerQuarter'} <FaThermometerQuarter />{/if}
+						{#if val.icon === 'FaTint'} <FaTint />{/if}
+					</div>
+					<div>
+						<p>
+							{currentWeek >= val.values.length
+								? val.values[val.values.length - 1]
+								: val.values[currentWeek - 1]}
+							{val.label === 'Humidity' ? '%' : '°C'}
+						</p>
+					</div>
+				</div>
+				<h1 class="text-xs">{val.label}</h1>
+			</div>
+		{/each}
+	</div>
 </div>
 <!-- Week -->
-<div class="flex justify-center text-xl mt-2 mb-4">
+<div class="flex flex-col justify-center items-center text-xl bg-white">
+	<p>
+		{today.toLocaleDateString('de-DE', {
+			weekday: 'long',
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		})}
+	</p>
 	<div class="flex flex-col justify-center items-center">
-		<!-- Start : {dateGrowStart.toLocaleDateString('de-DE', {
-		weekday: 'long',
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric'
-	})}
-	<br /> -->
 		Week {currentWeek}
 		<!-- Grow Stage -->
 		<p class="text-sm">
@@ -60,42 +90,45 @@
 	</div>
 </div>
 
-<!-- Optimal conditions -->
-<div class="justify-between flex">
-	{#each Object.entries(parameters) as [param, val]}
-		<div class="flex-col button">
-			<h1>{param}</h1>
-			<p>{currentWeek >= val.length ? val[val.length - 1] : val[currentWeek]}</p>
-		</div>
-	{/each}
+<!-- Bucket Size -->
+<div class="flex flex-col justify-center mt-10 bg-opacity-100 bg-gray-100 rounded sm:p-4 py-4">
+	<p class="self-center">Capacité du sceau {bucketLiters} Litres</p>
+	<RangeSlider
+		id="bucket"
+		bind:values={bucketLiters}
+		pips
+		step={1}
+		pipstep={1}
+		max={10}
+		suffix="l."
+		all="label"
+	/>
 </div>
-
 <!-- Nutrients -->
-<div class="flex justify-center mt-10">
-	<div class="grid grid-cols-{nutesToDisplay()}">
-		{#each Object.entries(nutes) as [nute, val]}
-			<div
-				class="bg-{nute} {currentWeek > val.length
-					? val[val.length - 1] === 0
+<div class="flex flex-col justify-center mt-10 bg-opacity-100 bg-gray-100 rounded sm:p-4 py-4">
+	<div class="px-4">
+		<div class="grid grid-cols-{nutesToDisplay()}">
+			{#each Object.entries(nutes) as [nute, val]}
+				<div
+					class="bg-{nute} {currentWeek > val.length
+						? val[val.length - 1] === 0
+							? 'hidden'
+							: 'nutes'
+						: val[currentWeek] === 0
 						? 'hidden'
-						: 'nutes'
-					: val[currentWeek] === 0
-					? 'hidden'
-					: 'nutes'}"
-			>
-				<h1 class="text-gray-100">{nute}</h1>
-				<p class="text-xl text-white">
-					{currentWeek >= val.length
-						? Number(((val[val.length - 1] * nutesRatio[0]) / 100) * bucketLiters).toFixed(1)
-						: Number(((val[currentWeek] * nutesRatio[0]) / 100) * bucketLiters).toFixed(1)}
-				</p>
-				<p class="text-gray-100">ml</p>
-			</div>
-		{/each}
+						: 'nutes'}"
+				>
+					<h1 class="text-gray-100">{nute}</h1>
+					<p class="text-xl text-white">
+						{currentWeek >= val.length
+							? Number(((val[val.length - 1] * nutesRatio[0]) / 100) * bucketLiters[0]).toFixed(1)
+							: Number(((val[currentWeek - 1] * nutesRatio[0]) / 100) * bucketLiters[0]).toFixed(1)}
+					</p>
+					<p class="text-gray-100">ml</p>
+				</div>
+			{/each}
+		</div>
 	</div>
-</div>
 
-<div>
 	<RangeSlider bind:values={nutesRatio} pips step={1} pipstep={25} suffix="%" all="label" />
 </div>
-<div>{nutesRatio}</div>
