@@ -4704,13 +4704,13 @@ var require_cookie = __commonJS({
   "node_modules/cookie/index.js"(exports) {
     init_shims();
     "use strict";
-    exports.parse = parse;
+    exports.parse = parse2;
     exports.serialize = serialize;
     var decode = decodeURIComponent;
     var encode = encodeURIComponent;
     var pairSplitRegExp = /; */;
     var fieldContentRegExp = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/;
-    function parse(str, options2) {
+    function parse2(str, options2) {
       if (typeof str !== "string") {
         throw new TypeError("argument str must be a string");
       }
@@ -4928,37 +4928,38 @@ var init_uid_json_039b6f30 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/__layout-8bb28034.js
-var layout_8bb28034_exports = {};
-__export(layout_8bb28034_exports, {
+// .svelte-kit/output/server/chunks/__layout-967f9e8f.js
+var layout_967f9e8f_exports = {};
+__export(layout_967f9e8f_exports, {
   default: () => _layout
 });
 var import_cookie, css, _layout;
-var init_layout_8bb28034 = __esm({
-  ".svelte-kit/output/server/chunks/__layout-8bb28034.js"() {
+var init_layout_967f9e8f = __esm({
+  ".svelte-kit/output/server/chunks/__layout-967f9e8f.js"() {
     init_shims();
-    init_app_5f38d264();
+    init_app_7b12c375();
     import_cookie = __toModule(require_cookie());
     init_dist();
     css = {
-      code: "main.svelte-aowt28{flex:1;display:flex;flex-direction:column;width:100%;max-width:1024px;margin:0 auto;box-sizing:border-box}footer.svelte-aowt28{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px}@media(min-width: 480px){footer.svelte-aowt28{padding:40px 0}}",
+      code: "main.svelte-l15fsz{flex:1;display:flex;flex-direction:column;width:100%;max-width:1024px;margin:0 auto;box-sizing:border-box}footer.svelte-l15fsz{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:10px}@media(min-width: 480px){footer.svelte-l15fsz{padding:40px 0}}",
       map: null
     };
     _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       $$result.css.add(css);
       return `
 
-<main class="${"svelte-aowt28"}">${slots.default ? slots.default({}) : ``}</main>
+<main class="${"svelte-l15fsz"}">${``}
+	${`<p>loading</p>`}</main>
 
-<footer class="${"svelte-aowt28"}"><p class="${"text-xs text-green-800"}">Elles sont belles mes salades ? \u{1F957}</p>
+<footer class="${"svelte-l15fsz"}"><p class="${"text-xs text-green-800"}">Elles sont belles mes salades ? \u{1F957}</p>
 </footer>`;
     });
   }
 });
 
-// .svelte-kit/output/server/chunks/error-84ac3cb7.js
-var error_84ac3cb7_exports = {};
-__export(error_84ac3cb7_exports, {
+// .svelte-kit/output/server/chunks/error-39ef968b.js
+var error_39ef968b_exports = {};
+__export(error_39ef968b_exports, {
   default: () => Error2,
   load: () => load
 });
@@ -4966,10 +4967,10 @@ function load({ error: error2, status }) {
   return { props: { error: error2, status } };
 }
 var import_cookie2, Error2;
-var init_error_84ac3cb7 = __esm({
-  ".svelte-kit/output/server/chunks/error-84ac3cb7.js"() {
+var init_error_39ef968b = __esm({
+  ".svelte-kit/output/server/chunks/error-39ef968b.js"() {
     init_shims();
-    init_app_5f38d264();
+    init_app_7b12c375();
     import_cookie2 = __toModule(require_cookie());
     init_dist();
     Error2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -4991,7 +4992,7 @@ ${error2.stack ? `<pre>${escape(error2.stack)}</pre>` : ``}`;
   }
 });
 
-// .svelte-kit/output/server/chunks/index-c008904c.js
+// .svelte-kit/output/server/chunks/index-e937d017.js
 function writable(value, start = noop) {
   let stop;
   const subscribers = new Set();
@@ -5033,6 +5034,16 @@ function writable(value, start = noop) {
   }
   return { set, update, subscribe: subscribe2 };
 }
+var subscriber_queue;
+var init_index_e937d017 = __esm({
+  ".svelte-kit/output/server/chunks/index-e937d017.js"() {
+    init_shims();
+    init_app_7b12c375();
+    subscriber_queue = [];
+  }
+});
+
+// .svelte-kit/output/server/chunks/RangeSlider-57a9db0e.js
 function is_date(obj) {
   return Object.prototype.toString.call(obj) === "[object Date]";
 }
@@ -5130,75 +5141,813 @@ function spring(value, opts = {}) {
   };
   return spring2;
 }
-var subscriber_queue;
-var init_index_c008904c = __esm({
-  ".svelte-kit/output/server/chunks/index-c008904c.js"() {
+var css$2, IconBase, FaThermometerFull, FaThermometerQuarter, FaTint, css$1, RangePips, css2, RangeSlider;
+var init_RangeSlider_57a9db0e = __esm({
+  ".svelte-kit/output/server/chunks/RangeSlider-57a9db0e.js"() {
     init_shims();
-    init_app_5f38d264();
-    subscriber_queue = [];
+    init_app_7b12c375();
+    init_index_e937d017();
+    css$2 = {
+      code: "svg.svelte-c8tyih{stroke:currentColor;fill:currentColor;stroke-width:0;width:100%;height:auto;max-height:100%}",
+      map: null
+    };
+    IconBase = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { title = null } = $$props;
+      let { viewBox } = $$props;
+      if ($$props.title === void 0 && $$bindings.title && title !== void 0)
+        $$bindings.title(title);
+      if ($$props.viewBox === void 0 && $$bindings.viewBox && viewBox !== void 0)
+        $$bindings.viewBox(viewBox);
+      $$result.css.add(css$2);
+      return `<svg xmlns="${"http://www.w3.org/2000/svg"}"${add_attribute("viewBox", viewBox, 0)} class="${"svelte-c8tyih"}">${title ? `<title>${escape(title)}</title>` : ``}${slots.default ? slots.default({}) : ``}</svg>`;
+    });
+    FaThermometerFull = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 256 512" }, $$props), {}, {
+        default: () => `<path d="${"M224 96c0-53.019-42.981-96-96-96S32 42.981 32 96v203.347C12.225 321.756.166 351.136.002 383.333c-.359 70.303 56.787 128.176 127.089 128.664.299.002.61.003.909.003 70.698 0 128-57.304 128-128 0-32.459-12.088-62.09-32-84.653V96zm-96 368l-.576-.002c-43.86-.304-79.647-36.544-79.423-80.42.173-33.98 19.266-51.652 31.999-66.08V96c0-26.467 21.533-48 48-48s48 21.533 48 48v221.498c12.63 14.312 32 32.164 32 66.502 0 44.112-35.888 80-80 80zm64-80c0 35.346-28.654 64-64 64s-64-28.654-64-64c0-23.685 12.876-44.349 32-55.417V96c0-17.673 14.327-32 32-32s32 14.327 32 32v232.583c19.124 11.068 32 31.732 32 55.417z"}"></path>`
+      })}`;
+    });
+    FaThermometerQuarter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 256 512" }, $$props), {}, {
+        default: () => `<path d="${"M192 384c0 35.346-28.654 64-64 64s-64-28.654-64-64c0-23.685 12.876-44.349 32-55.417V288c0-17.673 14.327-32 32-32s32 14.327 32 32v40.583c19.124 11.068 32 31.732 32 55.417zm32-84.653c19.912 22.563 32 52.194 32 84.653 0 70.696-57.303 128-128 128-.299 0-.609-.001-.909-.003C56.789 511.509-.357 453.636.002 383.333.166 351.135 12.225 321.755 32 299.347V96c0-53.019 42.981-96 96-96s96 42.981 96 96v203.347zM208 384c0-34.339-19.37-52.19-32-66.502V96c0-26.467-21.533-48-48-48S80 69.533 80 96v221.498c-12.732 14.428-31.825 32.1-31.999 66.08-.224 43.876 35.563 80.116 79.423 80.42L128 464c44.112 0 80-35.888 80-80z"}"></path>`
+      })}`;
+    });
+    FaTint = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 352 512" }, $$props), {}, {
+        default: () => `<path d="${"M205.22 22.09c-7.94-28.78-49.44-30.12-58.44 0C100.01 179.85 0 222.72 0 333.91 0 432.35 78.72 512 176 512s176-79.65 176-178.09c0-111.75-99.79-153.34-146.78-311.82zM176 448c-61.75 0-112-50.25-112-112 0-8.84 7.16-16 16-16s16 7.16 16 16c0 44.11 35.89 80 80 80 8.84 0 16 7.16 16 16s-7.16 16-16 16z"}"></path>`
+      })}`;
+    });
+    css$1 = {
+      code: ".rangeSlider{--pip:var(--range-pip, lightslategray);--pip-text:var(--range-pip-text, var(--pip));--pip-active:var(--range-pip-active, darkslategrey);--pip-active-text:var(--range-pip-active-text, var(--pip-active));--pip-hover:var(--range-pip-hover, darkslategrey);--pip-hover-text:var(--range-pip-hover-text, var(--pip-hover));--pip-in-range:var(--range-pip-in-range, var(--pip-active));--pip-in-range-text:var(--range-pip-in-range-text, var(--pip-active-text))}.rangePips{position:absolute;height:1em;left:0;right:0;bottom:-1em}.rangePips.vertical{height:auto;width:1em;left:100%;right:auto;top:0;bottom:0}.rangePips .pip{height:0.4em;position:absolute;top:0.25em;width:1px;white-space:nowrap}.rangePips.vertical .pip{height:1px;width:0.4em;left:0.25em;top:auto;bottom:auto}.rangePips .pipVal{position:absolute;top:0.4em;transform:translate(-50%, 25%)}.rangePips.vertical .pipVal{position:absolute;top:0;left:0.4em;transform:translate(25%, -50%)}.rangePips .pip{transition:all 0.15s ease}.rangePips .pipVal{transition:all 0.15s ease, font-weight 0s linear}.rangePips .pip{color:lightslategray;color:var(--pip-text);background-color:lightslategray;background-color:var(--pip)}.rangePips .pip.selected{color:darkslategrey;color:var(--pip-active-text);background-color:darkslategrey;background-color:var(--pip-active)}.rangePips.hoverable:not(.disabled) .pip:hover{color:darkslategrey;color:var(--pip-hover-text);background-color:darkslategrey;background-color:var(--pip-hover)}.rangePips .pip.in-range{color:darkslategrey;color:var(--pip-in-range-text);background-color:darkslategrey;background-color:var(--pip-in-range)}.rangePips .pip.selected{height:0.75em}.rangePips.vertical .pip.selected{height:1px;width:0.75em}.rangePips .pip.selected .pipVal{font-weight:bold;top:0.75em}.rangePips.vertical .pip.selected .pipVal{top:0;left:0.75em}.rangePips.hoverable:not(.disabled) .pip:not(.selected):hover{transition:none}.rangePips.hoverable:not(.disabled) .pip:not(.selected):hover .pipVal{transition:none;font-weight:bold}",
+      map: null
+    };
+    RangePips = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let pipStep;
+      let pipCount;
+      let pipVal;
+      let isSelected;
+      let inRange;
+      let { range = false } = $$props;
+      let { min = 0 } = $$props;
+      let { max = 100 } = $$props;
+      let { step = 1 } = $$props;
+      let { values = [(max + min) / 2] } = $$props;
+      let { vertical = false } = $$props;
+      let { reversed = false } = $$props;
+      let { hoverable = true } = $$props;
+      let { disabled = false } = $$props;
+      let { pipstep = void 0 } = $$props;
+      let { all = true } = $$props;
+      let { first = void 0 } = $$props;
+      let { last = void 0 } = $$props;
+      let { rest = void 0 } = $$props;
+      let { prefix = "" } = $$props;
+      let { suffix = "" } = $$props;
+      let { formatter = (v, i) => v } = $$props;
+      let { focus = void 0 } = $$props;
+      let { orientationStart = void 0 } = $$props;
+      let { percentOf = void 0 } = $$props;
+      let { moveHandle = void 0 } = $$props;
+      if ($$props.range === void 0 && $$bindings.range && range !== void 0)
+        $$bindings.range(range);
+      if ($$props.min === void 0 && $$bindings.min && min !== void 0)
+        $$bindings.min(min);
+      if ($$props.max === void 0 && $$bindings.max && max !== void 0)
+        $$bindings.max(max);
+      if ($$props.step === void 0 && $$bindings.step && step !== void 0)
+        $$bindings.step(step);
+      if ($$props.values === void 0 && $$bindings.values && values !== void 0)
+        $$bindings.values(values);
+      if ($$props.vertical === void 0 && $$bindings.vertical && vertical !== void 0)
+        $$bindings.vertical(vertical);
+      if ($$props.reversed === void 0 && $$bindings.reversed && reversed !== void 0)
+        $$bindings.reversed(reversed);
+      if ($$props.hoverable === void 0 && $$bindings.hoverable && hoverable !== void 0)
+        $$bindings.hoverable(hoverable);
+      if ($$props.disabled === void 0 && $$bindings.disabled && disabled !== void 0)
+        $$bindings.disabled(disabled);
+      if ($$props.pipstep === void 0 && $$bindings.pipstep && pipstep !== void 0)
+        $$bindings.pipstep(pipstep);
+      if ($$props.all === void 0 && $$bindings.all && all !== void 0)
+        $$bindings.all(all);
+      if ($$props.first === void 0 && $$bindings.first && first !== void 0)
+        $$bindings.first(first);
+      if ($$props.last === void 0 && $$bindings.last && last !== void 0)
+        $$bindings.last(last);
+      if ($$props.rest === void 0 && $$bindings.rest && rest !== void 0)
+        $$bindings.rest(rest);
+      if ($$props.prefix === void 0 && $$bindings.prefix && prefix !== void 0)
+        $$bindings.prefix(prefix);
+      if ($$props.suffix === void 0 && $$bindings.suffix && suffix !== void 0)
+        $$bindings.suffix(suffix);
+      if ($$props.formatter === void 0 && $$bindings.formatter && formatter !== void 0)
+        $$bindings.formatter(formatter);
+      if ($$props.focus === void 0 && $$bindings.focus && focus !== void 0)
+        $$bindings.focus(focus);
+      if ($$props.orientationStart === void 0 && $$bindings.orientationStart && orientationStart !== void 0)
+        $$bindings.orientationStart(orientationStart);
+      if ($$props.percentOf === void 0 && $$bindings.percentOf && percentOf !== void 0)
+        $$bindings.percentOf(percentOf);
+      if ($$props.moveHandle === void 0 && $$bindings.moveHandle && moveHandle !== void 0)
+        $$bindings.moveHandle(moveHandle);
+      $$result.css.add(css$1);
+      pipStep = pipstep || ((max - min) / step >= (vertical ? 50 : 100) ? (max - min) / (vertical ? 10 : 20) : 1);
+      pipCount = parseInt((max - min) / (step * pipStep), 10);
+      pipVal = function(val) {
+        return min + val * step * pipStep;
+      };
+      isSelected = function(val) {
+        return values.some((v) => v === val);
+      };
+      inRange = function(val) {
+        if (range === "min") {
+          return values[0] > val;
+        } else if (range === "max") {
+          return values[0] < val;
+        } else if (range) {
+          return values[0] < val && values[1] > val;
+        }
+      };
+      return `<div class="${[
+        "rangePips",
+        (disabled ? "disabled" : "") + " " + (hoverable ? "hoverable" : "") + " " + (vertical ? "vertical" : "") + " " + (reversed ? "reversed" : "") + " " + (focus ? "focus" : "")
+      ].join(" ").trim()}">${all && first !== false || first ? `<span class="${[
+        "pip first",
+        (isSelected(min) ? "selected" : "") + " " + (inRange(min) ? "in-range" : "")
+      ].join(" ").trim()}" style="${escape(orientationStart) + ": 0%;"}">${all === "label" || first === "label" ? `<span class="${"pipVal"}">${prefix ? `<span class="${"pipVal-prefix"}">${escape(prefix)}</span>` : ``}${escape(formatter(min, 0, 0))}${suffix ? `<span class="${"pipVal-suffix"}">${escape(suffix)}</span>` : ``}</span>` : ``}</span>` : ``}
+
+  ${all && rest !== false || rest ? `${each(Array(pipCount + 1), (_, i) => `${pipVal(i) !== min && pipVal(i) !== max ? `<span class="${[
+        "pip",
+        (isSelected(pipVal(i)) ? "selected" : "") + " " + (inRange(pipVal(i)) ? "in-range" : "")
+      ].join(" ").trim()}" style="${escape(orientationStart) + ": " + escape(percentOf(pipVal(i))) + "%;"}">${all === "label" || rest === "label" ? `<span class="${"pipVal"}">${prefix ? `<span class="${"pipVal-prefix"}">${escape(prefix)}</span>` : ``}${escape(formatter(pipVal(i), i, percentOf(pipVal(i))))}${suffix ? `<span class="${"pipVal-suffix"}">${escape(suffix)}</span>` : ``}
+            </span>` : ``}
+        </span>` : ``}`)}` : ``}
+
+  ${all && last !== false || last ? `<span class="${[
+        "pip last",
+        (isSelected(max) ? "selected" : "") + " " + (inRange(max) ? "in-range" : "")
+      ].join(" ").trim()}" style="${escape(orientationStart) + ": 100%;"}">${all === "label" || last === "label" ? `<span class="${"pipVal"}">${prefix ? `<span class="${"pipVal-prefix"}">${escape(prefix)}</span>` : ``}${escape(formatter(max, pipCount, 100))}${suffix ? `<span class="${"pipVal-suffix"}">${escape(suffix)}</span>` : ``}</span>` : ``}</span>` : ``}</div>`;
+    });
+    css2 = {
+      code: '.rangeSlider{--slider:var(--range-slider, #d7dada);--handle-inactive:var(--range-handle-inactive, #99a2a2);--handle:var(--range-handle, #838de7);--handle-focus:var(--range-handle-focus, #4a40d4);--handle-border:var(--range-handle-border, var(--handle));--range-inactive:var(--range-range-inactive, var(--handle-inactive));--range:var(--range-range, var(--handle-focus));--float-inactive:var(--range-float-inactive, var(--handle-inactive));--float:var(--range-float, var(--handle-focus));--float-text:var(--range-float-text, white)}.rangeSlider{position:relative;border-radius:100px;height:0.5em;margin:1em;transition:opacity 0.2s ease;user-select:none}.rangeSlider *{user-select:none}.rangeSlider.pips{margin-bottom:1.8em}.rangeSlider.pip-labels{margin-bottom:2.8em}.rangeSlider.vertical{display:inline-block;border-radius:100px;width:0.5em;min-height:200px}.rangeSlider.vertical.pips{margin-right:1.8em;margin-bottom:1em}.rangeSlider.vertical.pip-labels{margin-right:2.8em;margin-bottom:1em}.rangeSlider .rangeHandle{position:absolute;display:block;height:1.4em;width:1.4em;top:0.25em;bottom:auto;transform:translateY(-50%) translateX(-50%);z-index:2}.rangeSlider.reversed .rangeHandle{transform:translateY(-50%) translateX(50%)}.rangeSlider.vertical .rangeHandle{left:0.25em;top:auto;transform:translateY(50%) translateX(-50%)}.rangeSlider.vertical.reversed .rangeHandle{transform:translateY(-50%) translateX(-50%)}.rangeSlider .rangeNub,.rangeSlider .rangeHandle:before{position:absolute;left:0;top:0;display:block;border-radius:10em;height:100%;width:100%;transition:box-shadow 0.2s ease}.rangeSlider .rangeHandle:before{content:"";left:1px;top:1px;bottom:1px;right:1px;height:auto;width:auto;box-shadow:0 0 0 0px var(--handle-border);opacity:0}.rangeSlider.hoverable:not(.disabled) .rangeHandle:hover:before{box-shadow:0 0 0 8px var(--handle-border);opacity:0.2}.rangeSlider.hoverable:not(.disabled) .rangeHandle.press:before,.rangeSlider.hoverable:not(.disabled) .rangeHandle.press:hover:before{box-shadow:0 0 0 12px var(--handle-border);opacity:0.4}.rangeSlider.range:not(.min):not(.max) .rangeNub{border-radius:10em 10em 10em 1.6em}.rangeSlider.range .rangeHandle:nth-of-type(1) .rangeNub{transform:rotate(-135deg)}.rangeSlider.range .rangeHandle:nth-of-type(2) .rangeNub{transform:rotate(45deg)}.rangeSlider.range.reversed .rangeHandle:nth-of-type(1) .rangeNub{transform:rotate(45deg)}.rangeSlider.range.reversed .rangeHandle:nth-of-type(2) .rangeNub{transform:rotate(-135deg)}.rangeSlider.range.vertical .rangeHandle:nth-of-type(1) .rangeNub{transform:rotate(135deg)}.rangeSlider.range.vertical .rangeHandle:nth-of-type(2) .rangeNub{transform:rotate(-45deg)}.rangeSlider.range.vertical.reversed .rangeHandle:nth-of-type(1) .rangeNub{transform:rotate(-45deg)}.rangeSlider.range.vertical.reversed .rangeHandle:nth-of-type(2) .rangeNub{transform:rotate(135deg)}.rangeSlider .rangeFloat{display:block;position:absolute;left:50%;top:-0.5em;transform:translate(-50%, -100%);font-size:1em;text-align:center;opacity:0;pointer-events:none;white-space:nowrap;transition:all 0.2s ease;font-size:0.9em;padding:0.2em 0.4em;border-radius:0.2em}.rangeSlider .rangeHandle.active .rangeFloat,.rangeSlider .rangeHandle.hoverable:hover .rangeFloat{opacity:1;top:-0.2em;transform:translate(-50%, -100%)}.rangeSlider .rangeBar{position:absolute;display:block;transition:background 0.2s ease;border-radius:1em;height:0.5em;top:0;user-select:none;z-index:1}.rangeSlider.vertical .rangeBar{width:0.5em;height:auto}.rangeSlider{background-color:#d7dada;background-color:var(--slider)}.rangeSlider .rangeBar{background-color:#99a2a2;background-color:var(--range-inactive)}.rangeSlider.focus .rangeBar{background-color:#838de7;background-color:var(--range)}.rangeSlider .rangeNub{background-color:#99a2a2;background-color:var(--handle-inactive)}.rangeSlider.focus .rangeNub{background-color:#838de7;background-color:var(--handle)}.rangeSlider .rangeHandle.active .rangeNub{background-color:#4a40d4;background-color:var(--handle-focus)}.rangeSlider .rangeFloat{color:white;color:var(--float-text);background-color:#99a2a2;background-color:var(--float-inactive)}.rangeSlider.focus .rangeFloat{background-color:#4a40d4;background-color:var(--float)}.rangeSlider.disabled {opacity:0.5}.rangeSlider.disabled .rangeNub{background-color:#d7dada;background-color:var(--slider)}',
+      map: null
+    };
+    RangeSlider = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let percentOf;
+      let clampValue;
+      let alignValueToStep;
+      let orientationStart;
+      let orientationEnd;
+      let $springPositions, $$unsubscribe_springPositions = noop, $$subscribe_springPositions = () => ($$unsubscribe_springPositions(), $$unsubscribe_springPositions = subscribe(springPositions, ($$value) => $springPositions = $$value), springPositions);
+      let { range = false } = $$props;
+      let { pushy = false } = $$props;
+      let { min = 0 } = $$props;
+      let { max = 100 } = $$props;
+      let { step = 1 } = $$props;
+      let { values = [(max + min) / 2] } = $$props;
+      let { vertical = false } = $$props;
+      let { float = false } = $$props;
+      let { reversed = false } = $$props;
+      let { hoverable = true } = $$props;
+      let { disabled = false } = $$props;
+      let { pips = false } = $$props;
+      let { pipstep = void 0 } = $$props;
+      let { all = void 0 } = $$props;
+      let { first = void 0 } = $$props;
+      let { last = void 0 } = $$props;
+      let { rest = void 0 } = $$props;
+      let { id = void 0 } = $$props;
+      let { prefix = "" } = $$props;
+      let { suffix = "" } = $$props;
+      let { formatter = (v, i, p) => v } = $$props;
+      let { handleFormatter = formatter } = $$props;
+      let { precision = 2 } = $$props;
+      let { springValues = { stiffness: 0.15, damping: 0.4 } } = $$props;
+      const dispatch = createEventDispatcher();
+      let slider;
+      let valueLength = 0;
+      let focus = false;
+      let activeHandle = values.length - 1;
+      let startValue;
+      let previousValue;
+      let springPositions;
+      function trimRange(values2) {
+        if (range === "min" || range === "max") {
+          return values2.slice(0, 1);
+        } else if (range) {
+          return values2.slice(0, 2);
+        } else {
+          return values2;
+        }
+      }
+      function moveHandle(index, value) {
+        value = alignValueToStep(value);
+        if (typeof index === "undefined") {
+          index = activeHandle;
+        }
+        if (range) {
+          if (index === 0 && value > values[1]) {
+            if (pushy) {
+              values[1] = value;
+            } else {
+              value = values[1];
+            }
+          } else if (index === 1 && value < values[0]) {
+            if (pushy) {
+              values[0] = value;
+            } else {
+              value = values[0];
+            }
+          }
+        }
+        if (values[index] !== value) {
+          values[index] = value;
+        }
+        if (previousValue !== value) {
+          eChange();
+          previousValue = value;
+        }
+        return value;
+      }
+      function rangeStart(values2) {
+        if (range === "min") {
+          return 0;
+        } else {
+          return values2[0];
+        }
+      }
+      function rangeEnd(values2) {
+        if (range === "max") {
+          return 0;
+        } else if (range === "min") {
+          return 100 - values2[0];
+        } else {
+          return 100 - values2[1];
+        }
+      }
+      function eChange() {
+        !disabled && dispatch("change", {
+          activeHandle,
+          startValue,
+          previousValue: typeof previousValue === "undefined" ? startValue : previousValue,
+          value: values[activeHandle],
+          values: values.map((v) => alignValueToStep(v))
+        });
+      }
+      if ($$props.range === void 0 && $$bindings.range && range !== void 0)
+        $$bindings.range(range);
+      if ($$props.pushy === void 0 && $$bindings.pushy && pushy !== void 0)
+        $$bindings.pushy(pushy);
+      if ($$props.min === void 0 && $$bindings.min && min !== void 0)
+        $$bindings.min(min);
+      if ($$props.max === void 0 && $$bindings.max && max !== void 0)
+        $$bindings.max(max);
+      if ($$props.step === void 0 && $$bindings.step && step !== void 0)
+        $$bindings.step(step);
+      if ($$props.values === void 0 && $$bindings.values && values !== void 0)
+        $$bindings.values(values);
+      if ($$props.vertical === void 0 && $$bindings.vertical && vertical !== void 0)
+        $$bindings.vertical(vertical);
+      if ($$props.float === void 0 && $$bindings.float && float !== void 0)
+        $$bindings.float(float);
+      if ($$props.reversed === void 0 && $$bindings.reversed && reversed !== void 0)
+        $$bindings.reversed(reversed);
+      if ($$props.hoverable === void 0 && $$bindings.hoverable && hoverable !== void 0)
+        $$bindings.hoverable(hoverable);
+      if ($$props.disabled === void 0 && $$bindings.disabled && disabled !== void 0)
+        $$bindings.disabled(disabled);
+      if ($$props.pips === void 0 && $$bindings.pips && pips !== void 0)
+        $$bindings.pips(pips);
+      if ($$props.pipstep === void 0 && $$bindings.pipstep && pipstep !== void 0)
+        $$bindings.pipstep(pipstep);
+      if ($$props.all === void 0 && $$bindings.all && all !== void 0)
+        $$bindings.all(all);
+      if ($$props.first === void 0 && $$bindings.first && first !== void 0)
+        $$bindings.first(first);
+      if ($$props.last === void 0 && $$bindings.last && last !== void 0)
+        $$bindings.last(last);
+      if ($$props.rest === void 0 && $$bindings.rest && rest !== void 0)
+        $$bindings.rest(rest);
+      if ($$props.id === void 0 && $$bindings.id && id !== void 0)
+        $$bindings.id(id);
+      if ($$props.prefix === void 0 && $$bindings.prefix && prefix !== void 0)
+        $$bindings.prefix(prefix);
+      if ($$props.suffix === void 0 && $$bindings.suffix && suffix !== void 0)
+        $$bindings.suffix(suffix);
+      if ($$props.formatter === void 0 && $$bindings.formatter && formatter !== void 0)
+        $$bindings.formatter(formatter);
+      if ($$props.handleFormatter === void 0 && $$bindings.handleFormatter && handleFormatter !== void 0)
+        $$bindings.handleFormatter(handleFormatter);
+      if ($$props.precision === void 0 && $$bindings.precision && precision !== void 0)
+        $$bindings.precision(precision);
+      if ($$props.springValues === void 0 && $$bindings.springValues && springValues !== void 0)
+        $$bindings.springValues(springValues);
+      $$result.css.add(css2);
+      clampValue = function(val) {
+        return val <= min ? min : val >= max ? max : val;
+      };
+      alignValueToStep = function(val) {
+        if (val <= min) {
+          return min;
+        } else if (val >= max) {
+          return max;
+        }
+        let remainder = (val - min) % step;
+        let aligned = val - remainder;
+        if (Math.abs(remainder) * 2 >= step) {
+          aligned += remainder > 0 ? step : -step;
+        }
+        aligned = clampValue(aligned);
+        return parseFloat(aligned.toFixed(precision));
+      };
+      percentOf = function(val) {
+        let perc = (val - min) / (max - min) * 100;
+        if (isNaN(perc) || perc <= 0) {
+          return 0;
+        } else if (perc >= 100) {
+          return 100;
+        } else {
+          return parseFloat(perc.toFixed(precision));
+        }
+      };
+      {
+        {
+          if (!Array.isArray(values)) {
+            values = [(max + min) / 2];
+            console.error("'values' prop should be an Array (https://github.com/simeydotme/svelte-range-slider-pips#slider-props)");
+          }
+          values = trimRange(values.map((v) => alignValueToStep(v)));
+          if (valueLength !== values.length) {
+            $$subscribe_springPositions(springPositions = spring(values.map((v) => percentOf(v)), springValues));
+          } else {
+            springPositions.set(values.map((v) => percentOf(v)));
+          }
+          valueLength = values.length;
+        }
+      }
+      orientationStart = vertical ? reversed ? "top" : "bottom" : reversed ? "right" : "left";
+      orientationEnd = vertical ? reversed ? "bottom" : "top" : reversed ? "left" : "right";
+      $$unsubscribe_springPositions();
+      return `<div${add_attribute("id", id, 0)} class="${[
+        "rangeSlider",
+        (range ? "range" : "") + " " + (disabled ? "disabled" : "") + " " + (hoverable ? "hoverable" : "") + " " + (vertical ? "vertical" : "") + " " + (reversed ? "reversed" : "") + "  " + (range === "min" ? "min" : "") + " " + (range === "max" ? "max" : "") + " " + (pips ? "pips" : "") + " " + (all === "label" || first === "label" || last === "label" || rest === "label" ? "pip-labels" : "")
+      ].join(" ").trim()}"${add_attribute("this", slider, 0)}>${each(values, (value, index) => `<span role="${"slider"}" class="${[
+        "rangeHandle",
+        " "
+      ].join(" ").trim()}"${add_attribute("data-handle", index, 0)} style="${escape(orientationStart) + ": " + escape($springPositions[index]) + "%; z-index: " + escape(activeHandle === index ? 3 : 2) + ";"}"${add_attribute("aria-valuemin", range === true && index === 1 ? values[0] : min, 0)}${add_attribute("aria-valuemax", range === true && index === 0 ? values[1] : max, 0)}${add_attribute("aria-valuenow", value, 0)} aria-valuetext="${escape(prefix) + escape(handleFormatter(value, index, percentOf(value))) + escape(suffix)}"${add_attribute("aria-orientation", vertical ? "vertical" : "horizontal", 0)}${add_attribute("aria-disabled", disabled, 0)} ${disabled ? "disabled" : ""}${add_attribute("tabindex", disabled ? -1 : 0, 0)}><span class="${"rangeNub"}"></span>
+      ${float ? `<span class="${"rangeFloat"}">${prefix ? `<span class="${"rangeFloat-prefix"}">${escape(prefix)}</span>` : ``}${escape(handleFormatter(value, index, percentOf(value)))}${suffix ? `<span class="${"rangeFloat-suffix"}">${escape(suffix)}</span>` : ``}
+        </span>` : ``}
+    </span>`)}
+  ${range ? `<span class="${"rangeBar"}" style="${escape(orientationStart) + ": " + escape(rangeStart($springPositions)) + "%; " + escape(orientationEnd) + ": " + escape(rangeEnd($springPositions)) + "%;"}"></span>` : ``}
+  ${pips ? `${validate_component(RangePips, "RangePips").$$render($$result, {
+        values,
+        min,
+        max,
+        step,
+        range,
+        vertical,
+        reversed,
+        orientationStart,
+        orientationEnd,
+        hoverable,
+        disabled,
+        all,
+        first,
+        last,
+        rest,
+        pipstep,
+        prefix,
+        suffix,
+        formatter,
+        focus,
+        percentOf,
+        moveHandle
+      }, {}, {})}` : ``}</div>
+
+`;
+    });
   }
 });
 
-// .svelte-kit/output/server/chunks/index-fe9cae8a.js
-var index_fe9cae8a_exports = {};
-__export(index_fe9cae8a_exports, {
-  default: () => Routes,
-  prerender: () => prerender
-});
-function modulo(n, m) {
-  return (n % m + m) % m;
+// .svelte-kit/output/server/chunks/DateInput-32e6edec.js
+function isLeapYear(year) {
+  return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
 }
-var import_cookie3, css$1, Counter, css2, prerender, Routes;
-var init_index_fe9cae8a = __esm({
-  ".svelte-kit/output/server/chunks/index-fe9cae8a.js"() {
+function getMonthLength(year, month) {
+  const feb = isLeapYear(year) ? 29 : 28;
+  const monthLenghts = [31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  return monthLenghts[month];
+}
+function toText(date, formatTokens) {
+  let text = "";
+  for (const token of formatTokens) {
+    if (typeof token === "string") {
+      text += token;
+    } else {
+      text += token.toString(date);
+    }
+  }
+  return text;
+}
+function getMonthDays(year, month) {
+  const monthLength = getMonthLength(year, month);
+  const days = [];
+  for (let i = 0; i < monthLength; i++) {
+    days.push({
+      year,
+      month,
+      number: i + 1
+    });
+  }
+  return days;
+}
+function getCalendarDays(value, weekStartsOn) {
+  const year = value.getFullYear();
+  const month = value.getMonth();
+  const firstWeekday = new Date(year, month, 1).getDay();
+  let days = [];
+  const daysBefore = firstWeekday - weekStartsOn;
+  if (daysBefore > 0) {
+    let lastMonth = month - 1;
+    let lastMonthYear = year;
+    if (lastMonth === -1) {
+      lastMonth = 11;
+      lastMonthYear = year - 1;
+    }
+    days = getMonthDays(lastMonthYear, lastMonth).slice(-daysBefore);
+  }
+  days = days.concat(getMonthDays(year, month));
+  let nextMonth = month + 1;
+  let nextMonthYear = year;
+  if (nextMonth === 12) {
+    nextMonth = 0;
+    nextMonthYear = year + 1;
+  }
+  const daysAfter = 42 - days.length;
+  days = days.concat(getMonthDays(nextMonthYear, nextMonth).slice(0, daysAfter));
+  return days;
+}
+function getLocaleDefaults() {
+  return {
+    weekdays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    months: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    weekStartsOn: 1
+  };
+}
+function getInnerLocale(locale = {}) {
+  const innerLocale = getLocaleDefaults();
+  if (typeof locale.weekStartsOn === "number") {
+    innerLocale.weekStartsOn = locale.weekStartsOn;
+  }
+  if (locale.months)
+    innerLocale.months = locale.months;
+  if (locale.weekdays)
+    innerLocale.weekdays = locale.weekdays;
+  return innerLocale;
+}
+function parse(str, tokens, baseDate) {
+  let missingPunctuation = "";
+  let valid = true;
+  baseDate = baseDate || new Date(2020, 0, 1, 0, 0, 0, 0);
+  let year = baseDate.getFullYear();
+  let month = baseDate.getMonth();
+  let day = baseDate.getDate();
+  let hours = baseDate.getHours();
+  let minutes = baseDate.getMinutes();
+  let seconds = baseDate.getSeconds();
+  const ms = baseDate.getMilliseconds();
+  function parseString(token) {
+    for (let i = 0; i < token.length; i++) {
+      if (str.startsWith(token[i])) {
+        str = str.slice(1);
+      } else {
+        valid = false;
+        if (str.length === 0)
+          missingPunctuation = token.slice(i);
+        return;
+      }
+    }
+  }
+  function parseUint(pattern, min, max) {
+    const matches = str.match(pattern);
+    if (matches === null || matches === void 0 ? void 0 : matches[0]) {
+      str = str.slice(matches[0].length);
+      const n = parseInt(matches[0]);
+      if (n > max || n < min) {
+        valid = false;
+        return null;
+      } else {
+        return n;
+      }
+    } else {
+      valid = false;
+      return null;
+    }
+  }
+  function parseToken(token) {
+    if (typeof token === "string") {
+      parseString(token);
+    } else if (token.id === "yyyy") {
+      const value = parseUint(/^[0-9]{4}/, 0, 9999);
+      if (value !== null)
+        year = value;
+    } else if (token.id === "MM") {
+      const value = parseUint(/^[0-9]{2}/, 1, 12);
+      if (value !== null)
+        month = value - 1;
+    } else if (token.id === "dd") {
+      const value = parseUint(/^[0-9]{2}/, 1, 31);
+      if (value !== null)
+        day = value;
+    } else if (token.id === "HH") {
+      const value = parseUint(/^[0-9]{2}/, 0, 23);
+      if (value !== null)
+        hours = value;
+    } else if (token.id === "mm") {
+      const value = parseUint(/^[0-9]{2}/, 0, 59);
+      if (value !== null)
+        minutes = value;
+    } else if (token.id === "ss") {
+      const value = parseUint(/^[0-9]{2}/, 0, 59);
+      if (value !== null)
+        seconds = value;
+    }
+  }
+  for (const token of tokens) {
+    parseToken(token);
+    if (!valid)
+      break;
+  }
+  const monthLength = getMonthLength(year, month);
+  if (day > monthLength) {
+    valid = false;
+  }
+  return {
+    date: valid ? new Date(year, month, day, hours, minutes, seconds, ms) : null,
+    missingPunctuation
+  };
+}
+function twoDigit(value) {
+  return ("0" + value.toString()).slice(-2);
+}
+function parseRule(s2) {
+  for (const token of ruleTokens) {
+    if (s2.startsWith(token.id)) {
+      return token;
+    }
+  }
+}
+function createFormat(s2) {
+  const tokens = [];
+  while (s2.length > 0) {
+    const token = parseRule(s2);
+    if (token) {
+      tokens.push(token);
+      s2 = s2.slice(token.id.length);
+    } else if (typeof tokens[tokens.length - 1] === "string") {
+      tokens[tokens.length - 1] += s2[0];
+      s2 = s2.slice(1);
+    } else {
+      tokens.push(s2[0]);
+      s2 = s2.slice(1);
+    }
+  }
+  return tokens;
+}
+var css$12, DatePicker, ruleTokens, css3, DateInput;
+var init_DateInput_32e6edec = __esm({
+  ".svelte-kit/output/server/chunks/DateInput-32e6edec.js"() {
     init_shims();
-    init_app_5f38d264();
-    init_index_c008904c();
-    import_cookie3 = __toModule(require_cookie());
-    init_dist();
-    css$1 = {
-      code: ".counter.svelte-4ngnr.svelte-4ngnr{display:flex;border-top:1px solid rgba(0, 0, 0, 0.1);border-bottom:1px solid rgba(0, 0, 0, 0.1);margin:1rem 0}svg.svelte-4ngnr.svelte-4ngnr{width:25%;height:25%}path.svelte-4ngnr.svelte-4ngnr{vector-effect:non-scaling-stroke;stroke-width:2px;stroke:var(--text-color)}.counter-viewport.svelte-4ngnr.svelte-4ngnr{width:8em;height:4em;overflow:hidden;text-align:center;position:relative}.counter-viewport.svelte-4ngnr strong.svelte-4ngnr{position:absolute;display:flex;width:100%;height:100%;font-weight:400;color:var(--accent-color);font-size:4rem;align-items:center;justify-content:center}.counter-digits.svelte-4ngnr.svelte-4ngnr{position:absolute;width:100%;height:100%}",
+    init_app_7b12c375();
+    css$12 = {
+      code: ".date-time-picker.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:inline-block;outline:none;color:var(--date-picker-foreground, #000000);background:var(--date-picker-background, #ffffff);user-select:none;-webkit-user-select:none;padding:8px;cursor:default;font-size:12px;border:1px solid rgba(103, 113, 137, 0.3);border-radius:3px;box-shadow:0px 2px 6px rgba(0, 0, 0, 0.08), 0px 2px 6px rgba(0, 0, 0, 0.11)}.top.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:flex;justify-content:center;align-items:center;padding-bottom:8px}.top.svelte-hqplke .dropdown.svelte-hqplke.svelte-hqplke,.top.svelte-hqplke .previous.svelte-hqplke.svelte-hqplke{margin-right:8px}.top.svelte-hqplke .dropdown.svelte-hqplke.svelte-hqplke{position:relative;display:flex}.top.svelte-hqplke .dropdown svg.svelte-hqplke.svelte-hqplke{position:absolute;right:0px;top:0px;height:100%;width:8px;padding:0px 8px;pointer-events:none}.top.svelte-hqplke .month.svelte-hqplke.svelte-hqplke{flex-grow:1}.top.svelte-hqplke .year.svelte-hqplke.svelte-hqplke{flex-grow:1}.top.svelte-hqplke svg.svelte-hqplke.svelte-hqplke{display:block;fill:var(--date-picker-foreground, #000000);opacity:0.75;outline:none}.top.svelte-hqplke .page-button.svelte-hqplke.svelte-hqplke{padding:5px;flex-shrink:0;border-radius:5px;box-sizing:border-box;border:1px solid transparent}.top.svelte-hqplke .page-button.svelte-hqplke.svelte-hqplke:hover{background-color:rgba(128, 128, 128, 0.08);border:1px solid rgba(128, 128, 128, 0.08)}.top.svelte-hqplke .page-button svg.svelte-hqplke.svelte-hqplke{width:10px;height:10px}.top.svelte-hqplke select.dummy-select.svelte-hqplke.svelte-hqplke{position:absolute;pointer-events:none;outline:none;color:var(--date-picker-foreground, #000000);background-color:var(--date-picker-background, #ffffff);border-radius:3px}.top.svelte-hqplke select.svelte-hqplke:focus+select.dummy-select.svelte-hqplke{border-color:var(--date-picker-highlight-border, #0269f7);box-shadow:0px 0px 0px 2px var(--date-picker-highlight-shadow, rgba(2, 105, 247, 0.4))}.top.svelte-hqplke select.svelte-hqplke.svelte-hqplke:not(.dummy-select){border-radius:100px}.top.svelte-hqplke select.svelte-hqplke.svelte-hqplke{font-size:inherit;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;flex-grow:1;padding:2px 5px;height:22px;padding-right:22px;margin:0px;border:1px solid rgba(108, 120, 147, 0.3);outline:none;transition:all 80ms cubic-bezier(0.4, 0, 0.2, 1)}.header.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:flex;font-weight:600;padding-bottom:2px}.header.svelte-hqplke .header-cell.svelte-hqplke.svelte-hqplke{width:30px;text-align:center;flex-grow:1}.week.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:flex}.week.svelte-hqplke .cell.svelte-hqplke.svelte-hqplke{display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex-grow:1;border-radius:5px;box-sizing:border-box;border:2px solid transparent}.week.svelte-hqplke .cell.svelte-hqplke.svelte-hqplke:hover{border:1px solid rgba(128, 128, 128, 0.08);background-color:rgba(128, 128, 128, 0.08)}.week.svelte-hqplke .cell.disabled.svelte-hqplke.svelte-hqplke:hover{border:none;background-color:transparent}.week.svelte-hqplke .cell.other-month span.svelte-hqplke.svelte-hqplke{opacity:0.4}.week.svelte-hqplke .cell.selected.svelte-hqplke.svelte-hqplke{color:var(--date-picker-selected-color, inherit);background:var(--date-picker-selected-background, rgba(2, 105, 247, 0.2));border:2px solid var(--date-picker-highlight-border, #0269f7)}",
       map: null
     };
-    Counter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let offset;
-      let $displayed_count, $$unsubscribe_displayed_count;
-      let count = 0;
-      const displayed_count = spring();
-      $$unsubscribe_displayed_count = subscribe(displayed_count, (value) => $displayed_count = value);
-      $$result.css.add(css$1);
-      {
-        displayed_count.set(count);
+    DatePicker = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let iLocale;
+      let calendarDays;
+      let { value = new Date() } = $$props;
+      function setValue(d2) {
+        if (d2.getTime() !== value.getTime())
+          value = d2;
       }
-      offset = modulo($displayed_count, 1);
-      $$unsubscribe_displayed_count();
-      return `<div class="${"counter svelte-4ngnr"}"><button class="${"button"}" aria-label="${"Decrease the counter by one"}"><svg aria-hidden="${"true"}" viewBox="${"0 0 1 1"}" class="${"svelte-4ngnr"}"><path d="${"M0,0.5 L1,0.5"}" class="${"svelte-4ngnr"}"></path></svg></button>
-
-	<div class="${"counter-viewport svelte-4ngnr"}"><div class="${"counter-digits svelte-4ngnr"}" style="${"transform: translate(0, " + escape(100 * offset) + "%)"}"><strong style="${"top: -100%"}" aria-hidden="${"true"}" class="${"svelte-4ngnr"}">${escape(Math.floor($displayed_count + 1))}</strong>
-			<strong class="${"svelte-4ngnr"}">${escape(Math.floor($displayed_count))}</strong></div></div>
-
-	<button class="${"button"}" aria-label="${"Increase the counter by one"}"><svg aria-hidden="${"true"}" viewBox="${"0 0 1 1"}" class="${"svelte-4ngnr"}"><path d="${"M0,0.5 L1,0.5 M0.5,0 L0.5,1"}" class="${"svelte-4ngnr"}"></path></svg></button>
+      function updateValue(updater) {
+        let d2 = updater(new Date(value.getTime()));
+        if (d2.getTime() !== value.getTime())
+          value = d2;
+      }
+      let { min = new Date(new Date().getFullYear() - 20, 0, 1) } = $$props;
+      let { max = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59, 999) } = $$props;
+      let years = getYears(min, max);
+      function getYears(min2, max2) {
+        let years2 = [];
+        for (let i = min2.getFullYear(); i <= max2.getFullYear(); i++) {
+          years2.push(i);
+        }
+        return years2;
+      }
+      let { locale = {} } = $$props;
+      let year = value.getFullYear();
+      const getYear = (value2) => year = value2.getFullYear();
+      function setYear(year2) {
+        updateValue((value2) => {
+          value2.setFullYear(year2);
+          return value2;
+        });
+      }
+      let month = value.getMonth();
+      const getMonth = (value2) => month = value2.getMonth();
+      function setMonth(month2) {
+        let newYear = year;
+        let newMonth = month2;
+        if (month2 === 12) {
+          newMonth = 0;
+          newYear++;
+        } else if (month2 === -1) {
+          newMonth = 11;
+          newYear--;
+        }
+        const maxDate = getMonthLength(newYear, newMonth);
+        const newDate = Math.min(value.getDate(), maxDate);
+        setValue(new Date(newYear, newMonth, newDate, value.getHours(), value.getMinutes(), value.getSeconds(), value.getMilliseconds()));
+      }
+      let dayOfMonth = value.getDate();
+      function dayIsInRange(calendarDay) {
+        const date = new Date(calendarDay.year, calendarDay.month, calendarDay.number);
+        const minDate = new Date(min.getFullYear(), min.getMonth(), min.getDate());
+        const maxDate = new Date(max.getFullYear(), max.getMonth(), max.getDate());
+        return date >= minDate && date <= maxDate;
+      }
+      if ($$props.value === void 0 && $$bindings.value && value !== void 0)
+        $$bindings.value(value);
+      if ($$props.min === void 0 && $$bindings.min && min !== void 0)
+        $$bindings.min(min);
+      if ($$props.max === void 0 && $$bindings.max && max !== void 0)
+        $$bindings.max(max);
+      if ($$props.locale === void 0 && $$bindings.locale && locale !== void 0)
+        $$bindings.locale(locale);
+      $$result.css.add(css$12);
+      years = getYears(min, max);
+      {
+        if (value > max) {
+          setValue(max);
+        } else if (value < min) {
+          setValue(min);
+        }
+      }
+      iLocale = getInnerLocale(locale);
+      {
+        getYear(value);
+      }
+      {
+        setYear(year);
+      }
+      {
+        getMonth(value);
+      }
+      {
+        setMonth(month);
+      }
+      dayOfMonth = value.getDate();
+      calendarDays = getCalendarDays(value, iLocale.weekStartsOn);
+      return `<div class="${"date-time-picker svelte-hqplke"}" tabindex="${"-1"}"><div class="${"top svelte-hqplke"}"><div class="${"page-button previous svelte-hqplke"}" tabindex="${"-1"}"><svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"}" transform="${"rotate(180, 12, 12)"}"></path></svg></div>
+    <div class="${"dropdown month svelte-hqplke"}"><select class="${"svelte-hqplke"}">${each(iLocale.months, (monthName, i) => `<option ${new Date(year, i, getMonthLength(year, i), 23, 59, 59, 999) < min || new Date(year, i) > max ? "disabled" : ""}${add_attribute("value", i, 0)}>${escape(monthName)}</option>`)}</select>
+      
+      <select class="${"dummy-select svelte-hqplke"}" tabindex="${"-1"}">${each(iLocale.months, (monthName, i) => `<option${add_attribute("value", i, 0)} ${i === month ? "selected" : ""}>${escape(monthName)}</option>`)}</select>
+      <svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M6 0l12 12-12 12z"}" transform="${"rotate(90, 12, 12)"}"></path></svg></div>
+    <div class="${"dropdown year svelte-hqplke"}"><select class="${"svelte-hqplke"}">${each(years, (v) => `<option${add_attribute("value", v, 0)}>${escape(v)}</option>`)}</select>
+      
+      <select class="${"dummy-select svelte-hqplke"}" tabindex="${"-1"}">${each(years, (v) => `<option${add_attribute("value", v, 0)} ${v === year ? "selected" : ""}>${escape(v)}</option>`)}</select>
+      <svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M6 0l12 12-12 12z"}" transform="${"rotate(90, 12, 12)"}"></path></svg></div>
+    <div class="${"page-button svelte-hqplke"}" tabindex="${"-1"}"><svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"}"></path></svg></div></div>
+  <div class="${"header svelte-hqplke"}">${each(Array(7), (_, i) => `${i + iLocale.weekStartsOn < 7 ? `<div class="${"header-cell svelte-hqplke"}">${escape(iLocale.weekdays[iLocale.weekStartsOn + i])}</div>` : `<div class="${"header-cell svelte-hqplke"}">${escape(iLocale.weekdays[iLocale.weekStartsOn + i - 7])}</div>`}`)}</div>
+  ${each(Array(6), (_, weekIndex) => `<div class="${"week svelte-hqplke"}">${each(calendarDays.slice(weekIndex * 7, weekIndex * 7 + 7), (calendarDay) => `<div class="${[
+        "cell svelte-hqplke",
+        (!dayIsInRange(calendarDay) ? "disabled" : "") + " " + (calendarDay.month === month && calendarDay.number === dayOfMonth ? "selected" : "") + " " + (calendarDay.month !== month ? "other-month" : "")
+      ].join(" ").trim()}"><span class="${"svelte-hqplke"}">${escape(calendarDay.number)}</span>
+        </div>`)}
+    </div>`)}
 </div>`;
     });
-    css2 = {
-      code: "section.svelte-mjk9ig.svelte-mjk9ig{display:flex;flex-direction:column;justify-content:center;align-items:center;flex:1}h1.svelte-mjk9ig.svelte-mjk9ig{width:100%}.welcome.svelte-mjk9ig.svelte-mjk9ig{position:relative;width:100%;height:0;padding:0 0 calc(100% * 495 / 2048) 0}.welcome.svelte-mjk9ig img.svelte-mjk9ig{position:absolute;width:100%;height:100%;top:0;display:block}",
+    ruleTokens = [
+      {
+        id: "yyyy",
+        toString: (d2) => d2.getFullYear().toString()
+      },
+      {
+        id: "MM",
+        toString: (d2) => twoDigit(d2.getMonth() + 1)
+      },
+      {
+        id: "dd",
+        toString: (d2) => twoDigit(d2.getDate())
+      },
+      {
+        id: "HH",
+        toString: (d2) => twoDigit(d2.getHours())
+      },
+      {
+        id: "mm",
+        toString: (d2) => twoDigit(d2.getMinutes())
+      },
+      {
+        id: "ss",
+        toString: (d2) => twoDigit(d2.getSeconds())
+      }
+    ];
+    css3 = {
+      code: ".date-time-field.svelte-h5dfp8{position:relative}input.svelte-h5dfp8{color:var(--date-picker-foreground, #000000);background:var(--date-picker-background, #ffffff);min-width:0px;box-sizing:border-box;padding:4px 6px;margin:0px;border:1px solid rgba(103, 113, 137, 0.3);border-radius:3px;width:var(--date-input-width, 150px);outline:none;transition:all 80ms cubic-bezier(0.4, 0, 0.2, 1)}input.svelte-h5dfp8:focus{border-color:var(--date-picker-highlight-border, #0269f7);box-shadow:0px 0px 0px 2px var(--date-picker-highlight-shadow, rgba(2, 105, 247, 0.4))}.invalid.svelte-h5dfp8{border:1px solid rgba(249, 47, 114, 0.5);background-color:rgba(249, 47, 114, 0.1)}.invalid.svelte-h5dfp8:focus{border-color:#f92f72;box-shadow:0px 0px 0px 2px rgba(249, 47, 114, 0.5)}.picker.svelte-h5dfp8{display:none;position:absolute;margin-top:1px;z-index:10}.picker.visible.svelte-h5dfp8{display:block}",
       map: null
     };
-    prerender = true;
-    Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css2);
-      return `${$$result.head += `${$$result.title = `<title>Home</title>`, ""}`, ""}
-
-<section class="${"svelte-mjk9ig"}"><h1 class="${"svelte-mjk9ig"}"><div class="${"welcome svelte-mjk9ig"}"><picture><source srcset="${"svelte-welcome.webp"}" type="${"image/webp"}">
-				<img src="${"svelte-welcome.png"}" alt="${"Welcome"}" class="${"svelte-mjk9ig"}"></picture></div>
-
-		to your new<br>SvelteKit app
-	</h1>
-
-	<h2>try editing <strong>src/routes/index.svelte</strong></h2>
-
-	${validate_component(Counter, "Counter").$$render($$result, {}, {}, {})}
-</section>`;
+    DateInput = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { value = new Date() } = $$props;
+      function setValue(d2) {
+        if (d2.getTime() !== value.getTime())
+          value = d2;
+      }
+      let { min = new Date(new Date().getFullYear() - 20, 0, 1) } = $$props;
+      let { max = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59, 999) } = $$props;
+      let { placeholder = "2020-12-31 23:00:00" } = $$props;
+      let { valid = true } = $$props;
+      let { format: format2 = "yyyy-MM-dd HH:mm:ss" } = $$props;
+      let formatTokens = createFormat(format2);
+      let { locale = {} } = $$props;
+      function valueUpdate(value2, formatTokens2) {
+        text = toText(value2, formatTokens2);
+      }
+      let { text = toText(value, formatTokens) } = $$props;
+      let textHistory = [text, text];
+      function textUpdate(text2, formatTokens2) {
+        const result = parse(text2, formatTokens2, value);
+        if (result.date !== null) {
+          valid = true;
+          setValue(result.date);
+        } else {
+          valid = false;
+        }
+      }
+      let { visible = false } = $$props;
+      if ($$props.value === void 0 && $$bindings.value && value !== void 0)
+        $$bindings.value(value);
+      if ($$props.min === void 0 && $$bindings.min && min !== void 0)
+        $$bindings.min(min);
+      if ($$props.max === void 0 && $$bindings.max && max !== void 0)
+        $$bindings.max(max);
+      if ($$props.placeholder === void 0 && $$bindings.placeholder && placeholder !== void 0)
+        $$bindings.placeholder(placeholder);
+      if ($$props.valid === void 0 && $$bindings.valid && valid !== void 0)
+        $$bindings.valid(valid);
+      if ($$props.format === void 0 && $$bindings.format && format2 !== void 0)
+        $$bindings.format(format2);
+      if ($$props.locale === void 0 && $$bindings.locale && locale !== void 0)
+        $$bindings.locale(locale);
+      if ($$props.text === void 0 && $$bindings.text && text !== void 0)
+        $$bindings.text(text);
+      if ($$props.visible === void 0 && $$bindings.visible && visible !== void 0)
+        $$bindings.visible(visible);
+      $$result.css.add(css3);
+      let $$settled;
+      let $$rendered;
+      do {
+        $$settled = true;
+        formatTokens = createFormat(format2);
+        {
+          valueUpdate(value, formatTokens);
+        }
+        textHistory = [textHistory[1], text];
+        {
+          textUpdate(text, formatTokens);
+        }
+        $$rendered = `<div class="${"date-time-field svelte-h5dfp8"}"><input type="${"text"}"${add_attribute("placeholder", placeholder, 0)} class="${["svelte-h5dfp8", !valid ? "invalid" : ""].join(" ").trim()}"${add_attribute("value", text, 0)}>
+  ${visible ? `<div class="${["picker svelte-h5dfp8", visible ? "visible" : ""].join(" ").trim()}">${validate_component(DatePicker, "DateTimePicker").$$render($$result, { locale, value, min, max }, {
+          value: ($$value) => {
+            value = $$value;
+            $$settled = false;
+          },
+          min: ($$value) => {
+            min = $$value;
+            $$settled = false;
+          },
+          max: ($$value) => {
+            max = $$value;
+            $$settled = false;
+          }
+        }, {})}</div>` : ``}
+</div>`;
+      } while (!$$settled);
+      return $$rendered;
     });
   }
 });
@@ -6535,7 +7284,7 @@ var require_differenceInCalendarWeeks = __commonJS({
     Object.defineProperty(exports, "__esModule", {
       value: true
     });
-    exports.default = differenceInCalendarWeeks2;
+    exports.default = differenceInCalendarWeeks;
     var _index = _interopRequireDefault(require_startOfWeek());
     var _index2 = _interopRequireDefault(require_getTimezoneOffsetInMilliseconds());
     var _index3 = _interopRequireDefault(require_requiredArgs());
@@ -6543,7 +7292,7 @@ var require_differenceInCalendarWeeks = __commonJS({
       return obj && obj.__esModule ? obj : { default: obj };
     }
     var MILLISECONDS_IN_WEEK = 6048e5;
-    function differenceInCalendarWeeks2(dirtyDateLeft, dirtyDateRight, dirtyOptions) {
+    function differenceInCalendarWeeks(dirtyDateLeft, dirtyDateRight, dirtyOptions) {
       (0, _index3.default)(2, arguments);
       var startOfWeekLeft = (0, _index.default)(dirtyDateLeft, dirtyOptions);
       var startOfWeekRight = (0, _index.default)(dirtyDateRight, dirtyOptions);
@@ -6945,14 +7694,14 @@ var require_differenceInWeeks = __commonJS({
     Object.defineProperty(exports, "__esModule", {
       value: true
     });
-    exports.default = differenceInWeeks;
+    exports.default = differenceInWeeks3;
     var _index = _interopRequireDefault(require_differenceInDays());
     var _index2 = _interopRequireDefault(require_requiredArgs());
     var _index3 = require_roundingMethods();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
-    function differenceInWeeks(dateLeft, dateRight, options2) {
+    function differenceInWeeks3(dateLeft, dateRight, options2) {
       (0, _index2.default)(2, arguments);
       var diff = (0, _index.default)(dateLeft, dateRight) / 7;
       return (0, _index3.getRoundingMethod)(options2 === null || options2 === void 0 ? void 0 : options2.roundingMethod)(diff);
@@ -10422,13 +11171,13 @@ var require_isLeapYear = __commonJS({
     Object.defineProperty(exports, "__esModule", {
       value: true
     });
-    exports.default = isLeapYear;
+    exports.default = isLeapYear2;
     var _index = _interopRequireDefault(require_toDate());
     var _index2 = _interopRequireDefault(require_requiredArgs());
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
-    function isLeapYear(dirtyDate) {
+    function isLeapYear2(dirtyDate) {
       (0, _index2.default)(1, arguments);
       var date = (0, _index.default)(dirtyDate);
       var year = date.getFullYear();
@@ -12101,9 +12850,9 @@ var require_parsers = __commonJS({
         },
         validate: function(date, value, _options) {
           var year = date.getUTCFullYear();
-          var isLeapYear = isLeapYearIndex(year);
+          var isLeapYear2 = isLeapYearIndex(year);
           var month = date.getUTCMonth();
-          if (isLeapYear) {
+          if (isLeapYear2) {
             return value >= 1 && value <= DAYS_IN_MONTH_LEAP_YEAR[month];
           } else {
             return value >= 1 && value <= DAYS_IN_MONTH[month];
@@ -12134,8 +12883,8 @@ var require_parsers = __commonJS({
         },
         validate: function(date, value, _options) {
           var year = date.getUTCFullYear();
-          var isLeapYear = isLeapYearIndex(year);
-          if (isLeapYear) {
+          var isLeapYear2 = isLeapYearIndex(year);
+          if (isLeapYear2) {
             return value >= 1 && value <= 366;
           } else {
             return value >= 1 && value <= 365;
@@ -12788,7 +13537,7 @@ var require_parse = __commonJS({
     Object.defineProperty(exports, "__esModule", {
       value: true
     });
-    exports.default = parse;
+    exports.default = parse2;
     var _index = _interopRequireDefault(require_en_US());
     var _index2 = _interopRequireDefault(require_subMilliseconds());
     var _index3 = _interopRequireDefault(require_toDate());
@@ -12809,7 +13558,7 @@ var require_parse = __commonJS({
     var doubleQuoteRegExp = /''/g;
     var notWhitespaceRegExp = /\S/;
     var unescapedLatinCharacterRegExp = /[a-zA-Z]/;
-    function parse(dirtyDateString, dirtyFormatString, dirtyReferenceDate, dirtyOptions) {
+    function parse2(dirtyDateString, dirtyFormatString, dirtyReferenceDate, dirtyOptions) {
       (0, _index10.default)(3, arguments);
       var dateString = String(dirtyDateString);
       var formatString = String(dirtyFormatString);
@@ -17545,403 +18294,29 @@ var require_date_fns = __commonJS({
   }
 });
 
-// .svelte-kit/output/server/chunks/biobizz-5c5519b5.js
-var biobizz_5c5519b5_exports = {};
-__export(biobizz_5c5519b5_exports, {
-  default: () => Biobizz
+// .svelte-kit/output/server/chunks/index-598c29e2.js
+var index_598c29e2_exports = {};
+__export(index_598c29e2_exports, {
+  default: () => Routes,
+  prerender: () => prerender
 });
-var import_date_fns, import_cookie4, css$2, IconBase, FaThermometerFull, FaThermometerQuarter, FaTint, css$12, RangePips, css3, RangeSlider, Biobizz;
-var init_biobizz_5c5519b5 = __esm({
-  ".svelte-kit/output/server/chunks/biobizz-5c5519b5.js"() {
+var import_date_fns, import_cookie3, prerender, Routes;
+var init_index_598c29e2 = __esm({
+  ".svelte-kit/output/server/chunks/index-598c29e2.js"() {
     init_shims();
-    init_app_5f38d264();
+    init_app_7b12c375();
+    init_RangeSlider_57a9db0e();
+    init_DateInput_32e6edec();
     import_date_fns = __toModule(require_date_fns());
-    init_index_c008904c();
-    import_cookie4 = __toModule(require_cookie());
+    import_cookie3 = __toModule(require_cookie());
     init_dist();
-    css$2 = {
-      code: "svg.svelte-c8tyih{stroke:currentColor;fill:currentColor;stroke-width:0;width:100%;height:auto;max-height:100%}",
-      map: null
-    };
-    IconBase = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let { title = null } = $$props;
-      let { viewBox } = $$props;
-      if ($$props.title === void 0 && $$bindings.title && title !== void 0)
-        $$bindings.title(title);
-      if ($$props.viewBox === void 0 && $$bindings.viewBox && viewBox !== void 0)
-        $$bindings.viewBox(viewBox);
-      $$result.css.add(css$2);
-      return `<svg xmlns="${"http://www.w3.org/2000/svg"}"${add_attribute("viewBox", viewBox, 0)} class="${"svelte-c8tyih"}">${title ? `<title>${escape(title)}</title>` : ``}${slots.default ? slots.default({}) : ``}</svg>`;
-    });
-    FaThermometerFull = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 256 512" }, $$props), {}, {
-        default: () => `<path d="${"M224 96c0-53.019-42.981-96-96-96S32 42.981 32 96v203.347C12.225 321.756.166 351.136.002 383.333c-.359 70.303 56.787 128.176 127.089 128.664.299.002.61.003.909.003 70.698 0 128-57.304 128-128 0-32.459-12.088-62.09-32-84.653V96zm-96 368l-.576-.002c-43.86-.304-79.647-36.544-79.423-80.42.173-33.98 19.266-51.652 31.999-66.08V96c0-26.467 21.533-48 48-48s48 21.533 48 48v221.498c12.63 14.312 32 32.164 32 66.502 0 44.112-35.888 80-80 80zm64-80c0 35.346-28.654 64-64 64s-64-28.654-64-64c0-23.685 12.876-44.349 32-55.417V96c0-17.673 14.327-32 32-32s32 14.327 32 32v232.583c19.124 11.068 32 31.732 32 55.417z"}"></path>`
-      })}`;
-    });
-    FaThermometerQuarter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 256 512" }, $$props), {}, {
-        default: () => `<path d="${"M192 384c0 35.346-28.654 64-64 64s-64-28.654-64-64c0-23.685 12.876-44.349 32-55.417V288c0-17.673 14.327-32 32-32s32 14.327 32 32v40.583c19.124 11.068 32 31.732 32 55.417zm32-84.653c19.912 22.563 32 52.194 32 84.653 0 70.696-57.303 128-128 128-.299 0-.609-.001-.909-.003C56.789 511.509-.357 453.636.002 383.333.166 351.135 12.225 321.755 32 299.347V96c0-53.019 42.981-96 96-96s96 42.981 96 96v203.347zM208 384c0-34.339-19.37-52.19-32-66.502V96c0-26.467-21.533-48-48-48S80 69.533 80 96v221.498c-12.732 14.428-31.825 32.1-31.999 66.08-.224 43.876 35.563 80.116 79.423 80.42L128 464c44.112 0 80-35.888 80-80z"}"></path>`
-      })}`;
-    });
-    FaTint = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 352 512" }, $$props), {}, {
-        default: () => `<path d="${"M205.22 22.09c-7.94-28.78-49.44-30.12-58.44 0C100.01 179.85 0 222.72 0 333.91 0 432.35 78.72 512 176 512s176-79.65 176-178.09c0-111.75-99.79-153.34-146.78-311.82zM176 448c-61.75 0-112-50.25-112-112 0-8.84 7.16-16 16-16s16 7.16 16 16c0 44.11 35.89 80 80 80 8.84 0 16 7.16 16 16s-7.16 16-16 16z"}"></path>`
-      })}`;
-    });
-    css$12 = {
-      code: ".rangeSlider{--pip:var(--range-pip, lightslategray);--pip-text:var(--range-pip-text, var(--pip));--pip-active:var(--range-pip-active, darkslategrey);--pip-active-text:var(--range-pip-active-text, var(--pip-active));--pip-hover:var(--range-pip-hover, darkslategrey);--pip-hover-text:var(--range-pip-hover-text, var(--pip-hover));--pip-in-range:var(--range-pip-in-range, var(--pip-active));--pip-in-range-text:var(--range-pip-in-range-text, var(--pip-active-text))}.rangePips{position:absolute;height:1em;left:0;right:0;bottom:-1em}.rangePips.vertical{height:auto;width:1em;left:100%;right:auto;top:0;bottom:0}.rangePips .pip{height:0.4em;position:absolute;top:0.25em;width:1px;white-space:nowrap}.rangePips.vertical .pip{height:1px;width:0.4em;left:0.25em;top:auto;bottom:auto}.rangePips .pipVal{position:absolute;top:0.4em;transform:translate(-50%, 25%)}.rangePips.vertical .pipVal{position:absolute;top:0;left:0.4em;transform:translate(25%, -50%)}.rangePips .pip{transition:all 0.15s ease}.rangePips .pipVal{transition:all 0.15s ease, font-weight 0s linear}.rangePips .pip{color:lightslategray;color:var(--pip-text);background-color:lightslategray;background-color:var(--pip)}.rangePips .pip.selected{color:darkslategrey;color:var(--pip-active-text);background-color:darkslategrey;background-color:var(--pip-active)}.rangePips.hoverable:not(.disabled) .pip:hover{color:darkslategrey;color:var(--pip-hover-text);background-color:darkslategrey;background-color:var(--pip-hover)}.rangePips .pip.in-range{color:darkslategrey;color:var(--pip-in-range-text);background-color:darkslategrey;background-color:var(--pip-in-range)}.rangePips .pip.selected{height:0.75em}.rangePips.vertical .pip.selected{height:1px;width:0.75em}.rangePips .pip.selected .pipVal{font-weight:bold;top:0.75em}.rangePips.vertical .pip.selected .pipVal{top:0;left:0.75em}.rangePips.hoverable:not(.disabled) .pip:not(.selected):hover{transition:none}.rangePips.hoverable:not(.disabled) .pip:not(.selected):hover .pipVal{transition:none;font-weight:bold}",
-      map: null
-    };
-    RangePips = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let pipStep;
-      let pipCount;
-      let pipVal;
-      let isSelected;
-      let inRange;
-      let { range = false } = $$props;
-      let { min = 0 } = $$props;
-      let { max = 100 } = $$props;
-      let { step = 1 } = $$props;
-      let { values = [(max + min) / 2] } = $$props;
-      let { vertical = false } = $$props;
-      let { reversed = false } = $$props;
-      let { hoverable = true } = $$props;
-      let { disabled = false } = $$props;
-      let { pipstep = void 0 } = $$props;
-      let { all = true } = $$props;
-      let { first = void 0 } = $$props;
-      let { last = void 0 } = $$props;
-      let { rest = void 0 } = $$props;
-      let { prefix = "" } = $$props;
-      let { suffix = "" } = $$props;
-      let { formatter = (v, i) => v } = $$props;
-      let { focus = void 0 } = $$props;
-      let { orientationStart = void 0 } = $$props;
-      let { percentOf = void 0 } = $$props;
-      let { moveHandle = void 0 } = $$props;
-      if ($$props.range === void 0 && $$bindings.range && range !== void 0)
-        $$bindings.range(range);
-      if ($$props.min === void 0 && $$bindings.min && min !== void 0)
-        $$bindings.min(min);
-      if ($$props.max === void 0 && $$bindings.max && max !== void 0)
-        $$bindings.max(max);
-      if ($$props.step === void 0 && $$bindings.step && step !== void 0)
-        $$bindings.step(step);
-      if ($$props.values === void 0 && $$bindings.values && values !== void 0)
-        $$bindings.values(values);
-      if ($$props.vertical === void 0 && $$bindings.vertical && vertical !== void 0)
-        $$bindings.vertical(vertical);
-      if ($$props.reversed === void 0 && $$bindings.reversed && reversed !== void 0)
-        $$bindings.reversed(reversed);
-      if ($$props.hoverable === void 0 && $$bindings.hoverable && hoverable !== void 0)
-        $$bindings.hoverable(hoverable);
-      if ($$props.disabled === void 0 && $$bindings.disabled && disabled !== void 0)
-        $$bindings.disabled(disabled);
-      if ($$props.pipstep === void 0 && $$bindings.pipstep && pipstep !== void 0)
-        $$bindings.pipstep(pipstep);
-      if ($$props.all === void 0 && $$bindings.all && all !== void 0)
-        $$bindings.all(all);
-      if ($$props.first === void 0 && $$bindings.first && first !== void 0)
-        $$bindings.first(first);
-      if ($$props.last === void 0 && $$bindings.last && last !== void 0)
-        $$bindings.last(last);
-      if ($$props.rest === void 0 && $$bindings.rest && rest !== void 0)
-        $$bindings.rest(rest);
-      if ($$props.prefix === void 0 && $$bindings.prefix && prefix !== void 0)
-        $$bindings.prefix(prefix);
-      if ($$props.suffix === void 0 && $$bindings.suffix && suffix !== void 0)
-        $$bindings.suffix(suffix);
-      if ($$props.formatter === void 0 && $$bindings.formatter && formatter !== void 0)
-        $$bindings.formatter(formatter);
-      if ($$props.focus === void 0 && $$bindings.focus && focus !== void 0)
-        $$bindings.focus(focus);
-      if ($$props.orientationStart === void 0 && $$bindings.orientationStart && orientationStart !== void 0)
-        $$bindings.orientationStart(orientationStart);
-      if ($$props.percentOf === void 0 && $$bindings.percentOf && percentOf !== void 0)
-        $$bindings.percentOf(percentOf);
-      if ($$props.moveHandle === void 0 && $$bindings.moveHandle && moveHandle !== void 0)
-        $$bindings.moveHandle(moveHandle);
-      $$result.css.add(css$12);
-      pipStep = pipstep || ((max - min) / step >= (vertical ? 50 : 100) ? (max - min) / (vertical ? 10 : 20) : 1);
-      pipCount = parseInt((max - min) / (step * pipStep), 10);
-      pipVal = function(val) {
-        return min + val * step * pipStep;
-      };
-      isSelected = function(val) {
-        return values.some((v) => v === val);
-      };
-      inRange = function(val) {
-        if (range === "min") {
-          return values[0] > val;
-        } else if (range === "max") {
-          return values[0] < val;
-        } else if (range) {
-          return values[0] < val && values[1] > val;
-        }
-      };
-      return `<div class="${[
-        "rangePips",
-        (disabled ? "disabled" : "") + " " + (hoverable ? "hoverable" : "") + " " + (vertical ? "vertical" : "") + " " + (reversed ? "reversed" : "") + " " + (focus ? "focus" : "")
-      ].join(" ").trim()}">${all && first !== false || first ? `<span class="${[
-        "pip first",
-        (isSelected(min) ? "selected" : "") + " " + (inRange(min) ? "in-range" : "")
-      ].join(" ").trim()}" style="${escape(orientationStart) + ": 0%;"}">${all === "label" || first === "label" ? `<span class="${"pipVal"}">${prefix ? `<span class="${"pipVal-prefix"}">${escape(prefix)}</span>` : ``}${escape(formatter(min, 0, 0))}${suffix ? `<span class="${"pipVal-suffix"}">${escape(suffix)}</span>` : ``}</span>` : ``}</span>` : ``}
-
-  ${all && rest !== false || rest ? `${each(Array(pipCount + 1), (_, i) => `${pipVal(i) !== min && pipVal(i) !== max ? `<span class="${[
-        "pip",
-        (isSelected(pipVal(i)) ? "selected" : "") + " " + (inRange(pipVal(i)) ? "in-range" : "")
-      ].join(" ").trim()}" style="${escape(orientationStart) + ": " + escape(percentOf(pipVal(i))) + "%;"}">${all === "label" || rest === "label" ? `<span class="${"pipVal"}">${prefix ? `<span class="${"pipVal-prefix"}">${escape(prefix)}</span>` : ``}${escape(formatter(pipVal(i), i, percentOf(pipVal(i))))}${suffix ? `<span class="${"pipVal-suffix"}">${escape(suffix)}</span>` : ``}
-            </span>` : ``}
-        </span>` : ``}`)}` : ``}
-
-  ${all && last !== false || last ? `<span class="${[
-        "pip last",
-        (isSelected(max) ? "selected" : "") + " " + (inRange(max) ? "in-range" : "")
-      ].join(" ").trim()}" style="${escape(orientationStart) + ": 100%;"}">${all === "label" || last === "label" ? `<span class="${"pipVal"}">${prefix ? `<span class="${"pipVal-prefix"}">${escape(prefix)}</span>` : ``}${escape(formatter(max, pipCount, 100))}${suffix ? `<span class="${"pipVal-suffix"}">${escape(suffix)}</span>` : ``}</span>` : ``}</span>` : ``}</div>`;
-    });
-    css3 = {
-      code: '.rangeSlider{--slider:var(--range-slider, #d7dada);--handle-inactive:var(--range-handle-inactive, #99a2a2);--handle:var(--range-handle, #838de7);--handle-focus:var(--range-handle-focus, #4a40d4);--handle-border:var(--range-handle-border, var(--handle));--range-inactive:var(--range-range-inactive, var(--handle-inactive));--range:var(--range-range, var(--handle-focus));--float-inactive:var(--range-float-inactive, var(--handle-inactive));--float:var(--range-float, var(--handle-focus));--float-text:var(--range-float-text, white)}.rangeSlider{position:relative;border-radius:100px;height:0.5em;margin:1em;transition:opacity 0.2s ease;user-select:none}.rangeSlider *{user-select:none}.rangeSlider.pips{margin-bottom:1.8em}.rangeSlider.pip-labels{margin-bottom:2.8em}.rangeSlider.vertical{display:inline-block;border-radius:100px;width:0.5em;min-height:200px}.rangeSlider.vertical.pips{margin-right:1.8em;margin-bottom:1em}.rangeSlider.vertical.pip-labels{margin-right:2.8em;margin-bottom:1em}.rangeSlider .rangeHandle{position:absolute;display:block;height:1.4em;width:1.4em;top:0.25em;bottom:auto;transform:translateY(-50%) translateX(-50%);z-index:2}.rangeSlider.reversed .rangeHandle{transform:translateY(-50%) translateX(50%)}.rangeSlider.vertical .rangeHandle{left:0.25em;top:auto;transform:translateY(50%) translateX(-50%)}.rangeSlider.vertical.reversed .rangeHandle{transform:translateY(-50%) translateX(-50%)}.rangeSlider .rangeNub,.rangeSlider .rangeHandle:before{position:absolute;left:0;top:0;display:block;border-radius:10em;height:100%;width:100%;transition:box-shadow 0.2s ease}.rangeSlider .rangeHandle:before{content:"";left:1px;top:1px;bottom:1px;right:1px;height:auto;width:auto;box-shadow:0 0 0 0px var(--handle-border);opacity:0}.rangeSlider.hoverable:not(.disabled) .rangeHandle:hover:before{box-shadow:0 0 0 8px var(--handle-border);opacity:0.2}.rangeSlider.hoverable:not(.disabled) .rangeHandle.press:before,.rangeSlider.hoverable:not(.disabled) .rangeHandle.press:hover:before{box-shadow:0 0 0 12px var(--handle-border);opacity:0.4}.rangeSlider.range:not(.min):not(.max) .rangeNub{border-radius:10em 10em 10em 1.6em}.rangeSlider.range .rangeHandle:nth-of-type(1) .rangeNub{transform:rotate(-135deg)}.rangeSlider.range .rangeHandle:nth-of-type(2) .rangeNub{transform:rotate(45deg)}.rangeSlider.range.reversed .rangeHandle:nth-of-type(1) .rangeNub{transform:rotate(45deg)}.rangeSlider.range.reversed .rangeHandle:nth-of-type(2) .rangeNub{transform:rotate(-135deg)}.rangeSlider.range.vertical .rangeHandle:nth-of-type(1) .rangeNub{transform:rotate(135deg)}.rangeSlider.range.vertical .rangeHandle:nth-of-type(2) .rangeNub{transform:rotate(-45deg)}.rangeSlider.range.vertical.reversed .rangeHandle:nth-of-type(1) .rangeNub{transform:rotate(-45deg)}.rangeSlider.range.vertical.reversed .rangeHandle:nth-of-type(2) .rangeNub{transform:rotate(135deg)}.rangeSlider .rangeFloat{display:block;position:absolute;left:50%;top:-0.5em;transform:translate(-50%, -100%);font-size:1em;text-align:center;opacity:0;pointer-events:none;white-space:nowrap;transition:all 0.2s ease;font-size:0.9em;padding:0.2em 0.4em;border-radius:0.2em}.rangeSlider .rangeHandle.active .rangeFloat,.rangeSlider .rangeHandle.hoverable:hover .rangeFloat{opacity:1;top:-0.2em;transform:translate(-50%, -100%)}.rangeSlider .rangeBar{position:absolute;display:block;transition:background 0.2s ease;border-radius:1em;height:0.5em;top:0;user-select:none;z-index:1}.rangeSlider.vertical .rangeBar{width:0.5em;height:auto}.rangeSlider{background-color:#d7dada;background-color:var(--slider)}.rangeSlider .rangeBar{background-color:#99a2a2;background-color:var(--range-inactive)}.rangeSlider.focus .rangeBar{background-color:#838de7;background-color:var(--range)}.rangeSlider .rangeNub{background-color:#99a2a2;background-color:var(--handle-inactive)}.rangeSlider.focus .rangeNub{background-color:#838de7;background-color:var(--handle)}.rangeSlider .rangeHandle.active .rangeNub{background-color:#4a40d4;background-color:var(--handle-focus)}.rangeSlider .rangeFloat{color:white;color:var(--float-text);background-color:#99a2a2;background-color:var(--float-inactive)}.rangeSlider.focus .rangeFloat{background-color:#4a40d4;background-color:var(--float)}.rangeSlider.disabled {opacity:0.5}.rangeSlider.disabled .rangeNub{background-color:#d7dada;background-color:var(--slider)}',
-      map: null
-    };
-    RangeSlider = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let percentOf;
-      let clampValue;
-      let alignValueToStep;
-      let orientationStart;
-      let orientationEnd;
-      let $springPositions, $$unsubscribe_springPositions = noop, $$subscribe_springPositions = () => ($$unsubscribe_springPositions(), $$unsubscribe_springPositions = subscribe(springPositions, ($$value) => $springPositions = $$value), springPositions);
-      let { range = false } = $$props;
-      let { pushy = false } = $$props;
-      let { min = 0 } = $$props;
-      let { max = 100 } = $$props;
-      let { step = 1 } = $$props;
-      let { values = [(max + min) / 2] } = $$props;
-      let { vertical = false } = $$props;
-      let { float = false } = $$props;
-      let { reversed = false } = $$props;
-      let { hoverable = true } = $$props;
-      let { disabled = false } = $$props;
-      let { pips = false } = $$props;
-      let { pipstep = void 0 } = $$props;
-      let { all = void 0 } = $$props;
-      let { first = void 0 } = $$props;
-      let { last = void 0 } = $$props;
-      let { rest = void 0 } = $$props;
-      let { id = void 0 } = $$props;
-      let { prefix = "" } = $$props;
-      let { suffix = "" } = $$props;
-      let { formatter = (v, i, p) => v } = $$props;
-      let { handleFormatter = formatter } = $$props;
-      let { precision = 2 } = $$props;
-      let { springValues = { stiffness: 0.15, damping: 0.4 } } = $$props;
-      const dispatch = createEventDispatcher();
-      let slider;
-      let valueLength = 0;
-      let focus = false;
-      let activeHandle = values.length - 1;
-      let startValue;
-      let previousValue;
-      let springPositions;
-      function trimRange(values2) {
-        if (range === "min" || range === "max") {
-          return values2.slice(0, 1);
-        } else if (range) {
-          return values2.slice(0, 2);
-        } else {
-          return values2;
-        }
-      }
-      function moveHandle(index, value) {
-        value = alignValueToStep(value);
-        if (typeof index === "undefined") {
-          index = activeHandle;
-        }
-        if (range) {
-          if (index === 0 && value > values[1]) {
-            if (pushy) {
-              values[1] = value;
-            } else {
-              value = values[1];
-            }
-          } else if (index === 1 && value < values[0]) {
-            if (pushy) {
-              values[0] = value;
-            } else {
-              value = values[0];
-            }
-          }
-        }
-        if (values[index] !== value) {
-          values[index] = value;
-        }
-        if (previousValue !== value) {
-          eChange();
-          previousValue = value;
-        }
-        return value;
-      }
-      function rangeStart(values2) {
-        if (range === "min") {
-          return 0;
-        } else {
-          return values2[0];
-        }
-      }
-      function rangeEnd(values2) {
-        if (range === "max") {
-          return 0;
-        } else if (range === "min") {
-          return 100 - values2[0];
-        } else {
-          return 100 - values2[1];
-        }
-      }
-      function eChange() {
-        !disabled && dispatch("change", {
-          activeHandle,
-          startValue,
-          previousValue: typeof previousValue === "undefined" ? startValue : previousValue,
-          value: values[activeHandle],
-          values: values.map((v) => alignValueToStep(v))
-        });
-      }
-      if ($$props.range === void 0 && $$bindings.range && range !== void 0)
-        $$bindings.range(range);
-      if ($$props.pushy === void 0 && $$bindings.pushy && pushy !== void 0)
-        $$bindings.pushy(pushy);
-      if ($$props.min === void 0 && $$bindings.min && min !== void 0)
-        $$bindings.min(min);
-      if ($$props.max === void 0 && $$bindings.max && max !== void 0)
-        $$bindings.max(max);
-      if ($$props.step === void 0 && $$bindings.step && step !== void 0)
-        $$bindings.step(step);
-      if ($$props.values === void 0 && $$bindings.values && values !== void 0)
-        $$bindings.values(values);
-      if ($$props.vertical === void 0 && $$bindings.vertical && vertical !== void 0)
-        $$bindings.vertical(vertical);
-      if ($$props.float === void 0 && $$bindings.float && float !== void 0)
-        $$bindings.float(float);
-      if ($$props.reversed === void 0 && $$bindings.reversed && reversed !== void 0)
-        $$bindings.reversed(reversed);
-      if ($$props.hoverable === void 0 && $$bindings.hoverable && hoverable !== void 0)
-        $$bindings.hoverable(hoverable);
-      if ($$props.disabled === void 0 && $$bindings.disabled && disabled !== void 0)
-        $$bindings.disabled(disabled);
-      if ($$props.pips === void 0 && $$bindings.pips && pips !== void 0)
-        $$bindings.pips(pips);
-      if ($$props.pipstep === void 0 && $$bindings.pipstep && pipstep !== void 0)
-        $$bindings.pipstep(pipstep);
-      if ($$props.all === void 0 && $$bindings.all && all !== void 0)
-        $$bindings.all(all);
-      if ($$props.first === void 0 && $$bindings.first && first !== void 0)
-        $$bindings.first(first);
-      if ($$props.last === void 0 && $$bindings.last && last !== void 0)
-        $$bindings.last(last);
-      if ($$props.rest === void 0 && $$bindings.rest && rest !== void 0)
-        $$bindings.rest(rest);
-      if ($$props.id === void 0 && $$bindings.id && id !== void 0)
-        $$bindings.id(id);
-      if ($$props.prefix === void 0 && $$bindings.prefix && prefix !== void 0)
-        $$bindings.prefix(prefix);
-      if ($$props.suffix === void 0 && $$bindings.suffix && suffix !== void 0)
-        $$bindings.suffix(suffix);
-      if ($$props.formatter === void 0 && $$bindings.formatter && formatter !== void 0)
-        $$bindings.formatter(formatter);
-      if ($$props.handleFormatter === void 0 && $$bindings.handleFormatter && handleFormatter !== void 0)
-        $$bindings.handleFormatter(handleFormatter);
-      if ($$props.precision === void 0 && $$bindings.precision && precision !== void 0)
-        $$bindings.precision(precision);
-      if ($$props.springValues === void 0 && $$bindings.springValues && springValues !== void 0)
-        $$bindings.springValues(springValues);
-      $$result.css.add(css3);
-      clampValue = function(val) {
-        return val <= min ? min : val >= max ? max : val;
-      };
-      alignValueToStep = function(val) {
-        if (val <= min) {
-          return min;
-        } else if (val >= max) {
-          return max;
-        }
-        let remainder = (val - min) % step;
-        let aligned = val - remainder;
-        if (Math.abs(remainder) * 2 >= step) {
-          aligned += remainder > 0 ? step : -step;
-        }
-        aligned = clampValue(aligned);
-        return parseFloat(aligned.toFixed(precision));
-      };
-      percentOf = function(val) {
-        let perc = (val - min) / (max - min) * 100;
-        if (isNaN(perc) || perc <= 0) {
-          return 0;
-        } else if (perc >= 100) {
-          return 100;
-        } else {
-          return parseFloat(perc.toFixed(precision));
-        }
-      };
-      {
-        {
-          if (!Array.isArray(values)) {
-            values = [(max + min) / 2];
-            console.error("'values' prop should be an Array (https://github.com/simeydotme/svelte-range-slider-pips#slider-props)");
-          }
-          values = trimRange(values.map((v) => alignValueToStep(v)));
-          if (valueLength !== values.length) {
-            $$subscribe_springPositions(springPositions = spring(values.map((v) => percentOf(v)), springValues));
-          } else {
-            springPositions.set(values.map((v) => percentOf(v)));
-          }
-          valueLength = values.length;
-        }
-      }
-      orientationStart = vertical ? reversed ? "top" : "bottom" : reversed ? "right" : "left";
-      orientationEnd = vertical ? reversed ? "bottom" : "top" : reversed ? "left" : "right";
-      $$unsubscribe_springPositions();
-      return `<div${add_attribute("id", id, 0)} class="${[
-        "rangeSlider",
-        (range ? "range" : "") + " " + (disabled ? "disabled" : "") + " " + (hoverable ? "hoverable" : "") + " " + (vertical ? "vertical" : "") + " " + (reversed ? "reversed" : "") + "  " + (range === "min" ? "min" : "") + " " + (range === "max" ? "max" : "") + " " + (pips ? "pips" : "") + " " + (all === "label" || first === "label" || last === "label" || rest === "label" ? "pip-labels" : "")
-      ].join(" ").trim()}"${add_attribute("this", slider, 0)}>${each(values, (value, index) => `<span role="${"slider"}" class="${[
-        "rangeHandle",
-        " "
-      ].join(" ").trim()}"${add_attribute("data-handle", index, 0)} style="${escape(orientationStart) + ": " + escape($springPositions[index]) + "%; z-index: " + escape(activeHandle === index ? 3 : 2) + ";"}"${add_attribute("aria-valuemin", range === true && index === 1 ? values[0] : min, 0)}${add_attribute("aria-valuemax", range === true && index === 0 ? values[1] : max, 0)}${add_attribute("aria-valuenow", value, 0)} aria-valuetext="${escape(prefix) + escape(handleFormatter(value, index, percentOf(value))) + escape(suffix)}"${add_attribute("aria-orientation", vertical ? "vertical" : "horizontal", 0)}${add_attribute("aria-disabled", disabled, 0)} ${disabled ? "disabled" : ""}${add_attribute("tabindex", disabled ? -1 : 0, 0)}><span class="${"rangeNub"}"></span>
-      ${float ? `<span class="${"rangeFloat"}">${prefix ? `<span class="${"rangeFloat-prefix"}">${escape(prefix)}</span>` : ``}${escape(handleFormatter(value, index, percentOf(value)))}${suffix ? `<span class="${"rangeFloat-suffix"}">${escape(suffix)}</span>` : ``}
-        </span>` : ``}
-    </span>`)}
-  ${range ? `<span class="${"rangeBar"}" style="${escape(orientationStart) + ": " + escape(rangeStart($springPositions)) + "%; " + escape(orientationEnd) + ": " + escape(rangeEnd($springPositions)) + "%;"}"></span>` : ``}
-  ${pips ? `${validate_component(RangePips, "RangePips").$$render($$result, {
-        values,
-        min,
-        max,
-        step,
-        range,
-        vertical,
-        reversed,
-        orientationStart,
-        orientationEnd,
-        hoverable,
-        disabled,
-        all,
-        first,
-        last,
-        rest,
-        pipstep,
-        prefix,
-        suffix,
-        formatter,
-        focus,
-        percentOf,
-        moveHandle
-      }, {}, {})}` : ``}</div>
-
-`;
-    });
-    Biobizz = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let bucketLiters = [9];
-      const dateGrowStart = new Date(2021, 10, 3);
+    init_index_e937d017();
+    prerender = true;
+    Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let currentWeek;
+      let bucketLiters2 = [9];
+      let dateGrowStart2 = new Date(2021, 10, 3);
       const today = new Date();
-      let currentWeek = (0, import_date_fns.differenceInCalendarWeeks)(today, dateGrowStart);
       let growStages = ["Vegetative", "Flowering"];
       let parameters = {
         humidity: {
@@ -17961,13 +18336,13 @@ var init_biobizz_5c5519b5 = __esm({
         }
       };
       let nutes = {
-        rootjuice: [4, 0],
+        rootjuice: [4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         biogrow: [0, 2, 2, 2, 3, 3, 4, 4, 4, 4, 0, 0],
         biobloom: [0, 0, 1, 2, 2, 3, 3, 4, 4, 4, 0, 0],
         topmax: [0, 0, 1, 1, 1, 1, 1, 4, 4, 4, 0, 0],
         bioheaven: [2, 2, 2, 2, 3, 4, 4, 5, 5, 5, 0, 0]
       };
-      let nutesRatio = [50];
+      let nutesRatio2 = [50];
       const nutesToDisplay = () => {
         let toDisplay = 0;
         Object.entries(nutes).forEach((element) => {
@@ -17984,30 +18359,44 @@ var init_biobizz_5c5519b5 = __esm({
       let $$rendered;
       do {
         $$settled = true;
-        $$rendered = `
-<div class="${"justify-center items-center flex flex-col bg-white rounded drop-shadow-sm sm:p-4 py-1 absolute bottom-0 left-0 right-0"}"><p>Parametres Optimum</p>
-	<div class="${"flex"}">${each(Object.entries(parameters), ([param, val]) => `<div class="${"grid-cols-3 items-center bg-gray-300 m-2 p-1 relative self-center"}"><div class="${"flex flex-row items-center align-center justify-center self-center"}"><div class="${"w-4 h-4 mr-3 ml-2 "}">${val.icon === "FaThermometerFull" ? `${validate_component(FaThermometerFull, "FaThermometerFull").$$render($$result, {}, {}, {})}` : ``}
-						${val.icon === "FaThermometerQuarter" ? `${validate_component(FaThermometerQuarter, "FaThermometerQuarter").$$render($$result, {}, {}, {})}` : ``}
-						${val.icon === "FaTint" ? `${validate_component(FaTint, "FaTint").$$render($$result, {}, {}, {})}` : ``}</div>
-					<div><p>${escape(currentWeek >= val.values.length ? val.values[val.values.length - 1] : val.values[currentWeek - 1])}
-							${escape(val.label === "Humidity" ? "%" : "\xB0C")}</p>
-					</div></div>
-				<h1 class="${"text-xs"}">${escape(val.label)}</h1>
-			</div>`)}</div></div>
+        currentWeek = (0, import_date_fns.differenceInWeeks)(today, dateGrowStart2);
+        $$rendered = `${$$result.head += `${$$result.title = `<title>Home</title>`, ""}`, ""}
 
-<div class="${"flex flex-col justify-center items-center text-xl bg-white"}"><p>${escape(today.toLocaleDateString("de-DE", {
+<section>
+	<div class="${"flex bg-blue-100"}"><p>Debut plantation</p>
+		${validate_component(DateInput, "DateInput").$$render($$result, {
+          format: "dd-MM-yyyy",
+          value: dateGrowStart2
+        }, {
+          value: ($$value) => {
+            dateGrowStart2 = $$value;
+            $$settled = false;
+          }
+        }, {})}</div>
+	
+	<div class="${"justify-center items-center flex flex-col bg-white rounded drop-shadow-sm sm:p-4 py-1 absolute bottom-0 left-0 right-0"}"><p>Parametres Optimum</p>
+		<div class="${"flex"}">${each(Object.entries(parameters), ([param, val]) => `<div class="${"grid-cols-3 items-center bg-gray-300 m-2 p-1 relative self-center"}"><div class="${"flex flex-row items-center align-center justify-center self-center"}"><div class="${"w-4 h-4 mr-3 ml-2 "}">${val.icon === "FaThermometerFull" ? `${validate_component(FaThermometerFull, "FaThermometerFull").$$render($$result, {}, {}, {})}` : ``}
+							${val.icon === "FaThermometerQuarter" ? `${validate_component(FaThermometerQuarter, "FaThermometerQuarter").$$render($$result, {}, {}, {})}` : ``}
+							${val.icon === "FaTint" ? `${validate_component(FaTint, "FaTint").$$render($$result, {}, {}, {})}` : ``}</div>
+						<div><p>${escape(currentWeek >= val.values.length ? val.values[val.values.length - 1] : val.values[currentWeek])}
+								${escape(val.label === "Humidity" ? "%" : "\xB0C")}</p>
+						</div></div>
+					<h1 class="${"text-xs"}">${escape(val.label)}</h1>
+				</div>`)}</div></div>
+	
+	<div class="${"flex flex-col justify-center items-center text-xl bg-white"}"><p>${escape(today.toLocaleDateString("fr-FR", {
           weekday: "long",
           year: "numeric",
           month: "long",
           day: "numeric"
         }))}</p>
-	<div class="${"flex flex-col justify-center items-center"}">Week ${escape(currentWeek)}
-		
-		<p class="${"text-sm"}">${escape(currentWeek > 1 ? `${growStages[1]} week  ${currentWeek - 2}` : growStages[0] + currentWeek)}</p></div></div>
+		<div class="${"flex flex-col justify-center items-center"}">Week ${escape(currentWeek + 1)}
+			
+			<p class="${"text-sm"}">${escape(currentWeek > 1 ? `${growStages[1]} week  ${currentWeek - 1}` : `${growStages[0]} week ${currentWeek + 1}`)}</p></div></div>
 
-
-<div class="${"flex flex-col justify-center mt-10 bg-opacity-100 bg-gray-100 rounded sm:p-4 py-4"}"><p class="${"self-center"}">Capacit\xE9 du sceau ${escape(bucketLiters)} Litres</p>
-	${validate_component(RangeSlider, "RangeSlider").$$render($$result, {
+	
+	<div class="${"flex flex-col justify-center mt-10 bg-opacity-100 bg-gray-100 rounded sm:p-4 py-4"}"><p class="${"self-center"}">Capacit\xE9 du sceau ${escape(bucketLiters2)} Litres</p>
+		${validate_component(RangeSlider, "RangeSlider").$$render($$result, {
           id: "bucket",
           pips: true,
           step: 1,
@@ -18015,16 +18404,203 @@ var init_biobizz_5c5519b5 = __esm({
           max: 10,
           suffix: "l.",
           all: "label",
-          values: bucketLiters
+          values: bucketLiters2
         }, {
           values: ($$value) => {
-            bucketLiters = $$value;
+            bucketLiters2 = $$value;
             $$settled = false;
           }
         }, {})}</div>
 
-<div class="${"flex flex-col justify-center mt-10 bg-opacity-100 bg-gray-100 rounded sm:p-4 py-4"}"><div class="${"px-4"}"><div class="${"grid grid-cols-" + escape(nutesToDisplay())}">${each(Object.entries(nutes), ([nute, val]) => `<div class="${"bg-" + escape(nute) + " " + escape(currentWeek > val.length ? val[val.length - 1] === 0 ? "hidden" : "nutes" : val[currentWeek] === 0 ? "hidden" : "nutes")}"><h1 class="${"text-gray-100"}">${escape(nute)}</h1>
-					<p class="${"text-xl text-white"}">${escape(currentWeek >= val.length ? Number(val[val.length - 1] * nutesRatio[0] / 100 * bucketLiters[0]).toFixed(1) : Number(val[currentWeek - 1] * nutesRatio[0] / 100 * bucketLiters[0]).toFixed(1))}</p>
+	
+	<div class="${"flex flex-col justify-center mt-10 bg-opacity-100 bg-gray-100 rounded sm:p-4 px-2 py-4"}"><div class="${"px-4"}"><div class="${"grid grid-cols-" + escape(nutesToDisplay())}">${each(Object.entries(nutes), ([nute, val]) => `<div class="${"bg-" + escape(nute) + " " + escape(currentWeek > val.length ? val[val.length - 1] === 0 ? "hidden" : "nutes" : val[currentWeek] === 0 ? "hidden" : "nutes")}"><h1 class="${"text-gray-100"}">${escape(nute)}</h1>
+						<p class="${"text-xl text-white"}">${escape(currentWeek >= val.length ? Number(val[val.length - 1] * nutesRatio2[0] / 100 * bucketLiters2[0]).toFixed(1) : Number(val[currentWeek] * nutesRatio2[0] / 100 * bucketLiters2[0]).toFixed(1))}</p>
+						<p class="${"text-gray-100"}">ml</p>
+					</div>`)}</div></div>
+
+		${validate_component(RangeSlider, "RangeSlider").$$render($$result, {
+          pips: true,
+          step: 1,
+          pipstep: 25,
+          suffix: "%",
+          all: "label",
+          values: nutesRatio2
+        }, {
+          values: ($$value) => {
+            nutesRatio2 = $$value;
+            $$settled = false;
+          }
+        }, {})}</div>
+</section>`;
+      } while (!$$settled);
+      return $$rendered;
+    });
+  }
+});
+
+// .svelte-kit/output/server/chunks/env-df325643.js
+var browser, dev;
+var init_env_df325643 = __esm({
+  ".svelte-kit/output/server/chunks/env-df325643.js"() {
+    init_shims();
+    browser = false;
+    dev = false;
+  }
+});
+
+// .svelte-kit/output/server/chunks/stores-ecb22270.js
+var bucketLiters, dateGrowStart, nutesRatio;
+var init_stores_ecb22270 = __esm({
+  ".svelte-kit/output/server/chunks/stores-ecb22270.js"() {
+    init_shims();
+    init_index_e937d017();
+    init_env_df325643();
+    JSON.parse(browser) || [1];
+    bucketLiters = writable(browser);
+    bucketLiters.subscribe((val) => {
+    });
+    new Date(JSON.parse(browser)) || new Date();
+    dateGrowStart = writable(browser);
+    dateGrowStart.subscribe((val) => browser);
+    JSON.parse(browser) || [50];
+    nutesRatio = writable(browser);
+    nutesRatio.subscribe((val) => browser);
+  }
+});
+
+// .svelte-kit/output/server/chunks/settings-5df4d0a6.js
+var settings_5df4d0a6_exports = {};
+__export(settings_5df4d0a6_exports, {
+  default: () => Settings
+});
+var import_cookie4, Settings;
+var init_settings_5df4d0a6 = __esm({
+  ".svelte-kit/output/server/chunks/settings-5df4d0a6.js"() {
+    init_shims();
+    init_app_7b12c375();
+    init_DateInput_32e6edec();
+    init_stores_ecb22270();
+    import_cookie4 = __toModule(require_cookie());
+    init_dist();
+    init_index_e937d017();
+    init_env_df325643();
+    Settings = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let $dateGrowStart, $$unsubscribe_dateGrowStart;
+      $$unsubscribe_dateGrowStart = subscribe(dateGrowStart, (value) => $dateGrowStart = value);
+      let $$settled;
+      let $$rendered;
+      do {
+        $$settled = true;
+        $$rendered = `
+<div class="${"flex bg-blue-100"}"><p>Debut plantation</p>
+	${validate_component(DateInput, "DateInput").$$render($$result, {
+          format: "dd-MM-yyyy",
+          value: $dateGrowStart
+        }, {
+          value: ($$value) => {
+            $dateGrowStart = $$value;
+            $$settled = false;
+          }
+        }, {})}</div>`;
+      } while (!$$settled);
+      $$unsubscribe_dateGrowStart();
+      return $$rendered;
+    });
+  }
+});
+
+// .svelte-kit/output/server/chunks/biobizz-fff0abbb.js
+var biobizz_fff0abbb_exports = {};
+__export(biobizz_fff0abbb_exports, {
+  default: () => Biobizz
+});
+var import_date_fns2, import_cookie5, Biobizz;
+var init_biobizz_fff0abbb = __esm({
+  ".svelte-kit/output/server/chunks/biobizz-fff0abbb.js"() {
+    init_shims();
+    init_app_7b12c375();
+    init_stores_ecb22270();
+    init_RangeSlider_57a9db0e();
+    import_date_fns2 = __toModule(require_date_fns());
+    import_cookie5 = __toModule(require_cookie());
+    init_dist();
+    init_index_e937d017();
+    init_env_df325643();
+    Biobizz = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let currentWeek;
+      let $dateGrowStart, $$unsubscribe_dateGrowStart;
+      let $nutesRatio, $$unsubscribe_nutesRatio;
+      let $bucketLiters, $$unsubscribe_bucketLiters;
+      $$unsubscribe_dateGrowStart = subscribe(dateGrowStart, (value) => $dateGrowStart = value);
+      $$unsubscribe_nutesRatio = subscribe(nutesRatio, (value) => $nutesRatio = value);
+      $$unsubscribe_bucketLiters = subscribe(bucketLiters, (value) => $bucketLiters = value);
+      const today = new Date();
+      let growStages = ["Vegetative", "Flowering"];
+      let parameters = {
+        temp_day: {
+          label: "Temperature Day",
+          values: [24, 24, 25, 26, 26],
+          icon: "FaThermometerFull"
+        },
+        temp_night: {
+          label: "Temperature Night",
+          values: [18, 18, 18, 19, 19],
+          icon: "FaThermometerQuarter"
+        },
+        humidity: {
+          label: "Humidity",
+          values: [70, 70, 60, 55, 50, 50, 50, 40, 40, 40],
+          icon: "FaTint"
+        }
+      };
+      let nutes = {
+        rootjuice: [4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        biogrow: [0, 2, 2, 2, 3, 3, 4, 4, 4, 4, 0, 0],
+        biobloom: [0, 0, 1, 2, 2, 3, 3, 4, 4, 4, 0, 0],
+        topmax: [0, 0, 1, 1, 1, 1, 1, 4, 4, 4, 0, 0],
+        bioheaven: [2, 2, 2, 2, 3, 4, 4, 5, 5, 5, 0, 0]
+      };
+      const nutesToDisplay = () => {
+        let toDisplay = 0;
+        Object.entries(nutes).forEach((element) => {
+          if (currentWeek > element[1].length) {
+            element[1][element[1].length - 1] > 0 && toDisplay++;
+          } else {
+            element[1][currentWeek] > 0 && toDisplay++;
+          }
+        });
+        return toDisplay;
+      };
+      let $$settled;
+      let $$rendered;
+      do {
+        $$settled = true;
+        currentWeek = (0, import_date_fns2.differenceInWeeks)(today, new Date($dateGrowStart));
+        $$rendered = `
+<div class="${"flex flex-col justify-center items-center text-xl bg-white pb-2 pt-1"}"><p>${escape(today.toLocaleDateString("fr-FR", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric"
+        }))}</p>
+	<div class="${"flex flex-col justify-center items-center"}">Week ${escape(currentWeek + 1)}
+		
+		<p class="${"text-sm"}">${escape(currentWeek > 1 ? `${growStages[1]} week  ${currentWeek - 1}` : `${growStages[0]} week ${currentWeek + 1}`)}</p></div></div>
+
+
+<div class="${"justify-center items-center flex flex-col rounded drop-shadow-sm sm:p-4 py-1 "}"><div class="${"flex"}"><div class="${"grid grid-cols-4 items-center m-2 p-1 relative self-center"}">${each(Object.entries(parameters), ([param, val]) => `<div class="${"flex flex-row items-center align-center justify-center self-center pr-3 border-r-2 border-gray-400"}"><div class="${"w-4 h-4 mr-1 ml-2 "}">${val.icon === "FaThermometerFull" ? `${validate_component(FaThermometerFull, "FaThermometerFull").$$render($$result, {}, {}, {})}` : ``}
+						${val.icon === "FaThermometerQuarter" ? `${validate_component(FaThermometerQuarter, "FaThermometerQuarter").$$render($$result, {}, {}, {})}` : ``}
+						${val.icon === "FaTint" ? `${validate_component(FaTint, "FaTint").$$render($$result, {}, {}, {})}` : ``}</div>
+					<div><p class="${"text-xs"}">${escape(currentWeek >= val.values.length ? val.values[val.values.length - 1] : val.values[currentWeek])}
+							${escape(val.label === "Humidity" ? "%" : "\xB0C")}</p>
+					</div></div>
+				`)}
+			<div class="${"flex flex-row items-center align-center justify-center self-center"}"><div class="${"mr-1 text-xs"}"><p>pH</p></div>
+				<div><p class="${"text-xs"}">6.5</p></div></div></div></div></div>
+
+
+<div class="${"flex flex-col justify-center bg-white rounded sm:p-4 px-2 py-4"}"><div class="${"px-4"}"><div class="${"grid grid-cols-" + escape(nutesToDisplay())}">${each(Object.entries(nutes), ([nute, val]) => `<div class="${"bg-" + escape(nute) + " " + escape(currentWeek > val.length ? val[val.length - 1] === 0 ? "hidden" : "nutes" : val[currentWeek] === 0 ? "hidden" : "nutes")}"><h1 class="${"text-gray-100"}">${escape(nute)}</h1>
+					<p class="${"text-xl text-white"}">${escape(currentWeek >= val.length ? Number(val[val.length - 1] * $nutesRatio[0] / 100 * $bucketLiters[0]).toFixed(1) : Number(val[currentWeek] * $nutesRatio[0] / 100 * $bucketLiters[0]).toFixed(1))}</p>
 					<p class="${"text-gray-100"}">ml</p>
 				</div>`)}</div></div>
 
@@ -18034,36 +18610,53 @@ var init_biobizz_5c5519b5 = __esm({
           pipstep: 25,
           suffix: "%",
           all: "label",
-          values: nutesRatio
+          values: $nutesRatio
         }, {
           values: ($$value) => {
-            nutesRatio = $$value;
+            $nutesRatio = $$value;
+            $$settled = false;
+          }
+        }, {})}
+	${validate_component(RangeSlider, "RangeSlider").$$render($$result, {
+          id: "bucket",
+          pips: true,
+          step: 1,
+          pipstep: 2,
+          max: 20,
+          suffix: "l.",
+          all: "label",
+          values: $bucketLiters
+        }, {
+          values: ($$value) => {
+            $bucketLiters = $$value;
             $$settled = false;
           }
         }, {})}</div>`;
       } while (!$$settled);
+      $$unsubscribe_dateGrowStart();
+      $$unsubscribe_nutesRatio();
+      $$unsubscribe_bucketLiters();
       return $$rendered;
     });
   }
 });
 
-// .svelte-kit/output/server/chunks/about-a4472845.js
-var about_a4472845_exports = {};
-__export(about_a4472845_exports, {
+// .svelte-kit/output/server/chunks/about-edf24d1c.js
+var about_edf24d1c_exports = {};
+__export(about_edf24d1c_exports, {
   default: () => About,
   hydrate: () => hydrate,
   prerender: () => prerender2,
   router: () => router
 });
-var import_cookie5, browser, dev, css4, hydrate, router, prerender2, About;
-var init_about_a4472845 = __esm({
-  ".svelte-kit/output/server/chunks/about-a4472845.js"() {
+var import_cookie6, css4, hydrate, router, prerender2, About;
+var init_about_edf24d1c = __esm({
+  ".svelte-kit/output/server/chunks/about-edf24d1c.js"() {
     init_shims();
-    init_app_5f38d264();
-    import_cookie5 = __toModule(require_cookie());
+    init_app_7b12c375();
+    init_env_df325643();
+    import_cookie6 = __toModule(require_cookie());
     init_dist();
-    browser = false;
-    dev = false;
     css4 = {
       code: ".content.svelte-cf77e8{width:100%;max-width:var(--column-width);margin:var(--column-margin-top) auto 0 auto}",
       map: null
@@ -18097,18 +18690,18 @@ var init_about_a4472845 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/index-6942f3dd.js
-var index_6942f3dd_exports = {};
-__export(index_6942f3dd_exports, {
+// .svelte-kit/output/server/chunks/index-85b3f67a.js
+var index_85b3f67a_exports = {};
+__export(index_85b3f67a_exports, {
   default: () => Todos,
   load: () => load2
 });
-var import_cookie6, css5, load2, Todos;
-var init_index_6942f3dd = __esm({
-  ".svelte-kit/output/server/chunks/index-6942f3dd.js"() {
+var import_cookie7, css5, load2, Todos;
+var init_index_85b3f67a = __esm({
+  ".svelte-kit/output/server/chunks/index-85b3f67a.js"() {
     init_shims();
-    init_app_5f38d264();
-    import_cookie6 = __toModule(require_cookie());
+    init_app_7b12c375();
+    import_cookie7 = __toModule(require_cookie());
     init_dist();
     css5 = {
       code: `.todos.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{width:100%;max-width:var(--column-width);margin:var(--column-margin-top) auto 0 auto;line-height:1}.new.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{margin:0 0 0.5rem 0}input.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{border:1px solid transparent}input.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd:focus-visible{box-shadow:inset 1px 1px 6px rgba(0, 0, 0, 0.1);border:1px solid #ff3e00 !important;outline:none}.new.svelte-dmxqmd input.svelte-dmxqmd.svelte-dmxqmd{font-size:28px;width:100%;padding:0.5em 1em 0.3em 1em;box-sizing:border-box;background:rgba(255, 255, 255, 0.05);border-radius:8px;text-align:center}.todo.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{display:grid;grid-template-columns:2rem 1fr 2rem;grid-gap:0.5rem;align-items:center;margin:0 0 0.5rem 0;padding:0.5rem;background-color:white;border-radius:8px;filter:drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));transform:translate(-1px, -1px);transition:filter 0.2s, transform 0.2s}.done.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{transform:none;opacity:0.4;filter:drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.1))}form.text.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{position:relative;display:flex;align-items:center;flex:1}.todo.svelte-dmxqmd input.svelte-dmxqmd.svelte-dmxqmd{flex:1;padding:0.5em 2em 0.5em 0.8em;border-radius:3px}.todo.svelte-dmxqmd button.svelte-dmxqmd.svelte-dmxqmd{width:2em;height:2em;border:none;background-color:transparent;background-position:50% 50%;background-repeat:no-repeat}button.toggle.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{border:1px solid rgba(0, 0, 0, 0.2);border-radius:50%;box-sizing:border-box;background-size:1em auto}.done.svelte-dmxqmd .toggle.svelte-dmxqmd.svelte-dmxqmd{background-image:url("data:image/svg+xml,%3Csvg width='22' height='16' viewBox='0 0 22 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5 1.5L7.4375 14.5L1.5 8.5909' stroke='%23676778' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}.delete.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{background-image:url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.5 5V22H19.5V5H4.5Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M10 10V16.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 10V16.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 5H22' stroke='%23676778' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8 5L9.6445 2H14.3885L16 5H8Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E%0A");opacity:0.2}.delete.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd:hover,.delete.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd:focus{transition:opacity 0.2s;opacity:1}.save.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{position:absolute;right:0;opacity:0;background-image:url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5 2H3.5C2.67158 2 2 2.67157 2 3.5V20.5C2 21.3284 2.67158 22 3.5 22H20.5C21.3284 22 22 21.3284 22 20.5V3.5C22 2.67157 21.3284 2 20.5 2Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M17 2V11H7.5V2H17Z' fill='white' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M13.5 5.5V7.5' stroke='%23676778' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M5.99844 2H18.4992' stroke='%23676778' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E%0A")}.todo.svelte-dmxqmd input.svelte-dmxqmd:focus+.save.svelte-dmxqmd,.save.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd:focus{transition:opacity 0.2s;opacity:1}`,
@@ -18147,7 +18740,7 @@ var init_index_6942f3dd = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/app-5f38d264.js
+// .svelte-kit/output/server/chunks/app-7b12c375.js
 function get_single_valued_header(headers, key) {
   const value = headers[key];
   if (Array.isArray(value)) {
@@ -19487,9 +20080,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-3a4685ce.js",
-      css: [assets + "/_app/assets/start-d5b4de3e.css", assets + "/_app/assets/vendor-22e94455.css"],
-      js: [assets + "/_app/start-3a4685ce.js", assets + "/_app/chunks/vendor-9bc03de5.js"]
+      file: assets + "/_app/start-ff005aac.js",
+      css: [assets + "/_app/assets/start-d5b4de3e.css", assets + "/_app/assets/vendor-3ad34cf4.css"],
+      js: [assets + "/_app/start-ff005aac.js", assets + "/_app/chunks/vendor-93654020.js"]
     },
     fetched: void 0,
     floc: false,
@@ -19532,11 +20125,11 @@ function render(request, {
   const host = request.headers["host"];
   return respond({ ...request, host }, options, { prerender: prerender3 });
 }
-var import_cookie7, __accessCheck, __privateGet, __privateAdd, __privateSet, _map, absolute, scheme, chars, unsafeChars, reserved, escaped$1, objectProtoOwnPropertyNames, subscriber_queue2, escape_json_string_in_html_dict, escape_html_attr_dict, s$1, s, ReadOnlyFormData, is_client, now, raf, tasks, current_component, escaped, missing_component, on_destroy, css6, Root, base2, assets, handle, user_hooks, template, options, default_settings, d, empty, manifest, get_hooks, module_lookup, metadata_lookup;
-var init_app_5f38d264 = __esm({
-  ".svelte-kit/output/server/chunks/app-5f38d264.js"() {
+var import_cookie8, __accessCheck, __privateGet, __privateAdd, __privateSet, _map, absolute, scheme, chars, unsafeChars, reserved, escaped$1, objectProtoOwnPropertyNames, subscriber_queue2, escape_json_string_in_html_dict, escape_html_attr_dict, s$1, s, ReadOnlyFormData, is_client, now, raf, tasks, current_component, escaped, missing_component, on_destroy, css6, Root, base2, assets, handle, user_hooks, template, options, default_settings, d, empty, manifest, get_hooks, module_lookup, metadata_lookup;
+var init_app_7b12c375 = __esm({
+  ".svelte-kit/output/server/chunks/app-7b12c375.js"() {
     init_shims();
-    import_cookie7 = __toModule(require_cookie());
+    import_cookie8 = __toModule(require_cookie());
     init_dist();
     __accessCheck = (obj, member, msg) => {
       if (!member.has(obj))
@@ -19700,14 +20293,14 @@ ${``}`;
     base2 = "";
     assets = "";
     handle = async ({ request, resolve: resolve2 }) => {
-      const cookies = import_cookie7.default.parse(request.headers.cookie || "");
+      const cookies = import_cookie8.default.parse(request.headers.cookie || "");
       request.locals.userid = cookies.userid || v4();
       if (request.query.has("_method")) {
         request.method = request.query.get("_method").toUpperCase();
       }
       const response = await resolve2(request);
       if (!cookies.userid) {
-        response.headers["set-cookie"] = import_cookie7.default.serialize("userid", request.locals.userid, {
+        response.headers["set-cookie"] = import_cookie8.default.serialize("userid", request.locals.userid, {
           path: "/",
           httpOnly: true
         });
@@ -19734,6 +20327,13 @@ ${``}`;
           pattern: /^\/$/,
           params: empty,
           a: ["src/routes/__layout.svelte", "src/routes/index.svelte"],
+          b: [".svelte-kit/build/components/error.svelte"]
+        },
+        {
+          type: "page",
+          pattern: /^\/settings\/?$/,
+          params: empty,
+          a: ["src/routes/__layout.svelte", "src/routes/settings.svelte"],
           b: [".svelte-kit/build/components/error.svelte"]
         },
         {
@@ -19778,14 +20378,15 @@ ${``}`;
       externalFetch: hooks.externalFetch || fetch
     });
     module_lookup = {
-      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_8bb28034(), layout_8bb28034_exports)),
-      ".svelte-kit/build/components/error.svelte": () => Promise.resolve().then(() => (init_error_84ac3cb7(), error_84ac3cb7_exports)),
-      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_fe9cae8a(), index_fe9cae8a_exports)),
-      "src/routes/biobizz.svelte": () => Promise.resolve().then(() => (init_biobizz_5c5519b5(), biobizz_5c5519b5_exports)),
-      "src/routes/about.svelte": () => Promise.resolve().then(() => (init_about_a4472845(), about_a4472845_exports)),
-      "src/routes/todos/index.svelte": () => Promise.resolve().then(() => (init_index_6942f3dd(), index_6942f3dd_exports))
+      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_967f9e8f(), layout_967f9e8f_exports)),
+      ".svelte-kit/build/components/error.svelte": () => Promise.resolve().then(() => (init_error_39ef968b(), error_39ef968b_exports)),
+      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_598c29e2(), index_598c29e2_exports)),
+      "src/routes/settings.svelte": () => Promise.resolve().then(() => (init_settings_5df4d0a6(), settings_5df4d0a6_exports)),
+      "src/routes/biobizz.svelte": () => Promise.resolve().then(() => (init_biobizz_fff0abbb(), biobizz_fff0abbb_exports)),
+      "src/routes/about.svelte": () => Promise.resolve().then(() => (init_about_edf24d1c(), about_edf24d1c_exports)),
+      "src/routes/todos/index.svelte": () => Promise.resolve().then(() => (init_index_85b3f67a(), index_85b3f67a_exports))
     };
-    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-c12570a9.js", "css": ["assets/pages/__layout.svelte-0f853471.css", "assets/vendor-22e94455.css"], "js": ["pages/__layout.svelte-c12570a9.js", "chunks/vendor-9bc03de5.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-3620f7f0.js", "css": ["assets/vendor-22e94455.css"], "js": ["error.svelte-3620f7f0.js", "chunks/vendor-9bc03de5.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-6831fd53.js", "css": ["assets/pages/index.svelte-74003674.css", "assets/vendor-22e94455.css"], "js": ["pages/index.svelte-6831fd53.js", "chunks/vendor-9bc03de5.js"], "styles": [] }, "src/routes/biobizz.svelte": { "entry": "pages/biobizz.svelte-916420b3.js", "css": ["assets/vendor-22e94455.css"], "js": ["pages/biobizz.svelte-916420b3.js", "chunks/vendor-9bc03de5.js"], "styles": [] }, "src/routes/about.svelte": { "entry": "pages/about.svelte-08e0ba91.js", "css": ["assets/pages/about.svelte-bf4528fa.css", "assets/vendor-22e94455.css"], "js": ["pages/about.svelte-08e0ba91.js", "chunks/vendor-9bc03de5.js"], "styles": [] }, "src/routes/todos/index.svelte": { "entry": "pages/todos/index.svelte-6d6536c7.js", "css": ["assets/pages/todos/index.svelte-784042c1.css", "assets/vendor-22e94455.css"], "js": ["pages/todos/index.svelte-6d6536c7.js", "chunks/vendor-9bc03de5.js"], "styles": [] } };
+    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-0c3a0438.js", "css": ["assets/pages/__layout.svelte-75a6541a.css", "assets/vendor-3ad34cf4.css"], "js": ["pages/__layout.svelte-0c3a0438.js", "chunks/vendor-93654020.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-ab8a1d1b.js", "css": ["assets/vendor-3ad34cf4.css"], "js": ["error.svelte-ab8a1d1b.js", "chunks/vendor-93654020.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-03b64f37.js", "css": ["assets/vendor-3ad34cf4.css"], "js": ["pages/index.svelte-03b64f37.js", "chunks/vendor-93654020.js"], "styles": [] }, "src/routes/settings.svelte": { "entry": "pages/settings.svelte-7366bc01.js", "css": ["assets/vendor-3ad34cf4.css"], "js": ["pages/settings.svelte-7366bc01.js", "chunks/vendor-93654020.js", "chunks/stores-01305f89.js"], "styles": [] }, "src/routes/biobizz.svelte": { "entry": "pages/biobizz.svelte-e9dc4698.js", "css": ["assets/vendor-3ad34cf4.css"], "js": ["pages/biobizz.svelte-e9dc4698.js", "chunks/vendor-93654020.js", "chunks/stores-01305f89.js"], "styles": [] }, "src/routes/about.svelte": { "entry": "pages/about.svelte-babb16ee.js", "css": ["assets/pages/about.svelte-bf4528fa.css", "assets/vendor-3ad34cf4.css"], "js": ["pages/about.svelte-babb16ee.js", "chunks/vendor-93654020.js"], "styles": [] }, "src/routes/todos/index.svelte": { "entry": "pages/todos/index.svelte-893df454.js", "css": ["assets/pages/todos/index.svelte-784042c1.css", "assets/vendor-3ad34cf4.css"], "js": ["pages/todos/index.svelte-893df454.js", "chunks/vendor-93654020.js"], "styles": [] } };
   }
 });
 
@@ -19838,8 +20439,8 @@ function getRawBody(req) {
 
 // .svelte-kit/output/server/app.js
 init_shims();
-init_app_5f38d264();
-var import_cookie8 = __toModule(require_cookie());
+init_app_7b12c375();
+var import_cookie9 = __toModule(require_cookie());
 init_dist();
 
 // .svelte-kit/vercel/entry.js

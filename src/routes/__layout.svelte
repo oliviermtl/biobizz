@@ -2,12 +2,14 @@
 	import Header from '$lib/header/Header.svelte';
 	import '../app.css';
 	import '../tailwind.css';
+	import { browser } from '$app/env';
 </script>
 
 <!-- <Header /> -->
 
 <main>
-	<slot />
+	{#if browser} <slot />{/if}
+	{#if !browser} <p>loading</p>{/if}
 </main>
 
 <footer>
@@ -31,11 +33,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 40px;
-	}
-
-	footer a {
-		font-weight: bold;
+		padding: 10px;
 	}
 
 	@media (min-width: 480px) {
