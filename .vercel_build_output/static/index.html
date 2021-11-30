@@ -2,9 +2,10 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="description" content="Svelte demo app" />
-		<link rel="icon" href="/favicon.png" />
+		<meta name="description" content="Biobizz feeding chart" />
+		<link rel="icon" href="/icons/icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="manifest" crossorigin="use-credentials" href="manifest.json" />
 		
 
 		
@@ -42,6 +43,10 @@
 					}
 				}
 			});
+		</script><script>
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('/service-worker.js');
+			}
 		</script>
 	</head>
 	<body>
