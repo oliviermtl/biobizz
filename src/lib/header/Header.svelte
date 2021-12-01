@@ -1,32 +1,26 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import logo from './svelte-logo.svg';
+	import { user, auth } from '$lib/supabase';
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div>
-
 	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
 		<ul>
 			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
-			<li class:active={$page.path === '/todos'}><a sveltekit:prefetch href="/todos">Todos</a></li>
+			<li class:active={$page.path === '/settings'}>
+				<a sveltekit:prefetch href="/settings">Settings</a>
+			</li>
+			{#if $user}
+				<li class:active={$page.path === '/sign-in'}>
+					<a href={null} on:click={() => auth.signOut()}>Sign out</a>
+				</li>
+			{:else}
+				<li class:active={$page.path === '/sign-in'}>
+					<a sveltekit:prefetch href="/sign-in">Sign-in</a>
+				</li>
+			{/if}
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
 	</nav>
-
-	<div class="corner">
-		<!-- TODO put something else here? github link? -->
-	</div>
 </header>
 
 <style>
@@ -58,6 +52,8 @@
 		display: flex;
 		justify-content: center;
 		--background: rgba(255, 255, 255, 0.7);
+		width: 100%;
+		font-size: 12px;
 	}
 
 	svg {

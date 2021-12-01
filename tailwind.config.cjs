@@ -34,8 +34,8 @@ module.exports = {
 			biobloom: '#e05522',
 			topmax: '#bf3440',
 			bioheaven: '#55b9d9',
-			biodown: '#f1ca07',
-			bioup: '#6a619e',
+			biodown: '#faba18',
+			bioup: '#5f4f96',
 			calmag: '#7c7c7a'
 		},
 		extend: {

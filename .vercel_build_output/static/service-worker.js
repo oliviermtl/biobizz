@@ -1,20 +1,24 @@
-const timestamp = 1638300386615;
+const timestamp = 1638389696017;
 const build = [
-  "/_app/start-ff005aac.js",
+  "/_app/start-7a6dbe9d.js",
   "/_app/assets/start-d5b4de3e.css",
-  "/_app/pages/__layout.svelte-0c3a0438.js",
-  "/_app/assets/pages/__layout.svelte-75a6541a.css",
-  "/_app/error.svelte-ab8a1d1b.js",
-  "/_app/pages/index.svelte-03b64f37.js",
-  "/_app/pages/settings.svelte-7366bc01.js",
-  "/_app/pages/biobizz.svelte-e9dc4698.js",
-  "/_app/pages/about.svelte-babb16ee.js",
+  "/_app/pages/__layout.svelte-24479ecd.js",
+  "/_app/assets/pages/__layout.svelte-74368dc5.css",
+  "/_app/error.svelte-14d1b3fb.js",
+  "/_app/pages/index.svelte-0fffd698.js",
+  "/_app/assets/pages/index.svelte-f4ce4929.css",
+  "/_app/pages/settings.svelte-7e260bb0.js",
+  "/_app/pages/biobizz.svelte-d41b84b6.js",
+  "/_app/pages/sign-in.svelte-005c313f.js",
+  "/_app/assets/pages/sign-in.svelte-a56fdcbf.css",
+  "/_app/pages/about.svelte-8a2a0016.js",
   "/_app/assets/pages/about.svelte-bf4528fa.css",
-  "/_app/pages/todos/index.svelte-893df454.js",
+  "/_app/pages/todos/index.svelte-e01a8bb3.js",
   "/_app/assets/pages/todos/index.svelte-784042c1.css",
-  "/_app/chunks/vendor-93654020.js",
-  "/_app/assets/vendor-3ad34cf4.css",
-  "/_app/chunks/stores-01305f89.js"
+  "/_app/chunks/vendor-37f6029b.js",
+  "/_app/assets/vendor-e29c58cb.css",
+  "/_app/chunks/supabase-4c3eef37.js",
+  "/_app/chunks/store-a87eadf0.js"
 ];
 const files = [
   "/favicon.png",

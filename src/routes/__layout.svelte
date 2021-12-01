@@ -6,7 +6,7 @@
 </script>
 
 <!-- <Header /> -->
-
+<Header />
 <main>
 	{#if browser} <slot />{/if}
 	{#if !browser} <p>loading</p>{/if}

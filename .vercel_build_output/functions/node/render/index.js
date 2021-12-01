@@ -400,7 +400,7 @@ function fixResponseChunkedTransferBadEnding(request, errorCallback) {
     });
   });
 }
-var import_http, import_https, import_zlib, import_stream, import_util, import_crypto, import_url, commonjsGlobal, src, dataUriToBuffer$1, ponyfill_es2018, POOL_SIZE$1, POOL_SIZE, _Blob, Blob2, Blob$1, FetchBaseError, FetchError, NAME, isURLSearchParameters, isBlob, isAbortSignal, carriage, dashes, carriageLength, getFooter, getBoundary, INTERNALS$2, Body, clone, extractContentType, getTotalBytes, writeToStream, validateHeaderName, validateHeaderValue, Headers, redirectStatus, isRedirect, INTERNALS$1, Response, getSearch, INTERNALS, isRequest, Request, getNodeRequestOptions, AbortError, supportedSchemas;
+var import_http, import_https, import_zlib, import_stream, import_util, import_crypto, import_url, commonjsGlobal, src, dataUriToBuffer$1, ponyfill_es2018, POOL_SIZE$1, POOL_SIZE, _Blob, Blob3, Blob$1, FetchBaseError, FetchError, NAME, isURLSearchParameters, isBlob, isAbortSignal, carriage, dashes, carriageLength, getFooter, getBoundary, INTERNALS$2, Body, clone, extractContentType, getTotalBytes, writeToStream, validateHeaderName, validateHeaderValue, Headers, redirectStatus, isRedirect, INTERNALS$1, Response, getSearch, INTERNALS, isRequest, Request, getNodeRequestOptions, AbortError, supportedSchemas;
 var init_install_fetch = __esm({
   "node_modules/@sveltejs/kit/dist/install-fetch.js"() {
     init_shims();
@@ -3326,13 +3326,13 @@ var init_install_fetch = __esm({
         }
         function convertReadableWritablePair(pair, context) {
           assertDictionary(pair, context);
-          const readable = pair === null || pair === void 0 ? void 0 : pair.readable;
-          assertRequiredField(readable, "readable", "ReadableWritablePair");
-          assertReadableStream(readable, `${context} has member 'readable' that`);
+          const readable2 = pair === null || pair === void 0 ? void 0 : pair.readable;
+          assertRequiredField(readable2, "readable", "ReadableWritablePair");
+          assertReadableStream(readable2, `${context} has member 'readable' that`);
           const writable3 = pair === null || pair === void 0 ? void 0 : pair.writable;
           assertRequiredField(writable3, "writable", "ReadableWritablePair");
           assertWritableStream(writable3, `${context} has member 'writable' that`);
-          return { readable, writable: writable3 };
+          return { readable: readable2, writable: writable3 };
         }
         class ReadableStream2 {
           constructor(rawUnderlyingSource = {}, rawStrategy = {}) {
@@ -3925,18 +3925,18 @@ var init_install_fetch = __esm({
           return promiseResolvedWith(void 0);
         }
         function TransformStreamDefaultSinkCloseAlgorithm(stream) {
-          const readable = stream._readable;
+          const readable2 = stream._readable;
           const controller = stream._transformStreamController;
           const flushPromise = controller._flushAlgorithm();
           TransformStreamDefaultControllerClearAlgorithms(controller);
           return transformPromiseWith(flushPromise, () => {
-            if (readable._state === "errored") {
-              throw readable._storedError;
+            if (readable2._state === "errored") {
+              throw readable2._storedError;
             }
-            ReadableStreamDefaultControllerClose(readable._readableStreamController);
+            ReadableStreamDefaultControllerClose(readable2._readableStreamController);
           }, (r) => {
             TransformStreamError(stream, r);
-            throw readable._storedError;
+            throw readable2._storedError;
           });
         }
         function TransformStreamDefaultSourcePullAlgorithm(stream) {
@@ -3984,9 +3984,9 @@ var init_install_fetch = __esm({
       }
     }
     try {
-      const { Blob: Blob3 } = require("buffer");
-      if (Blob3 && !Blob3.prototype.stream) {
-        Blob3.prototype.stream = function name(params) {
+      const { Blob: Blob4 } = require("buffer");
+      if (Blob4 && !Blob4.prototype.stream) {
+        Blob4.prototype.stream = function name(params) {
           let position = 0;
           const blob = this;
           return new ReadableStream({
@@ -4006,7 +4006,7 @@ var init_install_fetch = __esm({
     } catch (error2) {
     }
     POOL_SIZE = 65536;
-    _Blob = class Blob {
+    _Blob = class Blob2 {
       #parts = [];
       #type = "";
       #size = 0;
@@ -4029,7 +4029,7 @@ var init_install_fetch = __esm({
             part = new Uint8Array(element.buffer.slice(element.byteOffset, element.byteOffset + element.byteLength));
           } else if (element instanceof ArrayBuffer) {
             part = new Uint8Array(element.slice(0));
-          } else if (element instanceof Blob) {
+          } else if (element instanceof Blob2) {
             part = element;
           } else {
             part = encoder.encode(element);
@@ -4107,7 +4107,7 @@ var init_install_fetch = __esm({
             relativeStart = 0;
           }
         }
-        const blob = new Blob([], { type: String(type).toLowerCase() });
+        const blob = new Blob2([], { type: String(type).toLowerCase() });
         blob.#size = span;
         blob.#parts = blobParts;
         return blob;
@@ -4124,8 +4124,8 @@ var init_install_fetch = __esm({
       type: { enumerable: true },
       slice: { enumerable: true }
     });
-    Blob2 = _Blob;
-    Blob$1 = Blob2;
+    Blob3 = _Blob;
+    Blob$1 = Blob3;
     FetchBaseError = class extends Error {
       constructor(message, type) {
         super(message);
@@ -4928,71 +4928,7897 @@ var init_uid_json_039b6f30 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/__layout-e0db2943.js
-var layout_e0db2943_exports = {};
-__export(layout_e0db2943_exports, {
-  default: () => _layout
-});
-var import_cookie, css, _layout;
-var init_layout_e0db2943 = __esm({
-  ".svelte-kit/output/server/chunks/__layout-e0db2943.js"() {
+// node_modules/@supabase/supabase-js/dist/main/lib/version.js
+var require_version = __commonJS({
+  "node_modules/@supabase/supabase-js/dist/main/lib/version.js"(exports) {
     init_shims();
-    init_app_285ccb28();
-    import_cookie = __toModule(require_cookie());
-    init_dist();
-    css = {
-      code: "main.svelte-l15fsz{flex:1;display:flex;flex-direction:column;width:100%;max-width:1024px;margin:0 auto;box-sizing:border-box}footer.svelte-l15fsz{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:10px}@media(min-width: 480px){footer.svelte-l15fsz{padding:40px 0}}",
-      map: null
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.version = void 0;
+    exports.version = "1.28.2";
+  }
+});
+
+// node_modules/@supabase/supabase-js/dist/main/lib/constants.js
+var require_constants = __commonJS({
+  "node_modules/@supabase/supabase-js/dist/main/lib/constants.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.DEFAULT_HEADERS = void 0;
+    var version_1 = require_version();
+    exports.DEFAULT_HEADERS = { "X-Client-Info": `supabase-js/${version_1.version}` };
+  }
+});
+
+// node_modules/@supabase/supabase-js/dist/main/lib/helpers.js
+var require_helpers = __commonJS({
+  "node_modules/@supabase/supabase-js/dist/main/lib/helpers.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.stripTrailingSlash = exports.uuid = void 0;
+    function uuid() {
+      return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == "x" ? r : r & 3 | 8;
+        return v.toString(16);
+      });
+    }
+    exports.uuid = uuid;
+    function stripTrailingSlash(url) {
+      return url.replace(/\/$/, "");
+    }
+    exports.stripTrailingSlash = stripTrailingSlash;
+  }
+});
+
+// node_modules/node-fetch/lib/index.js
+var require_lib = __commonJS({
+  "node_modules/node-fetch/lib/index.js"(exports, module2) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function _interopDefault(ex) {
+      return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
+    }
+    var Stream2 = _interopDefault(require("stream"));
+    var http2 = _interopDefault(require("http"));
+    var Url = _interopDefault(require("url"));
+    var https2 = _interopDefault(require("https"));
+    var zlib2 = _interopDefault(require("zlib"));
+    var Readable = Stream2.Readable;
+    var BUFFER2 = Symbol("buffer");
+    var TYPE = Symbol("type");
+    var Blob4 = class {
+      constructor() {
+        this[TYPE] = "";
+        const blobParts = arguments[0];
+        const options2 = arguments[1];
+        const buffers = [];
+        let size = 0;
+        if (blobParts) {
+          const a = blobParts;
+          const length = Number(a.length);
+          for (let i = 0; i < length; i++) {
+            const element = a[i];
+            let buffer;
+            if (element instanceof Buffer) {
+              buffer = element;
+            } else if (ArrayBuffer.isView(element)) {
+              buffer = Buffer.from(element.buffer, element.byteOffset, element.byteLength);
+            } else if (element instanceof ArrayBuffer) {
+              buffer = Buffer.from(element);
+            } else if (element instanceof Blob4) {
+              buffer = element[BUFFER2];
+            } else {
+              buffer = Buffer.from(typeof element === "string" ? element : String(element));
+            }
+            size += buffer.length;
+            buffers.push(buffer);
+          }
+        }
+        this[BUFFER2] = Buffer.concat(buffers);
+        let type = options2 && options2.type !== void 0 && String(options2.type).toLowerCase();
+        if (type && !/[^\u0020-\u007E]/.test(type)) {
+          this[TYPE] = type;
+        }
+      }
+      get size() {
+        return this[BUFFER2].length;
+      }
+      get type() {
+        return this[TYPE];
+      }
+      text() {
+        return Promise.resolve(this[BUFFER2].toString());
+      }
+      arrayBuffer() {
+        const buf = this[BUFFER2];
+        const ab = buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+        return Promise.resolve(ab);
+      }
+      stream() {
+        const readable2 = new Readable();
+        readable2._read = function() {
+        };
+        readable2.push(this[BUFFER2]);
+        readable2.push(null);
+        return readable2;
+      }
+      toString() {
+        return "[object Blob]";
+      }
+      slice() {
+        const size = this.size;
+        const start = arguments[0];
+        const end = arguments[1];
+        let relativeStart, relativeEnd;
+        if (start === void 0) {
+          relativeStart = 0;
+        } else if (start < 0) {
+          relativeStart = Math.max(size + start, 0);
+        } else {
+          relativeStart = Math.min(start, size);
+        }
+        if (end === void 0) {
+          relativeEnd = size;
+        } else if (end < 0) {
+          relativeEnd = Math.max(size + end, 0);
+        } else {
+          relativeEnd = Math.min(end, size);
+        }
+        const span = Math.max(relativeEnd - relativeStart, 0);
+        const buffer = this[BUFFER2];
+        const slicedBuffer = buffer.slice(relativeStart, relativeStart + span);
+        const blob = new Blob4([], { type: arguments[2] });
+        blob[BUFFER2] = slicedBuffer;
+        return blob;
+      }
     };
-    _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css);
-      return `
-
-<main class="${"svelte-l15fsz"}">${``}
-	${`<p>loading</p>`}</main>
-
-<footer class="${"svelte-l15fsz"}"><p class="${"text-xs text-green-800"}">Elles sont belles mes salades ? \u{1F957}</p>
-</footer>`;
+    Object.defineProperties(Blob4.prototype, {
+      size: { enumerable: true },
+      type: { enumerable: true },
+      slice: { enumerable: true }
     });
+    Object.defineProperty(Blob4.prototype, Symbol.toStringTag, {
+      value: "Blob",
+      writable: false,
+      enumerable: false,
+      configurable: true
+    });
+    function FetchError2(message, type, systemError) {
+      Error.call(this, message);
+      this.message = message;
+      this.type = type;
+      if (systemError) {
+        this.code = this.errno = systemError.code;
+      }
+      Error.captureStackTrace(this, this.constructor);
+    }
+    FetchError2.prototype = Object.create(Error.prototype);
+    FetchError2.prototype.constructor = FetchError2;
+    FetchError2.prototype.name = "FetchError";
+    var convert;
+    try {
+      convert = require("encoding").convert;
+    } catch (e) {
+    }
+    var INTERNALS2 = Symbol("Body internals");
+    var PassThrough2 = Stream2.PassThrough;
+    function Body2(body) {
+      var _this = this;
+      var _ref = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {}, _ref$size = _ref.size;
+      let size = _ref$size === void 0 ? 0 : _ref$size;
+      var _ref$timeout = _ref.timeout;
+      let timeout = _ref$timeout === void 0 ? 0 : _ref$timeout;
+      if (body == null) {
+        body = null;
+      } else if (isURLSearchParams(body)) {
+        body = Buffer.from(body.toString());
+      } else if (isBlob2(body))
+        ;
+      else if (Buffer.isBuffer(body))
+        ;
+      else if (Object.prototype.toString.call(body) === "[object ArrayBuffer]") {
+        body = Buffer.from(body);
+      } else if (ArrayBuffer.isView(body)) {
+        body = Buffer.from(body.buffer, body.byteOffset, body.byteLength);
+      } else if (body instanceof Stream2)
+        ;
+      else {
+        body = Buffer.from(String(body));
+      }
+      this[INTERNALS2] = {
+        body,
+        disturbed: false,
+        error: null
+      };
+      this.size = size;
+      this.timeout = timeout;
+      if (body instanceof Stream2) {
+        body.on("error", function(err) {
+          const error2 = err.name === "AbortError" ? err : new FetchError2(`Invalid response body while trying to fetch ${_this.url}: ${err.message}`, "system", err);
+          _this[INTERNALS2].error = error2;
+        });
+      }
+    }
+    Body2.prototype = {
+      get body() {
+        return this[INTERNALS2].body;
+      },
+      get bodyUsed() {
+        return this[INTERNALS2].disturbed;
+      },
+      arrayBuffer() {
+        return consumeBody2.call(this).then(function(buf) {
+          return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+        });
+      },
+      blob() {
+        let ct = this.headers && this.headers.get("content-type") || "";
+        return consumeBody2.call(this).then(function(buf) {
+          return Object.assign(new Blob4([], {
+            type: ct.toLowerCase()
+          }), {
+            [BUFFER2]: buf
+          });
+        });
+      },
+      json() {
+        var _this2 = this;
+        return consumeBody2.call(this).then(function(buffer) {
+          try {
+            return JSON.parse(buffer.toString());
+          } catch (err) {
+            return Body2.Promise.reject(new FetchError2(`invalid json response body at ${_this2.url} reason: ${err.message}`, "invalid-json"));
+          }
+        });
+      },
+      text() {
+        return consumeBody2.call(this).then(function(buffer) {
+          return buffer.toString();
+        });
+      },
+      buffer() {
+        return consumeBody2.call(this);
+      },
+      textConverted() {
+        var _this3 = this;
+        return consumeBody2.call(this).then(function(buffer) {
+          return convertBody(buffer, _this3.headers);
+        });
+      }
+    };
+    Object.defineProperties(Body2.prototype, {
+      body: { enumerable: true },
+      bodyUsed: { enumerable: true },
+      arrayBuffer: { enumerable: true },
+      blob: { enumerable: true },
+      json: { enumerable: true },
+      text: { enumerable: true }
+    });
+    Body2.mixIn = function(proto) {
+      for (const name of Object.getOwnPropertyNames(Body2.prototype)) {
+        if (!(name in proto)) {
+          const desc = Object.getOwnPropertyDescriptor(Body2.prototype, name);
+          Object.defineProperty(proto, name, desc);
+        }
+      }
+    };
+    function consumeBody2() {
+      var _this4 = this;
+      if (this[INTERNALS2].disturbed) {
+        return Body2.Promise.reject(new TypeError(`body used already for: ${this.url}`));
+      }
+      this[INTERNALS2].disturbed = true;
+      if (this[INTERNALS2].error) {
+        return Body2.Promise.reject(this[INTERNALS2].error);
+      }
+      let body = this.body;
+      if (body === null) {
+        return Body2.Promise.resolve(Buffer.alloc(0));
+      }
+      if (isBlob2(body)) {
+        body = body.stream();
+      }
+      if (Buffer.isBuffer(body)) {
+        return Body2.Promise.resolve(body);
+      }
+      if (!(body instanceof Stream2)) {
+        return Body2.Promise.resolve(Buffer.alloc(0));
+      }
+      let accum = [];
+      let accumBytes = 0;
+      let abort = false;
+      return new Body2.Promise(function(resolve2, reject) {
+        let resTimeout;
+        if (_this4.timeout) {
+          resTimeout = setTimeout(function() {
+            abort = true;
+            reject(new FetchError2(`Response timeout while trying to fetch ${_this4.url} (over ${_this4.timeout}ms)`, "body-timeout"));
+          }, _this4.timeout);
+        }
+        body.on("error", function(err) {
+          if (err.name === "AbortError") {
+            abort = true;
+            reject(err);
+          } else {
+            reject(new FetchError2(`Invalid response body while trying to fetch ${_this4.url}: ${err.message}`, "system", err));
+          }
+        });
+        body.on("data", function(chunk) {
+          if (abort || chunk === null) {
+            return;
+          }
+          if (_this4.size && accumBytes + chunk.length > _this4.size) {
+            abort = true;
+            reject(new FetchError2(`content size at ${_this4.url} over limit: ${_this4.size}`, "max-size"));
+            return;
+          }
+          accumBytes += chunk.length;
+          accum.push(chunk);
+        });
+        body.on("end", function() {
+          if (abort) {
+            return;
+          }
+          clearTimeout(resTimeout);
+          try {
+            resolve2(Buffer.concat(accum, accumBytes));
+          } catch (err) {
+            reject(new FetchError2(`Could not create Buffer from response body for ${_this4.url}: ${err.message}`, "system", err));
+          }
+        });
+      });
+    }
+    function convertBody(buffer, headers) {
+      if (typeof convert !== "function") {
+        throw new Error("The package `encoding` must be installed to use the textConverted() function");
+      }
+      const ct = headers.get("content-type");
+      let charset = "utf-8";
+      let res, str;
+      if (ct) {
+        res = /charset=([^;]*)/i.exec(ct);
+      }
+      str = buffer.slice(0, 1024).toString();
+      if (!res && str) {
+        res = /<meta.+?charset=(['"])(.+?)\1/i.exec(str);
+      }
+      if (!res && str) {
+        res = /<meta[\s]+?http-equiv=(['"])content-type\1[\s]+?content=(['"])(.+?)\2/i.exec(str);
+        if (!res) {
+          res = /<meta[\s]+?content=(['"])(.+?)\1[\s]+?http-equiv=(['"])content-type\3/i.exec(str);
+          if (res) {
+            res.pop();
+          }
+        }
+        if (res) {
+          res = /charset=(.*)/i.exec(res.pop());
+        }
+      }
+      if (!res && str) {
+        res = /<\?xml.+?encoding=(['"])(.+?)\1/i.exec(str);
+      }
+      if (res) {
+        charset = res.pop();
+        if (charset === "gb2312" || charset === "gbk") {
+          charset = "gb18030";
+        }
+      }
+      return convert(buffer, "UTF-8", charset).toString();
+    }
+    function isURLSearchParams(obj) {
+      if (typeof obj !== "object" || typeof obj.append !== "function" || typeof obj.delete !== "function" || typeof obj.get !== "function" || typeof obj.getAll !== "function" || typeof obj.has !== "function" || typeof obj.set !== "function") {
+        return false;
+      }
+      return obj.constructor.name === "URLSearchParams" || Object.prototype.toString.call(obj) === "[object URLSearchParams]" || typeof obj.sort === "function";
+    }
+    function isBlob2(obj) {
+      return typeof obj === "object" && typeof obj.arrayBuffer === "function" && typeof obj.type === "string" && typeof obj.stream === "function" && typeof obj.constructor === "function" && typeof obj.constructor.name === "string" && /^(Blob|File)$/.test(obj.constructor.name) && /^(Blob|File)$/.test(obj[Symbol.toStringTag]);
+    }
+    function clone2(instance) {
+      let p1, p2;
+      let body = instance.body;
+      if (instance.bodyUsed) {
+        throw new Error("cannot clone body after it is used");
+      }
+      if (body instanceof Stream2 && typeof body.getBoundary !== "function") {
+        p1 = new PassThrough2();
+        p2 = new PassThrough2();
+        body.pipe(p1);
+        body.pipe(p2);
+        instance[INTERNALS2].body = p1;
+        body = p2;
+      }
+      return body;
+    }
+    function extractContentType2(body) {
+      if (body === null) {
+        return null;
+      } else if (typeof body === "string") {
+        return "text/plain;charset=UTF-8";
+      } else if (isURLSearchParams(body)) {
+        return "application/x-www-form-urlencoded;charset=UTF-8";
+      } else if (isBlob2(body)) {
+        return body.type || null;
+      } else if (Buffer.isBuffer(body)) {
+        return null;
+      } else if (Object.prototype.toString.call(body) === "[object ArrayBuffer]") {
+        return null;
+      } else if (ArrayBuffer.isView(body)) {
+        return null;
+      } else if (typeof body.getBoundary === "function") {
+        return `multipart/form-data;boundary=${body.getBoundary()}`;
+      } else if (body instanceof Stream2) {
+        return null;
+      } else {
+        return "text/plain;charset=UTF-8";
+      }
+    }
+    function getTotalBytes2(instance) {
+      const body = instance.body;
+      if (body === null) {
+        return 0;
+      } else if (isBlob2(body)) {
+        return body.size;
+      } else if (Buffer.isBuffer(body)) {
+        return body.length;
+      } else if (body && typeof body.getLengthSync === "function") {
+        if (body._lengthRetrievers && body._lengthRetrievers.length == 0 || body.hasKnownLength && body.hasKnownLength()) {
+          return body.getLengthSync();
+        }
+        return null;
+      } else {
+        return null;
+      }
+    }
+    function writeToStream2(dest, instance) {
+      const body = instance.body;
+      if (body === null) {
+        dest.end();
+      } else if (isBlob2(body)) {
+        body.stream().pipe(dest);
+      } else if (Buffer.isBuffer(body)) {
+        dest.write(body);
+        dest.end();
+      } else {
+        body.pipe(dest);
+      }
+    }
+    Body2.Promise = global.Promise;
+    var invalidTokenRegex = /[^\^_`a-zA-Z\-0-9!#$%&'*+.|~]/;
+    var invalidHeaderCharRegex = /[^\t\x20-\x7e\x80-\xff]/;
+    function validateName(name) {
+      name = `${name}`;
+      if (invalidTokenRegex.test(name) || name === "") {
+        throw new TypeError(`${name} is not a legal HTTP header name`);
+      }
+    }
+    function validateValue(value) {
+      value = `${value}`;
+      if (invalidHeaderCharRegex.test(value)) {
+        throw new TypeError(`${value} is not a legal HTTP header value`);
+      }
+    }
+    function find(map, name) {
+      name = name.toLowerCase();
+      for (const key in map) {
+        if (key.toLowerCase() === name) {
+          return key;
+        }
+      }
+      return void 0;
+    }
+    var MAP = Symbol("map");
+    var Headers2 = class {
+      constructor() {
+        let init2 = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : void 0;
+        this[MAP] = Object.create(null);
+        if (init2 instanceof Headers2) {
+          const rawHeaders = init2.raw();
+          const headerNames = Object.keys(rawHeaders);
+          for (const headerName of headerNames) {
+            for (const value of rawHeaders[headerName]) {
+              this.append(headerName, value);
+            }
+          }
+          return;
+        }
+        if (init2 == null)
+          ;
+        else if (typeof init2 === "object") {
+          const method = init2[Symbol.iterator];
+          if (method != null) {
+            if (typeof method !== "function") {
+              throw new TypeError("Header pairs must be iterable");
+            }
+            const pairs = [];
+            for (const pair of init2) {
+              if (typeof pair !== "object" || typeof pair[Symbol.iterator] !== "function") {
+                throw new TypeError("Each header pair must be iterable");
+              }
+              pairs.push(Array.from(pair));
+            }
+            for (const pair of pairs) {
+              if (pair.length !== 2) {
+                throw new TypeError("Each header pair must be a name/value tuple");
+              }
+              this.append(pair[0], pair[1]);
+            }
+          } else {
+            for (const key of Object.keys(init2)) {
+              const value = init2[key];
+              this.append(key, value);
+            }
+          }
+        } else {
+          throw new TypeError("Provided initializer must be an object");
+        }
+      }
+      get(name) {
+        name = `${name}`;
+        validateName(name);
+        const key = find(this[MAP], name);
+        if (key === void 0) {
+          return null;
+        }
+        return this[MAP][key].join(", ");
+      }
+      forEach(callback) {
+        let thisArg = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : void 0;
+        let pairs = getHeaders(this);
+        let i = 0;
+        while (i < pairs.length) {
+          var _pairs$i = pairs[i];
+          const name = _pairs$i[0], value = _pairs$i[1];
+          callback.call(thisArg, value, name, this);
+          pairs = getHeaders(this);
+          i++;
+        }
+      }
+      set(name, value) {
+        name = `${name}`;
+        value = `${value}`;
+        validateName(name);
+        validateValue(value);
+        const key = find(this[MAP], name);
+        this[MAP][key !== void 0 ? key : name] = [value];
+      }
+      append(name, value) {
+        name = `${name}`;
+        value = `${value}`;
+        validateName(name);
+        validateValue(value);
+        const key = find(this[MAP], name);
+        if (key !== void 0) {
+          this[MAP][key].push(value);
+        } else {
+          this[MAP][name] = [value];
+        }
+      }
+      has(name) {
+        name = `${name}`;
+        validateName(name);
+        return find(this[MAP], name) !== void 0;
+      }
+      delete(name) {
+        name = `${name}`;
+        validateName(name);
+        const key = find(this[MAP], name);
+        if (key !== void 0) {
+          delete this[MAP][key];
+        }
+      }
+      raw() {
+        return this[MAP];
+      }
+      keys() {
+        return createHeadersIterator(this, "key");
+      }
+      values() {
+        return createHeadersIterator(this, "value");
+      }
+      [Symbol.iterator]() {
+        return createHeadersIterator(this, "key+value");
+      }
+    };
+    Headers2.prototype.entries = Headers2.prototype[Symbol.iterator];
+    Object.defineProperty(Headers2.prototype, Symbol.toStringTag, {
+      value: "Headers",
+      writable: false,
+      enumerable: false,
+      configurable: true
+    });
+    Object.defineProperties(Headers2.prototype, {
+      get: { enumerable: true },
+      forEach: { enumerable: true },
+      set: { enumerable: true },
+      append: { enumerable: true },
+      has: { enumerable: true },
+      delete: { enumerable: true },
+      keys: { enumerable: true },
+      values: { enumerable: true },
+      entries: { enumerable: true }
+    });
+    function getHeaders(headers) {
+      let kind = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "key+value";
+      const keys = Object.keys(headers[MAP]).sort();
+      return keys.map(kind === "key" ? function(k) {
+        return k.toLowerCase();
+      } : kind === "value" ? function(k) {
+        return headers[MAP][k].join(", ");
+      } : function(k) {
+        return [k.toLowerCase(), headers[MAP][k].join(", ")];
+      });
+    }
+    var INTERNAL = Symbol("internal");
+    function createHeadersIterator(target, kind) {
+      const iterator = Object.create(HeadersIteratorPrototype);
+      iterator[INTERNAL] = {
+        target,
+        kind,
+        index: 0
+      };
+      return iterator;
+    }
+    var HeadersIteratorPrototype = Object.setPrototypeOf({
+      next() {
+        if (!this || Object.getPrototypeOf(this) !== HeadersIteratorPrototype) {
+          throw new TypeError("Value of `this` is not a HeadersIterator");
+        }
+        var _INTERNAL = this[INTERNAL];
+        const target = _INTERNAL.target, kind = _INTERNAL.kind, index = _INTERNAL.index;
+        const values = getHeaders(target, kind);
+        const len = values.length;
+        if (index >= len) {
+          return {
+            value: void 0,
+            done: true
+          };
+        }
+        this[INTERNAL].index = index + 1;
+        return {
+          value: values[index],
+          done: false
+        };
+      }
+    }, Object.getPrototypeOf(Object.getPrototypeOf([][Symbol.iterator]())));
+    Object.defineProperty(HeadersIteratorPrototype, Symbol.toStringTag, {
+      value: "HeadersIterator",
+      writable: false,
+      enumerable: false,
+      configurable: true
+    });
+    function exportNodeCompatibleHeaders(headers) {
+      const obj = Object.assign({ __proto__: null }, headers[MAP]);
+      const hostHeaderKey = find(headers[MAP], "Host");
+      if (hostHeaderKey !== void 0) {
+        obj[hostHeaderKey] = obj[hostHeaderKey][0];
+      }
+      return obj;
+    }
+    function createHeadersLenient(obj) {
+      const headers = new Headers2();
+      for (const name of Object.keys(obj)) {
+        if (invalidTokenRegex.test(name)) {
+          continue;
+        }
+        if (Array.isArray(obj[name])) {
+          for (const val of obj[name]) {
+            if (invalidHeaderCharRegex.test(val)) {
+              continue;
+            }
+            if (headers[MAP][name] === void 0) {
+              headers[MAP][name] = [val];
+            } else {
+              headers[MAP][name].push(val);
+            }
+          }
+        } else if (!invalidHeaderCharRegex.test(obj[name])) {
+          headers[MAP][name] = [obj[name]];
+        }
+      }
+      return headers;
+    }
+    var INTERNALS$12 = Symbol("Response internals");
+    var STATUS_CODES = http2.STATUS_CODES;
+    var Response2 = class {
+      constructor() {
+        let body = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : null;
+        let opts = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+        Body2.call(this, body, opts);
+        const status = opts.status || 200;
+        const headers = new Headers2(opts.headers);
+        if (body != null && !headers.has("Content-Type")) {
+          const contentType = extractContentType2(body);
+          if (contentType) {
+            headers.append("Content-Type", contentType);
+          }
+        }
+        this[INTERNALS$12] = {
+          url: opts.url,
+          status,
+          statusText: opts.statusText || STATUS_CODES[status],
+          headers,
+          counter: opts.counter
+        };
+      }
+      get url() {
+        return this[INTERNALS$12].url || "";
+      }
+      get status() {
+        return this[INTERNALS$12].status;
+      }
+      get ok() {
+        return this[INTERNALS$12].status >= 200 && this[INTERNALS$12].status < 300;
+      }
+      get redirected() {
+        return this[INTERNALS$12].counter > 0;
+      }
+      get statusText() {
+        return this[INTERNALS$12].statusText;
+      }
+      get headers() {
+        return this[INTERNALS$12].headers;
+      }
+      clone() {
+        return new Response2(clone2(this), {
+          url: this.url,
+          status: this.status,
+          statusText: this.statusText,
+          headers: this.headers,
+          ok: this.ok,
+          redirected: this.redirected
+        });
+      }
+    };
+    Body2.mixIn(Response2.prototype);
+    Object.defineProperties(Response2.prototype, {
+      url: { enumerable: true },
+      status: { enumerable: true },
+      ok: { enumerable: true },
+      redirected: { enumerable: true },
+      statusText: { enumerable: true },
+      headers: { enumerable: true },
+      clone: { enumerable: true }
+    });
+    Object.defineProperty(Response2.prototype, Symbol.toStringTag, {
+      value: "Response",
+      writable: false,
+      enumerable: false,
+      configurable: true
+    });
+    var INTERNALS$22 = Symbol("Request internals");
+    var parse_url = Url.parse;
+    var format_url = Url.format;
+    var streamDestructionSupported = "destroy" in Stream2.Readable.prototype;
+    function isRequest2(input) {
+      return typeof input === "object" && typeof input[INTERNALS$22] === "object";
+    }
+    function isAbortSignal2(signal) {
+      const proto = signal && typeof signal === "object" && Object.getPrototypeOf(signal);
+      return !!(proto && proto.constructor.name === "AbortSignal");
+    }
+    var Request2 = class {
+      constructor(input) {
+        let init2 = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+        let parsedURL;
+        if (!isRequest2(input)) {
+          if (input && input.href) {
+            parsedURL = parse_url(input.href);
+          } else {
+            parsedURL = parse_url(`${input}`);
+          }
+          input = {};
+        } else {
+          parsedURL = parse_url(input.url);
+        }
+        let method = init2.method || input.method || "GET";
+        method = method.toUpperCase();
+        if ((init2.body != null || isRequest2(input) && input.body !== null) && (method === "GET" || method === "HEAD")) {
+          throw new TypeError("Request with GET/HEAD method cannot have body");
+        }
+        let inputBody = init2.body != null ? init2.body : isRequest2(input) && input.body !== null ? clone2(input) : null;
+        Body2.call(this, inputBody, {
+          timeout: init2.timeout || input.timeout || 0,
+          size: init2.size || input.size || 0
+        });
+        const headers = new Headers2(init2.headers || input.headers || {});
+        if (inputBody != null && !headers.has("Content-Type")) {
+          const contentType = extractContentType2(inputBody);
+          if (contentType) {
+            headers.append("Content-Type", contentType);
+          }
+        }
+        let signal = isRequest2(input) ? input.signal : null;
+        if ("signal" in init2)
+          signal = init2.signal;
+        if (signal != null && !isAbortSignal2(signal)) {
+          throw new TypeError("Expected signal to be an instanceof AbortSignal");
+        }
+        this[INTERNALS$22] = {
+          method,
+          redirect: init2.redirect || input.redirect || "follow",
+          headers,
+          parsedURL,
+          signal
+        };
+        this.follow = init2.follow !== void 0 ? init2.follow : input.follow !== void 0 ? input.follow : 20;
+        this.compress = init2.compress !== void 0 ? init2.compress : input.compress !== void 0 ? input.compress : true;
+        this.counter = init2.counter || input.counter || 0;
+        this.agent = init2.agent || input.agent;
+      }
+      get method() {
+        return this[INTERNALS$22].method;
+      }
+      get url() {
+        return format_url(this[INTERNALS$22].parsedURL);
+      }
+      get headers() {
+        return this[INTERNALS$22].headers;
+      }
+      get redirect() {
+        return this[INTERNALS$22].redirect;
+      }
+      get signal() {
+        return this[INTERNALS$22].signal;
+      }
+      clone() {
+        return new Request2(this);
+      }
+    };
+    Body2.mixIn(Request2.prototype);
+    Object.defineProperty(Request2.prototype, Symbol.toStringTag, {
+      value: "Request",
+      writable: false,
+      enumerable: false,
+      configurable: true
+    });
+    Object.defineProperties(Request2.prototype, {
+      method: { enumerable: true },
+      url: { enumerable: true },
+      headers: { enumerable: true },
+      redirect: { enumerable: true },
+      clone: { enumerable: true },
+      signal: { enumerable: true }
+    });
+    function getNodeRequestOptions2(request) {
+      const parsedURL = request[INTERNALS$22].parsedURL;
+      const headers = new Headers2(request[INTERNALS$22].headers);
+      if (!headers.has("Accept")) {
+        headers.set("Accept", "*/*");
+      }
+      if (!parsedURL.protocol || !parsedURL.hostname) {
+        throw new TypeError("Only absolute URLs are supported");
+      }
+      if (!/^https?:$/.test(parsedURL.protocol)) {
+        throw new TypeError("Only HTTP(S) protocols are supported");
+      }
+      if (request.signal && request.body instanceof Stream2.Readable && !streamDestructionSupported) {
+        throw new Error("Cancellation of streamed requests with AbortSignal is not supported in node < 8");
+      }
+      let contentLengthValue = null;
+      if (request.body == null && /^(POST|PUT)$/i.test(request.method)) {
+        contentLengthValue = "0";
+      }
+      if (request.body != null) {
+        const totalBytes = getTotalBytes2(request);
+        if (typeof totalBytes === "number") {
+          contentLengthValue = String(totalBytes);
+        }
+      }
+      if (contentLengthValue) {
+        headers.set("Content-Length", contentLengthValue);
+      }
+      if (!headers.has("User-Agent")) {
+        headers.set("User-Agent", "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)");
+      }
+      if (request.compress && !headers.has("Accept-Encoding")) {
+        headers.set("Accept-Encoding", "gzip,deflate");
+      }
+      let agent = request.agent;
+      if (typeof agent === "function") {
+        agent = agent(parsedURL);
+      }
+      if (!headers.has("Connection") && !agent) {
+        headers.set("Connection", "close");
+      }
+      return Object.assign({}, parsedURL, {
+        method: request.method,
+        headers: exportNodeCompatibleHeaders(headers),
+        agent
+      });
+    }
+    function AbortError2(message) {
+      Error.call(this, message);
+      this.type = "aborted";
+      this.message = message;
+      Error.captureStackTrace(this, this.constructor);
+    }
+    AbortError2.prototype = Object.create(Error.prototype);
+    AbortError2.prototype.constructor = AbortError2;
+    AbortError2.prototype.name = "AbortError";
+    var PassThrough$1 = Stream2.PassThrough;
+    var resolve_url = Url.resolve;
+    function fetch2(url, opts) {
+      if (!fetch2.Promise) {
+        throw new Error("native promise missing, set fetch.Promise to your favorite alternative");
+      }
+      Body2.Promise = fetch2.Promise;
+      return new fetch2.Promise(function(resolve2, reject) {
+        const request = new Request2(url, opts);
+        const options2 = getNodeRequestOptions2(request);
+        const send = (options2.protocol === "https:" ? https2 : http2).request;
+        const signal = request.signal;
+        let response = null;
+        const abort = function abort2() {
+          let error2 = new AbortError2("The user aborted a request.");
+          reject(error2);
+          if (request.body && request.body instanceof Stream2.Readable) {
+            request.body.destroy(error2);
+          }
+          if (!response || !response.body)
+            return;
+          response.body.emit("error", error2);
+        };
+        if (signal && signal.aborted) {
+          abort();
+          return;
+        }
+        const abortAndFinalize = function abortAndFinalize2() {
+          abort();
+          finalize();
+        };
+        const req = send(options2);
+        let reqTimeout;
+        if (signal) {
+          signal.addEventListener("abort", abortAndFinalize);
+        }
+        function finalize() {
+          req.abort();
+          if (signal)
+            signal.removeEventListener("abort", abortAndFinalize);
+          clearTimeout(reqTimeout);
+        }
+        if (request.timeout) {
+          req.once("socket", function(socket) {
+            reqTimeout = setTimeout(function() {
+              reject(new FetchError2(`network timeout at: ${request.url}`, "request-timeout"));
+              finalize();
+            }, request.timeout);
+          });
+        }
+        req.on("error", function(err) {
+          reject(new FetchError2(`request to ${request.url} failed, reason: ${err.message}`, "system", err));
+          finalize();
+        });
+        req.on("response", function(res) {
+          clearTimeout(reqTimeout);
+          const headers = createHeadersLenient(res.headers);
+          if (fetch2.isRedirect(res.statusCode)) {
+            const location = headers.get("Location");
+            const locationURL = location === null ? null : resolve_url(request.url, location);
+            switch (request.redirect) {
+              case "error":
+                reject(new FetchError2(`uri requested responds with a redirect, redirect mode is set to error: ${request.url}`, "no-redirect"));
+                finalize();
+                return;
+              case "manual":
+                if (locationURL !== null) {
+                  try {
+                    headers.set("Location", locationURL);
+                  } catch (err) {
+                    reject(err);
+                  }
+                }
+                break;
+              case "follow":
+                if (locationURL === null) {
+                  break;
+                }
+                if (request.counter >= request.follow) {
+                  reject(new FetchError2(`maximum redirect reached at: ${request.url}`, "max-redirect"));
+                  finalize();
+                  return;
+                }
+                const requestOpts = {
+                  headers: new Headers2(request.headers),
+                  follow: request.follow,
+                  counter: request.counter + 1,
+                  agent: request.agent,
+                  compress: request.compress,
+                  method: request.method,
+                  body: request.body,
+                  signal: request.signal,
+                  timeout: request.timeout,
+                  size: request.size
+                };
+                if (res.statusCode !== 303 && request.body && getTotalBytes2(request) === null) {
+                  reject(new FetchError2("Cannot follow redirect with body being a readable stream", "unsupported-redirect"));
+                  finalize();
+                  return;
+                }
+                if (res.statusCode === 303 || (res.statusCode === 301 || res.statusCode === 302) && request.method === "POST") {
+                  requestOpts.method = "GET";
+                  requestOpts.body = void 0;
+                  requestOpts.headers.delete("content-length");
+                }
+                resolve2(fetch2(new Request2(locationURL, requestOpts)));
+                finalize();
+                return;
+            }
+          }
+          res.once("end", function() {
+            if (signal)
+              signal.removeEventListener("abort", abortAndFinalize);
+          });
+          let body = res.pipe(new PassThrough$1());
+          const response_options = {
+            url: request.url,
+            status: res.statusCode,
+            statusText: res.statusMessage,
+            headers,
+            size: request.size,
+            timeout: request.timeout,
+            counter: request.counter
+          };
+          const codings = headers.get("Content-Encoding");
+          if (!request.compress || request.method === "HEAD" || codings === null || res.statusCode === 204 || res.statusCode === 304) {
+            response = new Response2(body, response_options);
+            resolve2(response);
+            return;
+          }
+          const zlibOptions = {
+            flush: zlib2.Z_SYNC_FLUSH,
+            finishFlush: zlib2.Z_SYNC_FLUSH
+          };
+          if (codings == "gzip" || codings == "x-gzip") {
+            body = body.pipe(zlib2.createGunzip(zlibOptions));
+            response = new Response2(body, response_options);
+            resolve2(response);
+            return;
+          }
+          if (codings == "deflate" || codings == "x-deflate") {
+            const raw = res.pipe(new PassThrough$1());
+            raw.once("data", function(chunk) {
+              if ((chunk[0] & 15) === 8) {
+                body = body.pipe(zlib2.createInflate());
+              } else {
+                body = body.pipe(zlib2.createInflateRaw());
+              }
+              response = new Response2(body, response_options);
+              resolve2(response);
+            });
+            return;
+          }
+          if (codings == "br" && typeof zlib2.createBrotliDecompress === "function") {
+            body = body.pipe(zlib2.createBrotliDecompress());
+            response = new Response2(body, response_options);
+            resolve2(response);
+            return;
+          }
+          response = new Response2(body, response_options);
+          resolve2(response);
+        });
+        writeToStream2(req, request);
+      });
+    }
+    fetch2.isRedirect = function(code) {
+      return code === 301 || code === 302 || code === 303 || code === 307 || code === 308;
+    };
+    fetch2.Promise = global.Promise;
+    module2.exports = exports = fetch2;
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.default = exports;
+    exports.Headers = Headers2;
+    exports.Request = Request2;
+    exports.Response = Response2;
+    exports.FetchError = FetchError2;
   }
 });
 
-// .svelte-kit/output/server/chunks/error-5d5049d8.js
-var error_5d5049d8_exports = {};
-__export(error_5d5049d8_exports, {
-  default: () => Error2,
-  load: () => load
-});
-function load({ error: error2, status }) {
-  return { props: { error: error2, status } };
-}
-var import_cookie2, Error2;
-var init_error_5d5049d8 = __esm({
-  ".svelte-kit/output/server/chunks/error-5d5049d8.js"() {
+// node_modules/cross-fetch/dist/node-ponyfill.js
+var require_node_ponyfill = __commonJS({
+  "node_modules/cross-fetch/dist/node-ponyfill.js"(exports, module2) {
     init_shims();
-    init_app_285ccb28();
-    import_cookie2 = __toModule(require_cookie());
-    init_dist();
-    Error2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let { status } = $$props;
-      let { error: error2 } = $$props;
-      if ($$props.status === void 0 && $$bindings.status && status !== void 0)
-        $$bindings.status(status);
-      if ($$props.error === void 0 && $$bindings.error && error2 !== void 0)
-        $$bindings.error(error2);
-      return `<h1>${escape(status)}</h1>
-
-<pre>${escape(error2.message)}</pre>
-
-
-
-${error2.frame ? `<pre>${escape(error2.frame)}</pre>` : ``}
-${error2.stack ? `<pre>${escape(error2.stack)}</pre>` : ``}`;
-    });
+    var nodeFetch = require_lib();
+    var realFetch = nodeFetch.default || nodeFetch;
+    var fetch2 = function(url, options2) {
+      if (/^\/\//.test(url)) {
+        url = "https:" + url;
+      }
+      return realFetch.call(this, url, options2);
+    };
+    fetch2.ponyfill = true;
+    module2.exports = exports = fetch2;
+    exports.fetch = fetch2;
+    exports.Headers = nodeFetch.Headers;
+    exports.Request = nodeFetch.Request;
+    exports.Response = nodeFetch.Response;
+    exports.default = fetch2;
   }
 });
 
-// .svelte-kit/output/server/chunks/index-e42dc858.js
+// node_modules/@supabase/gotrue-js/dist/main/lib/fetch.js
+var require_fetch = __commonJS({
+  "node_modules/@supabase/gotrue-js/dist/main/lib/fetch.js"(exports) {
+    init_shims();
+    "use strict";
+    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve2) {
+          resolve2(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve2, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.remove = exports.put = exports.post = exports.get = void 0;
+    var cross_fetch_1 = __importDefault(require_node_ponyfill());
+    var _getErrorMessage = (err) => err.msg || err.message || err.error_description || err.error || JSON.stringify(err);
+    var handleError = (error2, reject) => {
+      if (typeof error2.json !== "function") {
+        return reject(error2);
+      }
+      error2.json().then((err) => {
+        return reject({
+          message: _getErrorMessage(err),
+          status: (error2 === null || error2 === void 0 ? void 0 : error2.status) || 500
+        });
+      });
+    };
+    var _getRequestParams = (method, options2, body) => {
+      const params = { method, headers: (options2 === null || options2 === void 0 ? void 0 : options2.headers) || {} };
+      if (method === "GET") {
+        return params;
+      }
+      params.headers = Object.assign({ "Content-Type": "text/plain;charset=UTF-8" }, options2 === null || options2 === void 0 ? void 0 : options2.headers);
+      params.body = JSON.stringify(body);
+      return params;
+    };
+    function _handleRequest(fetcher = cross_fetch_1.default, method, url, options2, body) {
+      return __awaiter(this, void 0, void 0, function* () {
+        return new Promise((resolve2, reject) => {
+          fetcher(url, _getRequestParams(method, options2, body)).then((result) => {
+            if (!result.ok)
+              throw result;
+            if (options2 === null || options2 === void 0 ? void 0 : options2.noResolveJson)
+              return resolve2;
+            return result.json();
+          }).then((data) => resolve2(data)).catch((error2) => handleError(error2, reject));
+        });
+      });
+    }
+    function get2(fetcher, url, options2) {
+      return __awaiter(this, void 0, void 0, function* () {
+        return _handleRequest(fetcher, "GET", url, options2);
+      });
+    }
+    exports.get = get2;
+    function post2(fetcher, url, body, options2) {
+      return __awaiter(this, void 0, void 0, function* () {
+        return _handleRequest(fetcher, "POST", url, options2, body);
+      });
+    }
+    exports.post = post2;
+    function put(fetcher, url, body, options2) {
+      return __awaiter(this, void 0, void 0, function* () {
+        return _handleRequest(fetcher, "PUT", url, options2, body);
+      });
+    }
+    exports.put = put;
+    function remove(fetcher, url, body, options2) {
+      return __awaiter(this, void 0, void 0, function* () {
+        return _handleRequest(fetcher, "DELETE", url, options2, body);
+      });
+    }
+    exports.remove = remove;
+  }
+});
+
+// node_modules/@supabase/gotrue-js/dist/main/lib/version.js
+var require_version2 = __commonJS({
+  "node_modules/@supabase/gotrue-js/dist/main/lib/version.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.version = void 0;
+    exports.version = "1.21.7";
+  }
+});
+
+// node_modules/@supabase/gotrue-js/dist/main/lib/constants.js
+var require_constants2 = __commonJS({
+  "node_modules/@supabase/gotrue-js/dist/main/lib/constants.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.COOKIE_OPTIONS = exports.STORAGE_KEY = exports.EXPIRY_MARGIN = exports.DEFAULT_HEADERS = exports.AUDIENCE = exports.GOTRUE_URL = void 0;
+    var version_1 = require_version2();
+    exports.GOTRUE_URL = "http://localhost:9999";
+    exports.AUDIENCE = "";
+    exports.DEFAULT_HEADERS = { "X-Client-Info": `gotrue-js/${version_1.version}` };
+    exports.EXPIRY_MARGIN = 60 * 1e3;
+    exports.STORAGE_KEY = "supabase.auth.token";
+    exports.COOKIE_OPTIONS = {
+      name: "sb:token",
+      lifetime: 60 * 60 * 8,
+      domain: "",
+      path: "/",
+      sameSite: "lax"
+    };
+  }
+});
+
+// node_modules/@supabase/gotrue-js/dist/main/lib/cookies.js
+var require_cookies = __commonJS({
+  "node_modules/@supabase/gotrue-js/dist/main/lib/cookies.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.deleteCookie = exports.setCookie = exports.setCookies = void 0;
+    function serialize(name, val, options2) {
+      const opt = options2 || {};
+      const enc = encodeURIComponent;
+      const fieldContentRegExp = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/;
+      if (typeof enc !== "function") {
+        throw new TypeError("option encode is invalid");
+      }
+      if (!fieldContentRegExp.test(name)) {
+        throw new TypeError("argument name is invalid");
+      }
+      const value = enc(val);
+      if (value && !fieldContentRegExp.test(value)) {
+        throw new TypeError("argument val is invalid");
+      }
+      let str = name + "=" + value;
+      if (opt.maxAge != null) {
+        const maxAge = opt.maxAge - 0;
+        if (isNaN(maxAge) || !isFinite(maxAge)) {
+          throw new TypeError("option maxAge is invalid");
+        }
+        str += "; Max-Age=" + Math.floor(maxAge);
+      }
+      if (opt.domain) {
+        if (!fieldContentRegExp.test(opt.domain)) {
+          throw new TypeError("option domain is invalid");
+        }
+        str += "; Domain=" + opt.domain;
+      }
+      if (opt.path) {
+        if (!fieldContentRegExp.test(opt.path)) {
+          throw new TypeError("option path is invalid");
+        }
+        str += "; Path=" + opt.path;
+      }
+      if (opt.expires) {
+        if (typeof opt.expires.toUTCString !== "function") {
+          throw new TypeError("option expires is invalid");
+        }
+        str += "; Expires=" + opt.expires.toUTCString();
+      }
+      if (opt.httpOnly) {
+        str += "; HttpOnly";
+      }
+      if (opt.secure) {
+        str += "; Secure";
+      }
+      if (opt.sameSite) {
+        const sameSite = typeof opt.sameSite === "string" ? opt.sameSite.toLowerCase() : opt.sameSite;
+        switch (sameSite) {
+          case "lax":
+            str += "; SameSite=Lax";
+            break;
+          case "strict":
+            str += "; SameSite=Strict";
+            break;
+          case "none":
+            str += "; SameSite=None";
+            break;
+          default:
+            throw new TypeError("option sameSite is invalid");
+        }
+      }
+      return str;
+    }
+    function isSecureEnvironment(req) {
+      if (!req || !req.headers || !req.headers.host) {
+        throw new Error('The "host" request header is not available');
+      }
+      const host = req.headers.host.indexOf(":") > -1 && req.headers.host.split(":")[0] || req.headers.host;
+      if (["localhost", "127.0.0.1"].indexOf(host) > -1 || host.endsWith(".local")) {
+        return false;
+      }
+      return true;
+    }
+    function serializeCookie(cookie2, secure) {
+      var _a, _b, _c;
+      return serialize(cookie2.name, cookie2.value, {
+        maxAge: cookie2.maxAge,
+        expires: new Date(Date.now() + cookie2.maxAge * 1e3),
+        httpOnly: true,
+        secure,
+        path: (_a = cookie2.path) !== null && _a !== void 0 ? _a : "/",
+        domain: (_b = cookie2.domain) !== null && _b !== void 0 ? _b : "",
+        sameSite: (_c = cookie2.sameSite) !== null && _c !== void 0 ? _c : "lax"
+      });
+    }
+    function setCookies(req, res, cookies) {
+      const strCookies = cookies.map((c) => serializeCookie(c, isSecureEnvironment(req)));
+      const previousCookies = res.getHeader("Set-Cookie");
+      if (previousCookies) {
+        if (previousCookies instanceof Array) {
+          Array.prototype.push.apply(strCookies, previousCookies);
+        } else if (typeof previousCookies === "string") {
+          strCookies.push(previousCookies);
+        }
+      }
+      res.setHeader("Set-Cookie", strCookies);
+    }
+    exports.setCookies = setCookies;
+    function setCookie(req, res, cookie2) {
+      setCookies(req, res, [cookie2]);
+    }
+    exports.setCookie = setCookie;
+    function deleteCookie(req, res, name) {
+      setCookie(req, res, {
+        name,
+        value: "",
+        maxAge: -1
+      });
+    }
+    exports.deleteCookie = deleteCookie;
+  }
+});
+
+// node_modules/@supabase/gotrue-js/dist/main/lib/helpers.js
+var require_helpers2 = __commonJS({
+  "node_modules/@supabase/gotrue-js/dist/main/lib/helpers.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.getParameterByName = exports.isBrowser = exports.uuid = exports.expiresAt = void 0;
+    function expiresAt(expiresIn) {
+      const timeNow = Math.round(Date.now() / 1e3);
+      return timeNow + expiresIn;
+    }
+    exports.expiresAt = expiresAt;
+    function uuid() {
+      return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0, v = c == "x" ? r : r & 3 | 8;
+        return v.toString(16);
+      });
+    }
+    exports.uuid = uuid;
+    var isBrowser = () => typeof window !== "undefined";
+    exports.isBrowser = isBrowser;
+    function getParameterByName(name, url) {
+      var _a;
+      if (!url)
+        url = ((_a = window === null || window === void 0 ? void 0 : window.location) === null || _a === void 0 ? void 0 : _a.href) || "";
+      name = name.replace(/[\[\]]/g, "\\$&");
+      const regex = new RegExp("[?&#]" + name + "(=([^&#]*)|&|#|$)"), results = regex.exec(url);
+      if (!results)
+        return null;
+      if (!results[2])
+        return "";
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    exports.getParameterByName = getParameterByName;
+  }
+});
+
+// node_modules/@supabase/gotrue-js/dist/main/GoTrueApi.js
+var require_GoTrueApi = __commonJS({
+  "node_modules/@supabase/gotrue-js/dist/main/GoTrueApi.js"(exports) {
+    init_shims();
+    "use strict";
+    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve2) {
+          resolve2(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve2, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var fetch_1 = require_fetch();
+    var constants_1 = require_constants2();
+    var cookies_1 = require_cookies();
+    var helpers_1 = require_helpers2();
+    var GoTrueApi = class {
+      constructor({ url = "", headers = {}, cookieOptions, fetch: fetch2 }) {
+        this.url = url;
+        this.headers = headers;
+        this.cookieOptions = Object.assign(Object.assign({}, constants_1.COOKIE_OPTIONS), cookieOptions);
+        this.fetch = fetch2;
+      }
+      createUser(attributes) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/admin/users`, attributes, {
+              headers: this.headers
+            });
+            return { data, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      listUsers() {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield (0, fetch_1.get)(this.fetch, `${this.url}/admin/users`, {
+              headers: this.headers
+            });
+            return { data: data.users, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      signUpWithEmail(email, password, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const headers = Object.assign({}, this.headers);
+            let queryString = "";
+            if (options2.redirectTo) {
+              queryString = "?redirect_to=" + encodeURIComponent(options2.redirectTo);
+            }
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/signup${queryString}`, { email, password, data: options2.data }, { headers });
+            const session = Object.assign({}, data);
+            if (session.expires_in)
+              session.expires_at = (0, helpers_1.expiresAt)(data.expires_in);
+            return { data: session, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      signInWithEmail(email, password, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const headers = Object.assign({}, this.headers);
+            let queryString = "?grant_type=password";
+            if (options2.redirectTo) {
+              queryString += "&redirect_to=" + encodeURIComponent(options2.redirectTo);
+            }
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/token${queryString}`, { email, password }, { headers });
+            const session = Object.assign({}, data);
+            if (session.expires_in)
+              session.expires_at = (0, helpers_1.expiresAt)(data.expires_in);
+            return { data: session, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      signUpWithPhone(phone, password, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const headers = Object.assign({}, this.headers);
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/signup`, { phone, password, data: options2.data }, { headers });
+            const session = Object.assign({}, data);
+            if (session.expires_in)
+              session.expires_at = (0, helpers_1.expiresAt)(data.expires_in);
+            return { data: session, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      signInWithPhone(phone, password) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const headers = Object.assign({}, this.headers);
+            const queryString = "?grant_type=password";
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/token${queryString}`, { phone, password }, { headers });
+            const session = Object.assign({}, data);
+            if (session.expires_in)
+              session.expires_at = (0, helpers_1.expiresAt)(data.expires_in);
+            return { data: session, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      sendMagicLinkEmail(email, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const headers = Object.assign({}, this.headers);
+            let queryString = "";
+            if (options2.redirectTo) {
+              queryString += "?redirect_to=" + encodeURIComponent(options2.redirectTo);
+            }
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/magiclink${queryString}`, { email }, { headers });
+            return { data, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      sendMobileOTP(phone) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const headers = Object.assign({}, this.headers);
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/otp`, { phone }, { headers });
+            return { data, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      verifyMobileOTP(phone, token, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const headers = Object.assign({}, this.headers);
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/verify`, { phone, token, type: "sms", redirect_to: options2.redirectTo }, { headers });
+            return { data, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      inviteUserByEmail(email, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const headers = Object.assign({}, this.headers);
+            let queryString = "";
+            if (options2.redirectTo) {
+              queryString += "?redirect_to=" + encodeURIComponent(options2.redirectTo);
+            }
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/invite${queryString}`, { email, data: options2.data }, { headers });
+            return { data, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      resetPasswordForEmail(email, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const headers = Object.assign({}, this.headers);
+            let queryString = "";
+            if (options2.redirectTo) {
+              queryString += "?redirect_to=" + encodeURIComponent(options2.redirectTo);
+            }
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/recover${queryString}`, { email }, { headers });
+            return { data, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      _createRequestHeaders(jwt) {
+        const headers = Object.assign({}, this.headers);
+        headers["Authorization"] = `Bearer ${jwt}`;
+        return headers;
+      }
+      signOut(jwt) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            yield (0, fetch_1.post)(this.fetch, `${this.url}/logout`, {}, { headers: this._createRequestHeaders(jwt), noResolveJson: true });
+            return { error: null };
+          } catch (e) {
+            return { error: e };
+          }
+        });
+      }
+      getUrlForProvider(provider, options2) {
+        const urlParams = [`provider=${encodeURIComponent(provider)}`];
+        if (options2 === null || options2 === void 0 ? void 0 : options2.redirectTo) {
+          urlParams.push(`redirect_to=${encodeURIComponent(options2.redirectTo)}`);
+        }
+        if (options2 === null || options2 === void 0 ? void 0 : options2.scopes) {
+          urlParams.push(`scopes=${encodeURIComponent(options2.scopes)}`);
+        }
+        return `${this.url}/authorize?${urlParams.join("&")}`;
+      }
+      getUser(jwt) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield (0, fetch_1.get)(this.fetch, `${this.url}/user`, {
+              headers: this._createRequestHeaders(jwt)
+            });
+            return { user: data, data, error: null };
+          } catch (e) {
+            return { user: null, data: null, error: e };
+          }
+        });
+      }
+      updateUser(jwt, attributes) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield (0, fetch_1.put)(this.fetch, `${this.url}/user`, attributes, {
+              headers: this._createRequestHeaders(jwt)
+            });
+            return { user: data, data, error: null };
+          } catch (e) {
+            return { user: null, data: null, error: e };
+          }
+        });
+      }
+      deleteUser(uid, jwt) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield (0, fetch_1.remove)(this.fetch, `${this.url}/admin/users/${uid}`, {}, {
+              headers: this._createRequestHeaders(jwt)
+            });
+            return { user: data, data, error: null };
+          } catch (e) {
+            return { user: null, data: null, error: e };
+          }
+        });
+      }
+      refreshAccessToken(refreshToken) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/token?grant_type=refresh_token`, { refresh_token: refreshToken }, { headers: this.headers });
+            const session = Object.assign({}, data);
+            if (session.expires_in)
+              session.expires_at = (0, helpers_1.expiresAt)(data.expires_in);
+            return { data: session, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      setAuthCookie(req, res) {
+        if (req.method !== "POST") {
+          res.setHeader("Allow", "POST");
+          res.status(405).end("Method Not Allowed");
+        }
+        const { event, session } = req.body;
+        if (!event)
+          throw new Error("Auth event missing!");
+        if (event === "SIGNED_IN") {
+          if (!session)
+            throw new Error("Auth session missing!");
+          (0, cookies_1.setCookie)(req, res, {
+            name: this.cookieOptions.name,
+            value: session.access_token,
+            domain: this.cookieOptions.domain,
+            maxAge: this.cookieOptions.lifetime,
+            path: this.cookieOptions.path,
+            sameSite: this.cookieOptions.sameSite
+          });
+        }
+        if (event === "SIGNED_OUT")
+          (0, cookies_1.deleteCookie)(req, res, this.cookieOptions.name);
+        res.status(200).json({});
+      }
+      getUserByCookie(req) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            if (!req.cookies) {
+              throw new Error("Not able to parse cookies! When using Express make sure the cookie-parser middleware is in use!");
+            }
+            if (!req.cookies[this.cookieOptions.name]) {
+              throw new Error("No cookie found!");
+            }
+            const token = req.cookies[this.cookieOptions.name];
+            const { user: user2, error: error2 } = yield this.getUser(token);
+            if (error2)
+              throw error2;
+            return { token, user: user2, data: user2, error: null };
+          } catch (e) {
+            return { token: null, user: null, data: null, error: e };
+          }
+        });
+      }
+      generateLink(type, email, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield (0, fetch_1.post)(this.fetch, `${this.url}/admin/generate_link`, {
+              type,
+              email,
+              password: options2.password,
+              data: options2.data,
+              redirect_to: options2.redirectTo
+            }, { headers: this.headers });
+            return { data, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+    };
+    exports.default = GoTrueApi;
+  }
+});
+
+// node_modules/@supabase/gotrue-js/dist/main/lib/polyfills.js
+var require_polyfills = __commonJS({
+  "node_modules/@supabase/gotrue-js/dist/main/lib/polyfills.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.polyfillGlobalThis = void 0;
+    function polyfillGlobalThis() {
+      if (typeof globalThis === "object")
+        return;
+      try {
+        Object.defineProperty(Object.prototype, "__magic__", {
+          get: function() {
+            return this;
+          },
+          configurable: true
+        });
+        __magic__.globalThis = __magic__;
+        delete Object.prototype.__magic__;
+      } catch (e) {
+        if (typeof self !== "undefined") {
+          self.globalThis = self;
+        }
+      }
+    }
+    exports.polyfillGlobalThis = polyfillGlobalThis;
+  }
+});
+
+// node_modules/@supabase/gotrue-js/dist/main/GoTrueClient.js
+var require_GoTrueClient = __commonJS({
+  "node_modules/@supabase/gotrue-js/dist/main/GoTrueClient.js"(exports) {
+    init_shims();
+    "use strict";
+    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve2) {
+          resolve2(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve2, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var GoTrueApi_1 = __importDefault(require_GoTrueApi());
+    var helpers_1 = require_helpers2();
+    var constants_1 = require_constants2();
+    var polyfills_1 = require_polyfills();
+    (0, polyfills_1.polyfillGlobalThis)();
+    var DEFAULT_OPTIONS = {
+      url: constants_1.GOTRUE_URL,
+      autoRefreshToken: true,
+      persistSession: true,
+      detectSessionInUrl: true,
+      multiTab: true,
+      headers: constants_1.DEFAULT_HEADERS
+    };
+    var GoTrueClient = class {
+      constructor(options2) {
+        this.stateChangeEmitters = new Map();
+        const settings = Object.assign(Object.assign({}, DEFAULT_OPTIONS), options2);
+        this.currentUser = null;
+        this.currentSession = null;
+        this.autoRefreshToken = settings.autoRefreshToken;
+        this.persistSession = settings.persistSession;
+        this.multiTab = settings.multiTab;
+        this.localStorage = settings.localStorage || globalThis.localStorage;
+        this.api = new GoTrueApi_1.default({
+          url: settings.url,
+          headers: settings.headers,
+          cookieOptions: settings.cookieOptions,
+          fetch: settings.fetch
+        });
+        this._recoverSession();
+        this._recoverAndRefresh();
+        this._listenForMultiTabEvents();
+        if (settings.detectSessionInUrl && (0, helpers_1.isBrowser)() && !!(0, helpers_1.getParameterByName)("access_token")) {
+          this.getSessionFromUrl({ storeSession: true }).then(({ error: error2 }) => {
+            if (error2) {
+              console.error("Error getting session from URL.", error2);
+            }
+          });
+        }
+      }
+      signUp({ email, password, phone }, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            this._removeSession();
+            const { data, error: error2 } = phone && password ? yield this.api.signUpWithPhone(phone, password, {
+              data: options2.data
+            }) : yield this.api.signUpWithEmail(email, password, {
+              redirectTo: options2.redirectTo,
+              data: options2.data
+            });
+            if (error2) {
+              throw error2;
+            }
+            if (!data) {
+              throw "An error occurred on sign up.";
+            }
+            let session = null;
+            let user2 = null;
+            if (data.access_token) {
+              session = data;
+              user2 = session.user;
+              this._saveSession(session);
+              this._notifyAllSubscribers("SIGNED_IN");
+            }
+            if (data.id) {
+              user2 = data;
+            }
+            return { user: user2, session, error: null };
+          } catch (e) {
+            return { user: null, session: null, error: e };
+          }
+        });
+      }
+      signIn({ email, phone, password, refreshToken, provider }, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            this._removeSession();
+            if (email && !password) {
+              const { error: error2 } = yield this.api.sendMagicLinkEmail(email, {
+                redirectTo: options2.redirectTo
+              });
+              return { user: null, session: null, error: error2 };
+            }
+            if (email && password) {
+              return this._handleEmailSignIn(email, password, {
+                redirectTo: options2.redirectTo
+              });
+            }
+            if (phone && !password) {
+              const { error: error2 } = yield this.api.sendMobileOTP(phone);
+              return { user: null, session: null, error: error2 };
+            }
+            if (phone && password) {
+              return this._handlePhoneSignIn(phone, password);
+            }
+            if (refreshToken) {
+              const { error: error2 } = yield this._callRefreshToken(refreshToken);
+              if (error2)
+                throw error2;
+              return {
+                user: this.currentUser,
+                session: this.currentSession,
+                error: null
+              };
+            }
+            if (provider) {
+              return this._handleProviderSignIn(provider, {
+                redirectTo: options2.redirectTo,
+                scopes: options2.scopes
+              });
+            }
+            throw new Error(`You must provide either an email, phone number or a third-party provider.`);
+          } catch (e) {
+            return { user: null, session: null, error: e };
+          }
+        });
+      }
+      verifyOTP({ phone, token }, options2 = {}) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            this._removeSession();
+            const { data, error: error2 } = yield this.api.verifyMobileOTP(phone, token, options2);
+            if (error2) {
+              throw error2;
+            }
+            if (!data) {
+              throw "An error occurred on token verification.";
+            }
+            let session = null;
+            let user2 = null;
+            if (data.access_token) {
+              session = data;
+              user2 = session.user;
+              this._saveSession(session);
+              this._notifyAllSubscribers("SIGNED_IN");
+            }
+            if (data.id) {
+              user2 = data;
+            }
+            return { user: user2, session, error: null };
+          } catch (e) {
+            return { user: null, session: null, error: e };
+          }
+        });
+      }
+      user() {
+        return this.currentUser;
+      }
+      session() {
+        return this.currentSession;
+      }
+      refreshSession() {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            if (!((_a = this.currentSession) === null || _a === void 0 ? void 0 : _a.access_token))
+              throw new Error("Not logged in.");
+            const { error: error2 } = yield this._callRefreshToken();
+            if (error2)
+              throw error2;
+            return { data: this.currentSession, user: this.currentUser, error: null };
+          } catch (e) {
+            return { data: null, user: null, error: e };
+          }
+        });
+      }
+      update(attributes) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            if (!((_a = this.currentSession) === null || _a === void 0 ? void 0 : _a.access_token))
+              throw new Error("Not logged in.");
+            const { user: user2, error: error2 } = yield this.api.updateUser(this.currentSession.access_token, attributes);
+            if (error2)
+              throw error2;
+            if (!user2)
+              throw Error("Invalid user data.");
+            const session = Object.assign(Object.assign({}, this.currentSession), { user: user2 });
+            this._saveSession(session);
+            this._notifyAllSubscribers("USER_UPDATED");
+            return { data: user2, user: user2, error: null };
+          } catch (e) {
+            return { data: null, user: null, error: e };
+          }
+        });
+      }
+      setSession(refresh_token) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            if (!refresh_token) {
+              throw new Error("No current session.");
+            }
+            const { data, error: error2 } = yield this.api.refreshAccessToken(refresh_token);
+            if (error2) {
+              return { session: null, error: error2 };
+            }
+            this._saveSession(data);
+            this._notifyAllSubscribers("SIGNED_IN");
+            return { session: data, error: null };
+          } catch (e) {
+            return { error: e, session: null };
+          }
+        });
+      }
+      setAuth(access_token) {
+        this.currentSession = Object.assign(Object.assign({}, this.currentSession), { access_token, token_type: "bearer", user: null });
+        return this.currentSession;
+      }
+      getSessionFromUrl(options2) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            if (!(0, helpers_1.isBrowser)())
+              throw new Error("No browser detected.");
+            const error_description = (0, helpers_1.getParameterByName)("error_description");
+            if (error_description)
+              throw new Error(error_description);
+            const provider_token = (0, helpers_1.getParameterByName)("provider_token");
+            const access_token = (0, helpers_1.getParameterByName)("access_token");
+            if (!access_token)
+              throw new Error("No access_token detected.");
+            const expires_in = (0, helpers_1.getParameterByName)("expires_in");
+            if (!expires_in)
+              throw new Error("No expires_in detected.");
+            const refresh_token = (0, helpers_1.getParameterByName)("refresh_token");
+            if (!refresh_token)
+              throw new Error("No refresh_token detected.");
+            const token_type = (0, helpers_1.getParameterByName)("token_type");
+            if (!token_type)
+              throw new Error("No token_type detected.");
+            const timeNow = Math.round(Date.now() / 1e3);
+            const expires_at = timeNow + parseInt(expires_in);
+            const { user: user2, error: error2 } = yield this.api.getUser(access_token);
+            if (error2)
+              throw error2;
+            const session = {
+              provider_token,
+              access_token,
+              expires_in: parseInt(expires_in),
+              expires_at,
+              refresh_token,
+              token_type,
+              user: user2
+            };
+            if (options2 === null || options2 === void 0 ? void 0 : options2.storeSession) {
+              this._saveSession(session);
+              const recoveryMode = (0, helpers_1.getParameterByName)("type");
+              this._notifyAllSubscribers("SIGNED_IN");
+              if (recoveryMode === "recovery") {
+                this._notifyAllSubscribers("PASSWORD_RECOVERY");
+              }
+            }
+            window.location.hash = "";
+            return { data: session, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      signOut() {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+          const accessToken = (_a = this.currentSession) === null || _a === void 0 ? void 0 : _a.access_token;
+          this._removeSession();
+          this._notifyAllSubscribers("SIGNED_OUT");
+          if (accessToken) {
+            const { error: error2 } = yield this.api.signOut(accessToken);
+            if (error2)
+              return { error: error2 };
+          }
+          return { error: null };
+        });
+      }
+      onAuthStateChange(callback) {
+        try {
+          const id = (0, helpers_1.uuid)();
+          const subscription = {
+            id,
+            callback,
+            unsubscribe: () => {
+              this.stateChangeEmitters.delete(id);
+            }
+          };
+          this.stateChangeEmitters.set(id, subscription);
+          return { data: subscription, error: null };
+        } catch (e) {
+          return { data: null, error: e };
+        }
+      }
+      _handleEmailSignIn(email, password, options2 = {}) {
+        var _a, _b;
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const { data, error: error2 } = yield this.api.signInWithEmail(email, password, {
+              redirectTo: options2.redirectTo
+            });
+            if (error2 || !data)
+              return { data: null, user: null, session: null, error: error2 };
+            if (((_a = data === null || data === void 0 ? void 0 : data.user) === null || _a === void 0 ? void 0 : _a.confirmed_at) || ((_b = data === null || data === void 0 ? void 0 : data.user) === null || _b === void 0 ? void 0 : _b.email_confirmed_at)) {
+              this._saveSession(data);
+              this._notifyAllSubscribers("SIGNED_IN");
+            }
+            return { data, user: data.user, session: data, error: null };
+          } catch (e) {
+            return { data: null, user: null, session: null, error: e };
+          }
+        });
+      }
+      _handlePhoneSignIn(phone, password) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const { data, error: error2 } = yield this.api.signInWithPhone(phone, password);
+            if (error2 || !data)
+              return { data: null, user: null, session: null, error: error2 };
+            if ((_a = data === null || data === void 0 ? void 0 : data.user) === null || _a === void 0 ? void 0 : _a.phone_confirmed_at) {
+              this._saveSession(data);
+              this._notifyAllSubscribers("SIGNED_IN");
+            }
+            return { data, user: data.user, session: data, error: null };
+          } catch (e) {
+            return { data: null, user: null, session: null, error: e };
+          }
+        });
+      }
+      _handleProviderSignIn(provider, options2 = {}) {
+        const url = this.api.getUrlForProvider(provider, {
+          redirectTo: options2.redirectTo,
+          scopes: options2.scopes
+        });
+        try {
+          if ((0, helpers_1.isBrowser)()) {
+            window.location.href = url;
+          }
+          return { provider, url, data: null, session: null, user: null, error: null };
+        } catch (e) {
+          if (url)
+            return { provider, url, data: null, session: null, user: null, error: null };
+          return { data: null, user: null, session: null, error: e };
+        }
+      }
+      _recoverSession() {
+        var _a;
+        try {
+          const json = (0, helpers_1.isBrowser)() && ((_a = this.localStorage) === null || _a === void 0 ? void 0 : _a.getItem(constants_1.STORAGE_KEY));
+          if (!json || typeof json !== "string") {
+            return null;
+          }
+          const data = JSON.parse(json);
+          const { currentSession, expiresAt } = data;
+          const timeNow = Math.round(Date.now() / 1e3);
+          if (expiresAt >= timeNow && (currentSession === null || currentSession === void 0 ? void 0 : currentSession.user)) {
+            this._saveSession(currentSession);
+            this._notifyAllSubscribers("SIGNED_IN");
+          }
+        } catch (error2) {
+          console.log("error", error2);
+        }
+      }
+      _recoverAndRefresh() {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const json = (0, helpers_1.isBrowser)() && (yield this.localStorage.getItem(constants_1.STORAGE_KEY));
+            if (!json) {
+              return null;
+            }
+            const data = JSON.parse(json);
+            const { currentSession, expiresAt } = data;
+            const timeNow = Math.round(Date.now() / 1e3);
+            if (expiresAt < timeNow) {
+              if (this.autoRefreshToken && currentSession.refresh_token) {
+                const { error: error2 } = yield this._callRefreshToken(currentSession.refresh_token);
+                if (error2) {
+                  console.log(error2.message);
+                  yield this._removeSession();
+                }
+              } else {
+                this._removeSession();
+              }
+            } else if (!currentSession || !currentSession.user) {
+              console.log("Current session is missing data.");
+              this._removeSession();
+            } else {
+              this._saveSession(currentSession);
+              this._notifyAllSubscribers("SIGNED_IN");
+            }
+          } catch (err) {
+            console.error(err);
+            return null;
+          }
+        });
+      }
+      _callRefreshToken(refresh_token) {
+        var _a;
+        if (refresh_token === void 0) {
+          refresh_token = (_a = this.currentSession) === null || _a === void 0 ? void 0 : _a.refresh_token;
+        }
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            if (!refresh_token) {
+              throw new Error("No current session.");
+            }
+            const { data, error: error2 } = yield this.api.refreshAccessToken(refresh_token);
+            if (error2)
+              throw error2;
+            if (!data)
+              throw Error("Invalid session data.");
+            this._saveSession(data);
+            this._notifyAllSubscribers("TOKEN_REFRESHED");
+            this._notifyAllSubscribers("SIGNED_IN");
+            return { data, error: null };
+          } catch (e) {
+            return { data: null, error: e };
+          }
+        });
+      }
+      _notifyAllSubscribers(event) {
+        this.stateChangeEmitters.forEach((x) => x.callback(event, this.currentSession));
+      }
+      _saveSession(session) {
+        this.currentSession = session;
+        this.currentUser = session.user;
+        const expiresAt = session.expires_at;
+        if (expiresAt) {
+          const timeNow = Math.round(Date.now() / 1e3);
+          const expiresIn = expiresAt - timeNow;
+          const refreshDurationBeforeExpires = expiresIn > 60 ? 60 : 0.5;
+          this._startAutoRefreshToken((expiresIn - refreshDurationBeforeExpires) * 1e3);
+        }
+        if (this.persistSession && session.expires_at) {
+          this._persistSession(this.currentSession);
+        }
+      }
+      _persistSession(currentSession) {
+        const data = { currentSession, expiresAt: currentSession.expires_at };
+        (0, helpers_1.isBrowser)() && this.localStorage.setItem(constants_1.STORAGE_KEY, JSON.stringify(data));
+      }
+      _removeSession() {
+        return __awaiter(this, void 0, void 0, function* () {
+          this.currentSession = null;
+          this.currentUser = null;
+          if (this.refreshTokenTimer)
+            clearTimeout(this.refreshTokenTimer);
+          (0, helpers_1.isBrowser)() && (yield this.localStorage.removeItem(constants_1.STORAGE_KEY));
+        });
+      }
+      _startAutoRefreshToken(value) {
+        if (this.refreshTokenTimer)
+          clearTimeout(this.refreshTokenTimer);
+        if (value <= 0 || !this.autoRefreshToken)
+          return;
+        this.refreshTokenTimer = setTimeout(() => this._callRefreshToken(), value);
+        if (typeof this.refreshTokenTimer.unref === "function")
+          this.refreshTokenTimer.unref();
+      }
+      _listenForMultiTabEvents() {
+        if (!this.multiTab || !(0, helpers_1.isBrowser)() || !(window === null || window === void 0 ? void 0 : window.addEventListener)) {
+          return false;
+        }
+        try {
+          window === null || window === void 0 ? void 0 : window.addEventListener("storage", (e) => {
+            var _a;
+            if (e.key === constants_1.STORAGE_KEY) {
+              const newSession = JSON.parse(String(e.newValue));
+              if ((_a = newSession === null || newSession === void 0 ? void 0 : newSession.currentSession) === null || _a === void 0 ? void 0 : _a.access_token) {
+                this._recoverAndRefresh();
+                this._notifyAllSubscribers("SIGNED_IN");
+              } else {
+                this._removeSession();
+                this._notifyAllSubscribers("SIGNED_OUT");
+              }
+            }
+          });
+        } catch (error2) {
+          console.error("_listenForMultiTabEvents", error2);
+        }
+      }
+    };
+    exports.default = GoTrueClient;
+  }
+});
+
+// node_modules/@supabase/gotrue-js/dist/main/lib/types.js
+var require_types = __commonJS({
+  "node_modules/@supabase/gotrue-js/dist/main/lib/types.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+  }
+});
+
+// node_modules/@supabase/gotrue-js/dist/main/index.js
+var require_main = __commonJS({
+  "node_modules/@supabase/gotrue-js/dist/main/index.js"(exports) {
+    init_shims();
+    "use strict";
+    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+        return m[k];
+      } });
+    } : function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      o[k2] = m[k];
+    });
+    var __exportStar = exports && exports.__exportStar || function(m, exports2) {
+      for (var p in m)
+        if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
+          __createBinding(exports2, m, p);
+    };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.GoTrueClient = exports.GoTrueApi = void 0;
+    var GoTrueApi_1 = __importDefault(require_GoTrueApi());
+    exports.GoTrueApi = GoTrueApi_1.default;
+    var GoTrueClient_1 = __importDefault(require_GoTrueClient());
+    exports.GoTrueClient = GoTrueClient_1.default;
+    __exportStar(require_types(), exports);
+  }
+});
+
+// node_modules/@supabase/supabase-js/dist/main/lib/SupabaseAuthClient.js
+var require_SupabaseAuthClient = __commonJS({
+  "node_modules/@supabase/supabase-js/dist/main/lib/SupabaseAuthClient.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.SupabaseAuthClient = void 0;
+    var gotrue_js_1 = require_main();
+    var SupabaseAuthClient = class extends gotrue_js_1.GoTrueClient {
+      constructor(options2) {
+        super(options2);
+      }
+    };
+    exports.SupabaseAuthClient = SupabaseAuthClient;
+  }
+});
+
+// node_modules/@supabase/postgrest-js/dist/main/lib/types.js
+var require_types2 = __commonJS({
+  "node_modules/@supabase/postgrest-js/dist/main/lib/types.js"(exports) {
+    init_shims();
+    "use strict";
+    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve2) {
+          resolve2(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve2, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.PostgrestBuilder = void 0;
+    var cross_fetch_1 = __importDefault(require_node_ponyfill());
+    var PostgrestBuilder = class {
+      constructor(builder) {
+        this.shouldThrowOnError = false;
+        Object.assign(this, builder);
+        this.fetch = builder.fetch || cross_fetch_1.default;
+      }
+      throwOnError() {
+        this.shouldThrowOnError = true;
+        return this;
+      }
+      then(onfulfilled, onrejected) {
+        if (typeof this.schema === "undefined") {
+        } else if (["GET", "HEAD"].includes(this.method)) {
+          this.headers["Accept-Profile"] = this.schema;
+        } else {
+          this.headers["Content-Profile"] = this.schema;
+        }
+        if (this.method !== "GET" && this.method !== "HEAD") {
+          this.headers["Content-Type"] = "application/json";
+        }
+        let res = this.fetch(this.url.toString(), {
+          method: this.method,
+          headers: this.headers,
+          body: JSON.stringify(this.body),
+          signal: this.signal
+        }).then((res2) => __awaiter(this, void 0, void 0, function* () {
+          var _a, _b, _c;
+          let error2 = null;
+          let data = null;
+          let count = null;
+          if (res2.ok) {
+            const isReturnMinimal = (_a = this.headers["Prefer"]) === null || _a === void 0 ? void 0 : _a.split(",").includes("return=minimal");
+            if (this.method !== "HEAD" && !isReturnMinimal) {
+              const text = yield res2.text();
+              if (!text) {
+              } else if (this.headers["Accept"] === "text/csv") {
+                data = text;
+              } else {
+                data = JSON.parse(text);
+              }
+            }
+            const countHeader = (_b = this.headers["Prefer"]) === null || _b === void 0 ? void 0 : _b.match(/count=(exact|planned|estimated)/);
+            const contentRange = (_c = res2.headers.get("content-range")) === null || _c === void 0 ? void 0 : _c.split("/");
+            if (countHeader && contentRange && contentRange.length > 1) {
+              count = parseInt(contentRange[1]);
+            }
+          } else {
+            error2 = yield res2.json();
+            if (error2 && this.shouldThrowOnError) {
+              throw error2;
+            }
+          }
+          const postgrestResponse = {
+            error: error2,
+            data,
+            count,
+            status: res2.status,
+            statusText: res2.statusText,
+            body: data
+          };
+          return postgrestResponse;
+        }));
+        if (!this.shouldThrowOnError) {
+          res = res.catch((fetchError) => ({
+            error: {
+              message: `FetchError: ${fetchError.message}`,
+              details: "",
+              hint: "",
+              code: fetchError.code || ""
+            },
+            data: null,
+            body: null,
+            count: null,
+            status: 400,
+            statusText: "Bad Request"
+          }));
+        }
+        return res.then(onfulfilled, onrejected);
+      }
+    };
+    exports.PostgrestBuilder = PostgrestBuilder;
+  }
+});
+
+// node_modules/@supabase/postgrest-js/dist/main/lib/PostgrestTransformBuilder.js
+var require_PostgrestTransformBuilder = __commonJS({
+  "node_modules/@supabase/postgrest-js/dist/main/lib/PostgrestTransformBuilder.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var types_1 = require_types2();
+    var PostgrestTransformBuilder = class extends types_1.PostgrestBuilder {
+      select(columns = "*") {
+        let quoted = false;
+        const cleanedColumns = columns.split("").map((c) => {
+          if (/\s/.test(c) && !quoted) {
+            return "";
+          }
+          if (c === '"') {
+            quoted = !quoted;
+          }
+          return c;
+        }).join("");
+        this.url.searchParams.set("select", cleanedColumns);
+        return this;
+      }
+      order(column, { ascending = true, nullsFirst = false, foreignTable } = {}) {
+        const key = typeof foreignTable === "undefined" ? "order" : `${foreignTable}.order`;
+        const existingOrder = this.url.searchParams.get(key);
+        this.url.searchParams.set(key, `${existingOrder ? `${existingOrder},` : ""}${column}.${ascending ? "asc" : "desc"}.${nullsFirst ? "nullsfirst" : "nullslast"}`);
+        return this;
+      }
+      limit(count, { foreignTable } = {}) {
+        const key = typeof foreignTable === "undefined" ? "limit" : `${foreignTable}.limit`;
+        this.url.searchParams.set(key, `${count}`);
+        return this;
+      }
+      range(from, to, { foreignTable } = {}) {
+        const keyOffset = typeof foreignTable === "undefined" ? "offset" : `${foreignTable}.offset`;
+        const keyLimit = typeof foreignTable === "undefined" ? "limit" : `${foreignTable}.limit`;
+        this.url.searchParams.set(keyOffset, `${from}`);
+        this.url.searchParams.set(keyLimit, `${to - from + 1}`);
+        return this;
+      }
+      abortSignal(signal) {
+        this.signal = signal;
+        return this;
+      }
+      single() {
+        this.headers["Accept"] = "application/vnd.pgrst.object+json";
+        return this;
+      }
+      maybeSingle() {
+        this.headers["Accept"] = "application/vnd.pgrst.object+json";
+        const _this = new PostgrestTransformBuilder(this);
+        _this.then = (onfulfilled, onrejected) => this.then((res) => {
+          var _a, _b;
+          if ((_b = (_a = res.error) === null || _a === void 0 ? void 0 : _a.details) === null || _b === void 0 ? void 0 : _b.includes("Results contain 0 rows")) {
+            return onfulfilled({
+              error: null,
+              data: null,
+              count: res.count,
+              status: 200,
+              statusText: "OK",
+              body: null
+            });
+          }
+          return onfulfilled(res);
+        }, onrejected);
+        return _this;
+      }
+      csv() {
+        this.headers["Accept"] = "text/csv";
+        return this;
+      }
+    };
+    exports.default = PostgrestTransformBuilder;
+  }
+});
+
+// node_modules/@supabase/postgrest-js/dist/main/lib/PostgrestFilterBuilder.js
+var require_PostgrestFilterBuilder = __commonJS({
+  "node_modules/@supabase/postgrest-js/dist/main/lib/PostgrestFilterBuilder.js"(exports) {
+    init_shims();
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var PostgrestTransformBuilder_1 = __importDefault(require_PostgrestTransformBuilder());
+    var PostgrestFilterBuilder = class extends PostgrestTransformBuilder_1.default {
+      constructor() {
+        super(...arguments);
+        this.cs = this.contains;
+        this.cd = this.containedBy;
+        this.sl = this.rangeLt;
+        this.sr = this.rangeGt;
+        this.nxl = this.rangeGte;
+        this.nxr = this.rangeLte;
+        this.adj = this.rangeAdjacent;
+        this.ov = this.overlaps;
+      }
+      not(column, operator, value) {
+        this.url.searchParams.append(`${column}`, `not.${operator}.${value}`);
+        return this;
+      }
+      or(filters, { foreignTable } = {}) {
+        const key = typeof foreignTable === "undefined" ? "or" : `${foreignTable}.or`;
+        this.url.searchParams.append(key, `(${filters})`);
+        return this;
+      }
+      eq(column, value) {
+        this.url.searchParams.append(`${column}`, `eq.${value}`);
+        return this;
+      }
+      neq(column, value) {
+        this.url.searchParams.append(`${column}`, `neq.${value}`);
+        return this;
+      }
+      gt(column, value) {
+        this.url.searchParams.append(`${column}`, `gt.${value}`);
+        return this;
+      }
+      gte(column, value) {
+        this.url.searchParams.append(`${column}`, `gte.${value}`);
+        return this;
+      }
+      lt(column, value) {
+        this.url.searchParams.append(`${column}`, `lt.${value}`);
+        return this;
+      }
+      lte(column, value) {
+        this.url.searchParams.append(`${column}`, `lte.${value}`);
+        return this;
+      }
+      like(column, pattern) {
+        this.url.searchParams.append(`${column}`, `like.${pattern}`);
+        return this;
+      }
+      ilike(column, pattern) {
+        this.url.searchParams.append(`${column}`, `ilike.${pattern}`);
+        return this;
+      }
+      is(column, value) {
+        this.url.searchParams.append(`${column}`, `is.${value}`);
+        return this;
+      }
+      in(column, values) {
+        const cleanedValues = values.map((s2) => {
+          if (typeof s2 === "string" && new RegExp("[,()]").test(s2))
+            return `"${s2}"`;
+          else
+            return `${s2}`;
+        }).join(",");
+        this.url.searchParams.append(`${column}`, `in.(${cleanedValues})`);
+        return this;
+      }
+      contains(column, value) {
+        if (typeof value === "string") {
+          this.url.searchParams.append(`${column}`, `cs.${value}`);
+        } else if (Array.isArray(value)) {
+          this.url.searchParams.append(`${column}`, `cs.{${value.join(",")}}`);
+        } else {
+          this.url.searchParams.append(`${column}`, `cs.${JSON.stringify(value)}`);
+        }
+        return this;
+      }
+      containedBy(column, value) {
+        if (typeof value === "string") {
+          this.url.searchParams.append(`${column}`, `cd.${value}`);
+        } else if (Array.isArray(value)) {
+          this.url.searchParams.append(`${column}`, `cd.{${value.join(",")}}`);
+        } else {
+          this.url.searchParams.append(`${column}`, `cd.${JSON.stringify(value)}`);
+        }
+        return this;
+      }
+      rangeLt(column, range) {
+        this.url.searchParams.append(`${column}`, `sl.${range}`);
+        return this;
+      }
+      rangeGt(column, range) {
+        this.url.searchParams.append(`${column}`, `sr.${range}`);
+        return this;
+      }
+      rangeGte(column, range) {
+        this.url.searchParams.append(`${column}`, `nxl.${range}`);
+        return this;
+      }
+      rangeLte(column, range) {
+        this.url.searchParams.append(`${column}`, `nxr.${range}`);
+        return this;
+      }
+      rangeAdjacent(column, range) {
+        this.url.searchParams.append(`${column}`, `adj.${range}`);
+        return this;
+      }
+      overlaps(column, value) {
+        if (typeof value === "string") {
+          this.url.searchParams.append(`${column}`, `ov.${value}`);
+        } else {
+          this.url.searchParams.append(`${column}`, `ov.{${value.join(",")}}`);
+        }
+        return this;
+      }
+      textSearch(column, query, { config, type = null } = {}) {
+        let typePart = "";
+        if (type === "plain") {
+          typePart = "pl";
+        } else if (type === "phrase") {
+          typePart = "ph";
+        } else if (type === "websearch") {
+          typePart = "w";
+        }
+        const configPart = config === void 0 ? "" : `(${config})`;
+        this.url.searchParams.append(`${column}`, `${typePart}fts${configPart}.${query}`);
+        return this;
+      }
+      fts(column, query, { config } = {}) {
+        const configPart = typeof config === "undefined" ? "" : `(${config})`;
+        this.url.searchParams.append(`${column}`, `fts${configPart}.${query}`);
+        return this;
+      }
+      plfts(column, query, { config } = {}) {
+        const configPart = typeof config === "undefined" ? "" : `(${config})`;
+        this.url.searchParams.append(`${column}`, `plfts${configPart}.${query}`);
+        return this;
+      }
+      phfts(column, query, { config } = {}) {
+        const configPart = typeof config === "undefined" ? "" : `(${config})`;
+        this.url.searchParams.append(`${column}`, `phfts${configPart}.${query}`);
+        return this;
+      }
+      wfts(column, query, { config } = {}) {
+        const configPart = typeof config === "undefined" ? "" : `(${config})`;
+        this.url.searchParams.append(`${column}`, `wfts${configPart}.${query}`);
+        return this;
+      }
+      filter(column, operator, value) {
+        this.url.searchParams.append(`${column}`, `${operator}.${value}`);
+        return this;
+      }
+      match(query) {
+        Object.keys(query).forEach((key) => {
+          this.url.searchParams.append(`${key}`, `eq.${query[key]}`);
+        });
+        return this;
+      }
+    };
+    exports.default = PostgrestFilterBuilder;
+  }
+});
+
+// node_modules/@supabase/postgrest-js/dist/main/lib/PostgrestQueryBuilder.js
+var require_PostgrestQueryBuilder = __commonJS({
+  "node_modules/@supabase/postgrest-js/dist/main/lib/PostgrestQueryBuilder.js"(exports) {
+    init_shims();
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var types_1 = require_types2();
+    var PostgrestFilterBuilder_1 = __importDefault(require_PostgrestFilterBuilder());
+    var PostgrestQueryBuilder = class extends types_1.PostgrestBuilder {
+      constructor(url, { headers = {}, schema, fetch: fetch2 } = {}) {
+        super({ fetch: fetch2 });
+        this.url = new URL(url);
+        this.headers = Object.assign({}, headers);
+        this.schema = schema;
+      }
+      select(columns = "*", { head = false, count = null } = {}) {
+        this.method = "GET";
+        let quoted = false;
+        const cleanedColumns = columns.split("").map((c) => {
+          if (/\s/.test(c) && !quoted) {
+            return "";
+          }
+          if (c === '"') {
+            quoted = !quoted;
+          }
+          return c;
+        }).join("");
+        this.url.searchParams.set("select", cleanedColumns);
+        if (count) {
+          this.headers["Prefer"] = `count=${count}`;
+        }
+        if (head) {
+          this.method = "HEAD";
+        }
+        return new PostgrestFilterBuilder_1.default(this);
+      }
+      insert(values, { upsert = false, onConflict, returning = "representation", count = null } = {}) {
+        this.method = "POST";
+        const prefersHeaders = [`return=${returning}`];
+        if (upsert)
+          prefersHeaders.push("resolution=merge-duplicates");
+        if (upsert && onConflict !== void 0)
+          this.url.searchParams.set("on_conflict", onConflict);
+        this.body = values;
+        if (count) {
+          prefersHeaders.push(`count=${count}`);
+        }
+        this.headers["Prefer"] = prefersHeaders.join(",");
+        if (Array.isArray(values)) {
+          const columns = values.reduce((acc, x) => acc.concat(Object.keys(x)), []);
+          if (columns.length > 0) {
+            const uniqueColumns = [...new Set(columns)].map((column) => `"${column}"`);
+            this.url.searchParams.set("columns", uniqueColumns.join(","));
+          }
+        }
+        return new PostgrestFilterBuilder_1.default(this);
+      }
+      upsert(values, { onConflict, returning = "representation", count = null, ignoreDuplicates = false } = {}) {
+        this.method = "POST";
+        const prefersHeaders = [
+          `resolution=${ignoreDuplicates ? "ignore" : "merge"}-duplicates`,
+          `return=${returning}`
+        ];
+        if (onConflict !== void 0)
+          this.url.searchParams.set("on_conflict", onConflict);
+        this.body = values;
+        if (count) {
+          prefersHeaders.push(`count=${count}`);
+        }
+        this.headers["Prefer"] = prefersHeaders.join(",");
+        return new PostgrestFilterBuilder_1.default(this);
+      }
+      update(values, { returning = "representation", count = null } = {}) {
+        this.method = "PATCH";
+        const prefersHeaders = [`return=${returning}`];
+        this.body = values;
+        if (count) {
+          prefersHeaders.push(`count=${count}`);
+        }
+        this.headers["Prefer"] = prefersHeaders.join(",");
+        return new PostgrestFilterBuilder_1.default(this);
+      }
+      delete({ returning = "representation", count = null } = {}) {
+        this.method = "DELETE";
+        const prefersHeaders = [`return=${returning}`];
+        if (count) {
+          prefersHeaders.push(`count=${count}`);
+        }
+        this.headers["Prefer"] = prefersHeaders.join(",");
+        return new PostgrestFilterBuilder_1.default(this);
+      }
+    };
+    exports.default = PostgrestQueryBuilder;
+  }
+});
+
+// node_modules/@supabase/postgrest-js/dist/main/lib/PostgrestRpcBuilder.js
+var require_PostgrestRpcBuilder = __commonJS({
+  "node_modules/@supabase/postgrest-js/dist/main/lib/PostgrestRpcBuilder.js"(exports) {
+    init_shims();
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var types_1 = require_types2();
+    var PostgrestFilterBuilder_1 = __importDefault(require_PostgrestFilterBuilder());
+    var PostgrestRpcBuilder = class extends types_1.PostgrestBuilder {
+      constructor(url, { headers = {}, schema, fetch: fetch2 } = {}) {
+        super({ fetch: fetch2 });
+        this.url = new URL(url);
+        this.headers = Object.assign({}, headers);
+        this.schema = schema;
+      }
+      rpc(params, { head = false, count = null } = {}) {
+        if (head) {
+          this.method = "HEAD";
+          if (params) {
+            Object.entries(params).forEach(([name, value]) => {
+              this.url.searchParams.append(name, value);
+            });
+          }
+        } else {
+          this.method = "POST";
+          this.body = params;
+        }
+        if (count) {
+          if (this.headers["Prefer"] !== void 0)
+            this.headers["Prefer"] += `,count=${count}`;
+          else
+            this.headers["Prefer"] = `count=${count}`;
+        }
+        return new PostgrestFilterBuilder_1.default(this);
+      }
+    };
+    exports.default = PostgrestRpcBuilder;
+  }
+});
+
+// node_modules/@supabase/postgrest-js/dist/main/lib/version.js
+var require_version3 = __commonJS({
+  "node_modules/@supabase/postgrest-js/dist/main/lib/version.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.version = void 0;
+    exports.version = "0.35.0";
+  }
+});
+
+// node_modules/@supabase/postgrest-js/dist/main/lib/constants.js
+var require_constants3 = __commonJS({
+  "node_modules/@supabase/postgrest-js/dist/main/lib/constants.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.DEFAULT_HEADERS = void 0;
+    var version_1 = require_version3();
+    exports.DEFAULT_HEADERS = { "X-Client-Info": `postgrest-js/${version_1.version}` };
+  }
+});
+
+// node_modules/@supabase/postgrest-js/dist/main/PostgrestClient.js
+var require_PostgrestClient = __commonJS({
+  "node_modules/@supabase/postgrest-js/dist/main/PostgrestClient.js"(exports) {
+    init_shims();
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var PostgrestQueryBuilder_1 = __importDefault(require_PostgrestQueryBuilder());
+    var PostgrestRpcBuilder_1 = __importDefault(require_PostgrestRpcBuilder());
+    var constants_1 = require_constants3();
+    var PostgrestClient = class {
+      constructor(url, { headers = {}, schema, fetch: fetch2 } = {}) {
+        this.url = url;
+        this.headers = Object.assign(Object.assign({}, constants_1.DEFAULT_HEADERS), headers);
+        this.schema = schema;
+        this.fetch = fetch2;
+      }
+      auth(token) {
+        this.headers["Authorization"] = `Bearer ${token}`;
+        return this;
+      }
+      from(table) {
+        const url = `${this.url}/${table}`;
+        return new PostgrestQueryBuilder_1.default(url, {
+          headers: this.headers,
+          schema: this.schema,
+          fetch: this.fetch
+        });
+      }
+      rpc(fn, params, { head = false, count = null } = {}) {
+        const url = `${this.url}/rpc/${fn}`;
+        return new PostgrestRpcBuilder_1.default(url, {
+          headers: this.headers,
+          schema: this.schema,
+          fetch: this.fetch
+        }).rpc(params, { head, count });
+      }
+    };
+    exports.default = PostgrestClient;
+  }
+});
+
+// node_modules/@supabase/postgrest-js/dist/main/index.js
+var require_main2 = __commonJS({
+  "node_modules/@supabase/postgrest-js/dist/main/index.js"(exports) {
+    init_shims();
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.PostgrestFilterBuilder = exports.PostgrestQueryBuilder = exports.PostgrestBuilder = exports.PostgrestClient = void 0;
+    var PostgrestClient_1 = __importDefault(require_PostgrestClient());
+    exports.PostgrestClient = PostgrestClient_1.default;
+    var PostgrestFilterBuilder_1 = __importDefault(require_PostgrestFilterBuilder());
+    exports.PostgrestFilterBuilder = PostgrestFilterBuilder_1.default;
+    var PostgrestQueryBuilder_1 = __importDefault(require_PostgrestQueryBuilder());
+    exports.PostgrestQueryBuilder = PostgrestQueryBuilder_1.default;
+    var types_1 = require_types2();
+    Object.defineProperty(exports, "PostgrestBuilder", { enumerable: true, get: function() {
+      return types_1.PostgrestBuilder;
+    } });
+  }
+});
+
+// node_modules/@supabase/realtime-js/dist/main/lib/transformers.js
+var require_transformers = __commonJS({
+  "node_modules/@supabase/realtime-js/dist/main/lib/transformers.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.toTimestampString = exports.toArray = exports.toJson = exports.toNumber = exports.toBoolean = exports.convertCell = exports.convertColumn = exports.convertChangeData = exports.PostgresTypes = void 0;
+    var PostgresTypes;
+    (function(PostgresTypes2) {
+      PostgresTypes2["abstime"] = "abstime";
+      PostgresTypes2["bool"] = "bool";
+      PostgresTypes2["date"] = "date";
+      PostgresTypes2["daterange"] = "daterange";
+      PostgresTypes2["float4"] = "float4";
+      PostgresTypes2["float8"] = "float8";
+      PostgresTypes2["int2"] = "int2";
+      PostgresTypes2["int4"] = "int4";
+      PostgresTypes2["int4range"] = "int4range";
+      PostgresTypes2["int8"] = "int8";
+      PostgresTypes2["int8range"] = "int8range";
+      PostgresTypes2["json"] = "json";
+      PostgresTypes2["jsonb"] = "jsonb";
+      PostgresTypes2["money"] = "money";
+      PostgresTypes2["numeric"] = "numeric";
+      PostgresTypes2["oid"] = "oid";
+      PostgresTypes2["reltime"] = "reltime";
+      PostgresTypes2["text"] = "text";
+      PostgresTypes2["time"] = "time";
+      PostgresTypes2["timestamp"] = "timestamp";
+      PostgresTypes2["timestamptz"] = "timestamptz";
+      PostgresTypes2["timetz"] = "timetz";
+      PostgresTypes2["tsrange"] = "tsrange";
+      PostgresTypes2["tstzrange"] = "tstzrange";
+    })(PostgresTypes = exports.PostgresTypes || (exports.PostgresTypes = {}));
+    var convertChangeData = (columns, record, options2 = {}) => {
+      var _a;
+      const skipTypes = (_a = options2.skipTypes) !== null && _a !== void 0 ? _a : [];
+      return Object.keys(record).reduce((acc, rec_key) => {
+        acc[rec_key] = (0, exports.convertColumn)(rec_key, columns, record, skipTypes);
+        return acc;
+      }, {});
+    };
+    exports.convertChangeData = convertChangeData;
+    var convertColumn = (columnName, columns, record, skipTypes) => {
+      const column = columns.find((x) => x.name === columnName);
+      const colType = column === null || column === void 0 ? void 0 : column.type;
+      const value = record[columnName];
+      if (colType && !skipTypes.includes(colType)) {
+        return (0, exports.convertCell)(colType, value);
+      }
+      return noop2(value);
+    };
+    exports.convertColumn = convertColumn;
+    var convertCell = (type, value) => {
+      if (type.charAt(0) === "_") {
+        const dataType = type.slice(1, type.length);
+        return (0, exports.toArray)(value, dataType);
+      }
+      switch (type) {
+        case PostgresTypes.bool:
+          return (0, exports.toBoolean)(value);
+        case PostgresTypes.float4:
+        case PostgresTypes.float8:
+        case PostgresTypes.int2:
+        case PostgresTypes.int4:
+        case PostgresTypes.int8:
+        case PostgresTypes.numeric:
+        case PostgresTypes.oid:
+          return (0, exports.toNumber)(value);
+        case PostgresTypes.json:
+        case PostgresTypes.jsonb:
+          return (0, exports.toJson)(value);
+        case PostgresTypes.timestamp:
+          return (0, exports.toTimestampString)(value);
+        case PostgresTypes.abstime:
+        case PostgresTypes.date:
+        case PostgresTypes.daterange:
+        case PostgresTypes.int4range:
+        case PostgresTypes.int8range:
+        case PostgresTypes.money:
+        case PostgresTypes.reltime:
+        case PostgresTypes.text:
+        case PostgresTypes.time:
+        case PostgresTypes.timestamptz:
+        case PostgresTypes.timetz:
+        case PostgresTypes.tsrange:
+        case PostgresTypes.tstzrange:
+          return noop2(value);
+        default:
+          return noop2(value);
+      }
+    };
+    exports.convertCell = convertCell;
+    var noop2 = (value) => {
+      return value;
+    };
+    var toBoolean = (value) => {
+      switch (value) {
+        case "t":
+          return true;
+        case "f":
+          return false;
+        default:
+          return value;
+      }
+    };
+    exports.toBoolean = toBoolean;
+    var toNumber = (value) => {
+      if (typeof value === "string") {
+        const parsedValue = parseFloat(value);
+        if (!Number.isNaN(parsedValue)) {
+          return parsedValue;
+        }
+      }
+      return value;
+    };
+    exports.toNumber = toNumber;
+    var toJson = (value) => {
+      if (typeof value === "string") {
+        try {
+          return JSON.parse(value);
+        } catch (error2) {
+          console.log(`JSON parse error: ${error2}`);
+          return value;
+        }
+      }
+      return value;
+    };
+    exports.toJson = toJson;
+    var toArray = (value, type) => {
+      if (typeof value !== "string") {
+        return value;
+      }
+      const lastIdx = value.length - 1;
+      const closeBrace = value[lastIdx];
+      const openBrace = value[0];
+      if (openBrace === "{" && closeBrace === "}") {
+        let arr;
+        const valTrim = value.slice(1, lastIdx);
+        try {
+          arr = JSON.parse("[" + valTrim + "]");
+        } catch (_) {
+          arr = valTrim ? valTrim.split(",") : [];
+        }
+        return arr.map((val) => (0, exports.convertCell)(type, val));
+      }
+      return value;
+    };
+    exports.toArray = toArray;
+    var toTimestampString = (value) => {
+      if (typeof value === "string") {
+        return value.replace(" ", "T");
+      }
+      return value;
+    };
+    exports.toTimestampString = toTimestampString;
+  }
+});
+
+// node_modules/@supabase/realtime-js/dist/main/lib/version.js
+var require_version4 = __commonJS({
+  "node_modules/@supabase/realtime-js/dist/main/lib/version.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.version = void 0;
+    exports.version = "1.3.2";
+  }
+});
+
+// node_modules/@supabase/realtime-js/dist/main/lib/constants.js
+var require_constants4 = __commonJS({
+  "node_modules/@supabase/realtime-js/dist/main/lib/constants.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.TRANSPORTS = exports.CHANNEL_EVENTS = exports.CHANNEL_STATES = exports.SOCKET_STATES = exports.WS_CLOSE_NORMAL = exports.DEFAULT_TIMEOUT = exports.VSN = exports.DEFAULT_HEADERS = void 0;
+    var version_1 = require_version4();
+    exports.DEFAULT_HEADERS = { "X-Client-Info": `realtime-js/${version_1.version}` };
+    exports.VSN = "1.0.0";
+    exports.DEFAULT_TIMEOUT = 1e4;
+    exports.WS_CLOSE_NORMAL = 1e3;
+    var SOCKET_STATES;
+    (function(SOCKET_STATES2) {
+      SOCKET_STATES2[SOCKET_STATES2["connecting"] = 0] = "connecting";
+      SOCKET_STATES2[SOCKET_STATES2["open"] = 1] = "open";
+      SOCKET_STATES2[SOCKET_STATES2["closing"] = 2] = "closing";
+      SOCKET_STATES2[SOCKET_STATES2["closed"] = 3] = "closed";
+    })(SOCKET_STATES = exports.SOCKET_STATES || (exports.SOCKET_STATES = {}));
+    var CHANNEL_STATES;
+    (function(CHANNEL_STATES2) {
+      CHANNEL_STATES2["closed"] = "closed";
+      CHANNEL_STATES2["errored"] = "errored";
+      CHANNEL_STATES2["joined"] = "joined";
+      CHANNEL_STATES2["joining"] = "joining";
+      CHANNEL_STATES2["leaving"] = "leaving";
+    })(CHANNEL_STATES = exports.CHANNEL_STATES || (exports.CHANNEL_STATES = {}));
+    var CHANNEL_EVENTS;
+    (function(CHANNEL_EVENTS2) {
+      CHANNEL_EVENTS2["close"] = "phx_close";
+      CHANNEL_EVENTS2["error"] = "phx_error";
+      CHANNEL_EVENTS2["join"] = "phx_join";
+      CHANNEL_EVENTS2["reply"] = "phx_reply";
+      CHANNEL_EVENTS2["leave"] = "phx_leave";
+      CHANNEL_EVENTS2["access_token"] = "access_token";
+    })(CHANNEL_EVENTS = exports.CHANNEL_EVENTS || (exports.CHANNEL_EVENTS = {}));
+    var TRANSPORTS;
+    (function(TRANSPORTS2) {
+      TRANSPORTS2["websocket"] = "websocket";
+    })(TRANSPORTS = exports.TRANSPORTS || (exports.TRANSPORTS = {}));
+  }
+});
+
+// node_modules/@supabase/realtime-js/dist/main/lib/timer.js
+var require_timer = __commonJS({
+  "node_modules/@supabase/realtime-js/dist/main/lib/timer.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var Timer = class {
+      constructor(callback, timerCalc) {
+        this.callback = callback;
+        this.timerCalc = timerCalc;
+        this.timer = void 0;
+        this.tries = 0;
+        this.callback = callback;
+        this.timerCalc = timerCalc;
+      }
+      reset() {
+        this.tries = 0;
+        clearTimeout(this.timer);
+      }
+      scheduleTimeout() {
+        clearTimeout(this.timer);
+        this.timer = setTimeout(() => {
+          this.tries = this.tries + 1;
+          this.callback();
+        }, this.timerCalc(this.tries + 1));
+      }
+    };
+    exports.default = Timer;
+  }
+});
+
+// node_modules/@supabase/realtime-js/dist/main/lib/push.js
+var require_push = __commonJS({
+  "node_modules/@supabase/realtime-js/dist/main/lib/push.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var constants_1 = require_constants4();
+    var Push = class {
+      constructor(channel, event, payload = {}, timeout = constants_1.DEFAULT_TIMEOUT) {
+        this.channel = channel;
+        this.event = event;
+        this.payload = payload;
+        this.timeout = timeout;
+        this.sent = false;
+        this.timeoutTimer = void 0;
+        this.ref = "";
+        this.receivedResp = null;
+        this.recHooks = [];
+        this.refEvent = null;
+      }
+      resend(timeout) {
+        this.timeout = timeout;
+        this._cancelRefEvent();
+        this.ref = "";
+        this.refEvent = null;
+        this.receivedResp = null;
+        this.sent = false;
+        this.send();
+      }
+      send() {
+        if (this._hasReceived("timeout")) {
+          return;
+        }
+        this.startTimeout();
+        this.sent = true;
+        this.channel.socket.push({
+          topic: this.channel.topic,
+          event: this.event,
+          payload: this.payload,
+          ref: this.ref
+        });
+      }
+      receive(status, callback) {
+        var _a;
+        if (this._hasReceived(status)) {
+          callback((_a = this.receivedResp) === null || _a === void 0 ? void 0 : _a.response);
+        }
+        this.recHooks.push({ status, callback });
+        return this;
+      }
+      startTimeout() {
+        if (this.timeoutTimer) {
+          return;
+        }
+        this.ref = this.channel.socket.makeRef();
+        this.refEvent = this.channel.replyEventName(this.ref);
+        this.channel.on(this.refEvent, (payload) => {
+          this._cancelRefEvent();
+          this._cancelTimeout();
+          this.receivedResp = payload;
+          this._matchReceive(payload);
+        });
+        this.timeoutTimer = setTimeout(() => {
+          this.trigger("timeout", {});
+        }, this.timeout);
+      }
+      trigger(status, response) {
+        if (this.refEvent)
+          this.channel.trigger(this.refEvent, { status, response });
+      }
+      destroy() {
+        this._cancelRefEvent();
+        this._cancelTimeout();
+      }
+      _cancelRefEvent() {
+        if (!this.refEvent) {
+          return;
+        }
+        this.channel.off(this.refEvent);
+      }
+      _cancelTimeout() {
+        clearTimeout(this.timeoutTimer);
+        this.timeoutTimer = void 0;
+      }
+      _matchReceive({ status, response }) {
+        this.recHooks.filter((h) => h.status === status).forEach((h) => h.callback(response));
+      }
+      _hasReceived(status) {
+        return this.receivedResp && this.receivedResp.status === status;
+      }
+    };
+    exports.default = Push;
+  }
+});
+
+// node_modules/@supabase/realtime-js/dist/main/RealtimeSubscription.js
+var require_RealtimeSubscription = __commonJS({
+  "node_modules/@supabase/realtime-js/dist/main/RealtimeSubscription.js"(exports) {
+    init_shims();
+    "use strict";
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var constants_1 = require_constants4();
+    var push_1 = __importDefault(require_push());
+    var timer_1 = __importDefault(require_timer());
+    var RealtimeSubscription = class {
+      constructor(topic, params = {}, socket) {
+        this.topic = topic;
+        this.params = params;
+        this.socket = socket;
+        this.bindings = [];
+        this.state = constants_1.CHANNEL_STATES.closed;
+        this.joinedOnce = false;
+        this.pushBuffer = [];
+        this.timeout = this.socket.timeout;
+        this.joinPush = new push_1.default(this, constants_1.CHANNEL_EVENTS.join, this.params, this.timeout);
+        this.rejoinTimer = new timer_1.default(() => this.rejoinUntilConnected(), this.socket.reconnectAfterMs);
+        this.joinPush.receive("ok", () => {
+          this.state = constants_1.CHANNEL_STATES.joined;
+          this.rejoinTimer.reset();
+          this.pushBuffer.forEach((pushEvent) => pushEvent.send());
+          this.pushBuffer = [];
+        });
+        this.onClose(() => {
+          this.rejoinTimer.reset();
+          this.socket.log("channel", `close ${this.topic} ${this.joinRef()}`);
+          this.state = constants_1.CHANNEL_STATES.closed;
+          this.socket.remove(this);
+        });
+        this.onError((reason) => {
+          if (this.isLeaving() || this.isClosed()) {
+            return;
+          }
+          this.socket.log("channel", `error ${this.topic}`, reason);
+          this.state = constants_1.CHANNEL_STATES.errored;
+          this.rejoinTimer.scheduleTimeout();
+        });
+        this.joinPush.receive("timeout", () => {
+          if (!this.isJoining()) {
+            return;
+          }
+          this.socket.log("channel", `timeout ${this.topic}`, this.joinPush.timeout);
+          this.state = constants_1.CHANNEL_STATES.errored;
+          this.rejoinTimer.scheduleTimeout();
+        });
+        this.on(constants_1.CHANNEL_EVENTS.reply, (payload, ref) => {
+          this.trigger(this.replyEventName(ref), payload);
+        });
+      }
+      rejoinUntilConnected() {
+        this.rejoinTimer.scheduleTimeout();
+        if (this.socket.isConnected()) {
+          this.rejoin();
+        }
+      }
+      subscribe(timeout = this.timeout) {
+        if (this.joinedOnce) {
+          throw `tried to subscribe multiple times. 'subscribe' can only be called a single time per channel instance`;
+        } else {
+          this.joinedOnce = true;
+          this.rejoin(timeout);
+          return this.joinPush;
+        }
+      }
+      onClose(callback) {
+        this.on(constants_1.CHANNEL_EVENTS.close, callback);
+      }
+      onError(callback) {
+        this.on(constants_1.CHANNEL_EVENTS.error, (reason) => callback(reason));
+      }
+      on(event, callback) {
+        this.bindings.push({ event, callback });
+      }
+      off(event) {
+        this.bindings = this.bindings.filter((bind) => bind.event !== event);
+      }
+      canPush() {
+        return this.socket.isConnected() && this.isJoined();
+      }
+      push(event, payload, timeout = this.timeout) {
+        if (!this.joinedOnce) {
+          throw `tried to push '${event}' to '${this.topic}' before joining. Use channel.subscribe() before pushing events`;
+        }
+        let pushEvent = new push_1.default(this, event, payload, timeout);
+        if (this.canPush()) {
+          pushEvent.send();
+        } else {
+          pushEvent.startTimeout();
+          this.pushBuffer.push(pushEvent);
+        }
+        return pushEvent;
+      }
+      unsubscribe(timeout = this.timeout) {
+        this.state = constants_1.CHANNEL_STATES.leaving;
+        let onClose = () => {
+          this.socket.log("channel", `leave ${this.topic}`);
+          this.trigger(constants_1.CHANNEL_EVENTS.close, "leave", this.joinRef());
+        };
+        this.joinPush.destroy();
+        let leavePush = new push_1.default(this, constants_1.CHANNEL_EVENTS.leave, {}, timeout);
+        leavePush.receive("ok", () => onClose()).receive("timeout", () => onClose());
+        leavePush.send();
+        if (!this.canPush()) {
+          leavePush.trigger("ok", {});
+        }
+        return leavePush;
+      }
+      onMessage(event, payload, ref) {
+        return payload;
+      }
+      isMember(topic) {
+        return this.topic === topic;
+      }
+      joinRef() {
+        return this.joinPush.ref;
+      }
+      sendJoin(timeout) {
+        this.state = constants_1.CHANNEL_STATES.joining;
+        this.joinPush.resend(timeout);
+      }
+      rejoin(timeout = this.timeout) {
+        if (this.isLeaving()) {
+          return;
+        }
+        this.sendJoin(timeout);
+      }
+      trigger(event, payload, ref) {
+        let { close, error: error2, leave, join } = constants_1.CHANNEL_EVENTS;
+        let events = [close, error2, leave, join];
+        if (ref && events.indexOf(event) >= 0 && ref !== this.joinRef()) {
+          return;
+        }
+        let handledPayload = this.onMessage(event, payload, ref);
+        if (payload && !handledPayload) {
+          throw "channel onMessage callbacks must return the payload, modified or unmodified";
+        }
+        this.bindings.filter((bind) => {
+          if (bind.event === "*") {
+            return event === (payload === null || payload === void 0 ? void 0 : payload.type);
+          } else {
+            return bind.event === event;
+          }
+        }).map((bind) => bind.callback(handledPayload, ref));
+      }
+      replyEventName(ref) {
+        return `chan_reply_${ref}`;
+      }
+      isClosed() {
+        return this.state === constants_1.CHANNEL_STATES.closed;
+      }
+      isErrored() {
+        return this.state === constants_1.CHANNEL_STATES.errored;
+      }
+      isJoined() {
+        return this.state === constants_1.CHANNEL_STATES.joined;
+      }
+      isJoining() {
+        return this.state === constants_1.CHANNEL_STATES.joining;
+      }
+      isLeaving() {
+        return this.state === constants_1.CHANNEL_STATES.leaving;
+      }
+    };
+    exports.default = RealtimeSubscription;
+  }
+});
+
+// node_modules/websocket/node_modules/ms/index.js
+var require_ms = __commonJS({
+  "node_modules/websocket/node_modules/ms/index.js"(exports, module2) {
+    init_shims();
+    var s2 = 1e3;
+    var m = s2 * 60;
+    var h = m * 60;
+    var d2 = h * 24;
+    var y = d2 * 365.25;
+    module2.exports = function(val, options2) {
+      options2 = options2 || {};
+      var type = typeof val;
+      if (type === "string" && val.length > 0) {
+        return parse2(val);
+      } else if (type === "number" && isNaN(val) === false) {
+        return options2.long ? fmtLong(val) : fmtShort(val);
+      }
+      throw new Error("val is not a non-empty string or a valid number. val=" + JSON.stringify(val));
+    };
+    function parse2(str) {
+      str = String(str);
+      if (str.length > 100) {
+        return;
+      }
+      var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(str);
+      if (!match) {
+        return;
+      }
+      var n = parseFloat(match[1]);
+      var type = (match[2] || "ms").toLowerCase();
+      switch (type) {
+        case "years":
+        case "year":
+        case "yrs":
+        case "yr":
+        case "y":
+          return n * y;
+        case "days":
+        case "day":
+        case "d":
+          return n * d2;
+        case "hours":
+        case "hour":
+        case "hrs":
+        case "hr":
+        case "h":
+          return n * h;
+        case "minutes":
+        case "minute":
+        case "mins":
+        case "min":
+        case "m":
+          return n * m;
+        case "seconds":
+        case "second":
+        case "secs":
+        case "sec":
+        case "s":
+          return n * s2;
+        case "milliseconds":
+        case "millisecond":
+        case "msecs":
+        case "msec":
+        case "ms":
+          return n;
+        default:
+          return void 0;
+      }
+    }
+    function fmtShort(ms) {
+      if (ms >= d2) {
+        return Math.round(ms / d2) + "d";
+      }
+      if (ms >= h) {
+        return Math.round(ms / h) + "h";
+      }
+      if (ms >= m) {
+        return Math.round(ms / m) + "m";
+      }
+      if (ms >= s2) {
+        return Math.round(ms / s2) + "s";
+      }
+      return ms + "ms";
+    }
+    function fmtLong(ms) {
+      return plural(ms, d2, "day") || plural(ms, h, "hour") || plural(ms, m, "minute") || plural(ms, s2, "second") || ms + " ms";
+    }
+    function plural(ms, n, name) {
+      if (ms < n) {
+        return;
+      }
+      if (ms < n * 1.5) {
+        return Math.floor(ms / n) + " " + name;
+      }
+      return Math.ceil(ms / n) + " " + name + "s";
+    }
+  }
+});
+
+// node_modules/websocket/node_modules/debug/src/debug.js
+var require_debug = __commonJS({
+  "node_modules/websocket/node_modules/debug/src/debug.js"(exports, module2) {
+    init_shims();
+    exports = module2.exports = createDebug.debug = createDebug["default"] = createDebug;
+    exports.coerce = coerce;
+    exports.disable = disable;
+    exports.enable = enable;
+    exports.enabled = enabled;
+    exports.humanize = require_ms();
+    exports.names = [];
+    exports.skips = [];
+    exports.formatters = {};
+    var prevTime;
+    function selectColor(namespace) {
+      var hash2 = 0, i;
+      for (i in namespace) {
+        hash2 = (hash2 << 5) - hash2 + namespace.charCodeAt(i);
+        hash2 |= 0;
+      }
+      return exports.colors[Math.abs(hash2) % exports.colors.length];
+    }
+    function createDebug(namespace) {
+      function debug() {
+        if (!debug.enabled)
+          return;
+        var self2 = debug;
+        var curr = +new Date();
+        var ms = curr - (prevTime || curr);
+        self2.diff = ms;
+        self2.prev = prevTime;
+        self2.curr = curr;
+        prevTime = curr;
+        var args = new Array(arguments.length);
+        for (var i = 0; i < args.length; i++) {
+          args[i] = arguments[i];
+        }
+        args[0] = exports.coerce(args[0]);
+        if (typeof args[0] !== "string") {
+          args.unshift("%O");
+        }
+        var index = 0;
+        args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format2) {
+          if (match === "%%")
+            return match;
+          index++;
+          var formatter = exports.formatters[format2];
+          if (typeof formatter === "function") {
+            var val = args[index];
+            match = formatter.call(self2, val);
+            args.splice(index, 1);
+            index--;
+          }
+          return match;
+        });
+        exports.formatArgs.call(self2, args);
+        var logFn = debug.log || exports.log || console.log.bind(console);
+        logFn.apply(self2, args);
+      }
+      debug.namespace = namespace;
+      debug.enabled = exports.enabled(namespace);
+      debug.useColors = exports.useColors();
+      debug.color = selectColor(namespace);
+      if (typeof exports.init === "function") {
+        exports.init(debug);
+      }
+      return debug;
+    }
+    function enable(namespaces) {
+      exports.save(namespaces);
+      exports.names = [];
+      exports.skips = [];
+      var split = (typeof namespaces === "string" ? namespaces : "").split(/[\s,]+/);
+      var len = split.length;
+      for (var i = 0; i < len; i++) {
+        if (!split[i])
+          continue;
+        namespaces = split[i].replace(/\*/g, ".*?");
+        if (namespaces[0] === "-") {
+          exports.skips.push(new RegExp("^" + namespaces.substr(1) + "$"));
+        } else {
+          exports.names.push(new RegExp("^" + namespaces + "$"));
+        }
+      }
+    }
+    function disable() {
+      exports.enable("");
+    }
+    function enabled(name) {
+      var i, len;
+      for (i = 0, len = exports.skips.length; i < len; i++) {
+        if (exports.skips[i].test(name)) {
+          return false;
+        }
+      }
+      for (i = 0, len = exports.names.length; i < len; i++) {
+        if (exports.names[i].test(name)) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function coerce(val) {
+      if (val instanceof Error)
+        return val.stack || val.message;
+      return val;
+    }
+  }
+});
+
+// node_modules/websocket/node_modules/debug/src/browser.js
+var require_browser = __commonJS({
+  "node_modules/websocket/node_modules/debug/src/browser.js"(exports, module2) {
+    init_shims();
+    exports = module2.exports = require_debug();
+    exports.log = log;
+    exports.formatArgs = formatArgs;
+    exports.save = save;
+    exports.load = load3;
+    exports.useColors = useColors;
+    exports.storage = typeof chrome != "undefined" && typeof chrome.storage != "undefined" ? chrome.storage.local : localstorage();
+    exports.colors = [
+      "lightseagreen",
+      "forestgreen",
+      "goldenrod",
+      "dodgerblue",
+      "darkorchid",
+      "crimson"
+    ];
+    function useColors() {
+      if (typeof window !== "undefined" && window.process && window.process.type === "renderer") {
+        return true;
+      }
+      return typeof document !== "undefined" && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || typeof window !== "undefined" && window.console && (window.console.firebug || window.console.exception && window.console.table) || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || typeof navigator !== "undefined" && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+    }
+    exports.formatters.j = function(v) {
+      try {
+        return JSON.stringify(v);
+      } catch (err) {
+        return "[UnexpectedJSONParseError]: " + err.message;
+      }
+    };
+    function formatArgs(args) {
+      var useColors2 = this.useColors;
+      args[0] = (useColors2 ? "%c" : "") + this.namespace + (useColors2 ? " %c" : " ") + args[0] + (useColors2 ? "%c " : " ") + "+" + exports.humanize(this.diff);
+      if (!useColors2)
+        return;
+      var c = "color: " + this.color;
+      args.splice(1, 0, c, "color: inherit");
+      var index = 0;
+      var lastC = 0;
+      args[0].replace(/%[a-zA-Z%]/g, function(match) {
+        if (match === "%%")
+          return;
+        index++;
+        if (match === "%c") {
+          lastC = index;
+        }
+      });
+      args.splice(lastC, 0, c);
+    }
+    function log() {
+      return typeof console === "object" && console.log && Function.prototype.apply.call(console.log, console, arguments);
+    }
+    function save(namespaces) {
+      try {
+        if (namespaces == null) {
+          exports.storage.removeItem("debug");
+        } else {
+          exports.storage.debug = namespaces;
+        }
+      } catch (e) {
+      }
+    }
+    function load3() {
+      var r;
+      try {
+        r = exports.storage.debug;
+      } catch (e) {
+      }
+      if (!r && typeof process !== "undefined" && "env" in process) {
+        r = process.env.DEBUG;
+      }
+      return r;
+    }
+    exports.enable(load3());
+    function localstorage() {
+      try {
+        return window.localStorage;
+      } catch (e) {
+      }
+    }
+  }
+});
+
+// node_modules/websocket/node_modules/debug/src/node.js
+var require_node = __commonJS({
+  "node_modules/websocket/node_modules/debug/src/node.js"(exports, module2) {
+    init_shims();
+    var tty = require("tty");
+    var util = require("util");
+    exports = module2.exports = require_debug();
+    exports.init = init2;
+    exports.log = log;
+    exports.formatArgs = formatArgs;
+    exports.save = save;
+    exports.load = load3;
+    exports.useColors = useColors;
+    exports.colors = [6, 2, 3, 4, 5, 1];
+    exports.inspectOpts = Object.keys(process.env).filter(function(key) {
+      return /^debug_/i.test(key);
+    }).reduce(function(obj, key) {
+      var prop = key.substring(6).toLowerCase().replace(/_([a-z])/g, function(_, k) {
+        return k.toUpperCase();
+      });
+      var val = process.env[key];
+      if (/^(yes|on|true|enabled)$/i.test(val))
+        val = true;
+      else if (/^(no|off|false|disabled)$/i.test(val))
+        val = false;
+      else if (val === "null")
+        val = null;
+      else
+        val = Number(val);
+      obj[prop] = val;
+      return obj;
+    }, {});
+    var fd = parseInt(process.env.DEBUG_FD, 10) || 2;
+    if (fd !== 1 && fd !== 2) {
+      util.deprecate(function() {
+      }, "except for stderr(2) and stdout(1), any other usage of DEBUG_FD is deprecated. Override debug.log if you want to use a different log function (https://git.io/debug_fd)")();
+    }
+    var stream = fd === 1 ? process.stdout : fd === 2 ? process.stderr : createWritableStdioStream(fd);
+    function useColors() {
+      return "colors" in exports.inspectOpts ? Boolean(exports.inspectOpts.colors) : tty.isatty(fd);
+    }
+    exports.formatters.o = function(v) {
+      this.inspectOpts.colors = this.useColors;
+      return util.inspect(v, this.inspectOpts).split("\n").map(function(str) {
+        return str.trim();
+      }).join(" ");
+    };
+    exports.formatters.O = function(v) {
+      this.inspectOpts.colors = this.useColors;
+      return util.inspect(v, this.inspectOpts);
+    };
+    function formatArgs(args) {
+      var name = this.namespace;
+      var useColors2 = this.useColors;
+      if (useColors2) {
+        var c = this.color;
+        var prefix = "  [3" + c + ";1m" + name + " [0m";
+        args[0] = prefix + args[0].split("\n").join("\n" + prefix);
+        args.push("[3" + c + "m+" + exports.humanize(this.diff) + "[0m");
+      } else {
+        args[0] = new Date().toUTCString() + " " + name + " " + args[0];
+      }
+    }
+    function log() {
+      return stream.write(util.format.apply(util, arguments) + "\n");
+    }
+    function save(namespaces) {
+      if (namespaces == null) {
+        delete process.env.DEBUG;
+      } else {
+        process.env.DEBUG = namespaces;
+      }
+    }
+    function load3() {
+      return process.env.DEBUG;
+    }
+    function createWritableStdioStream(fd2) {
+      var stream2;
+      var tty_wrap = process.binding("tty_wrap");
+      switch (tty_wrap.guessHandleType(fd2)) {
+        case "TTY":
+          stream2 = new tty.WriteStream(fd2);
+          stream2._type = "tty";
+          if (stream2._handle && stream2._handle.unref) {
+            stream2._handle.unref();
+          }
+          break;
+        case "FILE":
+          var fs = require("fs");
+          stream2 = new fs.SyncWriteStream(fd2, { autoClose: false });
+          stream2._type = "fs";
+          break;
+        case "PIPE":
+        case "TCP":
+          var net = require("net");
+          stream2 = new net.Socket({
+            fd: fd2,
+            readable: false,
+            writable: true
+          });
+          stream2.readable = false;
+          stream2.read = null;
+          stream2._type = "pipe";
+          if (stream2._handle && stream2._handle.unref) {
+            stream2._handle.unref();
+          }
+          break;
+        default:
+          throw new Error("Implement me. Unknown stream file type!");
+      }
+      stream2.fd = fd2;
+      stream2._isStdio = true;
+      return stream2;
+    }
+    function init2(debug) {
+      debug.inspectOpts = {};
+      var keys = Object.keys(exports.inspectOpts);
+      for (var i = 0; i < keys.length; i++) {
+        debug.inspectOpts[keys[i]] = exports.inspectOpts[keys[i]];
+      }
+    }
+    exports.enable(load3());
+  }
+});
+
+// node_modules/websocket/node_modules/debug/src/index.js
+var require_src = __commonJS({
+  "node_modules/websocket/node_modules/debug/src/index.js"(exports, module2) {
+    init_shims();
+    if (typeof process !== "undefined" && process.type === "renderer") {
+      module2.exports = require_browser();
+    } else {
+      module2.exports = require_node();
+    }
+  }
+});
+
+// node_modules/websocket/lib/utils.js
+var require_utils = __commonJS({
+  "node_modules/websocket/lib/utils.js"(exports) {
+    init_shims();
+    var noop2 = exports.noop = function() {
+    };
+    exports.extend = function extend(dest, source) {
+      for (var prop in source) {
+        dest[prop] = source[prop];
+      }
+    };
+    exports.eventEmitterListenerCount = require("events").EventEmitter.listenerCount || function(emitter, type) {
+      return emitter.listeners(type).length;
+    };
+    exports.bufferAllocUnsafe = Buffer.allocUnsafe ? Buffer.allocUnsafe : function oldBufferAllocUnsafe(size) {
+      return new Buffer(size);
+    };
+    exports.bufferFromString = Buffer.from ? Buffer.from : function oldBufferFromString(string, encoding) {
+      return new Buffer(string, encoding);
+    };
+    exports.BufferingLogger = function createBufferingLogger(identifier, uniqueID) {
+      var logFunction = require_src()(identifier);
+      if (logFunction.enabled) {
+        var logger = new BufferingLogger(identifier, uniqueID, logFunction);
+        var debug = logger.log.bind(logger);
+        debug.printOutput = logger.printOutput.bind(logger);
+        debug.enabled = logFunction.enabled;
+        return debug;
+      }
+      logFunction.printOutput = noop2;
+      return logFunction;
+    };
+    function BufferingLogger(identifier, uniqueID, logFunction) {
+      this.logFunction = logFunction;
+      this.identifier = identifier;
+      this.uniqueID = uniqueID;
+      this.buffer = [];
+    }
+    BufferingLogger.prototype.log = function() {
+      this.buffer.push([new Date(), Array.prototype.slice.call(arguments)]);
+      return this;
+    };
+    BufferingLogger.prototype.clear = function() {
+      this.buffer = [];
+      return this;
+    };
+    BufferingLogger.prototype.printOutput = function(logFunction) {
+      if (!logFunction) {
+        logFunction = this.logFunction;
+      }
+      var uniqueID = this.uniqueID;
+      this.buffer.forEach(function(entry) {
+        var date = entry[0].toLocaleString();
+        var args = entry[1].slice();
+        var formatString = args[0];
+        if (formatString !== void 0 && formatString !== null) {
+          formatString = "%s - %s - " + formatString.toString();
+          args.splice(0, 1, formatString, date, uniqueID);
+          logFunction.apply(global, args);
+        }
+      });
+    };
+  }
+});
+
+// node_modules/node-gyp-build/index.js
+var require_node_gyp_build = __commonJS({
+  "node_modules/node-gyp-build/index.js"(exports, module2) {
+    init_shims();
+    var fs = require("fs");
+    var path = require("path");
+    var os = require("os");
+    var runtimeRequire = typeof __webpack_require__ === "function" ? __non_webpack_require__ : require;
+    var vars = process.config && process.config.variables || {};
+    var prebuildsOnly = !!process.env.PREBUILDS_ONLY;
+    var abi = process.versions.modules;
+    var runtime = isElectron() ? "electron" : "node";
+    var arch = os.arch();
+    var platform = os.platform();
+    var libc = process.env.LIBC || (isAlpine(platform) ? "musl" : "glibc");
+    var armv = process.env.ARM_VERSION || (arch === "arm64" ? "8" : vars.arm_version) || "";
+    var uv = (process.versions.uv || "").split(".")[0];
+    module2.exports = load3;
+    function load3(dir) {
+      return runtimeRequire(load3.path(dir));
+    }
+    load3.path = function(dir) {
+      dir = path.resolve(dir || ".");
+      try {
+        var name = runtimeRequire(path.join(dir, "package.json")).name.toUpperCase().replace(/-/g, "_");
+        if (process.env[name + "_PREBUILD"])
+          dir = process.env[name + "_PREBUILD"];
+      } catch (err) {
+      }
+      if (!prebuildsOnly) {
+        var release = getFirst(path.join(dir, "build/Release"), matchBuild);
+        if (release)
+          return release;
+        var debug = getFirst(path.join(dir, "build/Debug"), matchBuild);
+        if (debug)
+          return debug;
+      }
+      var prebuild = resolve2(dir);
+      if (prebuild)
+        return prebuild;
+      var nearby = resolve2(path.dirname(process.execPath));
+      if (nearby)
+        return nearby;
+      var target = [
+        "platform=" + platform,
+        "arch=" + arch,
+        "runtime=" + runtime,
+        "abi=" + abi,
+        "uv=" + uv,
+        armv ? "armv=" + armv : "",
+        "libc=" + libc,
+        "node=" + process.versions.node,
+        process.versions.electron ? "electron=" + process.versions.electron : "",
+        typeof __webpack_require__ === "function" ? "webpack=true" : ""
+      ].filter(Boolean).join(" ");
+      throw new Error("No native build was found for " + target + "\n    loaded from: " + dir + "\n");
+      function resolve2(dir2) {
+        var tuples = readdirSync(path.join(dir2, "prebuilds")).map(parseTuple);
+        var tuple = tuples.filter(matchTuple(platform, arch)).sort(compareTuples)[0];
+        if (!tuple)
+          return;
+        var prebuilds = path.join(dir2, "prebuilds", tuple.name);
+        var parsed = readdirSync(prebuilds).map(parseTags);
+        var candidates = parsed.filter(matchTags(runtime, abi));
+        var winner = candidates.sort(compareTags(runtime))[0];
+        if (winner)
+          return path.join(prebuilds, winner.file);
+      }
+    };
+    function readdirSync(dir) {
+      try {
+        return fs.readdirSync(dir);
+      } catch (err) {
+        return [];
+      }
+    }
+    function getFirst(dir, filter) {
+      var files = readdirSync(dir).filter(filter);
+      return files[0] && path.join(dir, files[0]);
+    }
+    function matchBuild(name) {
+      return /\.node$/.test(name);
+    }
+    function parseTuple(name) {
+      var arr = name.split("-");
+      if (arr.length !== 2)
+        return;
+      var platform2 = arr[0];
+      var architectures = arr[1].split("+");
+      if (!platform2)
+        return;
+      if (!architectures.length)
+        return;
+      if (!architectures.every(Boolean))
+        return;
+      return { name, platform: platform2, architectures };
+    }
+    function matchTuple(platform2, arch2) {
+      return function(tuple) {
+        if (tuple == null)
+          return false;
+        if (tuple.platform !== platform2)
+          return false;
+        return tuple.architectures.includes(arch2);
+      };
+    }
+    function compareTuples(a, b) {
+      return a.architectures.length - b.architectures.length;
+    }
+    function parseTags(file) {
+      var arr = file.split(".");
+      var extension = arr.pop();
+      var tags = { file, specificity: 0 };
+      if (extension !== "node")
+        return;
+      for (var i = 0; i < arr.length; i++) {
+        var tag = arr[i];
+        if (tag === "node" || tag === "electron" || tag === "node-webkit") {
+          tags.runtime = tag;
+        } else if (tag === "napi") {
+          tags.napi = true;
+        } else if (tag.slice(0, 3) === "abi") {
+          tags.abi = tag.slice(3);
+        } else if (tag.slice(0, 2) === "uv") {
+          tags.uv = tag.slice(2);
+        } else if (tag.slice(0, 4) === "armv") {
+          tags.armv = tag.slice(4);
+        } else if (tag === "glibc" || tag === "musl") {
+          tags.libc = tag;
+        } else {
+          continue;
+        }
+        tags.specificity++;
+      }
+      return tags;
+    }
+    function matchTags(runtime2, abi2) {
+      return function(tags) {
+        if (tags == null)
+          return false;
+        if (tags.runtime !== runtime2 && !runtimeAgnostic(tags))
+          return false;
+        if (tags.abi !== abi2 && !tags.napi)
+          return false;
+        if (tags.uv && tags.uv !== uv)
+          return false;
+        if (tags.armv && tags.armv !== armv)
+          return false;
+        if (tags.libc && tags.libc !== libc)
+          return false;
+        return true;
+      };
+    }
+    function runtimeAgnostic(tags) {
+      return tags.runtime === "node" && tags.napi;
+    }
+    function compareTags(runtime2) {
+      return function(a, b) {
+        if (a.runtime !== b.runtime) {
+          return a.runtime === runtime2 ? -1 : 1;
+        } else if (a.abi !== b.abi) {
+          return a.abi ? -1 : 1;
+        } else if (a.specificity !== b.specificity) {
+          return a.specificity > b.specificity ? -1 : 1;
+        } else {
+          return 0;
+        }
+      };
+    }
+    function isElectron() {
+      if (process.versions && process.versions.electron)
+        return true;
+      if (process.env.ELECTRON_RUN_AS_NODE)
+        return true;
+      return typeof window !== "undefined" && window.process && window.process.type === "renderer";
+    }
+    function isAlpine(platform2) {
+      return platform2 === "linux" && fs.existsSync("/etc/alpine-release");
+    }
+    load3.parseTags = parseTags;
+    load3.matchTags = matchTags;
+    load3.compareTags = compareTags;
+    load3.parseTuple = parseTuple;
+    load3.matchTuple = matchTuple;
+    load3.compareTuples = compareTuples;
+  }
+});
+
+// node_modules/bufferutil/fallback.js
+var require_fallback = __commonJS({
+  "node_modules/bufferutil/fallback.js"(exports, module2) {
+    init_shims();
+    "use strict";
+    var mask = (source, mask2, output, offset, length) => {
+      for (var i = 0; i < length; i++) {
+        output[offset + i] = source[i] ^ mask2[i & 3];
+      }
+    };
+    var unmask = (buffer, mask2) => {
+      const length = buffer.length;
+      for (var i = 0; i < length; i++) {
+        buffer[i] ^= mask2[i & 3];
+      }
+    };
+    module2.exports = { mask, unmask };
+  }
+});
+
+// node_modules/bufferutil/index.js
+var require_bufferutil = __commonJS({
+  "node_modules/bufferutil/index.js"(exports, module2) {
+    init_shims();
+    "use strict";
+    try {
+      module2.exports = require_node_gyp_build()(__dirname);
+    } catch (e) {
+      module2.exports = require_fallback();
+    }
+  }
+});
+
+// node_modules/websocket/lib/WebSocketFrame.js
+var require_WebSocketFrame = __commonJS({
+  "node_modules/websocket/lib/WebSocketFrame.js"(exports, module2) {
+    init_shims();
+    var bufferUtil = require_bufferutil();
+    var bufferAllocUnsafe = require_utils().bufferAllocUnsafe;
+    var DECODE_HEADER = 1;
+    var WAITING_FOR_16_BIT_LENGTH = 2;
+    var WAITING_FOR_64_BIT_LENGTH = 3;
+    var WAITING_FOR_MASK_KEY = 4;
+    var WAITING_FOR_PAYLOAD = 5;
+    var COMPLETE = 6;
+    function WebSocketFrame(maskBytes, frameHeader, config) {
+      this.maskBytes = maskBytes;
+      this.frameHeader = frameHeader;
+      this.config = config;
+      this.maxReceivedFrameSize = config.maxReceivedFrameSize;
+      this.protocolError = false;
+      this.frameTooLarge = false;
+      this.invalidCloseFrameLength = false;
+      this.parseState = DECODE_HEADER;
+      this.closeStatus = -1;
+    }
+    WebSocketFrame.prototype.addData = function(bufferList) {
+      if (this.parseState === DECODE_HEADER) {
+        if (bufferList.length >= 2) {
+          bufferList.joinInto(this.frameHeader, 0, 0, 2);
+          bufferList.advance(2);
+          var firstByte = this.frameHeader[0];
+          var secondByte = this.frameHeader[1];
+          this.fin = Boolean(firstByte & 128);
+          this.rsv1 = Boolean(firstByte & 64);
+          this.rsv2 = Boolean(firstByte & 32);
+          this.rsv3 = Boolean(firstByte & 16);
+          this.mask = Boolean(secondByte & 128);
+          this.opcode = firstByte & 15;
+          this.length = secondByte & 127;
+          if (this.opcode >= 8) {
+            if (this.length > 125) {
+              this.protocolError = true;
+              this.dropReason = "Illegal control frame longer than 125 bytes.";
+              return true;
+            }
+            if (!this.fin) {
+              this.protocolError = true;
+              this.dropReason = "Control frames must not be fragmented.";
+              return true;
+            }
+          }
+          if (this.length === 126) {
+            this.parseState = WAITING_FOR_16_BIT_LENGTH;
+          } else if (this.length === 127) {
+            this.parseState = WAITING_FOR_64_BIT_LENGTH;
+          } else {
+            this.parseState = WAITING_FOR_MASK_KEY;
+          }
+        }
+      }
+      if (this.parseState === WAITING_FOR_16_BIT_LENGTH) {
+        if (bufferList.length >= 2) {
+          bufferList.joinInto(this.frameHeader, 2, 0, 2);
+          bufferList.advance(2);
+          this.length = this.frameHeader.readUInt16BE(2);
+          this.parseState = WAITING_FOR_MASK_KEY;
+        }
+      } else if (this.parseState === WAITING_FOR_64_BIT_LENGTH) {
+        if (bufferList.length >= 8) {
+          bufferList.joinInto(this.frameHeader, 2, 0, 8);
+          bufferList.advance(8);
+          var lengthPair = [
+            this.frameHeader.readUInt32BE(2),
+            this.frameHeader.readUInt32BE(2 + 4)
+          ];
+          if (lengthPair[0] !== 0) {
+            this.protocolError = true;
+            this.dropReason = "Unsupported 64-bit length frame received";
+            return true;
+          }
+          this.length = lengthPair[1];
+          this.parseState = WAITING_FOR_MASK_KEY;
+        }
+      }
+      if (this.parseState === WAITING_FOR_MASK_KEY) {
+        if (this.mask) {
+          if (bufferList.length >= 4) {
+            bufferList.joinInto(this.maskBytes, 0, 0, 4);
+            bufferList.advance(4);
+            this.parseState = WAITING_FOR_PAYLOAD;
+          }
+        } else {
+          this.parseState = WAITING_FOR_PAYLOAD;
+        }
+      }
+      if (this.parseState === WAITING_FOR_PAYLOAD) {
+        if (this.length > this.maxReceivedFrameSize) {
+          this.frameTooLarge = true;
+          this.dropReason = "Frame size of " + this.length.toString(10) + " bytes exceeds maximum accepted frame size";
+          return true;
+        }
+        if (this.length === 0) {
+          this.binaryPayload = bufferAllocUnsafe(0);
+          this.parseState = COMPLETE;
+          return true;
+        }
+        if (bufferList.length >= this.length) {
+          this.binaryPayload = bufferList.take(this.length);
+          bufferList.advance(this.length);
+          if (this.mask) {
+            bufferUtil.unmask(this.binaryPayload, this.maskBytes);
+          }
+          if (this.opcode === 8) {
+            if (this.length === 1) {
+              this.binaryPayload = bufferAllocUnsafe(0);
+              this.invalidCloseFrameLength = true;
+            }
+            if (this.length >= 2) {
+              this.closeStatus = this.binaryPayload.readUInt16BE(0);
+              this.binaryPayload = this.binaryPayload.slice(2);
+            }
+          }
+          this.parseState = COMPLETE;
+          return true;
+        }
+      }
+      return false;
+    };
+    WebSocketFrame.prototype.throwAwayPayload = function(bufferList) {
+      if (bufferList.length >= this.length) {
+        bufferList.advance(this.length);
+        this.parseState = COMPLETE;
+        return true;
+      }
+      return false;
+    };
+    WebSocketFrame.prototype.toBuffer = function(nullMask) {
+      var maskKey;
+      var headerLength = 2;
+      var data;
+      var outputPos;
+      var firstByte = 0;
+      var secondByte = 0;
+      if (this.fin) {
+        firstByte |= 128;
+      }
+      if (this.rsv1) {
+        firstByte |= 64;
+      }
+      if (this.rsv2) {
+        firstByte |= 32;
+      }
+      if (this.rsv3) {
+        firstByte |= 16;
+      }
+      if (this.mask) {
+        secondByte |= 128;
+      }
+      firstByte |= this.opcode & 15;
+      if (this.opcode === 8) {
+        this.length = 2;
+        if (this.binaryPayload) {
+          this.length += this.binaryPayload.length;
+        }
+        data = bufferAllocUnsafe(this.length);
+        data.writeUInt16BE(this.closeStatus, 0);
+        if (this.length > 2) {
+          this.binaryPayload.copy(data, 2);
+        }
+      } else if (this.binaryPayload) {
+        data = this.binaryPayload;
+        this.length = data.length;
+      } else {
+        this.length = 0;
+      }
+      if (this.length <= 125) {
+        secondByte |= this.length & 127;
+      } else if (this.length > 125 && this.length <= 65535) {
+        secondByte |= 126;
+        headerLength += 2;
+      } else if (this.length > 65535) {
+        secondByte |= 127;
+        headerLength += 8;
+      }
+      var output = bufferAllocUnsafe(this.length + headerLength + (this.mask ? 4 : 0));
+      output[0] = firstByte;
+      output[1] = secondByte;
+      outputPos = 2;
+      if (this.length > 125 && this.length <= 65535) {
+        output.writeUInt16BE(this.length, outputPos);
+        outputPos += 2;
+      } else if (this.length > 65535) {
+        output.writeUInt32BE(0, outputPos);
+        output.writeUInt32BE(this.length, outputPos + 4);
+        outputPos += 8;
+      }
+      if (this.mask) {
+        maskKey = nullMask ? 0 : Math.random() * 4294967295 >>> 0;
+        this.maskBytes.writeUInt32BE(maskKey, 0);
+        this.maskBytes.copy(output, outputPos);
+        outputPos += 4;
+        if (data) {
+          bufferUtil.mask(data, this.maskBytes, output, outputPos, this.length);
+        }
+      } else if (data) {
+        data.copy(output, outputPos);
+      }
+      return output;
+    };
+    WebSocketFrame.prototype.toString = function() {
+      return "Opcode: " + this.opcode + ", fin: " + this.fin + ", length: " + this.length + ", hasPayload: " + Boolean(this.binaryPayload) + ", masked: " + this.mask;
+    };
+    module2.exports = WebSocketFrame;
+  }
+});
+
+// node_modules/websocket/vendor/FastBufferList.js
+var require_FastBufferList = __commonJS({
+  "node_modules/websocket/vendor/FastBufferList.js"(exports, module2) {
+    init_shims();
+    var Buffer2 = require("buffer").Buffer;
+    var EventEmitter = require("events").EventEmitter;
+    var bufferAllocUnsafe = require_utils().bufferAllocUnsafe;
+    module2.exports = BufferList;
+    module2.exports.BufferList = BufferList;
+    function BufferList(opts) {
+      if (!(this instanceof BufferList))
+        return new BufferList(opts);
+      EventEmitter.call(this);
+      var self2 = this;
+      if (typeof opts == "undefined")
+        opts = {};
+      self2.encoding = opts.encoding;
+      var head = { next: null, buffer: null };
+      var last = { next: null, buffer: null };
+      var length = 0;
+      self2.__defineGetter__("length", function() {
+        return length;
+      });
+      var offset = 0;
+      self2.write = function(buf) {
+        if (!head.buffer) {
+          head.buffer = buf;
+          last = head;
+        } else {
+          last.next = { next: null, buffer: buf };
+          last = last.next;
+        }
+        length += buf.length;
+        self2.emit("write", buf);
+        return true;
+      };
+      self2.end = function(buf) {
+        if (Buffer2.isBuffer(buf))
+          self2.write(buf);
+      };
+      self2.push = function() {
+        var args = [].concat.apply([], arguments);
+        args.forEach(self2.write);
+        return self2;
+      };
+      self2.forEach = function(fn) {
+        if (!head.buffer)
+          return bufferAllocUnsafe(0);
+        if (head.buffer.length - offset <= 0)
+          return self2;
+        var firstBuf = head.buffer.slice(offset);
+        var b = { buffer: firstBuf, next: head.next };
+        while (b && b.buffer) {
+          var r = fn(b.buffer);
+          if (r)
+            break;
+          b = b.next;
+        }
+        return self2;
+      };
+      self2.join = function(start, end) {
+        if (!head.buffer)
+          return bufferAllocUnsafe(0);
+        if (start == void 0)
+          start = 0;
+        if (end == void 0)
+          end = self2.length;
+        var big = bufferAllocUnsafe(end - start);
+        var ix = 0;
+        self2.forEach(function(buffer) {
+          if (start < ix + buffer.length && ix < end) {
+            buffer.copy(big, Math.max(0, ix - start), Math.max(0, start - ix), Math.min(buffer.length, end - ix));
+          }
+          ix += buffer.length;
+          if (ix > end)
+            return true;
+        });
+        return big;
+      };
+      self2.joinInto = function(targetBuffer, targetStart, sourceStart, sourceEnd) {
+        if (!head.buffer)
+          return new bufferAllocUnsafe(0);
+        if (sourceStart == void 0)
+          sourceStart = 0;
+        if (sourceEnd == void 0)
+          sourceEnd = self2.length;
+        var big = targetBuffer;
+        if (big.length - targetStart < sourceEnd - sourceStart) {
+          throw new Error("Insufficient space available in target Buffer.");
+        }
+        var ix = 0;
+        self2.forEach(function(buffer) {
+          if (sourceStart < ix + buffer.length && ix < sourceEnd) {
+            buffer.copy(big, Math.max(targetStart, targetStart + ix - sourceStart), Math.max(0, sourceStart - ix), Math.min(buffer.length, sourceEnd - ix));
+          }
+          ix += buffer.length;
+          if (ix > sourceEnd)
+            return true;
+        });
+        return big;
+      };
+      self2.advance = function(n) {
+        offset += n;
+        length -= n;
+        while (head.buffer && offset >= head.buffer.length) {
+          offset -= head.buffer.length;
+          head = head.next ? head.next : { buffer: null, next: null };
+        }
+        if (head.buffer === null)
+          last = { next: null, buffer: null };
+        self2.emit("advance", n);
+        return self2;
+      };
+      self2.take = function(n, encoding) {
+        if (n == void 0)
+          n = self2.length;
+        else if (typeof n !== "number") {
+          encoding = n;
+          n = self2.length;
+        }
+        var b = head;
+        if (!encoding)
+          encoding = self2.encoding;
+        if (encoding) {
+          var acc = "";
+          self2.forEach(function(buffer) {
+            if (n <= 0)
+              return true;
+            acc += buffer.toString(encoding, 0, Math.min(n, buffer.length));
+            n -= buffer.length;
+          });
+          return acc;
+        } else {
+          return self2.join(0, n);
+        }
+      };
+      self2.toString = function() {
+        return self2.take("binary");
+      };
+    }
+    require("util").inherits(BufferList, EventEmitter);
+  }
+});
+
+// node_modules/utf-8-validate/fallback.js
+var require_fallback2 = __commonJS({
+  "node_modules/utf-8-validate/fallback.js"(exports, module2) {
+    init_shims();
+    "use strict";
+    function isValidUTF8(buf) {
+      const len = buf.length;
+      let i = 0;
+      while (i < len) {
+        if ((buf[i] & 128) === 0) {
+          i++;
+        } else if ((buf[i] & 224) === 192) {
+          if (i + 1 === len || (buf[i + 1] & 192) !== 128 || (buf[i] & 254) === 192) {
+            return false;
+          }
+          i += 2;
+        } else if ((buf[i] & 240) === 224) {
+          if (i + 2 >= len || (buf[i + 1] & 192) !== 128 || (buf[i + 2] & 192) !== 128 || buf[i] === 224 && (buf[i + 1] & 224) === 128 || buf[i] === 237 && (buf[i + 1] & 224) === 160) {
+            return false;
+          }
+          i += 3;
+        } else if ((buf[i] & 248) === 240) {
+          if (i + 3 >= len || (buf[i + 1] & 192) !== 128 || (buf[i + 2] & 192) !== 128 || (buf[i + 3] & 192) !== 128 || buf[i] === 240 && (buf[i + 1] & 240) === 128 || buf[i] === 244 && buf[i + 1] > 143 || buf[i] > 244) {
+            return false;
+          }
+          i += 4;
+        } else {
+          return false;
+        }
+      }
+      return true;
+    }
+    module2.exports = isValidUTF8;
+  }
+});
+
+// node_modules/utf-8-validate/index.js
+var require_utf_8_validate = __commonJS({
+  "node_modules/utf-8-validate/index.js"(exports, module2) {
+    init_shims();
+    "use strict";
+    try {
+      module2.exports = require_node_gyp_build()(__dirname);
+    } catch (e) {
+      module2.exports = require_fallback2();
+    }
+  }
+});
+
+// node_modules/websocket/lib/WebSocketConnection.js
+var require_WebSocketConnection = __commonJS({
+  "node_modules/websocket/lib/WebSocketConnection.js"(exports, module2) {
+    init_shims();
+    var util = require("util");
+    var utils = require_utils();
+    var EventEmitter = require("events").EventEmitter;
+    var WebSocketFrame = require_WebSocketFrame();
+    var BufferList = require_FastBufferList();
+    var isValidUTF8 = require_utf_8_validate();
+    var bufferAllocUnsafe = utils.bufferAllocUnsafe;
+    var bufferFromString = utils.bufferFromString;
+    var STATE_OPEN = "open";
+    var STATE_PEER_REQUESTED_CLOSE = "peer_requested_close";
+    var STATE_ENDING = "ending";
+    var STATE_CLOSED = "closed";
+    var setImmediateImpl = "setImmediate" in global ? global.setImmediate.bind(global) : process.nextTick.bind(process);
+    var idCounter = 0;
+    function WebSocketConnection(socket, extensions, protocol, maskOutgoingPackets, config) {
+      this._debug = utils.BufferingLogger("websocket:connection", ++idCounter);
+      this._debug("constructor");
+      if (this._debug.enabled) {
+        instrumentSocketForDebugging(this, socket);
+      }
+      EventEmitter.call(this);
+      this._pingListenerCount = 0;
+      this.on("newListener", function(ev) {
+        if (ev === "ping") {
+          this._pingListenerCount++;
+        }
+      }).on("removeListener", function(ev) {
+        if (ev === "ping") {
+          this._pingListenerCount--;
+        }
+      });
+      this.config = config;
+      this.socket = socket;
+      this.protocol = protocol;
+      this.extensions = extensions;
+      this.remoteAddress = socket.remoteAddress;
+      this.closeReasonCode = -1;
+      this.closeDescription = null;
+      this.closeEventEmitted = false;
+      this.maskOutgoingPackets = maskOutgoingPackets;
+      this.maskBytes = bufferAllocUnsafe(4);
+      this.frameHeader = bufferAllocUnsafe(10);
+      this.bufferList = new BufferList();
+      this.currentFrame = new WebSocketFrame(this.maskBytes, this.frameHeader, this.config);
+      this.fragmentationSize = 0;
+      this.frameQueue = [];
+      this.connected = true;
+      this.state = STATE_OPEN;
+      this.waitingForCloseResponse = false;
+      this.receivedEnd = false;
+      this.closeTimeout = this.config.closeTimeout;
+      this.assembleFragments = this.config.assembleFragments;
+      this.maxReceivedMessageSize = this.config.maxReceivedMessageSize;
+      this.outputBufferFull = false;
+      this.inputPaused = false;
+      this.receivedDataHandler = this.processReceivedData.bind(this);
+      this._closeTimerHandler = this.handleCloseTimer.bind(this);
+      this.socket.setNoDelay(this.config.disableNagleAlgorithm);
+      this.socket.setTimeout(0);
+      if (this.config.keepalive && !this.config.useNativeKeepalive) {
+        if (typeof this.config.keepaliveInterval !== "number") {
+          throw new Error("keepaliveInterval must be specified and numeric if keepalive is true.");
+        }
+        this._keepaliveTimerHandler = this.handleKeepaliveTimer.bind(this);
+        this.setKeepaliveTimer();
+        if (this.config.dropConnectionOnKeepaliveTimeout) {
+          if (typeof this.config.keepaliveGracePeriod !== "number") {
+            throw new Error("keepaliveGracePeriod  must be specified and numeric if dropConnectionOnKeepaliveTimeout is true.");
+          }
+          this._gracePeriodTimerHandler = this.handleGracePeriodTimer.bind(this);
+        }
+      } else if (this.config.keepalive && this.config.useNativeKeepalive) {
+        if (!("setKeepAlive" in this.socket)) {
+          throw new Error("Unable to use native keepalive: unsupported by this version of Node.");
+        }
+        this.socket.setKeepAlive(true, this.config.keepaliveInterval);
+      }
+      this.socket.removeAllListeners("error");
+    }
+    WebSocketConnection.CLOSE_REASON_NORMAL = 1e3;
+    WebSocketConnection.CLOSE_REASON_GOING_AWAY = 1001;
+    WebSocketConnection.CLOSE_REASON_PROTOCOL_ERROR = 1002;
+    WebSocketConnection.CLOSE_REASON_UNPROCESSABLE_INPUT = 1003;
+    WebSocketConnection.CLOSE_REASON_RESERVED = 1004;
+    WebSocketConnection.CLOSE_REASON_NOT_PROVIDED = 1005;
+    WebSocketConnection.CLOSE_REASON_ABNORMAL = 1006;
+    WebSocketConnection.CLOSE_REASON_INVALID_DATA = 1007;
+    WebSocketConnection.CLOSE_REASON_POLICY_VIOLATION = 1008;
+    WebSocketConnection.CLOSE_REASON_MESSAGE_TOO_BIG = 1009;
+    WebSocketConnection.CLOSE_REASON_EXTENSION_REQUIRED = 1010;
+    WebSocketConnection.CLOSE_REASON_INTERNAL_SERVER_ERROR = 1011;
+    WebSocketConnection.CLOSE_REASON_TLS_HANDSHAKE_FAILED = 1015;
+    WebSocketConnection.CLOSE_DESCRIPTIONS = {
+      1e3: "Normal connection closure",
+      1001: "Remote peer is going away",
+      1002: "Protocol error",
+      1003: "Unprocessable input",
+      1004: "Reserved",
+      1005: "Reason not provided",
+      1006: "Abnormal closure, no further detail available",
+      1007: "Invalid data received",
+      1008: "Policy violation",
+      1009: "Message too big",
+      1010: "Extension requested by client is required",
+      1011: "Internal Server Error",
+      1015: "TLS Handshake Failed"
+    };
+    function validateCloseReason(code) {
+      if (code < 1e3) {
+        return false;
+      }
+      if (code >= 1e3 && code <= 2999) {
+        return [1e3, 1001, 1002, 1003, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015].indexOf(code) !== -1;
+      }
+      if (code >= 3e3 && code <= 3999) {
+        return true;
+      }
+      if (code >= 4e3 && code <= 4999) {
+        return true;
+      }
+      if (code >= 5e3) {
+        return false;
+      }
+    }
+    util.inherits(WebSocketConnection, EventEmitter);
+    WebSocketConnection.prototype._addSocketEventListeners = function() {
+      this.socket.on("error", this.handleSocketError.bind(this));
+      this.socket.on("end", this.handleSocketEnd.bind(this));
+      this.socket.on("close", this.handleSocketClose.bind(this));
+      this.socket.on("drain", this.handleSocketDrain.bind(this));
+      this.socket.on("pause", this.handleSocketPause.bind(this));
+      this.socket.on("resume", this.handleSocketResume.bind(this));
+      this.socket.on("data", this.handleSocketData.bind(this));
+    };
+    WebSocketConnection.prototype.setKeepaliveTimer = function() {
+      this._debug("setKeepaliveTimer");
+      if (!this.config.keepalive || this.config.useNativeKeepalive) {
+        return;
+      }
+      this.clearKeepaliveTimer();
+      this.clearGracePeriodTimer();
+      this._keepaliveTimeoutID = setTimeout(this._keepaliveTimerHandler, this.config.keepaliveInterval);
+    };
+    WebSocketConnection.prototype.clearKeepaliveTimer = function() {
+      if (this._keepaliveTimeoutID) {
+        clearTimeout(this._keepaliveTimeoutID);
+      }
+    };
+    WebSocketConnection.prototype.handleKeepaliveTimer = function() {
+      this._debug("handleKeepaliveTimer");
+      this._keepaliveTimeoutID = null;
+      this.ping();
+      if (this.config.dropConnectionOnKeepaliveTimeout) {
+        this.setGracePeriodTimer();
+      } else {
+        this.setKeepaliveTimer();
+      }
+    };
+    WebSocketConnection.prototype.setGracePeriodTimer = function() {
+      this._debug("setGracePeriodTimer");
+      this.clearGracePeriodTimer();
+      this._gracePeriodTimeoutID = setTimeout(this._gracePeriodTimerHandler, this.config.keepaliveGracePeriod);
+    };
+    WebSocketConnection.prototype.clearGracePeriodTimer = function() {
+      if (this._gracePeriodTimeoutID) {
+        clearTimeout(this._gracePeriodTimeoutID);
+      }
+    };
+    WebSocketConnection.prototype.handleGracePeriodTimer = function() {
+      this._debug("handleGracePeriodTimer");
+      this._gracePeriodTimeoutID = null;
+      this.drop(WebSocketConnection.CLOSE_REASON_ABNORMAL, "Peer not responding.", true);
+    };
+    WebSocketConnection.prototype.handleSocketData = function(data) {
+      this._debug("handleSocketData");
+      this.setKeepaliveTimer();
+      this.bufferList.write(data);
+      this.processReceivedData();
+    };
+    WebSocketConnection.prototype.processReceivedData = function() {
+      this._debug("processReceivedData");
+      if (!this.connected) {
+        return;
+      }
+      if (this.inputPaused) {
+        return;
+      }
+      var frame = this.currentFrame;
+      if (!frame.addData(this.bufferList)) {
+        this._debug("-- insufficient data for frame");
+        return;
+      }
+      var self2 = this;
+      if (frame.protocolError) {
+        this._debug("-- protocol error");
+        process.nextTick(function() {
+          self2.drop(WebSocketConnection.CLOSE_REASON_PROTOCOL_ERROR, frame.dropReason);
+        });
+        return;
+      } else if (frame.frameTooLarge) {
+        this._debug("-- frame too large");
+        process.nextTick(function() {
+          self2.drop(WebSocketConnection.CLOSE_REASON_MESSAGE_TOO_BIG, frame.dropReason);
+        });
+        return;
+      }
+      if (frame.rsv1 || frame.rsv2 || frame.rsv3) {
+        this._debug("-- illegal rsv flag");
+        process.nextTick(function() {
+          self2.drop(WebSocketConnection.CLOSE_REASON_PROTOCOL_ERROR, "Unsupported usage of rsv bits without negotiated extension.");
+        });
+        return;
+      }
+      if (!this.assembleFragments) {
+        this._debug("-- emitting frame");
+        process.nextTick(function() {
+          self2.emit("frame", frame);
+        });
+      }
+      process.nextTick(function() {
+        self2.processFrame(frame);
+      });
+      this.currentFrame = new WebSocketFrame(this.maskBytes, this.frameHeader, this.config);
+      if (this.bufferList.length > 0) {
+        setImmediateImpl(this.receivedDataHandler);
+      }
+    };
+    WebSocketConnection.prototype.handleSocketError = function(error2) {
+      this._debug("handleSocketError: %j", error2);
+      if (this.state === STATE_CLOSED) {
+        this._debug("  --- Socket 'error' after 'close'");
+        return;
+      }
+      this.closeReasonCode = WebSocketConnection.CLOSE_REASON_ABNORMAL;
+      this.closeDescription = "Socket Error: " + error2.syscall + " " + error2.code;
+      this.connected = false;
+      this.state = STATE_CLOSED;
+      this.fragmentationSize = 0;
+      if (utils.eventEmitterListenerCount(this, "error") > 0) {
+        this.emit("error", error2);
+      }
+      this.socket.destroy();
+      this._debug.printOutput();
+    };
+    WebSocketConnection.prototype.handleSocketEnd = function() {
+      this._debug("handleSocketEnd: received socket end.  state = %s", this.state);
+      this.receivedEnd = true;
+      if (this.state === STATE_CLOSED) {
+        this._debug("  --- Socket 'end' after 'close'");
+        return;
+      }
+      if (this.state !== STATE_PEER_REQUESTED_CLOSE && this.state !== STATE_ENDING) {
+        this._debug("  --- UNEXPECTED socket end.");
+        this.socket.end();
+      }
+    };
+    WebSocketConnection.prototype.handleSocketClose = function(hadError) {
+      this._debug("handleSocketClose: received socket close");
+      this.socketHadError = hadError;
+      this.connected = false;
+      this.state = STATE_CLOSED;
+      if (this.closeReasonCode === -1) {
+        this.closeReasonCode = WebSocketConnection.CLOSE_REASON_ABNORMAL;
+        this.closeDescription = "Connection dropped by remote peer.";
+      }
+      this.clearCloseTimer();
+      this.clearKeepaliveTimer();
+      this.clearGracePeriodTimer();
+      if (!this.closeEventEmitted) {
+        this.closeEventEmitted = true;
+        this._debug("-- Emitting WebSocketConnection close event");
+        this.emit("close", this.closeReasonCode, this.closeDescription);
+      }
+    };
+    WebSocketConnection.prototype.handleSocketDrain = function() {
+      this._debug("handleSocketDrain: socket drain event");
+      this.outputBufferFull = false;
+      this.emit("drain");
+    };
+    WebSocketConnection.prototype.handleSocketPause = function() {
+      this._debug("handleSocketPause: socket pause event");
+      this.inputPaused = true;
+      this.emit("pause");
+    };
+    WebSocketConnection.prototype.handleSocketResume = function() {
+      this._debug("handleSocketResume: socket resume event");
+      this.inputPaused = false;
+      this.emit("resume");
+      this.processReceivedData();
+    };
+    WebSocketConnection.prototype.pause = function() {
+      this._debug("pause: pause requested");
+      this.socket.pause();
+    };
+    WebSocketConnection.prototype.resume = function() {
+      this._debug("resume: resume requested");
+      this.socket.resume();
+    };
+    WebSocketConnection.prototype.close = function(reasonCode, description) {
+      if (this.connected) {
+        this._debug("close: Initating clean WebSocket close sequence.");
+        if (typeof reasonCode !== "number") {
+          reasonCode = WebSocketConnection.CLOSE_REASON_NORMAL;
+        }
+        if (!validateCloseReason(reasonCode)) {
+          throw new Error("Close code " + reasonCode + " is not valid.");
+        }
+        if (typeof description !== "string") {
+          description = WebSocketConnection.CLOSE_DESCRIPTIONS[reasonCode];
+        }
+        this.closeReasonCode = reasonCode;
+        this.closeDescription = description;
+        this.setCloseTimer();
+        this.sendCloseFrame(this.closeReasonCode, this.closeDescription);
+        this.state = STATE_ENDING;
+        this.connected = false;
+      }
+    };
+    WebSocketConnection.prototype.drop = function(reasonCode, description, skipCloseFrame) {
+      this._debug("drop");
+      if (typeof reasonCode !== "number") {
+        reasonCode = WebSocketConnection.CLOSE_REASON_PROTOCOL_ERROR;
+      }
+      if (typeof description !== "string") {
+        description = WebSocketConnection.CLOSE_DESCRIPTIONS[reasonCode];
+      }
+      this._debug("Forcefully dropping connection. skipCloseFrame: %s, code: %d, description: %s", skipCloseFrame, reasonCode, description);
+      this.closeReasonCode = reasonCode;
+      this.closeDescription = description;
+      this.frameQueue = [];
+      this.fragmentationSize = 0;
+      if (!skipCloseFrame) {
+        this.sendCloseFrame(reasonCode, description);
+      }
+      this.connected = false;
+      this.state = STATE_CLOSED;
+      this.clearCloseTimer();
+      this.clearKeepaliveTimer();
+      this.clearGracePeriodTimer();
+      if (!this.closeEventEmitted) {
+        this.closeEventEmitted = true;
+        this._debug("Emitting WebSocketConnection close event");
+        this.emit("close", this.closeReasonCode, this.closeDescription);
+      }
+      this._debug("Drop: destroying socket");
+      this.socket.destroy();
+    };
+    WebSocketConnection.prototype.setCloseTimer = function() {
+      this._debug("setCloseTimer");
+      this.clearCloseTimer();
+      this._debug("Setting close timer");
+      this.waitingForCloseResponse = true;
+      this.closeTimer = setTimeout(this._closeTimerHandler, this.closeTimeout);
+    };
+    WebSocketConnection.prototype.clearCloseTimer = function() {
+      this._debug("clearCloseTimer");
+      if (this.closeTimer) {
+        this._debug("Clearing close timer");
+        clearTimeout(this.closeTimer);
+        this.waitingForCloseResponse = false;
+        this.closeTimer = null;
+      }
+    };
+    WebSocketConnection.prototype.handleCloseTimer = function() {
+      this._debug("handleCloseTimer");
+      this.closeTimer = null;
+      if (this.waitingForCloseResponse) {
+        this._debug("Close response not received from client.  Forcing socket end.");
+        this.waitingForCloseResponse = false;
+        this.state = STATE_CLOSED;
+        this.socket.end();
+      }
+    };
+    WebSocketConnection.prototype.processFrame = function(frame) {
+      this._debug("processFrame");
+      this._debug(" -- frame: %s", frame);
+      if (this.frameQueue.length !== 0 && (frame.opcode > 0 && frame.opcode < 8)) {
+        this.drop(WebSocketConnection.CLOSE_REASON_PROTOCOL_ERROR, "Illegal frame opcode 0x" + frame.opcode.toString(16) + " received in middle of fragmented message.");
+        return;
+      }
+      switch (frame.opcode) {
+        case 2:
+          this._debug("-- Binary Frame");
+          if (this.assembleFragments) {
+            if (frame.fin) {
+              this._debug("---- Emitting 'message' event");
+              this.emit("message", {
+                type: "binary",
+                binaryData: frame.binaryPayload
+              });
+            } else {
+              this.frameQueue.push(frame);
+              this.fragmentationSize = frame.length;
+            }
+          }
+          break;
+        case 1:
+          this._debug("-- Text Frame");
+          if (this.assembleFragments) {
+            if (frame.fin) {
+              if (!isValidUTF8(frame.binaryPayload)) {
+                this.drop(WebSocketConnection.CLOSE_REASON_INVALID_DATA, "Invalid UTF-8 Data Received");
+                return;
+              }
+              this._debug("---- Emitting 'message' event");
+              this.emit("message", {
+                type: "utf8",
+                utf8Data: frame.binaryPayload.toString("utf8")
+              });
+            } else {
+              this.frameQueue.push(frame);
+              this.fragmentationSize = frame.length;
+            }
+          }
+          break;
+        case 0:
+          this._debug("-- Continuation Frame");
+          if (this.assembleFragments) {
+            if (this.frameQueue.length === 0) {
+              this.drop(WebSocketConnection.CLOSE_REASON_PROTOCOL_ERROR, "Unexpected Continuation Frame");
+              return;
+            }
+            this.fragmentationSize += frame.length;
+            if (this.fragmentationSize > this.maxReceivedMessageSize) {
+              this.drop(WebSocketConnection.CLOSE_REASON_MESSAGE_TOO_BIG, "Maximum message size exceeded.");
+              return;
+            }
+            this.frameQueue.push(frame);
+            if (frame.fin) {
+              var bytesCopied = 0;
+              var binaryPayload = bufferAllocUnsafe(this.fragmentationSize);
+              var opcode = this.frameQueue[0].opcode;
+              this.frameQueue.forEach(function(currentFrame) {
+                currentFrame.binaryPayload.copy(binaryPayload, bytesCopied);
+                bytesCopied += currentFrame.binaryPayload.length;
+              });
+              this.frameQueue = [];
+              this.fragmentationSize = 0;
+              switch (opcode) {
+                case 2:
+                  this.emit("message", {
+                    type: "binary",
+                    binaryData: binaryPayload
+                  });
+                  break;
+                case 1:
+                  if (!isValidUTF8(binaryPayload)) {
+                    this.drop(WebSocketConnection.CLOSE_REASON_INVALID_DATA, "Invalid UTF-8 Data Received");
+                    return;
+                  }
+                  this.emit("message", {
+                    type: "utf8",
+                    utf8Data: binaryPayload.toString("utf8")
+                  });
+                  break;
+                default:
+                  this.drop(WebSocketConnection.CLOSE_REASON_PROTOCOL_ERROR, "Unexpected first opcode in fragmentation sequence: 0x" + opcode.toString(16));
+                  return;
+              }
+            }
+          }
+          break;
+        case 9:
+          this._debug("-- Ping Frame");
+          if (this._pingListenerCount > 0) {
+            var cancelled = false;
+            var cancel = function() {
+              cancelled = true;
+            };
+            this.emit("ping", cancel, frame.binaryPayload);
+            if (!cancelled) {
+              this.pong(frame.binaryPayload);
+            }
+          } else {
+            this.pong(frame.binaryPayload);
+          }
+          break;
+        case 10:
+          this._debug("-- Pong Frame");
+          this.emit("pong", frame.binaryPayload);
+          break;
+        case 8:
+          this._debug("-- Close Frame");
+          if (this.waitingForCloseResponse) {
+            this._debug("---- Got close response from peer.  Completing closing handshake.");
+            this.clearCloseTimer();
+            this.waitingForCloseResponse = false;
+            this.state = STATE_CLOSED;
+            this.socket.end();
+            return;
+          }
+          this._debug("---- Closing handshake initiated by peer.");
+          this.state = STATE_PEER_REQUESTED_CLOSE;
+          var respondCloseReasonCode;
+          if (frame.invalidCloseFrameLength) {
+            this.closeReasonCode = 1005;
+            respondCloseReasonCode = WebSocketConnection.CLOSE_REASON_PROTOCOL_ERROR;
+          } else if (frame.closeStatus === -1 || validateCloseReason(frame.closeStatus)) {
+            this.closeReasonCode = frame.closeStatus;
+            respondCloseReasonCode = WebSocketConnection.CLOSE_REASON_NORMAL;
+          } else {
+            this.closeReasonCode = frame.closeStatus;
+            respondCloseReasonCode = WebSocketConnection.CLOSE_REASON_PROTOCOL_ERROR;
+          }
+          if (frame.binaryPayload.length > 1) {
+            if (!isValidUTF8(frame.binaryPayload)) {
+              this.drop(WebSocketConnection.CLOSE_REASON_INVALID_DATA, "Invalid UTF-8 Data Received");
+              return;
+            }
+            this.closeDescription = frame.binaryPayload.toString("utf8");
+          } else {
+            this.closeDescription = WebSocketConnection.CLOSE_DESCRIPTIONS[this.closeReasonCode];
+          }
+          this._debug("------ Remote peer %s - code: %d - %s - close frame payload length: %d", this.remoteAddress, this.closeReasonCode, this.closeDescription, frame.length);
+          this._debug("------ responding to remote peer's close request.");
+          this.sendCloseFrame(respondCloseReasonCode, null);
+          this.connected = false;
+          break;
+        default:
+          this._debug("-- Unrecognized Opcode %d", frame.opcode);
+          this.drop(WebSocketConnection.CLOSE_REASON_PROTOCOL_ERROR, "Unrecognized Opcode: 0x" + frame.opcode.toString(16));
+          break;
+      }
+    };
+    WebSocketConnection.prototype.send = function(data, cb) {
+      this._debug("send");
+      if (Buffer.isBuffer(data)) {
+        this.sendBytes(data, cb);
+      } else if (typeof data["toString"] === "function") {
+        this.sendUTF(data, cb);
+      } else {
+        throw new Error("Data provided must either be a Node Buffer or implement toString()");
+      }
+    };
+    WebSocketConnection.prototype.sendUTF = function(data, cb) {
+      data = bufferFromString(data.toString(), "utf8");
+      this._debug("sendUTF: %d bytes", data.length);
+      var frame = new WebSocketFrame(this.maskBytes, this.frameHeader, this.config);
+      frame.opcode = 1;
+      frame.binaryPayload = data;
+      this.fragmentAndSend(frame, cb);
+    };
+    WebSocketConnection.prototype.sendBytes = function(data, cb) {
+      this._debug("sendBytes");
+      if (!Buffer.isBuffer(data)) {
+        throw new Error("You must pass a Node Buffer object to WebSocketConnection.prototype.sendBytes()");
+      }
+      var frame = new WebSocketFrame(this.maskBytes, this.frameHeader, this.config);
+      frame.opcode = 2;
+      frame.binaryPayload = data;
+      this.fragmentAndSend(frame, cb);
+    };
+    WebSocketConnection.prototype.ping = function(data) {
+      this._debug("ping");
+      var frame = new WebSocketFrame(this.maskBytes, this.frameHeader, this.config);
+      frame.opcode = 9;
+      frame.fin = true;
+      if (data) {
+        if (!Buffer.isBuffer(data)) {
+          data = bufferFromString(data.toString(), "utf8");
+        }
+        if (data.length > 125) {
+          this._debug("WebSocket: Data for ping is longer than 125 bytes.  Truncating.");
+          data = data.slice(0, 124);
+        }
+        frame.binaryPayload = data;
+      }
+      this.sendFrame(frame);
+    };
+    WebSocketConnection.prototype.pong = function(binaryPayload) {
+      this._debug("pong");
+      var frame = new WebSocketFrame(this.maskBytes, this.frameHeader, this.config);
+      frame.opcode = 10;
+      if (Buffer.isBuffer(binaryPayload) && binaryPayload.length > 125) {
+        this._debug("WebSocket: Data for pong is longer than 125 bytes.  Truncating.");
+        binaryPayload = binaryPayload.slice(0, 124);
+      }
+      frame.binaryPayload = binaryPayload;
+      frame.fin = true;
+      this.sendFrame(frame);
+    };
+    WebSocketConnection.prototype.fragmentAndSend = function(frame, cb) {
+      this._debug("fragmentAndSend");
+      if (frame.opcode > 7) {
+        throw new Error("You cannot fragment control frames.");
+      }
+      var threshold = this.config.fragmentationThreshold;
+      var length = frame.binaryPayload.length;
+      if (!this.config.fragmentOutgoingMessages || frame.binaryPayload && length <= threshold) {
+        frame.fin = true;
+        this.sendFrame(frame, cb);
+        return;
+      }
+      var numFragments = Math.ceil(length / threshold);
+      var sentFragments = 0;
+      var sentCallback = function fragmentSentCallback(err) {
+        if (err) {
+          if (typeof cb === "function") {
+            cb(err);
+            cb = null;
+          }
+          return;
+        }
+        ++sentFragments;
+        if (sentFragments === numFragments && typeof cb === "function") {
+          cb();
+        }
+      };
+      for (var i = 1; i <= numFragments; i++) {
+        var currentFrame = new WebSocketFrame(this.maskBytes, this.frameHeader, this.config);
+        currentFrame.opcode = i === 1 ? frame.opcode : 0;
+        currentFrame.fin = i === numFragments;
+        var currentLength = i === numFragments ? length - threshold * (i - 1) : threshold;
+        var sliceStart = threshold * (i - 1);
+        currentFrame.binaryPayload = frame.binaryPayload.slice(sliceStart, sliceStart + currentLength);
+        this.sendFrame(currentFrame, sentCallback);
+      }
+    };
+    WebSocketConnection.prototype.sendCloseFrame = function(reasonCode, description, cb) {
+      if (typeof reasonCode !== "number") {
+        reasonCode = WebSocketConnection.CLOSE_REASON_NORMAL;
+      }
+      this._debug("sendCloseFrame state: %s, reasonCode: %d, description: %s", this.state, reasonCode, description);
+      if (this.state !== STATE_OPEN && this.state !== STATE_PEER_REQUESTED_CLOSE) {
+        return;
+      }
+      var frame = new WebSocketFrame(this.maskBytes, this.frameHeader, this.config);
+      frame.fin = true;
+      frame.opcode = 8;
+      frame.closeStatus = reasonCode;
+      if (typeof description === "string") {
+        frame.binaryPayload = bufferFromString(description, "utf8");
+      }
+      this.sendFrame(frame, cb);
+      this.socket.end();
+    };
+    WebSocketConnection.prototype.sendFrame = function(frame, cb) {
+      this._debug("sendFrame");
+      frame.mask = this.maskOutgoingPackets;
+      var flushed = this.socket.write(frame.toBuffer(), cb);
+      this.outputBufferFull = !flushed;
+      return flushed;
+    };
+    module2.exports = WebSocketConnection;
+    function instrumentSocketForDebugging(connection, socket) {
+      if (!connection._debug.enabled) {
+        return;
+      }
+      var originalSocketEmit = socket.emit;
+      socket.emit = function(event) {
+        connection._debug("||| Socket Event  '%s'", event);
+        originalSocketEmit.apply(this, arguments);
+      };
+      for (var key in socket) {
+        if (typeof socket[key] !== "function") {
+          continue;
+        }
+        if (["emit"].indexOf(key) !== -1) {
+          continue;
+        }
+        (function(key2) {
+          var original = socket[key2];
+          if (key2 === "on") {
+            socket[key2] = function proxyMethod__EventEmitter__On() {
+              connection._debug("||| Socket method called:  %s (%s)", key2, arguments[0]);
+              return original.apply(this, arguments);
+            };
+            return;
+          }
+          socket[key2] = function proxyMethod() {
+            connection._debug("||| Socket method called:  %s", key2);
+            return original.apply(this, arguments);
+          };
+        })(key);
+      }
+    }
+  }
+});
+
+// node_modules/websocket/lib/WebSocketRequest.js
+var require_WebSocketRequest = __commonJS({
+  "node_modules/websocket/lib/WebSocketRequest.js"(exports, module2) {
+    init_shims();
+    var crypto = require("crypto");
+    var util = require("util");
+    var url = require("url");
+    var EventEmitter = require("events").EventEmitter;
+    var WebSocketConnection = require_WebSocketConnection();
+    var headerValueSplitRegExp = /,\s*/;
+    var headerParamSplitRegExp = /;\s*/;
+    var headerSanitizeRegExp = /[\r\n]/g;
+    var xForwardedForSeparatorRegExp = /,\s*/;
+    var separators = [
+      "(",
+      ")",
+      "<",
+      ">",
+      "@",
+      ",",
+      ";",
+      ":",
+      "\\",
+      '"',
+      "/",
+      "[",
+      "]",
+      "?",
+      "=",
+      "{",
+      "}",
+      " ",
+      String.fromCharCode(9)
+    ];
+    var controlChars = [String.fromCharCode(127)];
+    for (i = 0; i < 31; i++) {
+      controlChars.push(String.fromCharCode(i));
+    }
+    var i;
+    var cookieNameValidateRegEx = /([\x00-\x20\x22\x28\x29\x2c\x2f\x3a-\x3f\x40\x5b-\x5e\x7b\x7d\x7f])/;
+    var cookieValueValidateRegEx = /[^\x21\x23-\x2b\x2d-\x3a\x3c-\x5b\x5d-\x7e]/;
+    var cookieValueDQuoteValidateRegEx = /^"[^"]*"$/;
+    var controlCharsAndSemicolonRegEx = /[\x00-\x20\x3b]/g;
+    var cookieSeparatorRegEx = /[;,] */;
+    var httpStatusDescriptions = {
+      100: "Continue",
+      101: "Switching Protocols",
+      200: "OK",
+      201: "Created",
+      203: "Non-Authoritative Information",
+      204: "No Content",
+      205: "Reset Content",
+      206: "Partial Content",
+      300: "Multiple Choices",
+      301: "Moved Permanently",
+      302: "Found",
+      303: "See Other",
+      304: "Not Modified",
+      305: "Use Proxy",
+      307: "Temporary Redirect",
+      400: "Bad Request",
+      401: "Unauthorized",
+      402: "Payment Required",
+      403: "Forbidden",
+      404: "Not Found",
+      406: "Not Acceptable",
+      407: "Proxy Authorization Required",
+      408: "Request Timeout",
+      409: "Conflict",
+      410: "Gone",
+      411: "Length Required",
+      412: "Precondition Failed",
+      413: "Request Entity Too Long",
+      414: "Request-URI Too Long",
+      415: "Unsupported Media Type",
+      416: "Requested Range Not Satisfiable",
+      417: "Expectation Failed",
+      426: "Upgrade Required",
+      500: "Internal Server Error",
+      501: "Not Implemented",
+      502: "Bad Gateway",
+      503: "Service Unavailable",
+      504: "Gateway Timeout",
+      505: "HTTP Version Not Supported"
+    };
+    function WebSocketRequest(socket, httpRequest, serverConfig) {
+      EventEmitter.call(this);
+      this.socket = socket;
+      this.httpRequest = httpRequest;
+      this.resource = httpRequest.url;
+      this.remoteAddress = socket.remoteAddress;
+      this.remoteAddresses = [this.remoteAddress];
+      this.serverConfig = serverConfig;
+      this._socketIsClosing = false;
+      this._socketCloseHandler = this._handleSocketCloseBeforeAccept.bind(this);
+      this.socket.on("end", this._socketCloseHandler);
+      this.socket.on("close", this._socketCloseHandler);
+      this._resolved = false;
+    }
+    util.inherits(WebSocketRequest, EventEmitter);
+    WebSocketRequest.prototype.readHandshake = function() {
+      var self2 = this;
+      var request = this.httpRequest;
+      this.resourceURL = url.parse(this.resource, true);
+      this.host = request.headers["host"];
+      if (!this.host) {
+        throw new Error("Client must provide a Host header.");
+      }
+      this.key = request.headers["sec-websocket-key"];
+      if (!this.key) {
+        throw new Error("Client must provide a value for Sec-WebSocket-Key.");
+      }
+      this.webSocketVersion = parseInt(request.headers["sec-websocket-version"], 10);
+      if (!this.webSocketVersion || isNaN(this.webSocketVersion)) {
+        throw new Error("Client must provide a value for Sec-WebSocket-Version.");
+      }
+      switch (this.webSocketVersion) {
+        case 8:
+        case 13:
+          break;
+        default:
+          var e = new Error("Unsupported websocket client version: " + this.webSocketVersion + "Only versions 8 and 13 are supported.");
+          e.httpCode = 426;
+          e.headers = {
+            "Sec-WebSocket-Version": "13"
+          };
+          throw e;
+      }
+      if (this.webSocketVersion === 13) {
+        this.origin = request.headers["origin"];
+      } else if (this.webSocketVersion === 8) {
+        this.origin = request.headers["sec-websocket-origin"];
+      }
+      var protocolString = request.headers["sec-websocket-protocol"];
+      this.protocolFullCaseMap = {};
+      this.requestedProtocols = [];
+      if (protocolString) {
+        var requestedProtocolsFullCase = protocolString.split(headerValueSplitRegExp);
+        requestedProtocolsFullCase.forEach(function(protocol) {
+          var lcProtocol = protocol.toLocaleLowerCase();
+          self2.requestedProtocols.push(lcProtocol);
+          self2.protocolFullCaseMap[lcProtocol] = protocol;
+        });
+      }
+      if (!this.serverConfig.ignoreXForwardedFor && request.headers["x-forwarded-for"]) {
+        var immediatePeerIP = this.remoteAddress;
+        this.remoteAddresses = request.headers["x-forwarded-for"].split(xForwardedForSeparatorRegExp);
+        this.remoteAddresses.push(immediatePeerIP);
+        this.remoteAddress = this.remoteAddresses[0];
+      }
+      if (this.serverConfig.parseExtensions) {
+        var extensionsString = request.headers["sec-websocket-extensions"];
+        this.requestedExtensions = this.parseExtensions(extensionsString);
+      } else {
+        this.requestedExtensions = [];
+      }
+      if (this.serverConfig.parseCookies) {
+        var cookieString = request.headers["cookie"];
+        this.cookies = this.parseCookies(cookieString);
+      } else {
+        this.cookies = [];
+      }
+    };
+    WebSocketRequest.prototype.parseExtensions = function(extensionsString) {
+      if (!extensionsString || extensionsString.length === 0) {
+        return [];
+      }
+      var extensions = extensionsString.toLocaleLowerCase().split(headerValueSplitRegExp);
+      extensions.forEach(function(extension, index, array) {
+        var params = extension.split(headerParamSplitRegExp);
+        var extensionName = params[0];
+        var extensionParams = params.slice(1);
+        extensionParams.forEach(function(rawParam, index2, array2) {
+          var arr = rawParam.split("=");
+          var obj2 = {
+            name: arr[0],
+            value: arr[1]
+          };
+          array2.splice(index2, 1, obj2);
+        });
+        var obj = {
+          name: extensionName,
+          params: extensionParams
+        };
+        array.splice(index, 1, obj);
+      });
+      return extensions;
+    };
+    WebSocketRequest.prototype.parseCookies = function(str) {
+      if (!str || typeof str !== "string") {
+        return [];
+      }
+      var cookies = [];
+      var pairs = str.split(cookieSeparatorRegEx);
+      pairs.forEach(function(pair) {
+        var eq_idx = pair.indexOf("=");
+        if (eq_idx === -1) {
+          cookies.push({
+            name: pair,
+            value: null
+          });
+          return;
+        }
+        var key = pair.substr(0, eq_idx).trim();
+        var val = pair.substr(++eq_idx, pair.length).trim();
+        if (val[0] === '"') {
+          val = val.slice(1, -1);
+        }
+        cookies.push({
+          name: key,
+          value: decodeURIComponent(val)
+        });
+      });
+      return cookies;
+    };
+    WebSocketRequest.prototype.accept = function(acceptedProtocol, allowedOrigin, cookies) {
+      this._verifyResolution();
+      var protocolFullCase;
+      if (acceptedProtocol) {
+        protocolFullCase = this.protocolFullCaseMap[acceptedProtocol.toLocaleLowerCase()];
+        if (typeof protocolFullCase === "undefined") {
+          protocolFullCase = acceptedProtocol;
+        }
+      } else {
+        protocolFullCase = acceptedProtocol;
+      }
+      this.protocolFullCaseMap = null;
+      var sha1 = crypto.createHash("sha1");
+      sha1.update(this.key + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11");
+      var acceptKey = sha1.digest("base64");
+      var response = "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: " + acceptKey + "\r\n";
+      if (protocolFullCase) {
+        for (var i2 = 0; i2 < protocolFullCase.length; i2++) {
+          var charCode = protocolFullCase.charCodeAt(i2);
+          var character = protocolFullCase.charAt(i2);
+          if (charCode < 33 || charCode > 126 || separators.indexOf(character) !== -1) {
+            this.reject(500);
+            throw new Error('Illegal character "' + String.fromCharCode(character) + '" in subprotocol.');
+          }
+        }
+        if (this.requestedProtocols.indexOf(acceptedProtocol) === -1) {
+          this.reject(500);
+          throw new Error("Specified protocol was not requested by the client.");
+        }
+        protocolFullCase = protocolFullCase.replace(headerSanitizeRegExp, "");
+        response += "Sec-WebSocket-Protocol: " + protocolFullCase + "\r\n";
+      }
+      this.requestedProtocols = null;
+      if (allowedOrigin) {
+        allowedOrigin = allowedOrigin.replace(headerSanitizeRegExp, "");
+        if (this.webSocketVersion === 13) {
+          response += "Origin: " + allowedOrigin + "\r\n";
+        } else if (this.webSocketVersion === 8) {
+          response += "Sec-WebSocket-Origin: " + allowedOrigin + "\r\n";
+        }
+      }
+      if (cookies) {
+        if (!Array.isArray(cookies)) {
+          this.reject(500);
+          throw new Error('Value supplied for "cookies" argument must be an array.');
+        }
+        var seenCookies = {};
+        cookies.forEach(function(cookie2) {
+          if (!cookie2.name || !cookie2.value) {
+            this.reject(500);
+            throw new Error('Each cookie to set must at least provide a "name" and "value"');
+          }
+          cookie2.name = cookie2.name.replace(controlCharsAndSemicolonRegEx, "");
+          cookie2.value = cookie2.value.replace(controlCharsAndSemicolonRegEx, "");
+          if (seenCookies[cookie2.name]) {
+            this.reject(500);
+            throw new Error("You may not specify the same cookie name twice.");
+          }
+          seenCookies[cookie2.name] = true;
+          var invalidChar = cookie2.name.match(cookieNameValidateRegEx);
+          if (invalidChar) {
+            this.reject(500);
+            throw new Error("Illegal character " + invalidChar[0] + " in cookie name");
+          }
+          if (cookie2.value.match(cookieValueDQuoteValidateRegEx)) {
+            invalidChar = cookie2.value.slice(1, -1).match(cookieValueValidateRegEx);
+          } else {
+            invalidChar = cookie2.value.match(cookieValueValidateRegEx);
+          }
+          if (invalidChar) {
+            this.reject(500);
+            throw new Error("Illegal character " + invalidChar[0] + " in cookie value");
+          }
+          var cookieParts = [cookie2.name + "=" + cookie2.value];
+          if (cookie2.path) {
+            invalidChar = cookie2.path.match(controlCharsAndSemicolonRegEx);
+            if (invalidChar) {
+              this.reject(500);
+              throw new Error("Illegal character " + invalidChar[0] + " in cookie path");
+            }
+            cookieParts.push("Path=" + cookie2.path);
+          }
+          if (cookie2.domain) {
+            if (typeof cookie2.domain !== "string") {
+              this.reject(500);
+              throw new Error("Domain must be specified and must be a string.");
+            }
+            invalidChar = cookie2.domain.match(controlCharsAndSemicolonRegEx);
+            if (invalidChar) {
+              this.reject(500);
+              throw new Error("Illegal character " + invalidChar[0] + " in cookie domain");
+            }
+            cookieParts.push("Domain=" + cookie2.domain.toLowerCase());
+          }
+          if (cookie2.expires) {
+            if (!(cookie2.expires instanceof Date)) {
+              this.reject(500);
+              throw new Error('Value supplied for cookie "expires" must be a vaild date object');
+            }
+            cookieParts.push("Expires=" + cookie2.expires.toGMTString());
+          }
+          if (cookie2.maxage) {
+            var maxage = cookie2.maxage;
+            if (typeof maxage === "string") {
+              maxage = parseInt(maxage, 10);
+            }
+            if (isNaN(maxage) || maxage <= 0) {
+              this.reject(500);
+              throw new Error('Value supplied for cookie "maxage" must be a non-zero number');
+            }
+            maxage = Math.round(maxage);
+            cookieParts.push("Max-Age=" + maxage.toString(10));
+          }
+          if (cookie2.secure) {
+            if (typeof cookie2.secure !== "boolean") {
+              this.reject(500);
+              throw new Error('Value supplied for cookie "secure" must be of type boolean');
+            }
+            cookieParts.push("Secure");
+          }
+          if (cookie2.httponly) {
+            if (typeof cookie2.httponly !== "boolean") {
+              this.reject(500);
+              throw new Error('Value supplied for cookie "httponly" must be of type boolean');
+            }
+            cookieParts.push("HttpOnly");
+          }
+          response += "Set-Cookie: " + cookieParts.join(";") + "\r\n";
+        }.bind(this));
+      }
+      this._resolved = true;
+      this.emit("requestResolved", this);
+      response += "\r\n";
+      var connection = new WebSocketConnection(this.socket, [], acceptedProtocol, false, this.serverConfig);
+      connection.webSocketVersion = this.webSocketVersion;
+      connection.remoteAddress = this.remoteAddress;
+      connection.remoteAddresses = this.remoteAddresses;
+      var self2 = this;
+      if (this._socketIsClosing) {
+        cleanupFailedConnection(connection);
+      } else {
+        this.socket.write(response, "ascii", function(error2) {
+          if (error2) {
+            cleanupFailedConnection(connection);
+            return;
+          }
+          self2._removeSocketCloseListeners();
+          connection._addSocketEventListeners();
+        });
+      }
+      this.emit("requestAccepted", connection);
+      return connection;
+    };
+    WebSocketRequest.prototype.reject = function(status, reason, extraHeaders) {
+      this._verifyResolution();
+      this._resolved = true;
+      this.emit("requestResolved", this);
+      if (typeof status !== "number") {
+        status = 403;
+      }
+      var response = "HTTP/1.1 " + status + " " + httpStatusDescriptions[status] + "\r\nConnection: close\r\n";
+      if (reason) {
+        reason = reason.replace(headerSanitizeRegExp, "");
+        response += "X-WebSocket-Reject-Reason: " + reason + "\r\n";
+      }
+      if (extraHeaders) {
+        for (var key in extraHeaders) {
+          var sanitizedValue = extraHeaders[key].toString().replace(headerSanitizeRegExp, "");
+          var sanitizedKey = key.replace(headerSanitizeRegExp, "");
+          response += sanitizedKey + ": " + sanitizedValue + "\r\n";
+        }
+      }
+      response += "\r\n";
+      this.socket.end(response, "ascii");
+      this.emit("requestRejected", this);
+    };
+    WebSocketRequest.prototype._handleSocketCloseBeforeAccept = function() {
+      this._socketIsClosing = true;
+      this._removeSocketCloseListeners();
+    };
+    WebSocketRequest.prototype._removeSocketCloseListeners = function() {
+      this.socket.removeListener("end", this._socketCloseHandler);
+      this.socket.removeListener("close", this._socketCloseHandler);
+    };
+    WebSocketRequest.prototype._verifyResolution = function() {
+      if (this._resolved) {
+        throw new Error("WebSocketRequest may only be accepted or rejected one time.");
+      }
+    };
+    function cleanupFailedConnection(connection) {
+      process.nextTick(function() {
+        connection.drop(1006, "TCP connection lost before handshake completed.", true);
+      });
+    }
+    module2.exports = WebSocketRequest;
+  }
+});
+
+// node_modules/websocket/lib/WebSocketServer.js
+var require_WebSocketServer = __commonJS({
+  "node_modules/websocket/lib/WebSocketServer.js"(exports, module2) {
+    init_shims();
+    var extend = require_utils().extend;
+    var utils = require_utils();
+    var util = require("util");
+    var debug = require_src()("websocket:server");
+    var EventEmitter = require("events").EventEmitter;
+    var WebSocketRequest = require_WebSocketRequest();
+    var WebSocketServer = function WebSocketServer2(config) {
+      EventEmitter.call(this);
+      this._handlers = {
+        upgrade: this.handleUpgrade.bind(this),
+        requestAccepted: this.handleRequestAccepted.bind(this),
+        requestResolved: this.handleRequestResolved.bind(this)
+      };
+      this.connections = [];
+      this.pendingRequests = [];
+      if (config) {
+        this.mount(config);
+      }
+    };
+    util.inherits(WebSocketServer, EventEmitter);
+    WebSocketServer.prototype.mount = function(config) {
+      this.config = {
+        httpServer: null,
+        maxReceivedFrameSize: 65536,
+        maxReceivedMessageSize: 1048576,
+        fragmentOutgoingMessages: true,
+        fragmentationThreshold: 16384,
+        keepalive: true,
+        keepaliveInterval: 2e4,
+        dropConnectionOnKeepaliveTimeout: true,
+        keepaliveGracePeriod: 1e4,
+        useNativeKeepalive: false,
+        assembleFragments: true,
+        autoAcceptConnections: false,
+        ignoreXForwardedFor: false,
+        parseCookies: true,
+        parseExtensions: true,
+        disableNagleAlgorithm: true,
+        closeTimeout: 5e3
+      };
+      extend(this.config, config);
+      if (this.config.httpServer) {
+        if (!Array.isArray(this.config.httpServer)) {
+          this.config.httpServer = [this.config.httpServer];
+        }
+        var upgradeHandler = this._handlers.upgrade;
+        this.config.httpServer.forEach(function(httpServer) {
+          httpServer.on("upgrade", upgradeHandler);
+        });
+      } else {
+        throw new Error("You must specify an httpServer on which to mount the WebSocket server.");
+      }
+    };
+    WebSocketServer.prototype.unmount = function() {
+      var upgradeHandler = this._handlers.upgrade;
+      this.config.httpServer.forEach(function(httpServer) {
+        httpServer.removeListener("upgrade", upgradeHandler);
+      });
+    };
+    WebSocketServer.prototype.closeAllConnections = function() {
+      this.connections.forEach(function(connection) {
+        connection.close();
+      });
+      this.pendingRequests.forEach(function(request) {
+        process.nextTick(function() {
+          request.reject(503);
+        });
+      });
+    };
+    WebSocketServer.prototype.broadcast = function(data) {
+      if (Buffer.isBuffer(data)) {
+        this.broadcastBytes(data);
+      } else if (typeof data.toString === "function") {
+        this.broadcastUTF(data);
+      }
+    };
+    WebSocketServer.prototype.broadcastUTF = function(utfData) {
+      this.connections.forEach(function(connection) {
+        connection.sendUTF(utfData);
+      });
+    };
+    WebSocketServer.prototype.broadcastBytes = function(binaryData) {
+      this.connections.forEach(function(connection) {
+        connection.sendBytes(binaryData);
+      });
+    };
+    WebSocketServer.prototype.shutDown = function() {
+      this.unmount();
+      this.closeAllConnections();
+    };
+    WebSocketServer.prototype.handleUpgrade = function(request, socket) {
+      var self2 = this;
+      var wsRequest = new WebSocketRequest(socket, request, this.config);
+      try {
+        wsRequest.readHandshake();
+      } catch (e) {
+        wsRequest.reject(e.httpCode ? e.httpCode : 400, e.message, e.headers);
+        debug("Invalid handshake: %s", e.message);
+        this.emit("upgradeError", e);
+        return;
+      }
+      this.pendingRequests.push(wsRequest);
+      wsRequest.once("requestAccepted", this._handlers.requestAccepted);
+      wsRequest.once("requestResolved", this._handlers.requestResolved);
+      socket.once("close", function() {
+        self2._handlers.requestResolved(wsRequest);
+      });
+      if (!this.config.autoAcceptConnections && utils.eventEmitterListenerCount(this, "request") > 0) {
+        this.emit("request", wsRequest);
+      } else if (this.config.autoAcceptConnections) {
+        wsRequest.accept(wsRequest.requestedProtocols[0], wsRequest.origin);
+      } else {
+        wsRequest.reject(404, "No handler is configured to accept the connection.");
+      }
+    };
+    WebSocketServer.prototype.handleRequestAccepted = function(connection) {
+      var self2 = this;
+      connection.once("close", function(closeReason, description) {
+        self2.handleConnectionClose(connection, closeReason, description);
+      });
+      this.connections.push(connection);
+      this.emit("connect", connection);
+    };
+    WebSocketServer.prototype.handleConnectionClose = function(connection, closeReason, description) {
+      var index = this.connections.indexOf(connection);
+      if (index !== -1) {
+        this.connections.splice(index, 1);
+      }
+      this.emit("close", connection, closeReason, description);
+    };
+    WebSocketServer.prototype.handleRequestResolved = function(request) {
+      var index = this.pendingRequests.indexOf(request);
+      if (index !== -1) {
+        this.pendingRequests.splice(index, 1);
+      }
+    };
+    module2.exports = WebSocketServer;
+  }
+});
+
+// node_modules/websocket/lib/WebSocketClient.js
+var require_WebSocketClient = __commonJS({
+  "node_modules/websocket/lib/WebSocketClient.js"(exports, module2) {
+    init_shims();
+    var utils = require_utils();
+    var extend = utils.extend;
+    var util = require("util");
+    var EventEmitter = require("events").EventEmitter;
+    var http2 = require("http");
+    var https2 = require("https");
+    var url = require("url");
+    var crypto = require("crypto");
+    var WebSocketConnection = require_WebSocketConnection();
+    var bufferAllocUnsafe = utils.bufferAllocUnsafe;
+    var protocolSeparators = [
+      "(",
+      ")",
+      "<",
+      ">",
+      "@",
+      ",",
+      ";",
+      ":",
+      "\\",
+      '"',
+      "/",
+      "[",
+      "]",
+      "?",
+      "=",
+      "{",
+      "}",
+      " ",
+      String.fromCharCode(9)
+    ];
+    var excludedTlsOptions = ["hostname", "port", "method", "path", "headers"];
+    function WebSocketClient(config) {
+      EventEmitter.call(this);
+      this.config = {
+        maxReceivedFrameSize: 1048576,
+        maxReceivedMessageSize: 8388608,
+        fragmentOutgoingMessages: true,
+        fragmentationThreshold: 16384,
+        webSocketVersion: 13,
+        assembleFragments: true,
+        disableNagleAlgorithm: true,
+        closeTimeout: 5e3,
+        tlsOptions: {}
+      };
+      if (config) {
+        var tlsOptions;
+        if (config.tlsOptions) {
+          tlsOptions = config.tlsOptions;
+          delete config.tlsOptions;
+        } else {
+          tlsOptions = {};
+        }
+        extend(this.config, config);
+        extend(this.config.tlsOptions, tlsOptions);
+      }
+      this._req = null;
+      switch (this.config.webSocketVersion) {
+        case 8:
+        case 13:
+          break;
+        default:
+          throw new Error("Requested webSocketVersion is not supported. Allowed values are 8 and 13.");
+      }
+    }
+    util.inherits(WebSocketClient, EventEmitter);
+    WebSocketClient.prototype.connect = function(requestUrl, protocols, origin, headers, extraRequestOptions) {
+      var self2 = this;
+      if (typeof protocols === "string") {
+        if (protocols.length > 0) {
+          protocols = [protocols];
+        } else {
+          protocols = [];
+        }
+      }
+      if (!(protocols instanceof Array)) {
+        protocols = [];
+      }
+      this.protocols = protocols;
+      this.origin = origin;
+      if (typeof requestUrl === "string") {
+        this.url = url.parse(requestUrl);
+      } else {
+        this.url = requestUrl;
+      }
+      if (!this.url.protocol) {
+        throw new Error("You must specify a full WebSocket URL, including protocol.");
+      }
+      if (!this.url.host) {
+        throw new Error("You must specify a full WebSocket URL, including hostname. Relative URLs are not supported.");
+      }
+      this.secure = this.url.protocol === "wss:";
+      this.protocols.forEach(function(protocol) {
+        for (var i2 = 0; i2 < protocol.length; i2++) {
+          var charCode = protocol.charCodeAt(i2);
+          var character = protocol.charAt(i2);
+          if (charCode < 33 || charCode > 126 || protocolSeparators.indexOf(character) !== -1) {
+            throw new Error('Protocol list contains invalid character "' + String.fromCharCode(charCode) + '"');
+          }
+        }
+      });
+      var defaultPorts = {
+        "ws:": "80",
+        "wss:": "443"
+      };
+      if (!this.url.port) {
+        this.url.port = defaultPorts[this.url.protocol];
+      }
+      var nonce = bufferAllocUnsafe(16);
+      for (var i = 0; i < 16; i++) {
+        nonce[i] = Math.round(Math.random() * 255);
+      }
+      this.base64nonce = nonce.toString("base64");
+      var hostHeaderValue = this.url.hostname;
+      if (this.url.protocol === "ws:" && this.url.port !== "80" || this.url.protocol === "wss:" && this.url.port !== "443") {
+        hostHeaderValue += ":" + this.url.port;
+      }
+      var reqHeaders = {};
+      if (this.secure && this.config.tlsOptions.hasOwnProperty("headers")) {
+        extend(reqHeaders, this.config.tlsOptions.headers);
+      }
+      if (headers) {
+        extend(reqHeaders, headers);
+      }
+      extend(reqHeaders, {
+        "Upgrade": "websocket",
+        "Connection": "Upgrade",
+        "Sec-WebSocket-Version": this.config.webSocketVersion.toString(10),
+        "Sec-WebSocket-Key": this.base64nonce,
+        "Host": reqHeaders.Host || hostHeaderValue
+      });
+      if (this.protocols.length > 0) {
+        reqHeaders["Sec-WebSocket-Protocol"] = this.protocols.join(", ");
+      }
+      if (this.origin) {
+        if (this.config.webSocketVersion === 13) {
+          reqHeaders["Origin"] = this.origin;
+        } else if (this.config.webSocketVersion === 8) {
+          reqHeaders["Sec-WebSocket-Origin"] = this.origin;
+        }
+      }
+      var pathAndQuery;
+      if (this.url.pathname) {
+        pathAndQuery = this.url.path;
+      } else if (this.url.path) {
+        pathAndQuery = "/" + this.url.path;
+      } else {
+        pathAndQuery = "/";
+      }
+      function handleRequestError(error2) {
+        self2._req = null;
+        self2.emit("connectFailed", error2);
+      }
+      var requestOptions = {
+        agent: false
+      };
+      if (extraRequestOptions) {
+        extend(requestOptions, extraRequestOptions);
+      }
+      extend(requestOptions, {
+        hostname: this.url.hostname,
+        port: this.url.port,
+        method: "GET",
+        path: pathAndQuery,
+        headers: reqHeaders
+      });
+      if (this.secure) {
+        var tlsOptions = this.config.tlsOptions;
+        for (var key in tlsOptions) {
+          if (tlsOptions.hasOwnProperty(key) && excludedTlsOptions.indexOf(key) === -1) {
+            requestOptions[key] = tlsOptions[key];
+          }
+        }
+      }
+      var req = this._req = (this.secure ? https2 : http2).request(requestOptions);
+      req.on("upgrade", function handleRequestUpgrade(response, socket, head) {
+        self2._req = null;
+        req.removeListener("error", handleRequestError);
+        self2.socket = socket;
+        self2.response = response;
+        self2.firstDataChunk = head;
+        self2.validateHandshake();
+      });
+      req.on("error", handleRequestError);
+      req.on("response", function(response) {
+        self2._req = null;
+        if (utils.eventEmitterListenerCount(self2, "httpResponse") > 0) {
+          self2.emit("httpResponse", response, self2);
+          if (response.socket) {
+            response.socket.end();
+          }
+        } else {
+          var headerDumpParts = [];
+          for (var headerName in response.headers) {
+            headerDumpParts.push(headerName + ": " + response.headers[headerName]);
+          }
+          self2.failHandshake("Server responded with a non-101 status: " + response.statusCode + " " + response.statusMessage + "\nResponse Headers Follow:\n" + headerDumpParts.join("\n") + "\n");
+        }
+      });
+      req.end();
+    };
+    WebSocketClient.prototype.validateHandshake = function() {
+      var headers = this.response.headers;
+      if (this.protocols.length > 0) {
+        this.protocol = headers["sec-websocket-protocol"];
+        if (this.protocol) {
+          if (this.protocols.indexOf(this.protocol) === -1) {
+            this.failHandshake("Server did not respond with a requested protocol.");
+            return;
+          }
+        } else {
+          this.failHandshake("Expected a Sec-WebSocket-Protocol header.");
+          return;
+        }
+      }
+      if (!(headers["connection"] && headers["connection"].toLocaleLowerCase() === "upgrade")) {
+        this.failHandshake("Expected a Connection: Upgrade header from the server");
+        return;
+      }
+      if (!(headers["upgrade"] && headers["upgrade"].toLocaleLowerCase() === "websocket")) {
+        this.failHandshake("Expected an Upgrade: websocket header from the server");
+        return;
+      }
+      var sha1 = crypto.createHash("sha1");
+      sha1.update(this.base64nonce + "258EAFA5-E914-47DA-95CA-C5AB0DC85B11");
+      var expectedKey = sha1.digest("base64");
+      if (!headers["sec-websocket-accept"]) {
+        this.failHandshake("Expected Sec-WebSocket-Accept header from server");
+        return;
+      }
+      if (headers["sec-websocket-accept"] !== expectedKey) {
+        this.failHandshake("Sec-WebSocket-Accept header from server didn't match expected value of " + expectedKey);
+        return;
+      }
+      this.succeedHandshake();
+    };
+    WebSocketClient.prototype.failHandshake = function(errorDescription) {
+      if (this.socket && this.socket.writable) {
+        this.socket.end();
+      }
+      this.emit("connectFailed", new Error(errorDescription));
+    };
+    WebSocketClient.prototype.succeedHandshake = function() {
+      var connection = new WebSocketConnection(this.socket, [], this.protocol, true, this.config);
+      connection.webSocketVersion = this.config.webSocketVersion;
+      connection._addSocketEventListeners();
+      this.emit("connect", connection);
+      if (this.firstDataChunk.length > 0) {
+        connection.handleSocketData(this.firstDataChunk);
+      }
+      this.firstDataChunk = null;
+    };
+    WebSocketClient.prototype.abort = function() {
+      if (this._req) {
+        this._req.abort();
+      }
+    };
+    module2.exports = WebSocketClient;
+  }
+});
+
+// node_modules/websocket/lib/WebSocketRouterRequest.js
+var require_WebSocketRouterRequest = __commonJS({
+  "node_modules/websocket/lib/WebSocketRouterRequest.js"(exports, module2) {
+    init_shims();
+    var util = require("util");
+    var EventEmitter = require("events").EventEmitter;
+    function WebSocketRouterRequest(webSocketRequest, resolvedProtocol) {
+      EventEmitter.call(this);
+      this.webSocketRequest = webSocketRequest;
+      if (resolvedProtocol === "____no_protocol____") {
+        this.protocol = null;
+      } else {
+        this.protocol = resolvedProtocol;
+      }
+      this.origin = webSocketRequest.origin;
+      this.resource = webSocketRequest.resource;
+      this.resourceURL = webSocketRequest.resourceURL;
+      this.httpRequest = webSocketRequest.httpRequest;
+      this.remoteAddress = webSocketRequest.remoteAddress;
+      this.webSocketVersion = webSocketRequest.webSocketVersion;
+      this.requestedExtensions = webSocketRequest.requestedExtensions;
+      this.cookies = webSocketRequest.cookies;
+    }
+    util.inherits(WebSocketRouterRequest, EventEmitter);
+    WebSocketRouterRequest.prototype.accept = function(origin, cookies) {
+      var connection = this.webSocketRequest.accept(this.protocol, origin, cookies);
+      this.emit("requestAccepted", connection);
+      return connection;
+    };
+    WebSocketRouterRequest.prototype.reject = function(status, reason, extraHeaders) {
+      this.webSocketRequest.reject(status, reason, extraHeaders);
+      this.emit("requestRejected", this);
+    };
+    module2.exports = WebSocketRouterRequest;
+  }
+});
+
+// node_modules/websocket/lib/WebSocketRouter.js
+var require_WebSocketRouter = __commonJS({
+  "node_modules/websocket/lib/WebSocketRouter.js"(exports, module2) {
+    init_shims();
+    var extend = require_utils().extend;
+    var util = require("util");
+    var EventEmitter = require("events").EventEmitter;
+    var WebSocketRouterRequest = require_WebSocketRouterRequest();
+    function WebSocketRouter(config) {
+      EventEmitter.call(this);
+      this.config = {
+        server: null
+      };
+      if (config) {
+        extend(this.config, config);
+      }
+      this.handlers = [];
+      this._requestHandler = this.handleRequest.bind(this);
+      if (this.config.server) {
+        this.attachServer(this.config.server);
+      }
+    }
+    util.inherits(WebSocketRouter, EventEmitter);
+    WebSocketRouter.prototype.attachServer = function(server) {
+      if (server) {
+        this.server = server;
+        this.server.on("request", this._requestHandler);
+      } else {
+        throw new Error("You must specify a WebSocketServer instance to attach to.");
+      }
+    };
+    WebSocketRouter.prototype.detachServer = function() {
+      if (this.server) {
+        this.server.removeListener("request", this._requestHandler);
+        this.server = null;
+      } else {
+        throw new Error("Cannot detach from server: not attached.");
+      }
+    };
+    WebSocketRouter.prototype.mount = function(path, protocol, callback) {
+      if (!path) {
+        throw new Error("You must specify a path for this handler.");
+      }
+      if (!protocol) {
+        protocol = "____no_protocol____";
+      }
+      if (!callback) {
+        throw new Error("You must specify a callback for this handler.");
+      }
+      path = this.pathToRegExp(path);
+      if (!(path instanceof RegExp)) {
+        throw new Error("Path must be specified as either a string or a RegExp.");
+      }
+      var pathString = path.toString();
+      protocol = protocol.toLocaleLowerCase();
+      if (this.findHandlerIndex(pathString, protocol) !== -1) {
+        throw new Error("You may only mount one handler per path/protocol combination.");
+      }
+      this.handlers.push({
+        "path": path,
+        "pathString": pathString,
+        "protocol": protocol,
+        "callback": callback
+      });
+    };
+    WebSocketRouter.prototype.unmount = function(path, protocol) {
+      var index = this.findHandlerIndex(this.pathToRegExp(path).toString(), protocol);
+      if (index !== -1) {
+        this.handlers.splice(index, 1);
+      } else {
+        throw new Error("Unable to find a route matching the specified path and protocol.");
+      }
+    };
+    WebSocketRouter.prototype.findHandlerIndex = function(pathString, protocol) {
+      protocol = protocol.toLocaleLowerCase();
+      for (var i = 0, len = this.handlers.length; i < len; i++) {
+        var handler = this.handlers[i];
+        if (handler.pathString === pathString && handler.protocol === protocol) {
+          return i;
+        }
+      }
+      return -1;
+    };
+    WebSocketRouter.prototype.pathToRegExp = function(path) {
+      if (typeof path === "string") {
+        if (path === "*") {
+          path = /^.*$/;
+        } else {
+          path = path.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+          path = new RegExp("^" + path + "$");
+        }
+      }
+      return path;
+    };
+    WebSocketRouter.prototype.handleRequest = function(request) {
+      var requestedProtocols = request.requestedProtocols;
+      if (requestedProtocols.length === 0) {
+        requestedProtocols = ["____no_protocol____"];
+      }
+      for (var i = 0; i < requestedProtocols.length; i++) {
+        var requestedProtocol = requestedProtocols[i].toLocaleLowerCase();
+        for (var j = 0, len = this.handlers.length; j < len; j++) {
+          var handler = this.handlers[j];
+          if (handler.path.test(request.resourceURL.pathname)) {
+            if (requestedProtocol === handler.protocol || handler.protocol === "*") {
+              var routerRequest = new WebSocketRouterRequest(request, requestedProtocol);
+              handler.callback(routerRequest);
+              return;
+            }
+          }
+        }
+      }
+      request.reject(404, "No handler is available for the given request.");
+    };
+    module2.exports = WebSocketRouter;
+  }
+});
+
+// node_modules/is-typedarray/index.js
+var require_is_typedarray = __commonJS({
+  "node_modules/is-typedarray/index.js"(exports, module2) {
+    init_shims();
+    module2.exports = isTypedArray;
+    isTypedArray.strict = isStrictTypedArray;
+    isTypedArray.loose = isLooseTypedArray;
+    var toString = Object.prototype.toString;
+    var names = {
+      "[object Int8Array]": true,
+      "[object Int16Array]": true,
+      "[object Int32Array]": true,
+      "[object Uint8Array]": true,
+      "[object Uint8ClampedArray]": true,
+      "[object Uint16Array]": true,
+      "[object Uint32Array]": true,
+      "[object Float32Array]": true,
+      "[object Float64Array]": true
+    };
+    function isTypedArray(arr) {
+      return isStrictTypedArray(arr) || isLooseTypedArray(arr);
+    }
+    function isStrictTypedArray(arr) {
+      return arr instanceof Int8Array || arr instanceof Int16Array || arr instanceof Int32Array || arr instanceof Uint8Array || arr instanceof Uint8ClampedArray || arr instanceof Uint16Array || arr instanceof Uint32Array || arr instanceof Float32Array || arr instanceof Float64Array;
+    }
+    function isLooseTypedArray(arr) {
+      return names[toString.call(arr)];
+    }
+  }
+});
+
+// node_modules/typedarray-to-buffer/index.js
+var require_typedarray_to_buffer = __commonJS({
+  "node_modules/typedarray-to-buffer/index.js"(exports, module2) {
+    init_shims();
+    var isTypedArray = require_is_typedarray().strict;
+    module2.exports = function typedarrayToBuffer(arr) {
+      if (isTypedArray(arr)) {
+        var buf = Buffer.from(arr.buffer);
+        if (arr.byteLength !== arr.buffer.byteLength) {
+          buf = buf.slice(arr.byteOffset, arr.byteOffset + arr.byteLength);
+        }
+        return buf;
+      } else {
+        return Buffer.from(arr);
+      }
+    };
+  }
+});
+
+// node_modules/yaeti/lib/EventTarget.js
+var require_EventTarget = __commonJS({
+  "node_modules/yaeti/lib/EventTarget.js"(exports, module2) {
+    init_shims();
+    module2.exports = _EventTarget;
+    function _EventTarget() {
+      if (typeof this.addEventListener === "function") {
+        return;
+      }
+      this._listeners = {};
+      this.addEventListener = _addEventListener;
+      this.removeEventListener = _removeEventListener;
+      this.dispatchEvent = _dispatchEvent;
+    }
+    Object.defineProperties(_EventTarget.prototype, {
+      listeners: {
+        get: function() {
+          return this._listeners;
+        }
+      }
+    });
+    function _addEventListener(type, newListener) {
+      var listenersType, i, listener;
+      if (!type || !newListener) {
+        return;
+      }
+      listenersType = this._listeners[type];
+      if (listenersType === void 0) {
+        this._listeners[type] = listenersType = [];
+      }
+      for (i = 0; !!(listener = listenersType[i]); i++) {
+        if (listener === newListener) {
+          return;
+        }
+      }
+      listenersType.push(newListener);
+    }
+    function _removeEventListener(type, oldListener) {
+      var listenersType, i, listener;
+      if (!type || !oldListener) {
+        return;
+      }
+      listenersType = this._listeners[type];
+      if (listenersType === void 0) {
+        return;
+      }
+      for (i = 0; !!(listener = listenersType[i]); i++) {
+        if (listener === oldListener) {
+          listenersType.splice(i, 1);
+          break;
+        }
+      }
+      if (listenersType.length === 0) {
+        delete this._listeners[type];
+      }
+    }
+    function _dispatchEvent(event) {
+      var type, listenersType, dummyListener, stopImmediatePropagation = false, i, listener;
+      if (!event || typeof event.type !== "string") {
+        throw new Error("`event` must have a valid `type` property");
+      }
+      if (event._yaeti) {
+        event.target = this;
+        event.cancelable = true;
+      }
+      try {
+        event.stopImmediatePropagation = function() {
+          stopImmediatePropagation = true;
+        };
+      } catch (error2) {
+      }
+      type = event.type;
+      listenersType = this._listeners[type] || [];
+      dummyListener = this["on" + type];
+      if (typeof dummyListener === "function") {
+        dummyListener.call(this, event);
+      }
+      for (i = 0; !!(listener = listenersType[i]); i++) {
+        if (stopImmediatePropagation) {
+          break;
+        }
+        listener.call(this, event);
+      }
+      return !event.defaultPrevented;
+    }
+  }
+});
+
+// node_modules/yaeti/lib/Event.js
+var require_Event = __commonJS({
+  "node_modules/yaeti/lib/Event.js"(exports, module2) {
+    init_shims();
+    module2.exports = _Event;
+    function _Event(type) {
+      this.type = type;
+      this.isTrusted = false;
+      this._yaeti = true;
+    }
+  }
+});
+
+// node_modules/yaeti/index.js
+var require_yaeti = __commonJS({
+  "node_modules/yaeti/index.js"(exports, module2) {
+    init_shims();
+    module2.exports = {
+      EventTarget: require_EventTarget(),
+      Event: require_Event()
+    };
+  }
+});
+
+// node_modules/websocket/lib/W3CWebSocket.js
+var require_W3CWebSocket = __commonJS({
+  "node_modules/websocket/lib/W3CWebSocket.js"(exports, module2) {
+    init_shims();
+    var WebSocketClient = require_WebSocketClient();
+    var toBuffer = require_typedarray_to_buffer();
+    var yaeti = require_yaeti();
+    var CONNECTING = 0;
+    var OPEN = 1;
+    var CLOSING = 2;
+    var CLOSED = 3;
+    module2.exports = W3CWebSocket;
+    function W3CWebSocket(url, protocols, origin, headers, requestOptions, clientConfig) {
+      yaeti.EventTarget.call(this);
+      clientConfig = clientConfig || {};
+      clientConfig.assembleFragments = true;
+      var self2 = this;
+      this._url = url;
+      this._readyState = CONNECTING;
+      this._protocol = void 0;
+      this._extensions = "";
+      this._bufferedAmount = 0;
+      this._binaryType = "arraybuffer";
+      this._connection = void 0;
+      this._client = new WebSocketClient(clientConfig);
+      this._client.on("connect", function(connection) {
+        onConnect.call(self2, connection);
+      });
+      this._client.on("connectFailed", function() {
+        onConnectFailed.call(self2);
+      });
+      this._client.connect(url, protocols, origin, headers, requestOptions);
+    }
+    Object.defineProperties(W3CWebSocket.prototype, {
+      url: { get: function() {
+        return this._url;
+      } },
+      readyState: { get: function() {
+        return this._readyState;
+      } },
+      protocol: { get: function() {
+        return this._protocol;
+      } },
+      extensions: { get: function() {
+        return this._extensions;
+      } },
+      bufferedAmount: { get: function() {
+        return this._bufferedAmount;
+      } }
+    });
+    Object.defineProperties(W3CWebSocket.prototype, {
+      binaryType: {
+        get: function() {
+          return this._binaryType;
+        },
+        set: function(type) {
+          if (type !== "arraybuffer") {
+            throw new SyntaxError('just "arraybuffer" type allowed for "binaryType" attribute');
+          }
+          this._binaryType = type;
+        }
+      }
+    });
+    [["CONNECTING", CONNECTING], ["OPEN", OPEN], ["CLOSING", CLOSING], ["CLOSED", CLOSED]].forEach(function(property) {
+      Object.defineProperty(W3CWebSocket.prototype, property[0], {
+        get: function() {
+          return property[1];
+        }
+      });
+    });
+    [["CONNECTING", CONNECTING], ["OPEN", OPEN], ["CLOSING", CLOSING], ["CLOSED", CLOSED]].forEach(function(property) {
+      Object.defineProperty(W3CWebSocket, property[0], {
+        get: function() {
+          return property[1];
+        }
+      });
+    });
+    W3CWebSocket.prototype.send = function(data) {
+      if (this._readyState !== OPEN) {
+        throw new Error("cannot call send() while not connected");
+      }
+      if (typeof data === "string" || data instanceof String) {
+        this._connection.sendUTF(data);
+      } else {
+        if (data instanceof Buffer) {
+          this._connection.sendBytes(data);
+        } else if (data.byteLength || data.byteLength === 0) {
+          data = toBuffer(data);
+          this._connection.sendBytes(data);
+        } else {
+          throw new Error("unknown binary data:", data);
+        }
+      }
+    };
+    W3CWebSocket.prototype.close = function(code, reason) {
+      switch (this._readyState) {
+        case CONNECTING:
+          onConnectFailed.call(this);
+          this._client.on("connect", function(connection) {
+            if (code) {
+              connection.close(code, reason);
+            } else {
+              connection.close();
+            }
+          });
+          break;
+        case OPEN:
+          this._readyState = CLOSING;
+          if (code) {
+            this._connection.close(code, reason);
+          } else {
+            this._connection.close();
+          }
+          break;
+        case CLOSING:
+        case CLOSED:
+          break;
+      }
+    };
+    function createCloseEvent(code, reason) {
+      var event = new yaeti.Event("close");
+      event.code = code;
+      event.reason = reason;
+      event.wasClean = typeof code === "undefined" || code === 1e3;
+      return event;
+    }
+    function createMessageEvent(data) {
+      var event = new yaeti.Event("message");
+      event.data = data;
+      return event;
+    }
+    function onConnect(connection) {
+      var self2 = this;
+      this._readyState = OPEN;
+      this._connection = connection;
+      this._protocol = connection.protocol;
+      this._extensions = connection.extensions;
+      this._connection.on("close", function(code, reason) {
+        onClose.call(self2, code, reason);
+      });
+      this._connection.on("message", function(msg) {
+        onMessage.call(self2, msg);
+      });
+      this.dispatchEvent(new yaeti.Event("open"));
+    }
+    function onConnectFailed() {
+      destroy.call(this);
+      this._readyState = CLOSED;
+      try {
+        this.dispatchEvent(new yaeti.Event("error"));
+      } finally {
+        this.dispatchEvent(createCloseEvent(1006, "connection failed"));
+      }
+    }
+    function onClose(code, reason) {
+      destroy.call(this);
+      this._readyState = CLOSED;
+      this.dispatchEvent(createCloseEvent(code, reason || ""));
+    }
+    function onMessage(message) {
+      if (message.utf8Data) {
+        this.dispatchEvent(createMessageEvent(message.utf8Data));
+      } else if (message.binaryData) {
+        if (this.binaryType === "arraybuffer") {
+          var buffer = message.binaryData;
+          var arraybuffer = new ArrayBuffer(buffer.length);
+          var view = new Uint8Array(arraybuffer);
+          for (var i = 0, len = buffer.length; i < len; ++i) {
+            view[i] = buffer[i];
+          }
+          this.dispatchEvent(createMessageEvent(arraybuffer));
+        }
+      }
+    }
+    function destroy() {
+      this._client.removeAllListeners();
+      if (this._connection) {
+        this._connection.removeAllListeners();
+      }
+    }
+  }
+});
+
+// node_modules/websocket/lib/Deprecation.js
+var require_Deprecation = __commonJS({
+  "node_modules/websocket/lib/Deprecation.js"(exports, module2) {
+    init_shims();
+    var Deprecation = {
+      disableWarnings: false,
+      deprecationWarningMap: {},
+      warn: function(deprecationName) {
+        if (!this.disableWarnings && this.deprecationWarningMap[deprecationName]) {
+          console.warn("DEPRECATION WARNING: " + this.deprecationWarningMap[deprecationName]);
+          this.deprecationWarningMap[deprecationName] = false;
+        }
+      }
+    };
+    module2.exports = Deprecation;
+  }
+});
+
+// node_modules/websocket/package.json
+var require_package = __commonJS({
+  "node_modules/websocket/package.json"(exports, module2) {
+    module2.exports = {
+      _from: "websocket@^1.0.34",
+      _id: "websocket@1.0.34",
+      _inBundle: false,
+      _integrity: "sha512-PRDso2sGwF6kM75QykIesBijKSVceR6jL2G8NGYyq2XrItNC2P5/qL5XeR056GhA+Ly7JMFvJb9I312mJfmqnQ==",
+      _location: "/websocket",
+      _phantomChildren: {},
+      _requested: {
+        type: "range",
+        registry: true,
+        raw: "websocket@^1.0.34",
+        name: "websocket",
+        escapedName: "websocket",
+        rawSpec: "^1.0.34",
+        saveSpec: null,
+        fetchSpec: "^1.0.34"
+      },
+      _requiredBy: [
+        "/@supabase/realtime-js"
+      ],
+      _resolved: "https://registry.npmjs.org/websocket/-/websocket-1.0.34.tgz",
+      _shasum: "2bdc2602c08bf2c82253b730655c0ef7dcab3111",
+      _spec: "websocket@^1.0.34",
+      _where: "/Users/olivier/Code/svelte/biobizz/node_modules/@supabase/realtime-js",
+      author: {
+        name: "Brian McKelvey",
+        email: "theturtle32@gmail.com",
+        url: "https://github.com/theturtle32"
+      },
+      browser: "lib/browser.js",
+      bugs: {
+        url: "https://github.com/theturtle32/WebSocket-Node/issues"
+      },
+      bundleDependencies: false,
+      config: {
+        verbose: false
+      },
+      contributors: [
+        {
+          name: "I\xF1aki Baz Castillo",
+          email: "ibc@aliax.net",
+          url: "http://dev.sipdoc.net"
+        }
+      ],
+      dependencies: {
+        bufferutil: "^4.0.1",
+        debug: "^2.2.0",
+        "es5-ext": "^0.10.50",
+        "typedarray-to-buffer": "^3.1.5",
+        "utf-8-validate": "^5.0.2",
+        yaeti: "^0.0.6"
+      },
+      deprecated: false,
+      description: "Websocket Client & Server Library implementing the WebSocket protocol as specified in RFC 6455.",
+      devDependencies: {
+        "buffer-equal": "^1.0.0",
+        gulp: "^4.0.2",
+        "gulp-jshint": "^2.0.4",
+        jshint: "^2.0.0",
+        "jshint-stylish": "^2.2.1",
+        tape: "^4.9.1"
+      },
+      directories: {
+        lib: "./lib"
+      },
+      engines: {
+        node: ">=4.0.0"
+      },
+      homepage: "https://github.com/theturtle32/WebSocket-Node",
+      keywords: [
+        "websocket",
+        "websockets",
+        "socket",
+        "networking",
+        "comet",
+        "push",
+        "RFC-6455",
+        "realtime",
+        "server",
+        "client"
+      ],
+      license: "Apache-2.0",
+      main: "index",
+      name: "websocket",
+      repository: {
+        type: "git",
+        url: "git+https://github.com/theturtle32/WebSocket-Node.git"
+      },
+      scripts: {
+        gulp: "gulp",
+        test: "tape test/unit/*.js"
+      },
+      version: "1.0.34"
+    };
+  }
+});
+
+// node_modules/websocket/lib/version.js
+var require_version5 = __commonJS({
+  "node_modules/websocket/lib/version.js"(exports, module2) {
+    init_shims();
+    module2.exports = require_package().version;
+  }
+});
+
+// node_modules/websocket/lib/websocket.js
+var require_websocket = __commonJS({
+  "node_modules/websocket/lib/websocket.js"(exports, module2) {
+    init_shims();
+    module2.exports = {
+      "server": require_WebSocketServer(),
+      "client": require_WebSocketClient(),
+      "router": require_WebSocketRouter(),
+      "frame": require_WebSocketFrame(),
+      "request": require_WebSocketRequest(),
+      "connection": require_WebSocketConnection(),
+      "w3cwebsocket": require_W3CWebSocket(),
+      "deprecation": require_Deprecation(),
+      "version": require_version5()
+    };
+  }
+});
+
+// node_modules/websocket/index.js
+var require_websocket2 = __commonJS({
+  "node_modules/websocket/index.js"(exports, module2) {
+    init_shims();
+    module2.exports = require_websocket();
+  }
+});
+
+// node_modules/@supabase/realtime-js/dist/main/lib/serializer.js
+var require_serializer = __commonJS({
+  "node_modules/@supabase/realtime-js/dist/main/lib/serializer.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var Serializer = class {
+      constructor() {
+        this.HEADER_LENGTH = 1;
+      }
+      decode(rawPayload, callback) {
+        if (rawPayload.constructor === ArrayBuffer) {
+          return callback(this._binaryDecode(rawPayload));
+        }
+        if (typeof rawPayload === "string") {
+          return callback(JSON.parse(rawPayload));
+        }
+        return callback({});
+      }
+      _binaryDecode(buffer) {
+        const view = new DataView(buffer);
+        const decoder = new TextDecoder();
+        return this._decodeBroadcast(buffer, view, decoder);
+      }
+      _decodeBroadcast(buffer, view, decoder) {
+        const topicSize = view.getUint8(1);
+        const eventSize = view.getUint8(2);
+        let offset = this.HEADER_LENGTH + 2;
+        const topic = decoder.decode(buffer.slice(offset, offset + topicSize));
+        offset = offset + topicSize;
+        const event = decoder.decode(buffer.slice(offset, offset + eventSize));
+        offset = offset + eventSize;
+        const data = JSON.parse(decoder.decode(buffer.slice(offset, buffer.byteLength)));
+        return { ref: null, topic, event, payload: data };
+      }
+    };
+    exports.default = Serializer;
+  }
+});
+
+// node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js
+var require_RealtimeClient = __commonJS({
+  "node_modules/@supabase/realtime-js/dist/main/RealtimeClient.js"(exports) {
+    init_shims();
+    "use strict";
+    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve2) {
+          resolve2(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve2, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var constants_1 = require_constants4();
+    var timer_1 = __importDefault(require_timer());
+    var RealtimeSubscription_1 = __importDefault(require_RealtimeSubscription());
+    var websocket_1 = require_websocket2();
+    var serializer_1 = __importDefault(require_serializer());
+    var noop2 = () => {
+    };
+    var RealtimeClient = class {
+      constructor(endPoint, options2) {
+        this.accessToken = null;
+        this.channels = [];
+        this.endPoint = "";
+        this.headers = constants_1.DEFAULT_HEADERS;
+        this.params = {};
+        this.timeout = constants_1.DEFAULT_TIMEOUT;
+        this.transport = websocket_1.w3cwebsocket;
+        this.heartbeatIntervalMs = 3e4;
+        this.longpollerTimeout = 2e4;
+        this.heartbeatTimer = void 0;
+        this.pendingHeartbeatRef = null;
+        this.ref = 0;
+        this.logger = noop2;
+        this.conn = null;
+        this.sendBuffer = [];
+        this.serializer = new serializer_1.default();
+        this.stateChangeCallbacks = {
+          open: [],
+          close: [],
+          error: [],
+          message: []
+        };
+        this.endPoint = `${endPoint}/${constants_1.TRANSPORTS.websocket}`;
+        if (options2 === null || options2 === void 0 ? void 0 : options2.params)
+          this.params = options2.params;
+        if (options2 === null || options2 === void 0 ? void 0 : options2.headers)
+          this.headers = Object.assign(Object.assign({}, this.headers), options2.headers);
+        if (options2 === null || options2 === void 0 ? void 0 : options2.timeout)
+          this.timeout = options2.timeout;
+        if (options2 === null || options2 === void 0 ? void 0 : options2.logger)
+          this.logger = options2.logger;
+        if (options2 === null || options2 === void 0 ? void 0 : options2.transport)
+          this.transport = options2.transport;
+        if (options2 === null || options2 === void 0 ? void 0 : options2.heartbeatIntervalMs)
+          this.heartbeatIntervalMs = options2.heartbeatIntervalMs;
+        if (options2 === null || options2 === void 0 ? void 0 : options2.longpollerTimeout)
+          this.longpollerTimeout = options2.longpollerTimeout;
+        this.reconnectAfterMs = (options2 === null || options2 === void 0 ? void 0 : options2.reconnectAfterMs) ? options2.reconnectAfterMs : (tries) => {
+          return [1e3, 2e3, 5e3, 1e4][tries - 1] || 1e4;
+        };
+        this.encode = (options2 === null || options2 === void 0 ? void 0 : options2.encode) ? options2.encode : (payload, callback) => {
+          return callback(JSON.stringify(payload));
+        };
+        this.decode = (options2 === null || options2 === void 0 ? void 0 : options2.decode) ? options2.decode : this.serializer.decode.bind(this.serializer);
+        this.reconnectTimer = new timer_1.default(() => __awaiter(this, void 0, void 0, function* () {
+          yield this.disconnect();
+          this.connect();
+        }), this.reconnectAfterMs);
+      }
+      connect() {
+        if (this.conn) {
+          return;
+        }
+        this.conn = new this.transport(this.endPointURL(), [], null, this.headers);
+        if (this.conn) {
+          this.conn.binaryType = "arraybuffer";
+          this.conn.onopen = () => this._onConnOpen();
+          this.conn.onerror = (error2) => this._onConnError(error2);
+          this.conn.onmessage = (event) => this.onConnMessage(event);
+          this.conn.onclose = (event) => this._onConnClose(event);
+        }
+      }
+      disconnect(code, reason) {
+        return new Promise((resolve2, _reject) => {
+          try {
+            if (this.conn) {
+              this.conn.onclose = function() {
+              };
+              if (code) {
+                this.conn.close(code, reason || "");
+              } else {
+                this.conn.close();
+              }
+              this.conn = null;
+              this.heartbeatTimer && clearInterval(this.heartbeatTimer);
+              this.reconnectTimer.reset();
+            }
+            resolve2({ error: null, data: true });
+          } catch (error2) {
+            resolve2({ error: error2, data: false });
+          }
+        });
+      }
+      log(kind, msg, data) {
+        this.logger(kind, msg, data);
+      }
+      onOpen(callback) {
+        this.stateChangeCallbacks.open.push(callback);
+      }
+      onClose(callback) {
+        this.stateChangeCallbacks.close.push(callback);
+      }
+      onError(callback) {
+        this.stateChangeCallbacks.error.push(callback);
+      }
+      onMessage(callback) {
+        this.stateChangeCallbacks.message.push(callback);
+      }
+      connectionState() {
+        switch (this.conn && this.conn.readyState) {
+          case constants_1.SOCKET_STATES.connecting:
+            return "connecting";
+          case constants_1.SOCKET_STATES.open:
+            return "open";
+          case constants_1.SOCKET_STATES.closing:
+            return "closing";
+          default:
+            return "closed";
+        }
+      }
+      isConnected() {
+        return this.connectionState() === "open";
+      }
+      remove(channel) {
+        this.channels = this.channels.filter((c) => c.joinRef() !== channel.joinRef());
+      }
+      channel(topic, chanParams = {}) {
+        let chan = new RealtimeSubscription_1.default(topic, chanParams, this);
+        this.channels.push(chan);
+        return chan;
+      }
+      push(data) {
+        let { topic, event, payload, ref } = data;
+        let callback = () => {
+          this.encode(data, (result) => {
+            var _a;
+            (_a = this.conn) === null || _a === void 0 ? void 0 : _a.send(result);
+          });
+        };
+        this.log("push", `${topic} ${event} (${ref})`, payload);
+        if (this.isConnected()) {
+          callback();
+        } else {
+          this.sendBuffer.push(callback);
+        }
+      }
+      onConnMessage(rawMessage) {
+        this.decode(rawMessage.data, (msg) => {
+          let { topic, event, payload, ref } = msg;
+          if (ref && ref === this.pendingHeartbeatRef) {
+            this.pendingHeartbeatRef = null;
+          } else if (event === (payload === null || payload === void 0 ? void 0 : payload.type)) {
+            this._resetHeartbeat();
+          }
+          this.log("receive", `${payload.status || ""} ${topic} ${event} ${ref && "(" + ref + ")" || ""}`, payload);
+          this.channels.filter((channel) => channel.isMember(topic)).forEach((channel) => channel.trigger(event, payload, ref));
+          this.stateChangeCallbacks.message.forEach((callback) => callback(msg));
+        });
+      }
+      endPointURL() {
+        return this._appendParams(this.endPoint, Object.assign({}, this.params, { vsn: constants_1.VSN }));
+      }
+      makeRef() {
+        let newRef = this.ref + 1;
+        if (newRef === this.ref) {
+          this.ref = 0;
+        } else {
+          this.ref = newRef;
+        }
+        return this.ref.toString();
+      }
+      setAuth(token) {
+        this.accessToken = token;
+        try {
+          this.channels.forEach((channel) => channel.joinedOnce && channel.isJoined() && channel.push(constants_1.CHANNEL_EVENTS.access_token, {
+            access_token: token
+          }));
+        } catch (error2) {
+          console.log("error", error2);
+          console.log("error", error2);
+          console.log("error", error2);
+        }
+      }
+      _onConnOpen() {
+        this.log("transport", `connected to ${this.endPointURL()}`);
+        this._flushSendBuffer();
+        this.reconnectTimer.reset();
+        this._resetHeartbeat();
+        this.stateChangeCallbacks.open.forEach((callback) => callback());
+      }
+      _onConnClose(event) {
+        this.log("transport", "close", event);
+        this._triggerChanError();
+        this.heartbeatTimer && clearInterval(this.heartbeatTimer);
+        this.reconnectTimer.scheduleTimeout();
+        this.stateChangeCallbacks.close.forEach((callback) => callback(event));
+      }
+      _onConnError(error2) {
+        this.log("transport", error2.message);
+        this._triggerChanError();
+        this.stateChangeCallbacks.error.forEach((callback) => callback(error2));
+      }
+      _triggerChanError() {
+        this.channels.forEach((channel) => channel.trigger(constants_1.CHANNEL_EVENTS.error));
+      }
+      _appendParams(url, params) {
+        if (Object.keys(params).length === 0) {
+          return url;
+        }
+        const prefix = url.match(/\?/) ? "&" : "?";
+        const query = new URLSearchParams(params);
+        return `${url}${prefix}${query}`;
+      }
+      _flushSendBuffer() {
+        if (this.isConnected() && this.sendBuffer.length > 0) {
+          this.sendBuffer.forEach((callback) => callback());
+          this.sendBuffer = [];
+        }
+      }
+      _resetHeartbeat() {
+        this.pendingHeartbeatRef = null;
+        this.heartbeatTimer && clearInterval(this.heartbeatTimer);
+        this.heartbeatTimer = setInterval(() => this._sendHeartbeat(), this.heartbeatIntervalMs);
+      }
+      _sendHeartbeat() {
+        var _a;
+        if (!this.isConnected()) {
+          return;
+        }
+        if (this.pendingHeartbeatRef) {
+          this.pendingHeartbeatRef = null;
+          this.log("transport", "heartbeat timeout. Attempting to re-establish connection");
+          (_a = this.conn) === null || _a === void 0 ? void 0 : _a.close(constants_1.WS_CLOSE_NORMAL, "hearbeat timeout");
+          return;
+        }
+        this.pendingHeartbeatRef = this.makeRef();
+        this.setAuth(this.accessToken);
+      }
+    };
+    exports.default = RealtimeClient;
+  }
+});
+
+// node_modules/@supabase/realtime-js/dist/main/index.js
+var require_main3 = __commonJS({
+  "node_modules/@supabase/realtime-js/dist/main/index.js"(exports) {
+    init_shims();
+    "use strict";
+    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+        return m[k];
+      } });
+    } : function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      o[k2] = m[k];
+    });
+    var __setModuleDefault = exports && exports.__setModuleDefault || (Object.create ? function(o, v) {
+      Object.defineProperty(o, "default", { enumerable: true, value: v });
+    } : function(o, v) {
+      o["default"] = v;
+    });
+    var __importStar = exports && exports.__importStar || function(mod) {
+      if (mod && mod.__esModule)
+        return mod;
+      var result = {};
+      if (mod != null) {
+        for (var k in mod)
+          if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k))
+            __createBinding(result, mod, k);
+      }
+      __setModuleDefault(result, mod);
+      return result;
+    };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Transformers = exports.RealtimeSubscription = exports.RealtimeClient = void 0;
+    var Transformers = __importStar(require_transformers());
+    exports.Transformers = Transformers;
+    var RealtimeClient_1 = __importDefault(require_RealtimeClient());
+    exports.RealtimeClient = RealtimeClient_1.default;
+    var RealtimeSubscription_1 = __importDefault(require_RealtimeSubscription());
+    exports.RealtimeSubscription = RealtimeSubscription_1.default;
+  }
+});
+
+// node_modules/@supabase/supabase-js/dist/main/lib/SupabaseRealtimeClient.js
+var require_SupabaseRealtimeClient = __commonJS({
+  "node_modules/@supabase/supabase-js/dist/main/lib/SupabaseRealtimeClient.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.SupabaseRealtimeClient = void 0;
+    var realtime_js_1 = require_main3();
+    var SupabaseRealtimeClient = class {
+      constructor(socket, headers, schema, tableName) {
+        const chanParams = {};
+        const topic = tableName === "*" ? `realtime:${schema}` : `realtime:${schema}:${tableName}`;
+        const userToken = headers["Authorization"].split(" ")[1];
+        if (userToken) {
+          chanParams["user_token"] = userToken;
+        }
+        this.subscription = socket.channel(topic, chanParams);
+      }
+      getPayloadRecords(payload) {
+        const records = {
+          new: {},
+          old: {}
+        };
+        if (payload.type === "INSERT" || payload.type === "UPDATE") {
+          records.new = realtime_js_1.Transformers.convertChangeData(payload.columns, payload.record);
+        }
+        if (payload.type === "UPDATE" || payload.type === "DELETE") {
+          records.old = realtime_js_1.Transformers.convertChangeData(payload.columns, payload.old_record);
+        }
+        return records;
+      }
+      on(event, callback) {
+        this.subscription.on(event, (payload) => {
+          let enrichedPayload = {
+            schema: payload.schema,
+            table: payload.table,
+            commit_timestamp: payload.commit_timestamp,
+            eventType: payload.type,
+            new: {},
+            old: {}
+          };
+          enrichedPayload = Object.assign(Object.assign({}, enrichedPayload), this.getPayloadRecords(payload));
+          callback(enrichedPayload);
+        });
+        return this;
+      }
+      subscribe(callback = () => {
+      }) {
+        this.subscription.onError((e) => callback("SUBSCRIPTION_ERROR", e));
+        this.subscription.onClose(() => callback("CLOSED"));
+        this.subscription.subscribe().receive("ok", () => callback("SUBSCRIBED")).receive("error", (e) => callback("SUBSCRIPTION_ERROR", e)).receive("timeout", () => callback("RETRYING_AFTER_TIMEOUT"));
+        return this.subscription;
+      }
+    };
+    exports.SupabaseRealtimeClient = SupabaseRealtimeClient;
+  }
+});
+
+// node_modules/@supabase/supabase-js/dist/main/lib/SupabaseQueryBuilder.js
+var require_SupabaseQueryBuilder = __commonJS({
+  "node_modules/@supabase/supabase-js/dist/main/lib/SupabaseQueryBuilder.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.SupabaseQueryBuilder = void 0;
+    var postgrest_js_1 = require_main2();
+    var SupabaseRealtimeClient_1 = require_SupabaseRealtimeClient();
+    var SupabaseQueryBuilder = class extends postgrest_js_1.PostgrestQueryBuilder {
+      constructor(url, { headers = {}, schema, realtime, table, fetch: fetch2 }) {
+        super(url, { headers, schema, fetch: fetch2 });
+        this._subscription = new SupabaseRealtimeClient_1.SupabaseRealtimeClient(realtime, headers, schema, table);
+        this._realtime = realtime;
+      }
+      on(event, callback) {
+        if (!this._realtime.isConnected()) {
+          this._realtime.connect();
+        }
+        return this._subscription.on(event, callback);
+      }
+    };
+    exports.SupabaseQueryBuilder = SupabaseQueryBuilder;
+  }
+});
+
+// node_modules/@supabase/storage-js/dist/main/lib/fetch.js
+var require_fetch2 = __commonJS({
+  "node_modules/@supabase/storage-js/dist/main/lib/fetch.js"(exports) {
+    init_shims();
+    "use strict";
+    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve2) {
+          resolve2(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve2, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.remove = exports.put = exports.post = exports.get = void 0;
+    var cross_fetch_1 = __importDefault(require_node_ponyfill());
+    var _getErrorMessage = (err) => err.msg || err.message || err.error_description || err.error || JSON.stringify(err);
+    var handleError = (error2, reject) => {
+      if (typeof error2.json !== "function") {
+        return reject(error2);
+      }
+      error2.json().then((err) => {
+        return reject({
+          message: _getErrorMessage(err),
+          status: (error2 === null || error2 === void 0 ? void 0 : error2.status) || 500
+        });
+      });
+    };
+    var _getRequestParams = (method, options2, parameters, body) => {
+      const params = { method, headers: (options2 === null || options2 === void 0 ? void 0 : options2.headers) || {} };
+      if (method === "GET") {
+        return params;
+      }
+      params.headers = Object.assign({ "Content-Type": "application/json" }, options2 === null || options2 === void 0 ? void 0 : options2.headers);
+      params.body = JSON.stringify(body);
+      return Object.assign(Object.assign({}, params), parameters);
+    };
+    function _handleRequest(fetcher = cross_fetch_1.default, method, url, options2, parameters, body) {
+      return __awaiter(this, void 0, void 0, function* () {
+        return new Promise((resolve2, reject) => {
+          fetcher(url, _getRequestParams(method, options2, parameters, body)).then((result) => {
+            if (!result.ok)
+              throw result;
+            if (options2 === null || options2 === void 0 ? void 0 : options2.noResolveJson)
+              return resolve2(result);
+            return result.json();
+          }).then((data) => resolve2(data)).catch((error2) => handleError(error2, reject));
+        });
+      });
+    }
+    function get2(fetcher, url, options2, parameters) {
+      return __awaiter(this, void 0, void 0, function* () {
+        return _handleRequest(fetcher, "GET", url, options2, parameters);
+      });
+    }
+    exports.get = get2;
+    function post2(fetcher, url, body, options2, parameters) {
+      return __awaiter(this, void 0, void 0, function* () {
+        return _handleRequest(fetcher, "POST", url, options2, parameters, body);
+      });
+    }
+    exports.post = post2;
+    function put(fetcher, url, body, options2, parameters) {
+      return __awaiter(this, void 0, void 0, function* () {
+        return _handleRequest(fetcher, "PUT", url, options2, parameters, body);
+      });
+    }
+    exports.put = put;
+    function remove(fetcher, url, body, options2, parameters) {
+      return __awaiter(this, void 0, void 0, function* () {
+        return _handleRequest(fetcher, "DELETE", url, options2, parameters, body);
+      });
+    }
+    exports.remove = remove;
+  }
+});
+
+// node_modules/@supabase/storage-js/dist/main/lib/version.js
+var require_version6 = __commonJS({
+  "node_modules/@supabase/storage-js/dist/main/lib/version.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.version = void 0;
+    exports.version = "0.0.0";
+  }
+});
+
+// node_modules/@supabase/storage-js/dist/main/lib/constants.js
+var require_constants5 = __commonJS({
+  "node_modules/@supabase/storage-js/dist/main/lib/constants.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.DEFAULT_HEADERS = void 0;
+    var version_1 = require_version6();
+    exports.DEFAULT_HEADERS = { "X-Client-Info": `storage-js/${version_1.version}` };
+  }
+});
+
+// node_modules/@supabase/storage-js/dist/main/lib/StorageBucketApi.js
+var require_StorageBucketApi = __commonJS({
+  "node_modules/@supabase/storage-js/dist/main/lib/StorageBucketApi.js"(exports) {
+    init_shims();
+    "use strict";
+    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve2) {
+          resolve2(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve2, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.StorageBucketApi = void 0;
+    var fetch_1 = require_fetch2();
+    var constants_1 = require_constants5();
+    var StorageBucketApi = class {
+      constructor(url, headers = {}, fetch2) {
+        this.url = url;
+        this.headers = Object.assign(Object.assign({}, constants_1.DEFAULT_HEADERS), headers);
+        this.fetch = fetch2;
+      }
+      listBuckets() {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield fetch_1.get(this.fetch, `${this.url}/bucket`, { headers: this.headers });
+            return { data, error: null };
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+      getBucket(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield fetch_1.get(this.fetch, `${this.url}/bucket/${id}`, { headers: this.headers });
+            return { data, error: null };
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+      createBucket(id, options2 = { public: false }) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield fetch_1.post(this.fetch, `${this.url}/bucket`, { id, name: id, public: options2.public }, { headers: this.headers });
+            return { data: data.name, error: null };
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+      updateBucket(id, options2) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield fetch_1.put(this.fetch, `${this.url}/bucket/${id}`, { id, name: id, public: options2.public }, { headers: this.headers });
+            return { data, error: null };
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+      emptyBucket(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield fetch_1.post(this.fetch, `${this.url}/bucket/${id}/empty`, {}, { headers: this.headers });
+            return { data, error: null };
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+      deleteBucket(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield fetch_1.remove(this.fetch, `${this.url}/bucket/${id}`, {}, { headers: this.headers });
+            return { data, error: null };
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+    };
+    exports.StorageBucketApi = StorageBucketApi;
+  }
+});
+
+// node_modules/@supabase/storage-js/dist/main/lib/StorageFileApi.js
+var require_StorageFileApi = __commonJS({
+  "node_modules/@supabase/storage-js/dist/main/lib/StorageFileApi.js"(exports) {
+    init_shims();
+    "use strict";
+    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve2) {
+          resolve2(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve2, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.StorageFileApi = void 0;
+    var fetch_1 = require_fetch2();
+    var cross_fetch_1 = __importDefault(require_node_ponyfill());
+    var DEFAULT_SEARCH_OPTIONS = {
+      limit: 100,
+      offset: 0,
+      sortBy: {
+        column: "name",
+        order: "asc"
+      }
+    };
+    var DEFAULT_FILE_OPTIONS = {
+      cacheControl: "3600",
+      contentType: "text/plain;charset=UTF-8",
+      upsert: false
+    };
+    var StorageFileApi = class {
+      constructor(url, headers = {}, bucketId, fetch2) {
+        this.url = url;
+        this.headers = headers;
+        this.bucketId = bucketId;
+        this.fetch = fetch2;
+      }
+      uploadOrUpdate(method, path, fileBody, fileOptions) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            let body;
+            const options2 = Object.assign(Object.assign({}, DEFAULT_FILE_OPTIONS), fileOptions);
+            const headers = Object.assign(Object.assign({}, this.headers), method === "POST" && { "x-upsert": String(options2.upsert) });
+            if (typeof Blob !== "undefined" && fileBody instanceof Blob) {
+              body = new FormData();
+              body.append("cacheControl", options2.cacheControl);
+              body.append("", fileBody);
+            } else if (typeof FormData !== "undefined" && fileBody instanceof FormData) {
+              body = fileBody;
+              body.append("cacheControl", options2.cacheControl);
+            } else {
+              body = fileBody;
+              headers["cache-control"] = `max-age=${options2.cacheControl}`;
+              headers["content-type"] = options2.contentType;
+            }
+            const _path = this._getFinalPath(path);
+            const res = yield cross_fetch_1.default(`${this.url}/object/${_path}`, {
+              method,
+              body,
+              headers
+            });
+            if (res.ok) {
+              return { data: { Key: _path }, error: null };
+            } else {
+              const error2 = yield res.json();
+              return { data: null, error: error2 };
+            }
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+      upload(path, fileBody, fileOptions) {
+        return __awaiter(this, void 0, void 0, function* () {
+          return this.uploadOrUpdate("POST", path, fileBody, fileOptions);
+        });
+      }
+      update(path, fileBody, fileOptions) {
+        return __awaiter(this, void 0, void 0, function* () {
+          return this.uploadOrUpdate("PUT", path, fileBody, fileOptions);
+        });
+      }
+      move(fromPath, toPath) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield fetch_1.post(this.fetch, `${this.url}/object/move`, { bucketId: this.bucketId, sourceKey: fromPath, destinationKey: toPath }, { headers: this.headers });
+            return { data, error: null };
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+      createSignedUrl(path, expiresIn) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const _path = this._getFinalPath(path);
+            let data = yield fetch_1.post(this.fetch, `${this.url}/object/sign/${_path}`, { expiresIn }, { headers: this.headers });
+            const signedURL = `${this.url}${data.signedURL}`;
+            data = { signedURL };
+            return { data, error: null, signedURL };
+          } catch (error2) {
+            return { data: null, error: error2, signedURL: null };
+          }
+        });
+      }
+      download(path) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const _path = this._getFinalPath(path);
+            const res = yield fetch_1.get(this.fetch, `${this.url}/object/${_path}`, {
+              headers: this.headers,
+              noResolveJson: true
+            });
+            const data = yield res.blob();
+            return { data, error: null };
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+      getPublicUrl(path) {
+        try {
+          const _path = this._getFinalPath(path);
+          const publicURL = `${this.url}/object/public/${_path}`;
+          const data = { publicURL };
+          return { data, error: null, publicURL };
+        } catch (error2) {
+          return { data: null, error: error2, publicURL: null };
+        }
+      }
+      remove(paths) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const data = yield fetch_1.remove(this.fetch, `${this.url}/object/${this.bucketId}`, { prefixes: paths }, { headers: this.headers });
+            return { data, error: null };
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+      list(path, options2, parameters) {
+        return __awaiter(this, void 0, void 0, function* () {
+          try {
+            const body = Object.assign(Object.assign(Object.assign({}, DEFAULT_SEARCH_OPTIONS), options2), { prefix: path || "" });
+            const data = yield fetch_1.post(this.fetch, `${this.url}/object/list/${this.bucketId}`, body, { headers: this.headers }, parameters);
+            return { data, error: null };
+          } catch (error2) {
+            return { data: null, error: error2 };
+          }
+        });
+      }
+      _getFinalPath(path) {
+        return `${this.bucketId}/${path}`;
+      }
+    };
+    exports.StorageFileApi = StorageFileApi;
+  }
+});
+
+// node_modules/@supabase/storage-js/dist/main/lib/types.js
+var require_types3 = __commonJS({
+  "node_modules/@supabase/storage-js/dist/main/lib/types.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+  }
+});
+
+// node_modules/@supabase/storage-js/dist/main/lib/index.js
+var require_lib2 = __commonJS({
+  "node_modules/@supabase/storage-js/dist/main/lib/index.js"(exports) {
+    init_shims();
+    "use strict";
+    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+        return m[k];
+      } });
+    } : function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      o[k2] = m[k];
+    });
+    var __exportStar = exports && exports.__exportStar || function(m, exports2) {
+      for (var p in m)
+        if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
+          __createBinding(exports2, m, p);
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    __exportStar(require_StorageBucketApi(), exports);
+    __exportStar(require_StorageFileApi(), exports);
+    __exportStar(require_types3(), exports);
+    __exportStar(require_constants5(), exports);
+  }
+});
+
+// node_modules/@supabase/storage-js/dist/main/SupabaseStorageClient.js
+var require_SupabaseStorageClient = __commonJS({
+  "node_modules/@supabase/storage-js/dist/main/SupabaseStorageClient.js"(exports) {
+    init_shims();
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.SupabaseStorageClient = void 0;
+    var lib_1 = require_lib2();
+    var SupabaseStorageClient = class extends lib_1.StorageBucketApi {
+      constructor(url, headers = {}, fetch2) {
+        super(url, headers, fetch2);
+      }
+      from(id) {
+        return new lib_1.StorageFileApi(this.url, this.headers, id, this.fetch);
+      }
+    };
+    exports.SupabaseStorageClient = SupabaseStorageClient;
+  }
+});
+
+// node_modules/@supabase/storage-js/dist/main/index.js
+var require_main4 = __commonJS({
+  "node_modules/@supabase/storage-js/dist/main/index.js"(exports) {
+    init_shims();
+    "use strict";
+    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+        return m[k];
+      } });
+    } : function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      o[k2] = m[k];
+    });
+    var __exportStar = exports && exports.__exportStar || function(m, exports2) {
+      for (var p in m)
+        if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
+          __createBinding(exports2, m, p);
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.SupabaseStorageClient = void 0;
+    var SupabaseStorageClient_1 = require_SupabaseStorageClient();
+    Object.defineProperty(exports, "SupabaseStorageClient", { enumerable: true, get: function() {
+      return SupabaseStorageClient_1.SupabaseStorageClient;
+    } });
+    __exportStar(require_types3(), exports);
+  }
+});
+
+// node_modules/@supabase/supabase-js/dist/main/SupabaseClient.js
+var require_SupabaseClient = __commonJS({
+  "node_modules/@supabase/supabase-js/dist/main/SupabaseClient.js"(exports) {
+    init_shims();
+    "use strict";
+    var __awaiter = exports && exports.__awaiter || function(thisArg, _arguments, P, generator) {
+      function adopt(value) {
+        return value instanceof P ? value : new P(function(resolve2) {
+          resolve2(value);
+        });
+      }
+      return new (P || (P = Promise))(function(resolve2, reject) {
+        function fulfilled(value) {
+          try {
+            step(generator.next(value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function rejected(value) {
+          try {
+            step(generator["throw"](value));
+          } catch (e) {
+            reject(e);
+          }
+        }
+        function step(result) {
+          result.done ? resolve2(result.value) : adopt(result.value).then(fulfilled, rejected);
+        }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+      });
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var constants_1 = require_constants();
+    var helpers_1 = require_helpers();
+    var SupabaseAuthClient_1 = require_SupabaseAuthClient();
+    var SupabaseQueryBuilder_1 = require_SupabaseQueryBuilder();
+    var storage_js_1 = require_main4();
+    var postgrest_js_1 = require_main2();
+    var realtime_js_1 = require_main3();
+    var DEFAULT_OPTIONS = {
+      schema: "public",
+      autoRefreshToken: true,
+      persistSession: true,
+      detectSessionInUrl: true,
+      headers: constants_1.DEFAULT_HEADERS
+    };
+    var SupabaseClient = class {
+      constructor(supabaseUrl2, supabaseKey, options2) {
+        this.supabaseUrl = supabaseUrl2;
+        this.supabaseKey = supabaseKey;
+        if (!supabaseUrl2)
+          throw new Error("supabaseUrl is required.");
+        if (!supabaseKey)
+          throw new Error("supabaseKey is required.");
+        supabaseUrl2 = helpers_1.stripTrailingSlash(supabaseUrl2);
+        const settings = Object.assign(Object.assign({}, DEFAULT_OPTIONS), options2);
+        this.restUrl = `${supabaseUrl2}/rest/v1`;
+        this.realtimeUrl = `${supabaseUrl2}/realtime/v1`.replace("http", "ws");
+        this.authUrl = `${supabaseUrl2}/auth/v1`;
+        this.storageUrl = `${supabaseUrl2}/storage/v1`;
+        this.schema = settings.schema;
+        this.fetch = settings.fetch;
+        this.headers = Object.assign(Object.assign({}, constants_1.DEFAULT_HEADERS), options2 === null || options2 === void 0 ? void 0 : options2.headers);
+        this.auth = this._initSupabaseAuthClient(settings);
+        this.realtime = this._initRealtimeClient(Object.assign({ headers: this.headers }, settings.realtime));
+      }
+      get storage() {
+        return new storage_js_1.SupabaseStorageClient(this.storageUrl, this._getAuthHeaders(), this.fetch);
+      }
+      from(table) {
+        const url = `${this.restUrl}/${table}`;
+        return new SupabaseQueryBuilder_1.SupabaseQueryBuilder(url, {
+          headers: this._getAuthHeaders(),
+          schema: this.schema,
+          realtime: this.realtime,
+          table,
+          fetch: this.fetch
+        });
+      }
+      rpc(fn, params, { head = false, count = null } = {}) {
+        const rest = this._initPostgRESTClient();
+        return rest.rpc(fn, params, { head, count });
+      }
+      removeSubscription(subscription) {
+        return new Promise((resolve2) => __awaiter(this, void 0, void 0, function* () {
+          try {
+            yield this._closeSubscription(subscription);
+            const openSubscriptions = this.getSubscriptions().length;
+            if (!openSubscriptions) {
+              const { error: error2 } = yield this.realtime.disconnect();
+              if (error2)
+                return resolve2({ error: error2 });
+            }
+            return resolve2({ error: null, data: { openSubscriptions } });
+          } catch (error2) {
+            return resolve2({ error: error2 });
+          }
+        }));
+      }
+      _closeSubscription(subscription) {
+        return __awaiter(this, void 0, void 0, function* () {
+          if (!subscription.isClosed()) {
+            yield this._closeChannel(subscription);
+          }
+        });
+      }
+      getSubscriptions() {
+        return this.realtime.channels;
+      }
+      _initSupabaseAuthClient({ autoRefreshToken, persistSession, detectSessionInUrl, localStorage, headers, fetch: fetch2 }) {
+        const authHeaders = {
+          Authorization: `Bearer ${this.supabaseKey}`,
+          apikey: `${this.supabaseKey}`
+        };
+        return new SupabaseAuthClient_1.SupabaseAuthClient({
+          url: this.authUrl,
+          headers: Object.assign(Object.assign({}, headers), authHeaders),
+          autoRefreshToken,
+          persistSession,
+          detectSessionInUrl,
+          localStorage,
+          fetch: fetch2
+        });
+      }
+      _initRealtimeClient(options2) {
+        return new realtime_js_1.RealtimeClient(this.realtimeUrl, Object.assign(Object.assign({}, options2), { params: Object.assign(Object.assign({}, options2 === null || options2 === void 0 ? void 0 : options2.params), { apikey: this.supabaseKey }) }));
+      }
+      _initPostgRESTClient() {
+        return new postgrest_js_1.PostgrestClient(this.restUrl, {
+          headers: this._getAuthHeaders(),
+          schema: this.schema,
+          fetch: this.fetch
+        });
+      }
+      _getAuthHeaders() {
+        var _a, _b;
+        const headers = this.headers;
+        const authBearer = (_b = (_a = this.auth.session()) === null || _a === void 0 ? void 0 : _a.access_token) !== null && _b !== void 0 ? _b : this.supabaseKey;
+        headers["apikey"] = this.supabaseKey;
+        headers["Authorization"] = `Bearer ${authBearer}`;
+        return headers;
+      }
+      _closeChannel(subscription) {
+        return new Promise((resolve2, reject) => {
+          subscription.unsubscribe().receive("ok", () => {
+            this.realtime.remove(subscription);
+            return resolve2(true);
+          }).receive("error", (e) => reject(e));
+        });
+      }
+    };
+    exports.default = SupabaseClient;
+  }
+});
+
+// node_modules/@supabase/supabase-js/dist/main/index.js
+var require_main5 = __commonJS({
+  "node_modules/@supabase/supabase-js/dist/main/index.js"(exports) {
+    init_shims();
+    "use strict";
+    var __createBinding = exports && exports.__createBinding || (Object.create ? function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      Object.defineProperty(o, k2, { enumerable: true, get: function() {
+        return m[k];
+      } });
+    } : function(o, m, k, k2) {
+      if (k2 === void 0)
+        k2 = k;
+      o[k2] = m[k];
+    });
+    var __exportStar = exports && exports.__exportStar || function(m, exports2) {
+      for (var p in m)
+        if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports2, p))
+          __createBinding(exports2, m, p);
+    };
+    var __importDefault = exports && exports.__importDefault || function(mod) {
+      return mod && mod.__esModule ? mod : { "default": mod };
+    };
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.SupabaseClient = exports.createClient = void 0;
+    var SupabaseClient_1 = __importDefault(require_SupabaseClient());
+    exports.SupabaseClient = SupabaseClient_1.default;
+    __exportStar(require_main(), exports);
+    __exportStar(require_main3(), exports);
+    var createClient2 = (supabaseUrl2, supabaseKey, options2) => {
+      return new SupabaseClient_1.default(supabaseUrl2, supabaseKey, options2);
+    };
+    exports.createClient = createClient2;
+  }
+});
+
+// .svelte-kit/output/server/chunks/index-bb899934.js
+function readable(value, start) {
+  return {
+    subscribe: writable(value, start).subscribe
+  };
+}
 function writable(value, start = noop) {
   let stop;
   const subscribers = new Set();
@@ -5035,15 +12861,175 @@ function writable(value, start = noop) {
   return { set, update, subscribe: subscribe2 };
 }
 var subscriber_queue;
-var init_index_e42dc858 = __esm({
-  ".svelte-kit/output/server/chunks/index-e42dc858.js"() {
+var init_index_bb899934 = __esm({
+  ".svelte-kit/output/server/chunks/index-bb899934.js"() {
     init_shims();
-    init_app_285ccb28();
+    init_app_095bf1da();
     subscriber_queue = [];
   }
 });
 
-// .svelte-kit/output/server/chunks/RangeSlider-89430ca7.js
+// .svelte-kit/output/server/chunks/supabase-c257868d.js
+var import_supabase_js, SUPABASE_API_KEY, SUPABASE_URL, supabaseUrl, supabaseAnonKey, supabase, user;
+var init_supabase_c257868d = __esm({
+  ".svelte-kit/output/server/chunks/supabase-c257868d.js"() {
+    init_shims();
+    import_supabase_js = __toModule(require_main5());
+    init_index_bb899934();
+    SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzODM4NTc5OCwiZXhwIjoxOTUzOTYxNzk4fQ.quQExez2M9PeeBcil4EaaJMlJQZGDKk7PePXHJIsWsI";
+    SUPABASE_URL = "https://rvikikwwpsjwriuxtrso.supabase.co";
+    supabaseUrl = SUPABASE_URL;
+    supabaseAnonKey = SUPABASE_API_KEY;
+    supabase = (0, import_supabase_js.createClient)(supabaseUrl, supabaseAnonKey);
+    user = readable(supabase.auth.user(), (set) => {
+      supabase.auth.onAuthStateChange((event, session) => {
+        if (event == "SIGNED_OUT") {
+          set(null);
+        }
+      });
+    });
+    supabase.auth;
+  }
+});
+
+// .svelte-kit/output/server/chunks/__layout-71b4e1e9.js
+var layout_71b4e1e9_exports = {};
+__export(layout_71b4e1e9_exports, {
+  default: () => _layout
+});
+var import_cookie, getStores, page, css$1, Header, css, _layout;
+var init_layout_71b4e1e9 = __esm({
+  ".svelte-kit/output/server/chunks/__layout-71b4e1e9.js"() {
+    init_shims();
+    init_app_095bf1da();
+    init_supabase_c257868d();
+    import_cookie = __toModule(require_cookie());
+    init_dist();
+    init_index_bb899934();
+    getStores = () => {
+      const stores = getContext("__svelte__");
+      return {
+        page: {
+          subscribe: stores.page.subscribe
+        },
+        navigating: {
+          subscribe: stores.navigating.subscribe
+        },
+        get preloading() {
+          console.error("stores.preloading is deprecated; use stores.navigating instead");
+          return {
+            subscribe: stores.navigating.subscribe
+          };
+        },
+        session: stores.session
+      };
+    };
+    page = {
+      subscribe(fn) {
+        const store = getStores().page;
+        return store.subscribe(fn);
+      }
+    };
+    css$1 = {
+      code: "header.svelte-lcod31.svelte-lcod31{display:flex;justify-content:space-between}nav.svelte-lcod31.svelte-lcod31{display:flex;justify-content:center;--background:rgba(255, 255, 255, 0.7);width:100%;font-size:12px}ul.svelte-lcod31.svelte-lcod31{position:relative;padding:0;margin:0;height:3em;display:flex;justify-content:center;align-items:center;list-style:none;background:var(--background);background-size:contain}li.svelte-lcod31.svelte-lcod31{position:relative;height:100%}li.active.svelte-lcod31.svelte-lcod31::before{--size:6px;content:'';width:0;height:0;position:absolute;top:0;left:calc(50% - var(--size));border:var(--size) solid transparent;border-top:var(--size) solid var(--accent-color)}nav.svelte-lcod31 a.svelte-lcod31{display:flex;height:100%;align-items:center;padding:0 1em;color:var(--heading-color);font-weight:700;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;text-decoration:none;transition:color 0.2s linear}a.svelte-lcod31.svelte-lcod31:hover{color:var(--accent-color)}",
+      map: null
+    };
+    Header = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let $page, $$unsubscribe_page;
+      let $user, $$unsubscribe_user;
+      $$unsubscribe_page = subscribe(page, (value) => $page = value);
+      $$unsubscribe_user = subscribe(user, (value) => $user = value);
+      $$result.css.add(css$1);
+      $$unsubscribe_page();
+      $$unsubscribe_user();
+      return `<header class="${"svelte-lcod31"}"><nav class="${"svelte-lcod31"}"><ul class="${"svelte-lcod31"}"><li class="${["svelte-lcod31", $page.path === "/" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/"}" class="${"svelte-lcod31"}">Home</a></li>
+			<li class="${["svelte-lcod31", $page.path === "/settings" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/settings"}" class="${"svelte-lcod31"}">Settings</a></li>
+			${$user ? `<li class="${["svelte-lcod31", $page.path === "/sign-in" ? "active" : ""].join(" ").trim()}"><a${add_attribute("href", null, 0)} class="${"svelte-lcod31"}">Sign out</a></li>` : `<li class="${["svelte-lcod31", $page.path === "/sign-in" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/sign-in"}" class="${"svelte-lcod31"}">Sign-in</a></li>`}</ul></nav>
+</header>`;
+    });
+    css = {
+      code: "main.svelte-l15fsz{flex:1;display:flex;flex-direction:column;width:100%;max-width:1024px;margin:0 auto;box-sizing:border-box}footer.svelte-l15fsz{display:flex;flex-direction:column;justify-content:center;align-items:center;padding:10px}@media(min-width: 480px){footer.svelte-l15fsz{padding:40px 0}}",
+      map: null
+    };
+    _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css);
+      return `
+${validate_component(Header, "Header").$$render($$result, {}, {}, {})}
+<main class="${"svelte-l15fsz"}">${``}
+	${`<p>loading</p>`}</main>
+
+<footer class="${"svelte-l15fsz"}"><p class="${"text-xs text-green-800"}">Elles sont belles mes salades ? \u{1F957}</p>
+</footer>`;
+    });
+  }
+});
+
+// .svelte-kit/output/server/chunks/error-4896efd4.js
+var error_4896efd4_exports = {};
+__export(error_4896efd4_exports, {
+  default: () => Error2,
+  load: () => load
+});
+function load({ error: error2, status }) {
+  return { props: { error: error2, status } };
+}
+var import_cookie2, Error2;
+var init_error_4896efd4 = __esm({
+  ".svelte-kit/output/server/chunks/error-4896efd4.js"() {
+    init_shims();
+    init_app_095bf1da();
+    import_cookie2 = __toModule(require_cookie());
+    init_dist();
+    Error2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { status } = $$props;
+      let { error: error2 } = $$props;
+      if ($$props.status === void 0 && $$bindings.status && status !== void 0)
+        $$bindings.status(status);
+      if ($$props.error === void 0 && $$bindings.error && error2 !== void 0)
+        $$bindings.error(error2);
+      return `<h1>${escape(status)}</h1>
+
+<pre>${escape(error2.message)}</pre>
+
+
+
+${error2.frame ? `<pre>${escape(error2.frame)}</pre>` : ``}
+${error2.stack ? `<pre>${escape(error2.stack)}</pre>` : ``}`;
+    });
+  }
+});
+
+// .svelte-kit/output/server/chunks/env-df325643.js
+var browser, dev;
+var init_env_df325643 = __esm({
+  ".svelte-kit/output/server/chunks/env-df325643.js"() {
+    init_shims();
+    browser = false;
+    dev = false;
+  }
+});
+
+// .svelte-kit/output/server/chunks/store-a5cfbf1a.js
+var bucketLiters, dateGrowStart, nutesRatio;
+var init_store_a5cfbf1a = __esm({
+  ".svelte-kit/output/server/chunks/store-a5cfbf1a.js"() {
+    init_shims();
+    init_index_bb899934();
+    init_env_df325643();
+    JSON.parse(browser) || [1];
+    bucketLiters = writable(browser);
+    bucketLiters.subscribe((val) => {
+    });
+    new Date(JSON.parse(browser)) || new Date();
+    dateGrowStart = writable(browser);
+    dateGrowStart.subscribe((val) => browser);
+    JSON.parse(browser) || [50];
+    nutesRatio = writable(browser);
+    nutesRatio.subscribe((val) => browser);
+  }
+});
+
+// .svelte-kit/output/server/chunks/RangeSlider-1fad5774.js
 function is_date(obj) {
   return Object.prototype.toString.call(obj) === "[object Date]";
 }
@@ -5141,12 +13127,12 @@ function spring(value, opts = {}) {
   };
   return spring2;
 }
-var css$2, IconBase, FaThermometerFull, FaThermometerQuarter, FaTint, css$1, RangePips, css2, RangeSlider;
-var init_RangeSlider_89430ca7 = __esm({
-  ".svelte-kit/output/server/chunks/RangeSlider-89430ca7.js"() {
+var css$2, IconBase, FaTint, css$12, RangePips, css2, RangeSlider;
+var init_RangeSlider_1fad5774 = __esm({
+  ".svelte-kit/output/server/chunks/RangeSlider-1fad5774.js"() {
     init_shims();
-    init_app_285ccb28();
-    init_index_e42dc858();
+    init_app_095bf1da();
+    init_index_bb899934();
     css$2 = {
       code: "svg.svelte-c8tyih{stroke:currentColor;fill:currentColor;stroke-width:0;width:100%;height:auto;max-height:100%}",
       map: null
@@ -5161,22 +13147,12 @@ var init_RangeSlider_89430ca7 = __esm({
       $$result.css.add(css$2);
       return `<svg xmlns="${"http://www.w3.org/2000/svg"}"${add_attribute("viewBox", viewBox, 0)} class="${"svelte-c8tyih"}">${title ? `<title>${escape(title)}</title>` : ``}${slots.default ? slots.default({}) : ``}</svg>`;
     });
-    FaThermometerFull = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 256 512" }, $$props), {}, {
-        default: () => `<path d="${"M224 96c0-53.019-42.981-96-96-96S32 42.981 32 96v203.347C12.225 321.756.166 351.136.002 383.333c-.359 70.303 56.787 128.176 127.089 128.664.299.002.61.003.909.003 70.698 0 128-57.304 128-128 0-32.459-12.088-62.09-32-84.653V96zm-96 368l-.576-.002c-43.86-.304-79.647-36.544-79.423-80.42.173-33.98 19.266-51.652 31.999-66.08V96c0-26.467 21.533-48 48-48s48 21.533 48 48v221.498c12.63 14.312 32 32.164 32 66.502 0 44.112-35.888 80-80 80zm64-80c0 35.346-28.654 64-64 64s-64-28.654-64-64c0-23.685 12.876-44.349 32-55.417V96c0-17.673 14.327-32 32-32s32 14.327 32 32v232.583c19.124 11.068 32 31.732 32 55.417z"}"></path>`
-      })}`;
-    });
-    FaThermometerQuarter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 256 512" }, $$props), {}, {
-        default: () => `<path d="${"M192 384c0 35.346-28.654 64-64 64s-64-28.654-64-64c0-23.685 12.876-44.349 32-55.417V288c0-17.673 14.327-32 32-32s32 14.327 32 32v40.583c19.124 11.068 32 31.732 32 55.417zm32-84.653c19.912 22.563 32 52.194 32 84.653 0 70.696-57.303 128-128 128-.299 0-.609-.001-.909-.003C56.789 511.509-.357 453.636.002 383.333.166 351.135 12.225 321.755 32 299.347V96c0-53.019 42.981-96 96-96s96 42.981 96 96v203.347zM208 384c0-34.339-19.37-52.19-32-66.502V96c0-26.467-21.533-48-48-48S80 69.533 80 96v221.498c-12.732 14.428-31.825 32.1-31.999 66.08-.224 43.876 35.563 80.116 79.423 80.42L128 464c44.112 0 80-35.888 80-80z"}"></path>`
-      })}`;
-    });
     FaTint = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 352 512" }, $$props), {}, {
         default: () => `<path d="${"M205.22 22.09c-7.94-28.78-49.44-30.12-58.44 0C100.01 179.85 0 222.72 0 333.91 0 432.35 78.72 512 176 512s176-79.65 176-178.09c0-111.75-99.79-153.34-146.78-311.82zM176 448c-61.75 0-112-50.25-112-112 0-8.84 7.16-16 16-16s16 7.16 16 16c0 44.11 35.89 80 80 80 8.84 0 16 7.16 16 16s-7.16 16-16 16z"}"></path>`
       })}`;
     });
-    css$1 = {
+    css$12 = {
       code: ".rangeSlider{--pip:var(--range-pip, lightslategray);--pip-text:var(--range-pip-text, var(--pip));--pip-active:var(--range-pip-active, darkslategrey);--pip-active-text:var(--range-pip-active-text, var(--pip-active));--pip-hover:var(--range-pip-hover, darkslategrey);--pip-hover-text:var(--range-pip-hover-text, var(--pip-hover));--pip-in-range:var(--range-pip-in-range, var(--pip-active));--pip-in-range-text:var(--range-pip-in-range-text, var(--pip-active-text))}.rangePips{position:absolute;height:1em;left:0;right:0;bottom:-1em}.rangePips.vertical{height:auto;width:1em;left:100%;right:auto;top:0;bottom:0}.rangePips .pip{height:0.4em;position:absolute;top:0.25em;width:1px;white-space:nowrap}.rangePips.vertical .pip{height:1px;width:0.4em;left:0.25em;top:auto;bottom:auto}.rangePips .pipVal{position:absolute;top:0.4em;transform:translate(-50%, 25%)}.rangePips.vertical .pipVal{position:absolute;top:0;left:0.4em;transform:translate(25%, -50%)}.rangePips .pip{transition:all 0.15s ease}.rangePips .pipVal{transition:all 0.15s ease, font-weight 0s linear}.rangePips .pip{color:lightslategray;color:var(--pip-text);background-color:lightslategray;background-color:var(--pip)}.rangePips .pip.selected{color:darkslategrey;color:var(--pip-active-text);background-color:darkslategrey;background-color:var(--pip-active)}.rangePips.hoverable:not(.disabled) .pip:hover{color:darkslategrey;color:var(--pip-hover-text);background-color:darkslategrey;background-color:var(--pip-hover)}.rangePips .pip.in-range{color:darkslategrey;color:var(--pip-in-range-text);background-color:darkslategrey;background-color:var(--pip-in-range)}.rangePips .pip.selected{height:0.75em}.rangePips.vertical .pip.selected{height:1px;width:0.75em}.rangePips .pip.selected .pipVal{font-weight:bold;top:0.75em}.rangePips.vertical .pip.selected .pipVal{top:0;left:0.75em}.rangePips.hoverable:not(.disabled) .pip:not(.selected):hover{transition:none}.rangePips.hoverable:not(.disabled) .pip:not(.selected):hover .pipVal{transition:none;font-weight:bold}",
       map: null
     };
@@ -5249,7 +13225,7 @@ var init_RangeSlider_89430ca7 = __esm({
         $$bindings.percentOf(percentOf);
       if ($$props.moveHandle === void 0 && $$bindings.moveHandle && moveHandle !== void 0)
         $$bindings.moveHandle(moveHandle);
-      $$result.css.add(css$1);
+      $$result.css.add(css$12);
       pipStep = pipstep || ((max - min) / step >= (vertical ? 50 : 100) ? (max - min) / (vertical ? 10 : 20) : 1);
       pipCount = parseInt((max - min) / (step * pipStep), 10);
       pipVal = function(val) {
@@ -5524,430 +13500,6 @@ var init_RangeSlider_89430ca7 = __esm({
       }, {}, {})}` : ``}</div>
 
 `;
-    });
-  }
-});
-
-// .svelte-kit/output/server/chunks/DateInput-3105b9f5.js
-function isLeapYear(year) {
-  return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
-}
-function getMonthLength(year, month) {
-  const feb = isLeapYear(year) ? 29 : 28;
-  const monthLenghts = [31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  return monthLenghts[month];
-}
-function toText(date, formatTokens) {
-  let text = "";
-  for (const token of formatTokens) {
-    if (typeof token === "string") {
-      text += token;
-    } else {
-      text += token.toString(date);
-    }
-  }
-  return text;
-}
-function getMonthDays(year, month) {
-  const monthLength = getMonthLength(year, month);
-  const days = [];
-  for (let i = 0; i < monthLength; i++) {
-    days.push({
-      year,
-      month,
-      number: i + 1
-    });
-  }
-  return days;
-}
-function getCalendarDays(value, weekStartsOn) {
-  const year = value.getFullYear();
-  const month = value.getMonth();
-  const firstWeekday = new Date(year, month, 1).getDay();
-  let days = [];
-  const daysBefore = firstWeekday - weekStartsOn;
-  if (daysBefore > 0) {
-    let lastMonth = month - 1;
-    let lastMonthYear = year;
-    if (lastMonth === -1) {
-      lastMonth = 11;
-      lastMonthYear = year - 1;
-    }
-    days = getMonthDays(lastMonthYear, lastMonth).slice(-daysBefore);
-  }
-  days = days.concat(getMonthDays(year, month));
-  let nextMonth = month + 1;
-  let nextMonthYear = year;
-  if (nextMonth === 12) {
-    nextMonth = 0;
-    nextMonthYear = year + 1;
-  }
-  const daysAfter = 42 - days.length;
-  days = days.concat(getMonthDays(nextMonthYear, nextMonth).slice(0, daysAfter));
-  return days;
-}
-function getLocaleDefaults() {
-  return {
-    weekdays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-    months: [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ],
-    weekStartsOn: 1
-  };
-}
-function getInnerLocale(locale = {}) {
-  const innerLocale = getLocaleDefaults();
-  if (typeof locale.weekStartsOn === "number") {
-    innerLocale.weekStartsOn = locale.weekStartsOn;
-  }
-  if (locale.months)
-    innerLocale.months = locale.months;
-  if (locale.weekdays)
-    innerLocale.weekdays = locale.weekdays;
-  return innerLocale;
-}
-function parse(str, tokens, baseDate) {
-  let missingPunctuation = "";
-  let valid = true;
-  baseDate = baseDate || new Date(2020, 0, 1, 0, 0, 0, 0);
-  let year = baseDate.getFullYear();
-  let month = baseDate.getMonth();
-  let day = baseDate.getDate();
-  let hours = baseDate.getHours();
-  let minutes = baseDate.getMinutes();
-  let seconds = baseDate.getSeconds();
-  const ms = baseDate.getMilliseconds();
-  function parseString(token) {
-    for (let i = 0; i < token.length; i++) {
-      if (str.startsWith(token[i])) {
-        str = str.slice(1);
-      } else {
-        valid = false;
-        if (str.length === 0)
-          missingPunctuation = token.slice(i);
-        return;
-      }
-    }
-  }
-  function parseUint(pattern, min, max) {
-    const matches = str.match(pattern);
-    if (matches === null || matches === void 0 ? void 0 : matches[0]) {
-      str = str.slice(matches[0].length);
-      const n = parseInt(matches[0]);
-      if (n > max || n < min) {
-        valid = false;
-        return null;
-      } else {
-        return n;
-      }
-    } else {
-      valid = false;
-      return null;
-    }
-  }
-  function parseToken(token) {
-    if (typeof token === "string") {
-      parseString(token);
-    } else if (token.id === "yyyy") {
-      const value = parseUint(/^[0-9]{4}/, 0, 9999);
-      if (value !== null)
-        year = value;
-    } else if (token.id === "MM") {
-      const value = parseUint(/^[0-9]{2}/, 1, 12);
-      if (value !== null)
-        month = value - 1;
-    } else if (token.id === "dd") {
-      const value = parseUint(/^[0-9]{2}/, 1, 31);
-      if (value !== null)
-        day = value;
-    } else if (token.id === "HH") {
-      const value = parseUint(/^[0-9]{2}/, 0, 23);
-      if (value !== null)
-        hours = value;
-    } else if (token.id === "mm") {
-      const value = parseUint(/^[0-9]{2}/, 0, 59);
-      if (value !== null)
-        minutes = value;
-    } else if (token.id === "ss") {
-      const value = parseUint(/^[0-9]{2}/, 0, 59);
-      if (value !== null)
-        seconds = value;
-    }
-  }
-  for (const token of tokens) {
-    parseToken(token);
-    if (!valid)
-      break;
-  }
-  const monthLength = getMonthLength(year, month);
-  if (day > monthLength) {
-    valid = false;
-  }
-  return {
-    date: valid ? new Date(year, month, day, hours, minutes, seconds, ms) : null,
-    missingPunctuation
-  };
-}
-function twoDigit(value) {
-  return ("0" + value.toString()).slice(-2);
-}
-function parseRule(s2) {
-  for (const token of ruleTokens) {
-    if (s2.startsWith(token.id)) {
-      return token;
-    }
-  }
-}
-function createFormat(s2) {
-  const tokens = [];
-  while (s2.length > 0) {
-    const token = parseRule(s2);
-    if (token) {
-      tokens.push(token);
-      s2 = s2.slice(token.id.length);
-    } else if (typeof tokens[tokens.length - 1] === "string") {
-      tokens[tokens.length - 1] += s2[0];
-      s2 = s2.slice(1);
-    } else {
-      tokens.push(s2[0]);
-      s2 = s2.slice(1);
-    }
-  }
-  return tokens;
-}
-var css$12, DatePicker, ruleTokens, css3, DateInput;
-var init_DateInput_3105b9f5 = __esm({
-  ".svelte-kit/output/server/chunks/DateInput-3105b9f5.js"() {
-    init_shims();
-    init_app_285ccb28();
-    css$12 = {
-      code: ".date-time-picker.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:inline-block;outline:none;color:var(--date-picker-foreground, #000000);background:var(--date-picker-background, #ffffff);user-select:none;-webkit-user-select:none;padding:8px;cursor:default;font-size:12px;border:1px solid rgba(103, 113, 137, 0.3);border-radius:3px;box-shadow:0px 2px 6px rgba(0, 0, 0, 0.08), 0px 2px 6px rgba(0, 0, 0, 0.11)}.top.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:flex;justify-content:center;align-items:center;padding-bottom:8px}.top.svelte-hqplke .dropdown.svelte-hqplke.svelte-hqplke,.top.svelte-hqplke .previous.svelte-hqplke.svelte-hqplke{margin-right:8px}.top.svelte-hqplke .dropdown.svelte-hqplke.svelte-hqplke{position:relative;display:flex}.top.svelte-hqplke .dropdown svg.svelte-hqplke.svelte-hqplke{position:absolute;right:0px;top:0px;height:100%;width:8px;padding:0px 8px;pointer-events:none}.top.svelte-hqplke .month.svelte-hqplke.svelte-hqplke{flex-grow:1}.top.svelte-hqplke .year.svelte-hqplke.svelte-hqplke{flex-grow:1}.top.svelte-hqplke svg.svelte-hqplke.svelte-hqplke{display:block;fill:var(--date-picker-foreground, #000000);opacity:0.75;outline:none}.top.svelte-hqplke .page-button.svelte-hqplke.svelte-hqplke{padding:5px;flex-shrink:0;border-radius:5px;box-sizing:border-box;border:1px solid transparent}.top.svelte-hqplke .page-button.svelte-hqplke.svelte-hqplke:hover{background-color:rgba(128, 128, 128, 0.08);border:1px solid rgba(128, 128, 128, 0.08)}.top.svelte-hqplke .page-button svg.svelte-hqplke.svelte-hqplke{width:10px;height:10px}.top.svelte-hqplke select.dummy-select.svelte-hqplke.svelte-hqplke{position:absolute;pointer-events:none;outline:none;color:var(--date-picker-foreground, #000000);background-color:var(--date-picker-background, #ffffff);border-radius:3px}.top.svelte-hqplke select.svelte-hqplke:focus+select.dummy-select.svelte-hqplke{border-color:var(--date-picker-highlight-border, #0269f7);box-shadow:0px 0px 0px 2px var(--date-picker-highlight-shadow, rgba(2, 105, 247, 0.4))}.top.svelte-hqplke select.svelte-hqplke.svelte-hqplke:not(.dummy-select){border-radius:100px}.top.svelte-hqplke select.svelte-hqplke.svelte-hqplke{font-size:inherit;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;flex-grow:1;padding:2px 5px;height:22px;padding-right:22px;margin:0px;border:1px solid rgba(108, 120, 147, 0.3);outline:none;transition:all 80ms cubic-bezier(0.4, 0, 0.2, 1)}.header.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:flex;font-weight:600;padding-bottom:2px}.header.svelte-hqplke .header-cell.svelte-hqplke.svelte-hqplke{width:30px;text-align:center;flex-grow:1}.week.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:flex}.week.svelte-hqplke .cell.svelte-hqplke.svelte-hqplke{display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex-grow:1;border-radius:5px;box-sizing:border-box;border:2px solid transparent}.week.svelte-hqplke .cell.svelte-hqplke.svelte-hqplke:hover{border:1px solid rgba(128, 128, 128, 0.08);background-color:rgba(128, 128, 128, 0.08)}.week.svelte-hqplke .cell.disabled.svelte-hqplke.svelte-hqplke:hover{border:none;background-color:transparent}.week.svelte-hqplke .cell.other-month span.svelte-hqplke.svelte-hqplke{opacity:0.4}.week.svelte-hqplke .cell.selected.svelte-hqplke.svelte-hqplke{color:var(--date-picker-selected-color, inherit);background:var(--date-picker-selected-background, rgba(2, 105, 247, 0.2));border:2px solid var(--date-picker-highlight-border, #0269f7)}",
-      map: null
-    };
-    DatePicker = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let iLocale;
-      let calendarDays;
-      let { value = new Date() } = $$props;
-      function setValue(d2) {
-        if (d2.getTime() !== value.getTime())
-          value = d2;
-      }
-      function updateValue(updater) {
-        let d2 = updater(new Date(value.getTime()));
-        if (d2.getTime() !== value.getTime())
-          value = d2;
-      }
-      let { min = new Date(new Date().getFullYear() - 20, 0, 1) } = $$props;
-      let { max = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59, 999) } = $$props;
-      let years = getYears(min, max);
-      function getYears(min2, max2) {
-        let years2 = [];
-        for (let i = min2.getFullYear(); i <= max2.getFullYear(); i++) {
-          years2.push(i);
-        }
-        return years2;
-      }
-      let { locale = {} } = $$props;
-      let year = value.getFullYear();
-      const getYear = (value2) => year = value2.getFullYear();
-      function setYear(year2) {
-        updateValue((value2) => {
-          value2.setFullYear(year2);
-          return value2;
-        });
-      }
-      let month = value.getMonth();
-      const getMonth = (value2) => month = value2.getMonth();
-      function setMonth(month2) {
-        let newYear = year;
-        let newMonth = month2;
-        if (month2 === 12) {
-          newMonth = 0;
-          newYear++;
-        } else if (month2 === -1) {
-          newMonth = 11;
-          newYear--;
-        }
-        const maxDate = getMonthLength(newYear, newMonth);
-        const newDate = Math.min(value.getDate(), maxDate);
-        setValue(new Date(newYear, newMonth, newDate, value.getHours(), value.getMinutes(), value.getSeconds(), value.getMilliseconds()));
-      }
-      let dayOfMonth = value.getDate();
-      function dayIsInRange(calendarDay) {
-        const date = new Date(calendarDay.year, calendarDay.month, calendarDay.number);
-        const minDate = new Date(min.getFullYear(), min.getMonth(), min.getDate());
-        const maxDate = new Date(max.getFullYear(), max.getMonth(), max.getDate());
-        return date >= minDate && date <= maxDate;
-      }
-      if ($$props.value === void 0 && $$bindings.value && value !== void 0)
-        $$bindings.value(value);
-      if ($$props.min === void 0 && $$bindings.min && min !== void 0)
-        $$bindings.min(min);
-      if ($$props.max === void 0 && $$bindings.max && max !== void 0)
-        $$bindings.max(max);
-      if ($$props.locale === void 0 && $$bindings.locale && locale !== void 0)
-        $$bindings.locale(locale);
-      $$result.css.add(css$12);
-      years = getYears(min, max);
-      {
-        if (value > max) {
-          setValue(max);
-        } else if (value < min) {
-          setValue(min);
-        }
-      }
-      iLocale = getInnerLocale(locale);
-      {
-        getYear(value);
-      }
-      {
-        setYear(year);
-      }
-      {
-        getMonth(value);
-      }
-      {
-        setMonth(month);
-      }
-      dayOfMonth = value.getDate();
-      calendarDays = getCalendarDays(value, iLocale.weekStartsOn);
-      return `<div class="${"date-time-picker svelte-hqplke"}" tabindex="${"-1"}"><div class="${"top svelte-hqplke"}"><div class="${"page-button previous svelte-hqplke"}" tabindex="${"-1"}"><svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"}" transform="${"rotate(180, 12, 12)"}"></path></svg></div>
-    <div class="${"dropdown month svelte-hqplke"}"><select class="${"svelte-hqplke"}">${each(iLocale.months, (monthName, i) => `<option ${new Date(year, i, getMonthLength(year, i), 23, 59, 59, 999) < min || new Date(year, i) > max ? "disabled" : ""}${add_attribute("value", i, 0)}>${escape(monthName)}</option>`)}</select>
-      
-      <select class="${"dummy-select svelte-hqplke"}" tabindex="${"-1"}">${each(iLocale.months, (monthName, i) => `<option${add_attribute("value", i, 0)} ${i === month ? "selected" : ""}>${escape(monthName)}</option>`)}</select>
-      <svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M6 0l12 12-12 12z"}" transform="${"rotate(90, 12, 12)"}"></path></svg></div>
-    <div class="${"dropdown year svelte-hqplke"}"><select class="${"svelte-hqplke"}">${each(years, (v) => `<option${add_attribute("value", v, 0)}>${escape(v)}</option>`)}</select>
-      
-      <select class="${"dummy-select svelte-hqplke"}" tabindex="${"-1"}">${each(years, (v) => `<option${add_attribute("value", v, 0)} ${v === year ? "selected" : ""}>${escape(v)}</option>`)}</select>
-      <svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M6 0l12 12-12 12z"}" transform="${"rotate(90, 12, 12)"}"></path></svg></div>
-    <div class="${"page-button svelte-hqplke"}" tabindex="${"-1"}"><svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"}"></path></svg></div></div>
-  <div class="${"header svelte-hqplke"}">${each(Array(7), (_, i) => `${i + iLocale.weekStartsOn < 7 ? `<div class="${"header-cell svelte-hqplke"}">${escape(iLocale.weekdays[iLocale.weekStartsOn + i])}</div>` : `<div class="${"header-cell svelte-hqplke"}">${escape(iLocale.weekdays[iLocale.weekStartsOn + i - 7])}</div>`}`)}</div>
-  ${each(Array(6), (_, weekIndex) => `<div class="${"week svelte-hqplke"}">${each(calendarDays.slice(weekIndex * 7, weekIndex * 7 + 7), (calendarDay) => `<div class="${[
-        "cell svelte-hqplke",
-        (!dayIsInRange(calendarDay) ? "disabled" : "") + " " + (calendarDay.month === month && calendarDay.number === dayOfMonth ? "selected" : "") + " " + (calendarDay.month !== month ? "other-month" : "")
-      ].join(" ").trim()}"><span class="${"svelte-hqplke"}">${escape(calendarDay.number)}</span>
-        </div>`)}
-    </div>`)}
-</div>`;
-    });
-    ruleTokens = [
-      {
-        id: "yyyy",
-        toString: (d2) => d2.getFullYear().toString()
-      },
-      {
-        id: "MM",
-        toString: (d2) => twoDigit(d2.getMonth() + 1)
-      },
-      {
-        id: "dd",
-        toString: (d2) => twoDigit(d2.getDate())
-      },
-      {
-        id: "HH",
-        toString: (d2) => twoDigit(d2.getHours())
-      },
-      {
-        id: "mm",
-        toString: (d2) => twoDigit(d2.getMinutes())
-      },
-      {
-        id: "ss",
-        toString: (d2) => twoDigit(d2.getSeconds())
-      }
-    ];
-    css3 = {
-      code: ".date-time-field.svelte-h5dfp8{position:relative}input.svelte-h5dfp8{color:var(--date-picker-foreground, #000000);background:var(--date-picker-background, #ffffff);min-width:0px;box-sizing:border-box;padding:4px 6px;margin:0px;border:1px solid rgba(103, 113, 137, 0.3);border-radius:3px;width:var(--date-input-width, 150px);outline:none;transition:all 80ms cubic-bezier(0.4, 0, 0.2, 1)}input.svelte-h5dfp8:focus{border-color:var(--date-picker-highlight-border, #0269f7);box-shadow:0px 0px 0px 2px var(--date-picker-highlight-shadow, rgba(2, 105, 247, 0.4))}.invalid.svelte-h5dfp8{border:1px solid rgba(249, 47, 114, 0.5);background-color:rgba(249, 47, 114, 0.1)}.invalid.svelte-h5dfp8:focus{border-color:#f92f72;box-shadow:0px 0px 0px 2px rgba(249, 47, 114, 0.5)}.picker.svelte-h5dfp8{display:none;position:absolute;margin-top:1px;z-index:10}.picker.visible.svelte-h5dfp8{display:block}",
-      map: null
-    };
-    DateInput = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let { value = new Date() } = $$props;
-      function setValue(d2) {
-        if (d2.getTime() !== value.getTime())
-          value = d2;
-      }
-      let { min = new Date(new Date().getFullYear() - 20, 0, 1) } = $$props;
-      let { max = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59, 999) } = $$props;
-      let { placeholder = "2020-12-31 23:00:00" } = $$props;
-      let { valid = true } = $$props;
-      let { format: format2 = "yyyy-MM-dd HH:mm:ss" } = $$props;
-      let formatTokens = createFormat(format2);
-      let { locale = {} } = $$props;
-      function valueUpdate(value2, formatTokens2) {
-        text = toText(value2, formatTokens2);
-      }
-      let { text = toText(value, formatTokens) } = $$props;
-      let textHistory = [text, text];
-      function textUpdate(text2, formatTokens2) {
-        const result = parse(text2, formatTokens2, value);
-        if (result.date !== null) {
-          valid = true;
-          setValue(result.date);
-        } else {
-          valid = false;
-        }
-      }
-      let { visible = false } = $$props;
-      if ($$props.value === void 0 && $$bindings.value && value !== void 0)
-        $$bindings.value(value);
-      if ($$props.min === void 0 && $$bindings.min && min !== void 0)
-        $$bindings.min(min);
-      if ($$props.max === void 0 && $$bindings.max && max !== void 0)
-        $$bindings.max(max);
-      if ($$props.placeholder === void 0 && $$bindings.placeholder && placeholder !== void 0)
-        $$bindings.placeholder(placeholder);
-      if ($$props.valid === void 0 && $$bindings.valid && valid !== void 0)
-        $$bindings.valid(valid);
-      if ($$props.format === void 0 && $$bindings.format && format2 !== void 0)
-        $$bindings.format(format2);
-      if ($$props.locale === void 0 && $$bindings.locale && locale !== void 0)
-        $$bindings.locale(locale);
-      if ($$props.text === void 0 && $$bindings.text && text !== void 0)
-        $$bindings.text(text);
-      if ($$props.visible === void 0 && $$bindings.visible && visible !== void 0)
-        $$bindings.visible(visible);
-      $$result.css.add(css3);
-      let $$settled;
-      let $$rendered;
-      do {
-        $$settled = true;
-        formatTokens = createFormat(format2);
-        {
-          valueUpdate(value, formatTokens);
-        }
-        textHistory = [textHistory[1], text];
-        {
-          textUpdate(text, formatTokens);
-        }
-        $$rendered = `<div class="${"date-time-field svelte-h5dfp8"}"><input type="${"text"}"${add_attribute("placeholder", placeholder, 0)} class="${["svelte-h5dfp8", !valid ? "invalid" : ""].join(" ").trim()}"${add_attribute("value", text, 0)}>
-  ${visible ? `<div class="${["picker svelte-h5dfp8", visible ? "visible" : ""].join(" ").trim()}">${validate_component(DatePicker, "DateTimePicker").$$render($$result, { locale, value, min, max }, {
-          value: ($$value) => {
-            value = $$value;
-            $$settled = false;
-          },
-          min: ($$value) => {
-            min = $$value;
-            $$settled = false;
-          },
-          max: ($$value) => {
-            max = $$value;
-            $$settled = false;
-          }
-        }, {})}</div>` : ``}
-</div>`;
-      } while (!$$settled);
-      return $$rendered;
     });
   }
 });
@@ -6978,7 +14530,7 @@ var require_compareDesc = __commonJS({
 });
 
 // node_modules/date-fns/constants/index.js
-var require_constants = __commonJS({
+var require_constants6 = __commonJS({
   "node_modules/date-fns/constants/index.js"(exports) {
     init_shims();
     "use strict";
@@ -7023,7 +14575,7 @@ var require_daysToWeeks = __commonJS({
     });
     exports.default = daysToWeeks;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -7423,7 +14975,7 @@ var require_differenceInHours = __commonJS({
       value: true
     });
     exports.default = differenceInHours;
-    var _index = require_constants();
+    var _index = require_constants6();
     var _index2 = _interopRequireDefault(require_differenceInMilliseconds());
     var _index3 = _interopRequireDefault(require_requiredArgs());
     var _index4 = require_roundingMethods();
@@ -7504,7 +15056,7 @@ var require_differenceInMinutes = __commonJS({
       value: true
     });
     exports.default = differenceInMinutes;
-    var _index = require_constants();
+    var _index = require_constants6();
     var _index2 = _interopRequireDefault(require_differenceInMilliseconds());
     var _index3 = _interopRequireDefault(require_requiredArgs());
     var _index4 = require_roundingMethods();
@@ -11764,7 +19316,7 @@ var require_hoursToMilliseconds = __commonJS({
     });
     exports.default = hoursToMilliseconds;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -11786,7 +19338,7 @@ var require_hoursToMinutes = __commonJS({
     });
     exports.default = hoursToMinutes;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -11808,7 +19360,7 @@ var require_hoursToSeconds = __commonJS({
     });
     exports.default = hoursToSeconds;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -14672,7 +22224,7 @@ var require_millisecondsToHours = __commonJS({
     });
     exports.default = millisecondsToHours;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -14695,7 +22247,7 @@ var require_millisecondsToMinutes = __commonJS({
     });
     exports.default = millisecondsToMinutes;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -14718,7 +22270,7 @@ var require_millisecondsToSeconds = __commonJS({
     });
     exports.default = millisecondsToSeconds;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -14741,7 +22293,7 @@ var require_minutesToHours = __commonJS({
     });
     exports.default = minutesToHours;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -14764,7 +22316,7 @@ var require_minutesToMilliseconds = __commonJS({
     });
     exports.default = minutesToMilliseconds;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -14786,7 +22338,7 @@ var require_minutesToSeconds = __commonJS({
     });
     exports.default = minutesToSeconds;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -14808,7 +22360,7 @@ var require_monthsToQuarters = __commonJS({
     });
     exports.default = monthsToQuarters;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -14831,7 +22383,7 @@ var require_monthsToYears = __commonJS({
     });
     exports.default = monthsToYears;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -15452,7 +23004,7 @@ var require_quartersToMonths = __commonJS({
     });
     exports.default = quartersToMonths;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -15474,7 +23026,7 @@ var require_quartersToYears = __commonJS({
     });
     exports.default = quartersToYears;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -15531,7 +23083,7 @@ var require_secondsToHours = __commonJS({
     });
     exports.default = secondsToHours;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -15554,7 +23106,7 @@ var require_secondsToMilliseconds = __commonJS({
     });
     exports.default = secondsToMilliseconds;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -15576,7 +23128,7 @@ var require_secondsToMinutes = __commonJS({
     });
     exports.default = secondsToMinutes;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -16321,7 +23873,7 @@ var require_weeksToDays = __commonJS({
     });
     exports.default = weeksToDays;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -16343,7 +23895,7 @@ var require_yearsToMonths = __commonJS({
     });
     exports.default = yearsToMonths;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -16365,7 +23917,7 @@ var require_yearsToQuarters = __commonJS({
     });
     exports.default = yearsToQuarters;
     var _index = _interopRequireDefault(require_requiredArgs());
-    var _index2 = require_constants();
+    var _index2 = require_constants6();
     function _interopRequireDefault(obj) {
       return obj && obj.__esModule ? obj : { default: obj };
     }
@@ -18275,7 +25827,7 @@ var require_date_fns = __commonJS({
     var _index234 = _interopRequireDefault(require_weeksToDays());
     var _index235 = _interopRequireDefault(require_yearsToMonths());
     var _index236 = _interopRequireDefault(require_yearsToQuarters());
-    var _index237 = require_constants();
+    var _index237 = require_constants6();
     Object.keys(_index237).forEach(function(key) {
       if (key === "default" || key === "__esModule")
         return;
@@ -18294,45 +25846,65 @@ var require_date_fns = __commonJS({
   }
 });
 
-// .svelte-kit/output/server/chunks/index-70175c15.js
-var index_70175c15_exports = {};
-__export(index_70175c15_exports, {
-  default: () => Routes,
-  prerender: () => prerender
+// .svelte-kit/output/server/chunks/index-98f005e3.js
+var index_98f005e3_exports = {};
+__export(index_98f005e3_exports, {
+  default: () => Routes
 });
-var import_date_fns, import_cookie3, prerender, Routes;
-var init_index_70175c15 = __esm({
-  ".svelte-kit/output/server/chunks/index-70175c15.js"() {
+var import_date_fns, import_cookie3, FaSun, FaMoon, css3, optimumPh, Routes;
+var init_index_98f005e3 = __esm({
+  ".svelte-kit/output/server/chunks/index-98f005e3.js"() {
     init_shims();
-    init_app_285ccb28();
-    init_RangeSlider_89430ca7();
-    init_DateInput_3105b9f5();
+    init_app_095bf1da();
+    init_supabase_c257868d();
+    init_store_a5cfbf1a();
+    init_RangeSlider_1fad5774();
     import_date_fns = __toModule(require_date_fns());
     import_cookie3 = __toModule(require_cookie());
     init_dist();
-    init_index_e42dc858();
-    prerender = true;
+    init_index_bb899934();
+    init_env_df325643();
+    FaSun = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 512 512" }, $$props), {}, {
+        default: () => `<path d="${"M256 160c-52.9 0-96 43.1-96 96s43.1 96 96 96 96-43.1 96-96-43.1-96-96-96zm246.4 80.5l-94.7-47.3 33.5-100.4c4.5-13.6-8.4-26.5-21.9-21.9l-100.4 33.5-47.4-94.8c-6.4-12.8-24.6-12.8-31 0l-47.3 94.7L92.7 70.8c-13.6-4.5-26.5 8.4-21.9 21.9l33.5 100.4-94.7 47.4c-12.8 6.4-12.8 24.6 0 31l94.7 47.3-33.5 100.5c-4.5 13.6 8.4 26.5 21.9 21.9l100.4-33.5 47.3 94.7c6.4 12.8 24.6 12.8 31 0l47.3-94.7 100.4 33.5c13.6 4.5 26.5-8.4 21.9-21.9l-33.5-100.4 94.7-47.3c13-6.5 13-24.7.2-31.1zm-155.9 106c-49.9 49.9-131.1 49.9-181 0-49.9-49.9-49.9-131.1 0-181 49.9-49.9 131.1-49.9 181 0 49.9 49.9 49.9 131.1 0 181z"}"></path>`
+      })}`;
+    });
+    FaMoon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 512 512" }, $$props), {}, {
+        default: () => `<path d="${"M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"}"></path>`
+      })}`;
+    });
+    css3 = {
+      code: ".icon.svelte-msd92n{width:17px;height:17px}.grey.svelte-msd92n{color:grey}.high-temp.svelte-msd92n{color:red}.low-temp.svelte-msd92n{color:skyblue}.grid-ph.svelte-msd92n{grid-template-columns:1fr 1fr 1fr}",
+      map: null
+    };
+    optimumPh = 6.5;
     Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let currentWeek;
-      let bucketLiters2 = [9];
-      let dateGrowStart2 = new Date(2021, 10, 3);
+      let phDifference;
+      let $dateGrowStart, $$unsubscribe_dateGrowStart;
+      let $nutesRatio, $$unsubscribe_nutesRatio;
+      let $bucketLiters, $$unsubscribe_bucketLiters;
+      $$unsubscribe_dateGrowStart = subscribe(dateGrowStart, (value) => $dateGrowStart = value);
+      $$unsubscribe_nutesRatio = subscribe(nutesRatio, (value) => $nutesRatio = value);
+      $$unsubscribe_bucketLiters = subscribe(bucketLiters, (value) => $bucketLiters = value);
       const today = new Date();
       let growStages = ["Vegetative", "Flowering"];
       let parameters = {
-        humidity: {
-          label: "Humidity",
-          values: [70, 70, 65, 60, 60, 50, 50],
-          icon: "FaTint"
-        },
         temp_day: {
           label: "Temperature Day",
-          values: [25],
+          values: [24, 24, 25, 26, 26],
           icon: "FaThermometerFull"
         },
         temp_night: {
           label: "Temperature Night",
-          values: [18],
+          values: [18, 18, 18, 19, 19],
           icon: "FaThermometerQuarter"
+        },
+        humidity: {
+          label: "Humidity",
+          values: [70, 70, 60, 55, 50, 50, 50, 40, 40, 40],
+          icon: "FaTint"
         }
       };
       let nutes = {
@@ -18342,11 +25914,9 @@ var init_index_70175c15 = __esm({
         topmax: [0, 0, 1, 1, 1, 1, 1, 4, 4, 4, 0, 0],
         bioheaven: [2, 2, 2, 2, 3, 4, 4, 5, 5, 5, 0, 0]
       };
-      let nutesRatio2 = [50];
       const nutesToDisplay = () => {
         let toDisplay = 0;
         Object.entries(nutes).forEach((element) => {
-          console.log(element[1]);
           if (currentWeek > element[1].length) {
             element[1][element[1].length - 1] > 0 && toDisplay++;
           } else {
@@ -18355,135 +25925,537 @@ var init_index_70175c15 = __esm({
         });
         return toDisplay;
       };
+      let ph = 6.5;
+      const phCorrectors = {
+        bioup: {
+          name: "Bio-Up",
+          color: "#5f4f96",
+          mlPerLiter: 0.1,
+          correction: 0.1
+        },
+        biodown: {
+          name: "Bio-Down",
+          color: "#faba18",
+          mlPerLiter: 0.1,
+          correction: -0.5
+        }
+      };
+      $$result.css.add(css3);
       let $$settled;
       let $$rendered;
       do {
         $$settled = true;
-        currentWeek = (0, import_date_fns.differenceInWeeks)(today, dateGrowStart2);
-        $$rendered = `${$$result.head += `${$$result.title = `<title>Home</title>`, ""}`, ""}
-
-<section>
-	<div class="${"flex bg-blue-100"}"><p>Debut plantation</p>
-		${validate_component(DateInput, "DateInput").$$render($$result, {
-          format: "dd-MM-yyyy",
-          value: dateGrowStart2
-        }, {
-          value: ($$value) => {
-            dateGrowStart2 = $$value;
-            $$settled = false;
-          }
-        }, {})}</div>
-	
-	<div class="${"justify-center items-center flex flex-col bg-white rounded drop-shadow-sm sm:p-4 py-1 absolute bottom-0 left-0 right-0"}"><p>Parametres Optimum</p>
-		<div class="${"flex"}">${each(Object.entries(parameters), ([param, val]) => `<div class="${"grid-cols-3 items-center bg-gray-300 m-2 p-1 relative self-center"}"><div class="${"flex flex-row items-center align-center justify-center self-center"}"><div class="${"w-4 h-4 mr-3 ml-2 "}">${val.icon === "FaThermometerFull" ? `${validate_component(FaThermometerFull, "FaThermometerFull").$$render($$result, {}, {}, {})}` : ``}
-							${val.icon === "FaThermometerQuarter" ? `${validate_component(FaThermometerQuarter, "FaThermometerQuarter").$$render($$result, {}, {}, {})}` : ``}
-							${val.icon === "FaTint" ? `${validate_component(FaTint, "FaTint").$$render($$result, {}, {}, {})}` : ``}</div>
-						<div><p>${escape(currentWeek >= val.values.length ? val.values[val.values.length - 1] : val.values[currentWeek])}
-								${escape(val.label === "Humidity" ? "%" : "\xB0C")}</p>
-						</div></div>
-					<h1 class="${"text-xs"}">${escape(val.label)}</h1>
-				</div>`)}</div></div>
-	
-	<div class="${"flex flex-col justify-center items-center text-xl bg-white"}"><p>${escape(today.toLocaleDateString("fr-FR", {
+        currentWeek = (0, import_date_fns.differenceInWeeks)(today, new Date($dateGrowStart));
+        phDifference = Number(optimumPh - ph).toFixed(2);
+        $$rendered = `
+<div class="${"flex flex-col justify-center items-center text-xl bg-white pb-2 pt-1"}"><p>${escape(today.toLocaleDateString("fr-FR", {
           weekday: "long",
           year: "numeric",
           month: "long",
           day: "numeric"
         }))}</p>
-		<div class="${"flex flex-col justify-center items-center"}">Week ${escape(currentWeek + 1)}
-			
-			<p class="${"text-sm"}">${escape(currentWeek > 1 ? `${growStages[1]} week  ${currentWeek - 1}` : `${growStages[0]} week ${currentWeek + 1}`)}</p></div></div>
+	<div class="${"flex flex-col justify-center items-center"}">Week ${escape(currentWeek + 1)}
+		
+		<p class="${"text-sm"}">${escape(currentWeek > 1 ? `${growStages[1]} week  ${currentWeek - 1}` : `${growStages[0]} week ${currentWeek + 1}`)}</p></div></div>
 
-	
-	<div class="${"flex flex-col justify-center mt-10 bg-opacity-100 bg-gray-100 rounded sm:p-4 py-4"}"><p class="${"self-center"}">Capacit\xE9 du sceau ${escape(bucketLiters2)} Litres</p>
-		${validate_component(RangeSlider, "RangeSlider").$$render($$result, {
-          id: "bucket",
-          pips: true,
-          step: 1,
-          pipstep: 1,
-          max: 10,
-          suffix: "l.",
-          all: "label",
-          values: bucketLiters2
-        }, {
-          values: ($$value) => {
-            bucketLiters2 = $$value;
-            $$settled = false;
-          }
-        }, {})}</div>
 
-	
-	<div class="${"flex flex-col justify-center mt-10 bg-opacity-100 bg-gray-100 rounded sm:p-4 px-2 py-4"}"><div class="${"px-4"}"><div class="${"grid grid-cols-" + escape(nutesToDisplay())}">${each(Object.entries(nutes), ([nute, val]) => `<div class="${"bg-" + escape(nute) + " " + escape(currentWeek > val.length ? val[val.length - 1] === 0 ? "hidden" : "nutes" : val[currentWeek] === 0 ? "hidden" : "nutes")}"><h1 class="${"text-gray-100"}">${escape(nute)}</h1>
-						<p class="${"text-xl text-white"}">${escape(currentWeek >= val.length ? Number(val[val.length - 1] * nutesRatio2[0] / 100 * bucketLiters2[0]).toFixed(1) : Number(val[currentWeek] * nutesRatio2[0] / 100 * bucketLiters2[0]).toFixed(1))}</p>
-						<p class="${"text-gray-100"}">ml</p>
-					</div>`)}</div></div>
+<div class="${"justify-center items-center flex flex-col rounded drop-shadow-sm sm:p-4 py-1 "}"><div class="${"flex"}"><div class="${"grid grid-cols-4 items-center m-2 p-1 relative self-center"}">${each(Object.entries(parameters), ([param, val]) => `<div class="${"grey flex flex-row items-center align-center justify-center self-center pr-3 border-r-2 border-gray-400 svelte-msd92n"}"><div class="${"w-4 h-4 mr-1 ml-2 "}">${val.icon === "FaThermometerFull" ? `${validate_component(FaSun, "FaSun").$$render($$result, {}, {}, {})}` : ``}
+						${val.icon === "FaThermometerQuarter" ? `${validate_component(FaMoon, "FaMoon").$$render($$result, {}, {}, {})}` : ``}
+						${val.icon === "FaTint" ? `${validate_component(FaTint, "FaTint").$$render($$result, {}, {}, {})}` : ``}</div>
+					<div><p class="${"text-xs"}">${escape(currentWeek >= val.values.length ? val.values[val.values.length - 1] : val.values[currentWeek])}
+							${escape(val.label === "Humidity" ? "%" : "\xB0C")}</p>
+					</div></div>
+				`)}
+			<div class="${"flex flex-row items-center align-center justify-center self-center"}"><div class="${"mr-1 text-xs"}"><p>pH</p></div>
+				<div><p class="${"text-xs"}">6.5</p></div></div></div></div></div>
 
-		${validate_component(RangeSlider, "RangeSlider").$$render($$result, {
+
+<div class="${"flex flex-col justify-center bg-white rounded sm:p-4 px-2 py-2"}"><div class="${"grid grid-cols-" + escape(nutesToDisplay()) + " svelte-msd92n"}">${each(Object.entries(nutes), ([nute, val]) => `<div class="${"m-2 bg-" + escape(nute) + " " + escape(currentWeek > val.length ? val[val.length - 1] === 0 ? "hidden" : "nutes" : val[currentWeek] === 0 ? "hidden" : "nutes") + " svelte-msd92n"}"><h1 class="${"text-gray-100"}">${escape(nute)}</h1>
+				<p class="${"text-xl text-white"}">${escape(currentWeek >= val.length ? Number(val[val.length - 1] * $nutesRatio[0] / 100 * $bucketLiters[0]).toFixed(1) : Number(val[currentWeek] * $nutesRatio[0] / 100 * $bucketLiters[0]).toFixed(1))}</p>
+				<p class="${"text-gray-100"}">ml</p>
+			</div>`)}</div>
+
+	${validate_component(RangeSlider, "RangeSlider").$$render($$result, {
           pips: true,
           step: 1,
           pipstep: 25,
           suffix: "%",
           all: "label",
-          values: nutesRatio2
+          values: $nutesRatio
         }, {
           values: ($$value) => {
-            nutesRatio2 = $$value;
+            $nutesRatio = $$value;
+            $$settled = false;
+          }
+        }, {})}
+	${validate_component(RangeSlider, "RangeSlider").$$render($$result, {
+          id: "bucket",
+          pips: true,
+          step: 1,
+          pipstep: 2,
+          max: 20,
+          suffix: "l.",
+          all: "label",
+          values: $bucketLiters
+        }, {
+          values: ($$value) => {
+            $bucketLiters = $$value;
             $$settled = false;
           }
         }, {})}</div>
-</section>`;
+
+
+
+<div class="${"flex flex-col justify-center bg-white rounded sm:p-4 px-2 py-4 mt-2"}"><h1 class="${"mb-2"}">pH</h1>
+	<div class="${"grid grid-ph svelte-msd92n"}"><div class="${"bg-biodown text-white p-4 text-center"}"><h1 class="${"text-white text-sm"}">Bio-Down</h1>
+			${Number(phDifference) < 0 && ph !== 0 ? `<p class="${"text-lg text-white self-center py-2"}">${escape(Number(Number(phDifference) / phCorrectors.biodown.correction * phCorrectors.biodown.mlPerLiter * $bucketLiters).toFixed(2))}ml
+				</p>
+				<p class="${"text-xs text-gray-200"}">${escape(phDifference)} points</p>` : ``}</div>
+		<div class="${"flex items-center justify-center p-4"}"><input class="${"w-10 focus:outline-none text-xl text-center"}"${add_attribute("value", ph, 0)}></div>
+		<div class="${"bg-bioup text-white p-4 text-center"}"><h1 class="${"text-white text-sm"}">Bio-Up</h1>
+			${Number(phDifference) > 0 && ph !== 0 ? `<p class="${"text-lg text-white self-center py-2"}">${escape(Number(Number(phDifference) / phCorrectors.bioup.correction * phCorrectors.bioup.mlPerLiter * $bucketLiters).toFixed(2))} ml
+				</p>
+				<p class="${"text-xs text-gray-200"}">+ ${escape(phDifference)} points</p>` : ``}</div></div>
+</div>`;
       } while (!$$settled);
+      $$unsubscribe_dateGrowStart();
+      $$unsubscribe_nutesRatio();
+      $$unsubscribe_bucketLiters();
       return $$rendered;
     });
   }
 });
 
-// .svelte-kit/output/server/chunks/env-df325643.js
-var browser, dev;
-var init_env_df325643 = __esm({
-  ".svelte-kit/output/server/chunks/env-df325643.js"() {
-    init_shims();
-    browser = false;
-    dev = false;
-  }
-});
-
-// .svelte-kit/output/server/chunks/stores-375f3a87.js
-var bucketLiters, dateGrowStart, nutesRatio;
-var init_stores_375f3a87 = __esm({
-  ".svelte-kit/output/server/chunks/stores-375f3a87.js"() {
-    init_shims();
-    init_index_e42dc858();
-    init_env_df325643();
-    JSON.parse(browser) || [1];
-    bucketLiters = writable(browser);
-    bucketLiters.subscribe((val) => {
-    });
-    new Date(JSON.parse(browser)) || new Date();
-    dateGrowStart = writable(browser);
-    dateGrowStart.subscribe((val) => browser);
-    JSON.parse(browser) || [50];
-    nutesRatio = writable(browser);
-    nutesRatio.subscribe((val) => browser);
-  }
-});
-
-// .svelte-kit/output/server/chunks/settings-da2719e3.js
-var settings_da2719e3_exports = {};
-__export(settings_da2719e3_exports, {
+// .svelte-kit/output/server/chunks/settings-23b1f853.js
+var settings_23b1f853_exports = {};
+__export(settings_23b1f853_exports, {
   default: () => Settings
 });
-var import_cookie4, Settings;
-var init_settings_da2719e3 = __esm({
-  ".svelte-kit/output/server/chunks/settings-da2719e3.js"() {
+function isLeapYear(year) {
+  return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+}
+function getMonthLength(year, month) {
+  const feb = isLeapYear(year) ? 29 : 28;
+  const monthLenghts = [31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  return monthLenghts[month];
+}
+function toText(date, formatTokens) {
+  let text = "";
+  for (const token of formatTokens) {
+    if (typeof token === "string") {
+      text += token;
+    } else {
+      text += token.toString(date);
+    }
+  }
+  return text;
+}
+function getMonthDays(year, month) {
+  const monthLength = getMonthLength(year, month);
+  const days = [];
+  for (let i = 0; i < monthLength; i++) {
+    days.push({
+      year,
+      month,
+      number: i + 1
+    });
+  }
+  return days;
+}
+function getCalendarDays(value, weekStartsOn) {
+  const year = value.getFullYear();
+  const month = value.getMonth();
+  const firstWeekday = new Date(year, month, 1).getDay();
+  let days = [];
+  const daysBefore = firstWeekday - weekStartsOn;
+  if (daysBefore > 0) {
+    let lastMonth = month - 1;
+    let lastMonthYear = year;
+    if (lastMonth === -1) {
+      lastMonth = 11;
+      lastMonthYear = year - 1;
+    }
+    days = getMonthDays(lastMonthYear, lastMonth).slice(-daysBefore);
+  }
+  days = days.concat(getMonthDays(year, month));
+  let nextMonth = month + 1;
+  let nextMonthYear = year;
+  if (nextMonth === 12) {
+    nextMonth = 0;
+    nextMonthYear = year + 1;
+  }
+  const daysAfter = 42 - days.length;
+  days = days.concat(getMonthDays(nextMonthYear, nextMonth).slice(0, daysAfter));
+  return days;
+}
+function getLocaleDefaults() {
+  return {
+    weekdays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    months: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    weekStartsOn: 1
+  };
+}
+function getInnerLocale(locale = {}) {
+  const innerLocale = getLocaleDefaults();
+  if (typeof locale.weekStartsOn === "number") {
+    innerLocale.weekStartsOn = locale.weekStartsOn;
+  }
+  if (locale.months)
+    innerLocale.months = locale.months;
+  if (locale.weekdays)
+    innerLocale.weekdays = locale.weekdays;
+  return innerLocale;
+}
+function parse(str, tokens, baseDate) {
+  let missingPunctuation = "";
+  let valid = true;
+  baseDate = baseDate || new Date(2020, 0, 1, 0, 0, 0, 0);
+  let year = baseDate.getFullYear();
+  let month = baseDate.getMonth();
+  let day = baseDate.getDate();
+  let hours = baseDate.getHours();
+  let minutes = baseDate.getMinutes();
+  let seconds = baseDate.getSeconds();
+  const ms = baseDate.getMilliseconds();
+  function parseString(token) {
+    for (let i = 0; i < token.length; i++) {
+      if (str.startsWith(token[i])) {
+        str = str.slice(1);
+      } else {
+        valid = false;
+        if (str.length === 0)
+          missingPunctuation = token.slice(i);
+        return;
+      }
+    }
+  }
+  function parseUint(pattern, min, max) {
+    const matches = str.match(pattern);
+    if (matches === null || matches === void 0 ? void 0 : matches[0]) {
+      str = str.slice(matches[0].length);
+      const n = parseInt(matches[0]);
+      if (n > max || n < min) {
+        valid = false;
+        return null;
+      } else {
+        return n;
+      }
+    } else {
+      valid = false;
+      return null;
+    }
+  }
+  function parseToken(token) {
+    if (typeof token === "string") {
+      parseString(token);
+    } else if (token.id === "yyyy") {
+      const value = parseUint(/^[0-9]{4}/, 0, 9999);
+      if (value !== null)
+        year = value;
+    } else if (token.id === "MM") {
+      const value = parseUint(/^[0-9]{2}/, 1, 12);
+      if (value !== null)
+        month = value - 1;
+    } else if (token.id === "dd") {
+      const value = parseUint(/^[0-9]{2}/, 1, 31);
+      if (value !== null)
+        day = value;
+    } else if (token.id === "HH") {
+      const value = parseUint(/^[0-9]{2}/, 0, 23);
+      if (value !== null)
+        hours = value;
+    } else if (token.id === "mm") {
+      const value = parseUint(/^[0-9]{2}/, 0, 59);
+      if (value !== null)
+        minutes = value;
+    } else if (token.id === "ss") {
+      const value = parseUint(/^[0-9]{2}/, 0, 59);
+      if (value !== null)
+        seconds = value;
+    }
+  }
+  for (const token of tokens) {
+    parseToken(token);
+    if (!valid)
+      break;
+  }
+  const monthLength = getMonthLength(year, month);
+  if (day > monthLength) {
+    valid = false;
+  }
+  return {
+    date: valid ? new Date(year, month, day, hours, minutes, seconds, ms) : null,
+    missingPunctuation
+  };
+}
+function twoDigit(value) {
+  return ("0" + value.toString()).slice(-2);
+}
+function parseRule(s2) {
+  for (const token of ruleTokens) {
+    if (s2.startsWith(token.id)) {
+      return token;
+    }
+  }
+}
+function createFormat(s2) {
+  const tokens = [];
+  while (s2.length > 0) {
+    const token = parseRule(s2);
+    if (token) {
+      tokens.push(token);
+      s2 = s2.slice(token.id.length);
+    } else if (typeof tokens[tokens.length - 1] === "string") {
+      tokens[tokens.length - 1] += s2[0];
+      s2 = s2.slice(1);
+    } else {
+      tokens.push(s2[0]);
+      s2 = s2.slice(1);
+    }
+  }
+  return tokens;
+}
+var import_cookie4, css$13, DatePicker, ruleTokens, css4, DateInput, Settings;
+var init_settings_23b1f853 = __esm({
+  ".svelte-kit/output/server/chunks/settings-23b1f853.js"() {
     init_shims();
-    init_app_285ccb28();
-    init_DateInput_3105b9f5();
-    init_stores_375f3a87();
+    init_app_095bf1da();
+    init_store_a5cfbf1a();
     import_cookie4 = __toModule(require_cookie());
     init_dist();
-    init_index_e42dc858();
+    init_index_bb899934();
     init_env_df325643();
+    css$13 = {
+      code: ".date-time-picker.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:inline-block;outline:none;color:var(--date-picker-foreground, #000000);background:var(--date-picker-background, #ffffff);user-select:none;-webkit-user-select:none;padding:8px;cursor:default;font-size:12px;border:1px solid rgba(103, 113, 137, 0.3);border-radius:3px;box-shadow:0px 2px 6px rgba(0, 0, 0, 0.08), 0px 2px 6px rgba(0, 0, 0, 0.11)}.top.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:flex;justify-content:center;align-items:center;padding-bottom:8px}.top.svelte-hqplke .dropdown.svelte-hqplke.svelte-hqplke,.top.svelte-hqplke .previous.svelte-hqplke.svelte-hqplke{margin-right:8px}.top.svelte-hqplke .dropdown.svelte-hqplke.svelte-hqplke{position:relative;display:flex}.top.svelte-hqplke .dropdown svg.svelte-hqplke.svelte-hqplke{position:absolute;right:0px;top:0px;height:100%;width:8px;padding:0px 8px;pointer-events:none}.top.svelte-hqplke .month.svelte-hqplke.svelte-hqplke{flex-grow:1}.top.svelte-hqplke .year.svelte-hqplke.svelte-hqplke{flex-grow:1}.top.svelte-hqplke svg.svelte-hqplke.svelte-hqplke{display:block;fill:var(--date-picker-foreground, #000000);opacity:0.75;outline:none}.top.svelte-hqplke .page-button.svelte-hqplke.svelte-hqplke{padding:5px;flex-shrink:0;border-radius:5px;box-sizing:border-box;border:1px solid transparent}.top.svelte-hqplke .page-button.svelte-hqplke.svelte-hqplke:hover{background-color:rgba(128, 128, 128, 0.08);border:1px solid rgba(128, 128, 128, 0.08)}.top.svelte-hqplke .page-button svg.svelte-hqplke.svelte-hqplke{width:10px;height:10px}.top.svelte-hqplke select.dummy-select.svelte-hqplke.svelte-hqplke{position:absolute;pointer-events:none;outline:none;color:var(--date-picker-foreground, #000000);background-color:var(--date-picker-background, #ffffff);border-radius:3px}.top.svelte-hqplke select.svelte-hqplke:focus+select.dummy-select.svelte-hqplke{border-color:var(--date-picker-highlight-border, #0269f7);box-shadow:0px 0px 0px 2px var(--date-picker-highlight-shadow, rgba(2, 105, 247, 0.4))}.top.svelte-hqplke select.svelte-hqplke.svelte-hqplke:not(.dummy-select){border-radius:100px}.top.svelte-hqplke select.svelte-hqplke.svelte-hqplke{font-size:inherit;font-family:inherit;-webkit-appearance:none;-moz-appearance:none;appearance:none;flex-grow:1;padding:2px 5px;height:22px;padding-right:22px;margin:0px;border:1px solid rgba(108, 120, 147, 0.3);outline:none;transition:all 80ms cubic-bezier(0.4, 0, 0.2, 1)}.header.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:flex;font-weight:600;padding-bottom:2px}.header.svelte-hqplke .header-cell.svelte-hqplke.svelte-hqplke{width:30px;text-align:center;flex-grow:1}.week.svelte-hqplke.svelte-hqplke.svelte-hqplke{display:flex}.week.svelte-hqplke .cell.svelte-hqplke.svelte-hqplke{display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex-grow:1;border-radius:5px;box-sizing:border-box;border:2px solid transparent}.week.svelte-hqplke .cell.svelte-hqplke.svelte-hqplke:hover{border:1px solid rgba(128, 128, 128, 0.08);background-color:rgba(128, 128, 128, 0.08)}.week.svelte-hqplke .cell.disabled.svelte-hqplke.svelte-hqplke:hover{border:none;background-color:transparent}.week.svelte-hqplke .cell.other-month span.svelte-hqplke.svelte-hqplke{opacity:0.4}.week.svelte-hqplke .cell.selected.svelte-hqplke.svelte-hqplke{color:var(--date-picker-selected-color, inherit);background:var(--date-picker-selected-background, rgba(2, 105, 247, 0.2));border:2px solid var(--date-picker-highlight-border, #0269f7)}",
+      map: null
+    };
+    DatePicker = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let iLocale;
+      let calendarDays;
+      let { value = new Date() } = $$props;
+      function setValue(d2) {
+        if (d2.getTime() !== value.getTime())
+          value = d2;
+      }
+      function updateValue(updater) {
+        let d2 = updater(new Date(value.getTime()));
+        if (d2.getTime() !== value.getTime())
+          value = d2;
+      }
+      let { min = new Date(new Date().getFullYear() - 20, 0, 1) } = $$props;
+      let { max = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59, 999) } = $$props;
+      let years = getYears(min, max);
+      function getYears(min2, max2) {
+        let years2 = [];
+        for (let i = min2.getFullYear(); i <= max2.getFullYear(); i++) {
+          years2.push(i);
+        }
+        return years2;
+      }
+      let { locale = {} } = $$props;
+      let year = value.getFullYear();
+      const getYear = (value2) => year = value2.getFullYear();
+      function setYear(year2) {
+        updateValue((value2) => {
+          value2.setFullYear(year2);
+          return value2;
+        });
+      }
+      let month = value.getMonth();
+      const getMonth = (value2) => month = value2.getMonth();
+      function setMonth(month2) {
+        let newYear = year;
+        let newMonth = month2;
+        if (month2 === 12) {
+          newMonth = 0;
+          newYear++;
+        } else if (month2 === -1) {
+          newMonth = 11;
+          newYear--;
+        }
+        const maxDate = getMonthLength(newYear, newMonth);
+        const newDate = Math.min(value.getDate(), maxDate);
+        setValue(new Date(newYear, newMonth, newDate, value.getHours(), value.getMinutes(), value.getSeconds(), value.getMilliseconds()));
+      }
+      let dayOfMonth = value.getDate();
+      function dayIsInRange(calendarDay) {
+        const date = new Date(calendarDay.year, calendarDay.month, calendarDay.number);
+        const minDate = new Date(min.getFullYear(), min.getMonth(), min.getDate());
+        const maxDate = new Date(max.getFullYear(), max.getMonth(), max.getDate());
+        return date >= minDate && date <= maxDate;
+      }
+      if ($$props.value === void 0 && $$bindings.value && value !== void 0)
+        $$bindings.value(value);
+      if ($$props.min === void 0 && $$bindings.min && min !== void 0)
+        $$bindings.min(min);
+      if ($$props.max === void 0 && $$bindings.max && max !== void 0)
+        $$bindings.max(max);
+      if ($$props.locale === void 0 && $$bindings.locale && locale !== void 0)
+        $$bindings.locale(locale);
+      $$result.css.add(css$13);
+      years = getYears(min, max);
+      {
+        if (value > max) {
+          setValue(max);
+        } else if (value < min) {
+          setValue(min);
+        }
+      }
+      iLocale = getInnerLocale(locale);
+      {
+        getYear(value);
+      }
+      {
+        setYear(year);
+      }
+      {
+        getMonth(value);
+      }
+      {
+        setMonth(month);
+      }
+      dayOfMonth = value.getDate();
+      calendarDays = getCalendarDays(value, iLocale.weekStartsOn);
+      return `<div class="${"date-time-picker svelte-hqplke"}" tabindex="${"-1"}"><div class="${"top svelte-hqplke"}"><div class="${"page-button previous svelte-hqplke"}" tabindex="${"-1"}"><svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"}" transform="${"rotate(180, 12, 12)"}"></path></svg></div>
+    <div class="${"dropdown month svelte-hqplke"}"><select class="${"svelte-hqplke"}">${each(iLocale.months, (monthName, i) => `<option ${new Date(year, i, getMonthLength(year, i), 23, 59, 59, 999) < min || new Date(year, i) > max ? "disabled" : ""}${add_attribute("value", i, 0)}>${escape(monthName)}</option>`)}</select>
+      
+      <select class="${"dummy-select svelte-hqplke"}" tabindex="${"-1"}">${each(iLocale.months, (monthName, i) => `<option${add_attribute("value", i, 0)} ${i === month ? "selected" : ""}>${escape(monthName)}</option>`)}</select>
+      <svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M6 0l12 12-12 12z"}" transform="${"rotate(90, 12, 12)"}"></path></svg></div>
+    <div class="${"dropdown year svelte-hqplke"}"><select class="${"svelte-hqplke"}">${each(years, (v) => `<option${add_attribute("value", v, 0)}>${escape(v)}</option>`)}</select>
+      
+      <select class="${"dummy-select svelte-hqplke"}" tabindex="${"-1"}">${each(years, (v) => `<option${add_attribute("value", v, 0)} ${v === year ? "selected" : ""}>${escape(v)}</option>`)}</select>
+      <svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M6 0l12 12-12 12z"}" transform="${"rotate(90, 12, 12)"}"></path></svg></div>
+    <div class="${"page-button svelte-hqplke"}" tabindex="${"-1"}"><svg xmlns="${"http://www.w3.org/2000/svg"}" width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"svelte-hqplke"}"><path d="${"M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"}"></path></svg></div></div>
+  <div class="${"header svelte-hqplke"}">${each(Array(7), (_, i) => `${i + iLocale.weekStartsOn < 7 ? `<div class="${"header-cell svelte-hqplke"}">${escape(iLocale.weekdays[iLocale.weekStartsOn + i])}</div>` : `<div class="${"header-cell svelte-hqplke"}">${escape(iLocale.weekdays[iLocale.weekStartsOn + i - 7])}</div>`}`)}</div>
+  ${each(Array(6), (_, weekIndex) => `<div class="${"week svelte-hqplke"}">${each(calendarDays.slice(weekIndex * 7, weekIndex * 7 + 7), (calendarDay) => `<div class="${[
+        "cell svelte-hqplke",
+        (!dayIsInRange(calendarDay) ? "disabled" : "") + " " + (calendarDay.month === month && calendarDay.number === dayOfMonth ? "selected" : "") + " " + (calendarDay.month !== month ? "other-month" : "")
+      ].join(" ").trim()}"><span class="${"svelte-hqplke"}">${escape(calendarDay.number)}</span>
+        </div>`)}
+    </div>`)}
+</div>`;
+    });
+    ruleTokens = [
+      {
+        id: "yyyy",
+        toString: (d2) => d2.getFullYear().toString()
+      },
+      {
+        id: "MM",
+        toString: (d2) => twoDigit(d2.getMonth() + 1)
+      },
+      {
+        id: "dd",
+        toString: (d2) => twoDigit(d2.getDate())
+      },
+      {
+        id: "HH",
+        toString: (d2) => twoDigit(d2.getHours())
+      },
+      {
+        id: "mm",
+        toString: (d2) => twoDigit(d2.getMinutes())
+      },
+      {
+        id: "ss",
+        toString: (d2) => twoDigit(d2.getSeconds())
+      }
+    ];
+    css4 = {
+      code: ".date-time-field.svelte-h5dfp8{position:relative}input.svelte-h5dfp8{color:var(--date-picker-foreground, #000000);background:var(--date-picker-background, #ffffff);min-width:0px;box-sizing:border-box;padding:4px 6px;margin:0px;border:1px solid rgba(103, 113, 137, 0.3);border-radius:3px;width:var(--date-input-width, 150px);outline:none;transition:all 80ms cubic-bezier(0.4, 0, 0.2, 1)}input.svelte-h5dfp8:focus{border-color:var(--date-picker-highlight-border, #0269f7);box-shadow:0px 0px 0px 2px var(--date-picker-highlight-shadow, rgba(2, 105, 247, 0.4))}.invalid.svelte-h5dfp8{border:1px solid rgba(249, 47, 114, 0.5);background-color:rgba(249, 47, 114, 0.1)}.invalid.svelte-h5dfp8:focus{border-color:#f92f72;box-shadow:0px 0px 0px 2px rgba(249, 47, 114, 0.5)}.picker.svelte-h5dfp8{display:none;position:absolute;margin-top:1px;z-index:10}.picker.visible.svelte-h5dfp8{display:block}",
+      map: null
+    };
+    DateInput = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { value = new Date() } = $$props;
+      function setValue(d2) {
+        if (d2.getTime() !== value.getTime())
+          value = d2;
+      }
+      let { min = new Date(new Date().getFullYear() - 20, 0, 1) } = $$props;
+      let { max = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59, 999) } = $$props;
+      let { placeholder = "2020-12-31 23:00:00" } = $$props;
+      let { valid = true } = $$props;
+      let { format: format2 = "yyyy-MM-dd HH:mm:ss" } = $$props;
+      let formatTokens = createFormat(format2);
+      let { locale = {} } = $$props;
+      function valueUpdate(value2, formatTokens2) {
+        text = toText(value2, formatTokens2);
+      }
+      let { text = toText(value, formatTokens) } = $$props;
+      let textHistory = [text, text];
+      function textUpdate(text2, formatTokens2) {
+        const result = parse(text2, formatTokens2, value);
+        if (result.date !== null) {
+          valid = true;
+          setValue(result.date);
+        } else {
+          valid = false;
+        }
+      }
+      let { visible = false } = $$props;
+      if ($$props.value === void 0 && $$bindings.value && value !== void 0)
+        $$bindings.value(value);
+      if ($$props.min === void 0 && $$bindings.min && min !== void 0)
+        $$bindings.min(min);
+      if ($$props.max === void 0 && $$bindings.max && max !== void 0)
+        $$bindings.max(max);
+      if ($$props.placeholder === void 0 && $$bindings.placeholder && placeholder !== void 0)
+        $$bindings.placeholder(placeholder);
+      if ($$props.valid === void 0 && $$bindings.valid && valid !== void 0)
+        $$bindings.valid(valid);
+      if ($$props.format === void 0 && $$bindings.format && format2 !== void 0)
+        $$bindings.format(format2);
+      if ($$props.locale === void 0 && $$bindings.locale && locale !== void 0)
+        $$bindings.locale(locale);
+      if ($$props.text === void 0 && $$bindings.text && text !== void 0)
+        $$bindings.text(text);
+      if ($$props.visible === void 0 && $$bindings.visible && visible !== void 0)
+        $$bindings.visible(visible);
+      $$result.css.add(css4);
+      let $$settled;
+      let $$rendered;
+      do {
+        $$settled = true;
+        formatTokens = createFormat(format2);
+        {
+          valueUpdate(value, formatTokens);
+        }
+        textHistory = [textHistory[1], text];
+        {
+          textUpdate(text, formatTokens);
+        }
+        $$rendered = `<div class="${"date-time-field svelte-h5dfp8"}"><input type="${"text"}"${add_attribute("placeholder", placeholder, 0)} class="${["svelte-h5dfp8", !valid ? "invalid" : ""].join(" ").trim()}"${add_attribute("value", text, 0)}>
+  ${visible ? `<div class="${["picker svelte-h5dfp8", visible ? "visible" : ""].join(" ").trim()}">${validate_component(DatePicker, "DateTimePicker").$$render($$result, { locale, value, min, max }, {
+          value: ($$value) => {
+            value = $$value;
+            $$settled = false;
+          },
+          min: ($$value) => {
+            min = $$value;
+            $$settled = false;
+          },
+          max: ($$value) => {
+            max = $$value;
+            $$settled = false;
+          }
+        }, {})}</div>` : ``}
+</div>`;
+      } while (!$$settled);
+      return $$rendered;
+    });
     Settings = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let $dateGrowStart, $$unsubscribe_dateGrowStart;
       $$unsubscribe_dateGrowStart = subscribe(dateGrowStart, (value) => $dateGrowStart = value);
@@ -18509,23 +26481,33 @@ var init_settings_da2719e3 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/biobizz-e803d416.js
-var biobizz_e803d416_exports = {};
-__export(biobizz_e803d416_exports, {
+// .svelte-kit/output/server/chunks/biobizz-52db4412.js
+var biobizz_52db4412_exports = {};
+__export(biobizz_52db4412_exports, {
   default: () => Biobizz
 });
-var import_date_fns2, import_cookie5, Biobizz;
-var init_biobizz_e803d416 = __esm({
-  ".svelte-kit/output/server/chunks/biobizz-e803d416.js"() {
+var import_date_fns2, import_cookie5, FaThermometerFull, FaThermometerQuarter, Biobizz;
+var init_biobizz_52db4412 = __esm({
+  ".svelte-kit/output/server/chunks/biobizz-52db4412.js"() {
     init_shims();
-    init_app_285ccb28();
-    init_stores_375f3a87();
-    init_RangeSlider_89430ca7();
+    init_app_095bf1da();
+    init_store_a5cfbf1a();
+    init_RangeSlider_1fad5774();
     import_date_fns2 = __toModule(require_date_fns());
     import_cookie5 = __toModule(require_cookie());
     init_dist();
-    init_index_e42dc858();
+    init_index_bb899934();
     init_env_df325643();
+    FaThermometerFull = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 256 512" }, $$props), {}, {
+        default: () => `<path d="${"M224 96c0-53.019-42.981-96-96-96S32 42.981 32 96v203.347C12.225 321.756.166 351.136.002 383.333c-.359 70.303 56.787 128.176 127.089 128.664.299.002.61.003.909.003 70.698 0 128-57.304 128-128 0-32.459-12.088-62.09-32-84.653V96zm-96 368l-.576-.002c-43.86-.304-79.647-36.544-79.423-80.42.173-33.98 19.266-51.652 31.999-66.08V96c0-26.467 21.533-48 48-48s48 21.533 48 48v221.498c12.63 14.312 32 32.164 32 66.502 0 44.112-35.888 80-80 80zm64-80c0 35.346-28.654 64-64 64s-64-28.654-64-64c0-23.685 12.876-44.349 32-55.417V96c0-17.673 14.327-32 32-32s32 14.327 32 32v232.583c19.124 11.068 32 31.732 32 55.417z"}"></path>`
+      })}`;
+    });
+    FaThermometerQuarter = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      return `${validate_component(IconBase, "IconBase").$$render($$result, Object.assign({ viewBox: "0 0 256 512" }, $$props), {}, {
+        default: () => `<path d="${"M192 384c0 35.346-28.654 64-64 64s-64-28.654-64-64c0-23.685 12.876-44.349 32-55.417V288c0-17.673 14.327-32 32-32s32 14.327 32 32v40.583c19.124 11.068 32 31.732 32 55.417zm32-84.653c19.912 22.563 32 52.194 32 84.653 0 70.696-57.303 128-128 128-.299 0-.609-.001-.909-.003C56.789 511.509-.357 453.636.002 383.333.166 351.135 12.225 321.755 32 299.347V96c0-53.019 42.981-96 96-96s96 42.981 96 96v203.347zM208 384c0-34.339-19.37-52.19-32-66.502V96c0-26.467-21.533-48-48-48S80 69.533 80 96v221.498c-12.732 14.428-31.825 32.1-31.999 66.08-.224 43.876 35.563 80.116 79.423 80.42L128 464c44.112 0 80-35.888 80-80z"}"></path>`
+      })}`;
+    });
     Biobizz = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let currentWeek;
       let $dateGrowStart, $$unsubscribe_dateGrowStart;
@@ -18641,31 +26623,510 @@ var init_biobizz_e803d416 = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/about-a39c48cb.js
-var about_a39c48cb_exports = {};
-__export(about_a39c48cb_exports, {
-  default: () => About,
-  hydrate: () => hydrate,
-  prerender: () => prerender2,
-  router: () => router
+// .svelte-kit/output/server/chunks/sign-in-22ab9574.js
+var sign_in_22ab9574_exports = {};
+__export(sign_in_22ab9574_exports, {
+  default: () => Sign_in
 });
-var import_cookie6, css4, hydrate, router, prerender2, About;
-var init_about_a39c48cb = __esm({
-  ".svelte-kit/output/server/chunks/about-a39c48cb.js"() {
+var import_cookie6, css$6, LinkButton, InboxIcon, KeyIcon, MailIcon, GoogleIcon, FacebookIcon, TwitterIcon, GithubIcon, GitlabIcon, BitbucketIcon, AzureIcon, Icon, css$5, Button, css$4, Input, css$3, EmailAuthView, css$22, SocialAuthView, MagicLinkView, ForgottenPasswordView, css$14, Auth, css5, Sign_in;
+var init_sign_in_22ab9574 = __esm({
+  ".svelte-kit/output/server/chunks/sign-in-22ab9574.js"() {
     init_shims();
-    init_app_285ccb28();
-    init_env_df325643();
+    init_app_095bf1da();
+    init_supabase_c257868d();
     import_cookie6 = __toModule(require_cookie());
     init_dist();
-    css4 = {
+    init_index_bb899934();
+    css$6 = {
+      code: "button.svelte-rvdqvp{border:none;background:none;cursor:pointer;font-size:0.875rem;line-height:1.25rem;color:rgba(62, 207, 142)}",
+      map: null
+    };
+    LinkButton = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css$6);
+      return `<button class="${"svelte-rvdqvp"}">${slots.default ? slots.default({}) : ``}</button>`;
+    });
+    InboxIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { size = "100%" } = $$props;
+      let { strokeWidth = 2 } = $$props;
+      let { class: customClass = "" } = $$props;
+      if (size !== "100%") {
+        size = size.slice(-1) === "x" ? size.slice(0, size.length - 1) + "em" : parseInt(size) + "px";
+      }
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      if ($$props.strokeWidth === void 0 && $$bindings.strokeWidth && strokeWidth !== void 0)
+        $$bindings.strokeWidth(strokeWidth);
+      if ($$props.class === void 0 && $$bindings.class && customClass !== void 0)
+        $$bindings.class(customClass);
+      return `<svg xmlns="${"http://www.w3.org/2000/svg"}"${add_attribute("width", size, 0)}${add_attribute("height", size, 0)} fill="${"none"}" viewBox="${"0 0 24 24"}" stroke="${"currentColor"}"${add_attribute("stroke-width", strokeWidth, 0)} stroke-linecap="${"round"}" stroke-linejoin="${"round"}" class="${"feather feather-inbox " + escape(customClass)}"><polyline points="${"22 12 16 12 14 15 10 15 8 12 2 12"}"></polyline><path d="${"M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"}"></path></svg>`;
+    });
+    KeyIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { size = "100%" } = $$props;
+      let { strokeWidth = 2 } = $$props;
+      let { class: customClass = "" } = $$props;
+      if (size !== "100%") {
+        size = size.slice(-1) === "x" ? size.slice(0, size.length - 1) + "em" : parseInt(size) + "px";
+      }
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      if ($$props.strokeWidth === void 0 && $$bindings.strokeWidth && strokeWidth !== void 0)
+        $$bindings.strokeWidth(strokeWidth);
+      if ($$props.class === void 0 && $$bindings.class && customClass !== void 0)
+        $$bindings.class(customClass);
+      return `<svg xmlns="${"http://www.w3.org/2000/svg"}"${add_attribute("width", size, 0)}${add_attribute("height", size, 0)} fill="${"none"}" viewBox="${"0 0 24 24"}" stroke="${"currentColor"}"${add_attribute("stroke-width", strokeWidth, 0)} stroke-linecap="${"round"}" stroke-linejoin="${"round"}" class="${"feather feather-key " + escape(customClass)}"><path d="${"M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"}"></path></svg>`;
+    });
+    MailIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { size = "100%" } = $$props;
+      let { strokeWidth = 2 } = $$props;
+      let { class: customClass = "" } = $$props;
+      if (size !== "100%") {
+        size = size.slice(-1) === "x" ? size.slice(0, size.length - 1) + "em" : parseInt(size) + "px";
+      }
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      if ($$props.strokeWidth === void 0 && $$bindings.strokeWidth && strokeWidth !== void 0)
+        $$bindings.strokeWidth(strokeWidth);
+      if ($$props.class === void 0 && $$bindings.class && customClass !== void 0)
+        $$bindings.class(customClass);
+      return `<svg xmlns="${"http://www.w3.org/2000/svg"}"${add_attribute("width", size, 0)}${add_attribute("height", size, 0)} fill="${"none"}" viewBox="${"0 0 24 24"}" stroke="${"currentColor"}"${add_attribute("stroke-width", strokeWidth, 0)} stroke-linecap="${"round"}" stroke-linejoin="${"round"}" class="${"feather feather-mail " + escape(customClass)}"><path d="${"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"}"></path><polyline points="${"22,6 12,13 2,6"}"></polyline></svg>`;
+    });
+    GoogleIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { size = 21 } = $$props;
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      return `<svg${add_attribute("width", size, 0)} aria-hidden="${"true"}" focusable="${"false"}" role="${"img"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 488 512"}"><path fill="${"currentColor"}" d="${"M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"}"></path></svg>`;
+    });
+    FacebookIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { size = 21 } = $$props;
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      return `<svg${add_attribute("width", size, 0)} aria-hidden="${"true"}" focusable="${"false"}" role="${"img"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 448 512"}"><path fill="${"currentColor"}" d="${"M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"}"></path></svg>`;
+    });
+    TwitterIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { size = 21 } = $$props;
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      return `<svg${add_attribute("width", size, 0)} aria-hidden="${"true"}" focusable="${"false"}" role="${"img"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 512 512"}"><path fill="${"currentColor"}" d="${"M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"}"></path></svg>`;
+    });
+    GithubIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { size = 21 } = $$props;
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      return `<svg${add_attribute("width", size, 0)} aria-hidden="${"true"}" focusable="${"false"}" role="${"img"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 496 512"}"><path fill="${"currentColor"}" d="${"M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"}"></path></svg>`;
+    });
+    GitlabIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { size = 21 } = $$props;
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      return `<svg${add_attribute("width", size, 0)} aria-hidden="${"true"}" focusable="${"false"}" role="${"img"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 512 512"}"><path fill="${"currentColor"}" d="${"M105.2 24.9c-3.1-8.9-15.7-8.9-18.9 0L29.8 199.7h132c-.1 0-56.6-174.8-56.6-174.8zM.9 287.7c-2.6 8 .3 16.9 7.1 22l247.9 184-226.2-294zm160.8-88l94.3 294 94.3-294zm349.4 88l-28.8-88-226.3 294 247.9-184c6.9-5.1 9.7-14 7.2-22zM425.7 24.9c-3.1-8.9-15.7-8.9-18.9 0l-56.6 174.8h132z"}"></path></svg>`;
+    });
+    BitbucketIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { size = 21 } = $$props;
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      return `<svg${add_attribute("width", size, 0)} aria-hidden="${"true"}" focusable="${"false"}" role="${"img"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 512 512"}"><path fill="${"currentColor"}" d="${"M22.2 32A16 16 0 0 0 6 47.8a26.35 26.35 0 0 0 .2 2.8l67.9 412.1a21.77 21.77 0 0 0 21.3 18.2h325.7a16 16 0 0 0 16-13.4L505 50.7a16 16 0 0 0-13.2-18.3 24.58 24.58 0 0 0-2.8-.2L22.2 32zm285.9 297.8h-104l-28.1-147h157.3l-25.2 147z"}"></path></svg>`;
+    });
+    AzureIcon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { size = 21 } = $$props;
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      return `<svg${add_attribute("width", size, 0)} aria-hidden="${"true"}" focusable="${"false"}" role="${"img"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 161.67 129"}"><path d="${"M88.33 0L40.67 41.33 0 114.33h36.67zm6.34 9.67L74.33 67l39 49-75.66 13h124z"}" fill="${"currentColor"}"></path></svg>`;
+    });
+    Icon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      const map = {
+        mail: MailIcon,
+        key: KeyIcon,
+        inbox: InboxIcon,
+        google: GoogleIcon,
+        facebook: FacebookIcon,
+        twitter: TwitterIcon,
+        github: GithubIcon,
+        gitlab: GitlabIcon,
+        bitbucket: BitbucketIcon,
+        azure: AzureIcon
+      };
+      let { name } = $$props;
+      let { size = 10 } = $$props;
+      if ($$props.name === void 0 && $$bindings.name && name !== void 0)
+        $$bindings.name(name);
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      return `${validate_component(map[name] || missing_component, "svelte:component").$$render($$result, { size }, {}, {})}`;
+    });
+    css$5 = {
+      code: "button.svelte-ecm0sv{color:#444;text-shadow:0px 0px 4px rgb(38 111 78 / 50%);background:none;border-color:rgba(224, 224, 224);border-style:solid;border-width:1px;cursor:pointer;display:inline-flex;gap:0.5rem;align-items:center;position:relative;text-align:center;transition-property:background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms;border-radius:0.25rem;font-family:inherit;font-weight:inherit}button.primary.svelte-ecm0sv{background:rgba(101, 217, 165);border-color:transparent;color:white}.icon.svelte-ecm0sv{display:flex}button.large.svelte-ecm0sv{font-size:1rem;line-height:1.5rem;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:1rem;padding-right:1rem}button.medium.svelte-ecm0sv{font-size:0.875rem;line-height:1.25rem;padding-top:0.5rem;padding-bottom:0.5rem;padding-left:1rem;padding-right:1rem}button.block.svelte-ecm0sv{display:flex;align-items:center;justify-content:center;width:100%}",
+      map: null
+    };
+    Button = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let styleString;
+      let { block = false } = $$props;
+      let { shadow = false } = $$props;
+      let { primary = false } = $$props;
+      let { size = "tiny" } = $$props;
+      let { loading = false } = $$props;
+      let { icon = null } = $$props;
+      let { style = {} } = $$props;
+      if ($$props.block === void 0 && $$bindings.block && block !== void 0)
+        $$bindings.block(block);
+      if ($$props.shadow === void 0 && $$bindings.shadow && shadow !== void 0)
+        $$bindings.shadow(shadow);
+      if ($$props.primary === void 0 && $$bindings.primary && primary !== void 0)
+        $$bindings.primary(primary);
+      if ($$props.size === void 0 && $$bindings.size && size !== void 0)
+        $$bindings.size(size);
+      if ($$props.loading === void 0 && $$bindings.loading && loading !== void 0)
+        $$bindings.loading(loading);
+      if ($$props.icon === void 0 && $$bindings.icon && icon !== void 0)
+        $$bindings.icon(icon);
+      if ($$props.style === void 0 && $$bindings.style && style !== void 0)
+        $$bindings.style(style);
+      $$result.css.add(css$5);
+      styleString = Object.entries(style).map(([key, value]) => {
+        return `${key}: ${value}`;
+      }).join(";");
+      return `<button class="${[
+        escape(null_to_empty(size)) + " svelte-ecm0sv",
+        (block ? "block" : "") + " " + (primary ? "primary" : "")
+      ].join(" ").trim()}"${add_attribute("style", styleString, 0)} ${loading ? "disabled" : ""}>${icon ? `<span class="${"icon svelte-ecm0sv"}">${validate_component(Icon, "Icon").$$render($$result, { name: icon, size: "21" }, {}, {})}</span>` : ``}
+  <span>${slots.default ? slots.default({}) : ``}</span>
+</button>`;
+    });
+    css$4 = {
+      code: "label.svelte-1gj7sc0{font-weight:500;font-size:0.875rem;line-height:1.25rem;display:flex;flex-direction:column;gap:5px;margin-bottom:1rem}input.svelte-1gj7sc0{font-size:0.9rem;font-weight:300;background:transparent;border-radius:0.375rem;border-style:solid;border-width:1px;border-color:#ccc;box-sizing:border-box;display:block;flex:1;padding:5px 3px 8px 35px}.icon.svelte-1gj7sc0{position:absolute;margin:7px;color:#ccc}.input.svelte-1gj7sc0{position:relative;font-size:0.875rem;line-height:1.25rem;display:flex}",
+      map: null
+    };
+    Input = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { name } = $$props;
+      let { label } = $$props;
+      let { placeholder = "" } = $$props;
+      let { value } = $$props;
+      let { icon = null } = $$props;
+      let { type = "text" } = $$props;
+      if ($$props.name === void 0 && $$bindings.name && name !== void 0)
+        $$bindings.name(name);
+      if ($$props.label === void 0 && $$bindings.label && label !== void 0)
+        $$bindings.label(label);
+      if ($$props.placeholder === void 0 && $$bindings.placeholder && placeholder !== void 0)
+        $$bindings.placeholder(placeholder);
+      if ($$props.value === void 0 && $$bindings.value && value !== void 0)
+        $$bindings.value(value);
+      if ($$props.icon === void 0 && $$bindings.icon && icon !== void 0)
+        $$bindings.icon(icon);
+      if ($$props.type === void 0 && $$bindings.type && type !== void 0)
+        $$bindings.type(type);
+      $$result.css.add(css$4);
+      return `<label${add_attribute("for", name, 0)} class="${"svelte-1gj7sc0"}">${escape(label)}
+
+  <div class="${"input svelte-1gj7sc0"}">${icon ? `<span class="${"icon svelte-1gj7sc0"}">${validate_component(Icon, "Icon").$$render($$result, { name: icon, size: "21" }, {}, {})}</span>` : ``}
+
+    ${type == "text" ? `<input type="${"text"}"${add_attribute("name", name, 0)}${add_attribute("placeholder", placeholder, 0)} class="${"svelte-1gj7sc0"}"${add_attribute("value", value, 0)}>` : `${type == "email" ? `<input type="${"email"}"${add_attribute("name", name, 0)}${add_attribute("placeholder", placeholder, 0)} class="${"svelte-1gj7sc0"}"${add_attribute("value", value, 0)}>` : `${type == "password" ? `<input type="${"password"}"${add_attribute("name", name, 0)}${add_attribute("placeholder", placeholder, 0)} class="${"svelte-1gj7sc0"}"${add_attribute("value", value, 0)}>` : ``}`}`}</div>
+</label>`;
+    });
+    css$3 = {
+      code: "form.svelte-1l6hq7w{display:flex;flex-direction:column}.links.svelte-1l6hq7w{display:flex;flex-direction:column;margin:1rem 0;gap:0.5rem}",
+      map: null
+    };
+    EmailAuthView = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { supabaseClient } = $$props;
+      let { view } = $$props;
+      let { setView } = $$props;
+      let loading = false, email = "", password = "";
+      if ($$props.supabaseClient === void 0 && $$bindings.supabaseClient && supabaseClient !== void 0)
+        $$bindings.supabaseClient(supabaseClient);
+      if ($$props.view === void 0 && $$bindings.view && view !== void 0)
+        $$bindings.view(view);
+      if ($$props.setView === void 0 && $$bindings.setView && setView !== void 0)
+        $$bindings.setView(setView);
+      $$result.css.add(css$3);
+      let $$settled;
+      let $$rendered;
+      do {
+        $$settled = true;
+        $$rendered = `<form class="${"svelte-1l6hq7w"}">${validate_component(Input, "Input").$$render($$result, {
+          name: "email",
+          type: "email",
+          label: "Email address",
+          icon: "mail",
+          value: email
+        }, {
+          value: ($$value) => {
+            email = $$value;
+            $$settled = false;
+          }
+        }, {})}
+  ${validate_component(Input, "Input").$$render($$result, {
+          name: "password",
+          type: "password",
+          label: "Password",
+          icon: "key",
+          value: password
+        }, {
+          value: ($$value) => {
+            password = $$value;
+            $$settled = false;
+          }
+        }, {})}
+
+  ${view == "sign_up" ? `${validate_component(Button, "Button").$$render($$result, {
+          block: true,
+          primary: true,
+          size: "large",
+          loading,
+          icon: "inbox"
+        }, {}, { default: () => `Sign up` })}
+    <div class="${"links svelte-1l6hq7w"}">${validate_component(LinkButton, "LinkButton").$$render($$result, {}, {}, { default: () => `Sign in with magic link` })}
+      ${validate_component(LinkButton, "LinkButton").$$render($$result, {}, {}, {
+          default: () => `Do you have an account? Sign in`
+        })}</div>` : `${validate_component(Button, "Button").$$render($$result, {
+          block: true,
+          primary: true,
+          size: "large",
+          loading,
+          icon: "inbox"
+        }, {}, { default: () => `Sign in` })}
+    <div class="${"links svelte-1l6hq7w"}">${validate_component(LinkButton, "LinkButton").$$render($$result, {}, {}, {
+          default: () => `Don&#39;t have an account? Sign up`
+        })}</div>`}
+
+  ${``}
+
+  ${``}
+</form>`;
+      } while (!$$settled);
+      return $$rendered;
+    });
+    css$22 = {
+      code: ".providers.svelte-gzcihl.svelte-gzcihl{display:flex;flex-direction:column;gap:5px}.providers.horizontal.svelte-gzcihl.svelte-gzcihl{flex-direction:row}.divider.svelte-gzcihl.svelte-gzcihl{color:rgb(187, 187, 187);margin:1rem 0;width:100%;display:flex;align-items:center;white-space:nowrap;font-size:0.9rem}.divider.svelte-gzcihl span.svelte-gzcihl{margin:1rem}.divider.svelte-gzcihl.svelte-gzcihl::before,.divider.svelte-gzcihl.svelte-gzcihl::after{border-bottom-style:solid;border-bottom-width:1px;top:50%;content:'';position:relative;display:inline-block;width:50%}.heading.svelte-gzcihl.svelte-gzcihl{font-weight:500;font-size:0.875rem;line-height:1.25rem;margin:0 0 0.5rem 0}",
+      map: null
+    };
+    SocialAuthView = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let hasProviders;
+      let { supabaseClient } = $$props;
+      let { providers } = $$props;
+      let { socialLayout } = $$props;
+      let { socialButtonSize } = $$props;
+      let { socialColors } = $$props;
+      let { view } = $$props;
+      const buttonStyles = {
+        google: {
+          "background-color": "#ce4430",
+          color: "white"
+        },
+        facebook: {
+          "background-color": "#4267B2",
+          color: "white"
+        },
+        twitter: { "background-color": "#1DA1F2" },
+        gitlab: { "background-color": "#FC6D27" },
+        github: {
+          "background-color": "#333",
+          color: "white"
+        },
+        bitbucket: {
+          "background-color": "#205081",
+          color: "white"
+        },
+        azure: {
+          "background-color": "#0072c6",
+          color: "white"
+        }
+      };
+      if ($$props.supabaseClient === void 0 && $$bindings.supabaseClient && supabaseClient !== void 0)
+        $$bindings.supabaseClient(supabaseClient);
+      if ($$props.providers === void 0 && $$bindings.providers && providers !== void 0)
+        $$bindings.providers(providers);
+      if ($$props.socialLayout === void 0 && $$bindings.socialLayout && socialLayout !== void 0)
+        $$bindings.socialLayout(socialLayout);
+      if ($$props.socialButtonSize === void 0 && $$bindings.socialButtonSize && socialButtonSize !== void 0)
+        $$bindings.socialButtonSize(socialButtonSize);
+      if ($$props.socialColors === void 0 && $$bindings.socialColors && socialColors !== void 0)
+        $$bindings.socialColors(socialColors);
+      if ($$props.view === void 0 && $$bindings.view && view !== void 0)
+        $$bindings.view(view);
+      $$result.css.add(css$22);
+      hasProviders = providers && providers.length > 0;
+      return `${hasProviders ? `<span class="${"heading svelte-gzcihl"}">${escape(view == "sign_up" ? "Sign up" : "Sign in")} with</span>
+
+  <div class="${["providers svelte-gzcihl", socialLayout == "horizontal" ? "horizontal" : ""].join(" ").trim()}">${each(providers, (provider) => `${validate_component(Button, "Button").$$render($$result, {
+        block: true,
+        shadow: true,
+        icon: provider,
+        size: socialButtonSize,
+        style: socialColors ? buttonStyles[provider] : {}
+      }, {}, {
+        default: () => `${socialLayout == "vertical" ? `${escape(view == "sign_up" ? "Sign up" : "Sign in")} with ${escape(provider)}` : ``}
+      `
+      })}`)}</div>
+  <div role="${"separator"}" class="${"divider svelte-gzcihl"}"><span class="${"svelte-gzcihl"}">or continue with</span></div>` : ``}
+
+${``}`;
+    });
+    MagicLinkView = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { supabaseClient } = $$props;
+      let { setView } = $$props;
+      let loading = false, email = "";
+      if ($$props.supabaseClient === void 0 && $$bindings.supabaseClient && supabaseClient !== void 0)
+        $$bindings.supabaseClient(supabaseClient);
+      if ($$props.setView === void 0 && $$bindings.setView && setView !== void 0)
+        $$bindings.setView(setView);
+      let $$settled;
+      let $$rendered;
+      do {
+        $$settled = true;
+        $$rendered = `<form>${validate_component(Input, "Input").$$render($$result, {
+          name: "email",
+          type: "email",
+          label: "Email address",
+          placeholder: "Your email address",
+          icon: "mail",
+          value: email
+        }, {
+          value: ($$value) => {
+            email = $$value;
+            $$settled = false;
+          }
+        }, {})}
+  ${validate_component(Button, "Button").$$render($$result, {
+          block: true,
+          primary: true,
+          size: "large",
+          loading,
+          icon: "inbox"
+        }, {}, { default: () => `Send magic link` })}
+
+  ${validate_component(LinkButton, "LinkButton").$$render($$result, {}, {}, { default: () => `Sign in with password` })}
+
+  ${``}
+
+  ${``}</form>`;
+      } while (!$$settled);
+      return $$rendered;
+    });
+    ForgottenPasswordView = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { supabaseClient } = $$props;
+      let { setView } = $$props;
+      let loading = false, email = "";
+      if ($$props.supabaseClient === void 0 && $$bindings.supabaseClient && supabaseClient !== void 0)
+        $$bindings.supabaseClient(supabaseClient);
+      if ($$props.setView === void 0 && $$bindings.setView && setView !== void 0)
+        $$bindings.setView(setView);
+      let $$settled;
+      let $$rendered;
+      do {
+        $$settled = true;
+        $$rendered = `<form>${validate_component(Input, "Input").$$render($$result, {
+          name: "email",
+          type: "email",
+          label: "Email address",
+          placeholder: "Your email address",
+          icon: "mail",
+          value: email
+        }, {
+          value: ($$value) => {
+            email = $$value;
+            $$settled = false;
+          }
+        }, {})}
+  ${validate_component(Button, "Button").$$render($$result, {
+          block: true,
+          primary: true,
+          size: "large",
+          loading,
+          icon: "inbox"
+        }, {}, {
+          default: () => `Send reset password instructions`
+        })}
+
+  ${validate_component(LinkButton, "LinkButton").$$render($$result, {}, {}, { default: () => `Go back to sign in` })}
+
+  ${``}
+
+  ${``}</form>`;
+      } while (!$$settled);
+      return $$rendered;
+    });
+    css$14 = {
+      code: ".component.svelte-7h7v40{width:100%}.container.svelte-7h7v40{display:flex;flex-direction:column}",
+      map: null
+    };
+    Auth = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      let { class: classes = "" } = $$props;
+      let { supabaseClient } = $$props;
+      let { style = "" } = $$props;
+      let { socialLayout = "vertical" } = $$props;
+      let { socialColors = false } = $$props;
+      let { socialButtonSize = "medium" } = $$props;
+      let { providers = [] } = $$props;
+      let { view = "sign_in" } = $$props;
+      function setView(newView) {
+        view = newView;
+      }
+      if ($$props.class === void 0 && $$bindings.class && classes !== void 0)
+        $$bindings.class(classes);
+      if ($$props.supabaseClient === void 0 && $$bindings.supabaseClient && supabaseClient !== void 0)
+        $$bindings.supabaseClient(supabaseClient);
+      if ($$props.style === void 0 && $$bindings.style && style !== void 0)
+        $$bindings.style(style);
+      if ($$props.socialLayout === void 0 && $$bindings.socialLayout && socialLayout !== void 0)
+        $$bindings.socialLayout(socialLayout);
+      if ($$props.socialColors === void 0 && $$bindings.socialColors && socialColors !== void 0)
+        $$bindings.socialColors(socialColors);
+      if ($$props.socialButtonSize === void 0 && $$bindings.socialButtonSize && socialButtonSize !== void 0)
+        $$bindings.socialButtonSize(socialButtonSize);
+      if ($$props.providers === void 0 && $$bindings.providers && providers !== void 0)
+        $$bindings.providers(providers);
+      if ($$props.view === void 0 && $$bindings.view && view !== void 0)
+        $$bindings.view(view);
+      $$result.css.add(css$14);
+      return `<div class="${"component " + escape(classes) + " svelte-7h7v40"}"${add_attribute("style", style, 0)}><div class="${"container svelte-7h7v40"}">${validate_component(SocialAuthView, "SocialAuthView").$$render($$result, {
+        supabaseClient,
+        providers,
+        socialLayout,
+        socialButtonSize,
+        socialColors,
+        view
+      }, {}, {})}
+
+    ${view == "sign_in" || view == "sign_up" ? `${validate_component(EmailAuthView, "EmailAuthView").$$render($$result, { supabaseClient, view, setView }, {}, {})}` : `${view == "magic_link" ? `${validate_component(MagicLinkView, "MagicLinkView").$$render($$result, { supabaseClient, setView }, {}, {})}` : `${view == "forgotten_password" ? `${validate_component(ForgottenPasswordView, "ForgottenPasswordView").$$render($$result, { supabaseClient, setView }, {}, {})}` : ``}`}`}</div>
+</div>`;
+    });
+    css5 = {
+      code: ".container.svelte-lraw8z{grid-template-rows:100vh;margin:0px auto}",
+      map: null
+    };
+    Sign_in = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+      $$result.css.add(css5);
+      return `<div class="${"grid grid-cols-1 grid-rows-1 container items-center justify-center bg-white p-6 h-full svelte-lraw8z"}">${validate_component(Auth, "Auth").$$render($$result, { supabaseClient: supabase }, {}, {})}
+</div>`;
+    });
+  }
+});
+
+// .svelte-kit/output/server/chunks/about-27b2059a.js
+var about_27b2059a_exports = {};
+__export(about_27b2059a_exports, {
+  default: () => About,
+  hydrate: () => hydrate,
+  prerender: () => prerender,
+  router: () => router
+});
+var import_cookie7, css6, hydrate, router, prerender, About;
+var init_about_27b2059a = __esm({
+  ".svelte-kit/output/server/chunks/about-27b2059a.js"() {
+    init_shims();
+    init_app_095bf1da();
+    init_env_df325643();
+    import_cookie7 = __toModule(require_cookie());
+    init_dist();
+    css6 = {
       code: ".content.svelte-cf77e8{width:100%;max-width:var(--column-width);margin:var(--column-margin-top) auto 0 auto}",
       map: null
     };
     hydrate = dev;
     router = browser;
-    prerender2 = true;
+    prerender = true;
     About = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      $$result.css.add(css4);
+      $$result.css.add(css6);
       return `${$$result.head += `${$$result.title = `<title>About</title>`, ""}`, ""}
 
 <div class="${"content svelte-cf77e8"}"><h1>About this app</h1>
@@ -18690,20 +27151,20 @@ var init_about_a39c48cb = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/index-1a0f066f.js
-var index_1a0f066f_exports = {};
-__export(index_1a0f066f_exports, {
+// .svelte-kit/output/server/chunks/index-f74c1d43.js
+var index_f74c1d43_exports = {};
+__export(index_f74c1d43_exports, {
   default: () => Todos,
   load: () => load2
 });
-var import_cookie7, css5, load2, Todos;
-var init_index_1a0f066f = __esm({
-  ".svelte-kit/output/server/chunks/index-1a0f066f.js"() {
+var import_cookie8, css7, load2, Todos;
+var init_index_f74c1d43 = __esm({
+  ".svelte-kit/output/server/chunks/index-f74c1d43.js"() {
     init_shims();
-    init_app_285ccb28();
-    import_cookie7 = __toModule(require_cookie());
+    init_app_095bf1da();
+    import_cookie8 = __toModule(require_cookie());
     init_dist();
-    css5 = {
+    css7 = {
       code: `.todos.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{width:100%;max-width:var(--column-width);margin:var(--column-margin-top) auto 0 auto;line-height:1}.new.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{margin:0 0 0.5rem 0}input.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{border:1px solid transparent}input.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd:focus-visible{box-shadow:inset 1px 1px 6px rgba(0, 0, 0, 0.1);border:1px solid #ff3e00 !important;outline:none}.new.svelte-dmxqmd input.svelte-dmxqmd.svelte-dmxqmd{font-size:28px;width:100%;padding:0.5em 1em 0.3em 1em;box-sizing:border-box;background:rgba(255, 255, 255, 0.05);border-radius:8px;text-align:center}.todo.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{display:grid;grid-template-columns:2rem 1fr 2rem;grid-gap:0.5rem;align-items:center;margin:0 0 0.5rem 0;padding:0.5rem;background-color:white;border-radius:8px;filter:drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.1));transform:translate(-1px, -1px);transition:filter 0.2s, transform 0.2s}.done.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{transform:none;opacity:0.4;filter:drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.1))}form.text.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{position:relative;display:flex;align-items:center;flex:1}.todo.svelte-dmxqmd input.svelte-dmxqmd.svelte-dmxqmd{flex:1;padding:0.5em 2em 0.5em 0.8em;border-radius:3px}.todo.svelte-dmxqmd button.svelte-dmxqmd.svelte-dmxqmd{width:2em;height:2em;border:none;background-color:transparent;background-position:50% 50%;background-repeat:no-repeat}button.toggle.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{border:1px solid rgba(0, 0, 0, 0.2);border-radius:50%;box-sizing:border-box;background-size:1em auto}.done.svelte-dmxqmd .toggle.svelte-dmxqmd.svelte-dmxqmd{background-image:url("data:image/svg+xml,%3Csvg width='22' height='16' viewBox='0 0 22 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5 1.5L7.4375 14.5L1.5 8.5909' stroke='%23676778' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}.delete.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{background-image:url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.5 5V22H19.5V5H4.5Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M10 10V16.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 10V16.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M2 5H22' stroke='%23676778' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M8 5L9.6445 2H14.3885L16 5H8Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E%0A");opacity:0.2}.delete.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd:hover,.delete.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd:focus{transition:opacity 0.2s;opacity:1}.save.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd{position:absolute;right:0;opacity:0;background-image:url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.5 2H3.5C2.67158 2 2 2.67157 2 3.5V20.5C2 21.3284 2.67158 22 3.5 22H20.5C21.3284 22 22 21.3284 22 20.5V3.5C22 2.67157 21.3284 2 20.5 2Z' fill='%23676778' stroke='%23676778' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M17 2V11H7.5V2H17Z' fill='white' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3Cpath d='M13.5 5.5V7.5' stroke='%23676778' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M5.99844 2H18.4992' stroke='%23676778' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E%0A")}.todo.svelte-dmxqmd input.svelte-dmxqmd:focus+.save.svelte-dmxqmd,.save.svelte-dmxqmd.svelte-dmxqmd.svelte-dmxqmd:focus{transition:opacity 0.2s;opacity:1}`,
       map: null
     };
@@ -18720,7 +27181,7 @@ var init_index_1a0f066f = __esm({
       let { todos } = $$props;
       if ($$props.todos === void 0 && $$bindings.todos && todos !== void 0)
         $$bindings.todos(todos);
-      $$result.css.add(css5);
+      $$result.css.add(css7);
       return `${$$result.head += `${$$result.title = `<title>Todos</title>`, ""}`, ""}
 
 <div class="${"todos svelte-dmxqmd"}"><h1>Todos</h1>
@@ -18740,7 +27201,7 @@ var init_index_1a0f066f = __esm({
   }
 });
 
-// .svelte-kit/output/server/chunks/app-285ccb28.js
+// .svelte-kit/output/server/chunks/app-095bf1da.js
 function get_single_valued_header(headers, key) {
   const value = headers[key];
   if (Array.isArray(value)) {
@@ -19132,7 +27593,7 @@ async function render_response({
   page_config,
   status,
   error: error2,
-  page
+  page: page2
 }) {
   const css22 = new Set(options2.entry.css);
   const js = new Set(options2.entry.js);
@@ -19165,7 +27626,7 @@ async function render_response({
         navigating: writable2(null),
         session
       },
-      page,
+      page: page2,
       components: branch.map(({ node }) => node.module.default)
     };
     for (let i = 0; i < branch.length; i += 1) {
@@ -19208,7 +27669,7 @@ async function render_response({
 				session: ${try_serialize($session, (error3) => {
       throw new Error(`Failed to serialize session data: ${error3.message}`);
     })},
-				host: ${page && page.host ? s$1(page.host) : "location.host"},
+				host: ${page2 && page2.host ? s$1(page2.host) : "location.host"},
 				route: ${!!page_config.router},
 				spa: ${!page_config.ssr},
 				trailing_slash: ${s$1(options2.trailing_slash)},
@@ -19219,12 +27680,12 @@ async function render_response({
 						${(branch || []).map(({ node }) => `import(${s$1(node.entry)})`).join(",\n						")}
 					],
 					page: {
-						host: ${page && page.host ? s$1(page.host) : "location.host"}, // TODO this is redundant
-						path: ${page && page.path ? try_serialize(page.path, (error3) => {
+						host: ${page2 && page2.host ? s$1(page2.host) : "location.host"}, // TODO this is redundant
+						path: ${page2 && page2.path ? try_serialize(page2.path, (error3) => {
       throw new Error(`Failed to serialize page.path: ${error3.message}`);
     }) : null},
-						query: new URLSearchParams(${page && page.query ? s$1(page.query.toString()) : ""}),
-						params: ${page && page.params ? try_serialize(page.params, (error3) => {
+						query: new URLSearchParams(${page2 && page2.query ? s$1(page2.query.toString()) : ""}),
+						params: ${page2 && page2.params ? try_serialize(page2.params, (error3) => {
       throw new Error(`Failed to serialize page.params: ${error3.message}`);
     }) : null}
 					}
@@ -19338,7 +27799,7 @@ async function load_node({
   options: options2,
   state,
   route,
-  page,
+  page: page2,
   node,
   $session,
   stuff,
@@ -19353,7 +27814,7 @@ async function load_node({
   const fetched = [];
   let set_cookie_headers = [];
   let loaded;
-  const page_proxy = new Proxy(page, {
+  const page_proxy = new Proxy(page2, {
     get: (target, prop, receiver) => {
       if (prop === "query" && prerender_enabled) {
         throw new Error("Cannot access query on a page with prerendering enabled");
@@ -19396,7 +27857,7 @@ async function load_node({
         if (asset) {
           response = options2.read ? new Response(options2.read(asset.file), {
             headers: asset.type ? { "content-type": asset.type } : {}
-          }) : await fetch(`http://${page.host}/${asset.file}`, opts);
+          }) : await fetch(`http://${page2.host}/${asset.file}`, opts);
         } else if (is_root_relative(resolved)) {
           const relative = resolved;
           const headers = {
@@ -19517,7 +27978,7 @@ async function load_node({
 async function respond_with_error({ request, options: options2, state, $session, status, error: error2 }) {
   const default_layout = await options2.load_component(options2.manifest.layout);
   const default_error = await options2.load_component(options2.manifest.error);
-  const page = {
+  const page2 = {
     host: request.host,
     path: request.path,
     query: request.query,
@@ -19528,7 +27989,7 @@ async function respond_with_error({ request, options: options2, state, $session,
     options: options2,
     state,
     route: null,
-    page,
+    page: page2,
     node: default_layout,
     $session,
     stuff: {},
@@ -19543,7 +28004,7 @@ async function respond_with_error({ request, options: options2, state, $session,
       options: options2,
       state,
       route: null,
-      page,
+      page: page2,
       node: default_error,
       $session,
       stuff: loaded ? loaded.stuff : {},
@@ -19566,7 +28027,7 @@ async function respond_with_error({ request, options: options2, state, $session,
       status,
       error: error2,
       branch,
-      page
+      page: page2
     });
   } catch (err) {
     const error3 = coalesce_to_error(err);
@@ -19740,7 +28201,7 @@ async function render_page(request, route, match, options2, state) {
     };
   }
   const params = route.params(match);
-  const page = {
+  const page2 = {
     host: request.host,
     path: request.path,
     query: request.query,
@@ -19753,7 +28214,7 @@ async function render_page(request, route, match, options2, state) {
     state,
     $session,
     route,
-    page
+    page: page2
   });
   if (response) {
     return response;
@@ -19956,6 +28417,9 @@ function subscribe(store, ...callbacks) {
   const unsub = store.subscribe(...callbacks);
   return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
 }
+function null_to_empty(value) {
+  return value == null ? "" : value;
+}
 function run_tasks(now2) {
   tasks.forEach((task) => {
     if (!task.c(now2)) {
@@ -20006,6 +28470,9 @@ function createEventDispatcher() {
 }
 function setContext(key, context) {
   get_current_component().$$.context.set(key, context);
+}
+function getContext(key) {
+  return get_current_component().$$.context.get(key);
 }
 function escape(html) {
   return String(html).replace(/["'&<>]/g, (match) => escaped[match]);
@@ -20080,9 +28547,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-ff005aac.js",
-      css: [assets + "/_app/assets/start-d5b4de3e.css", assets + "/_app/assets/vendor-3ad34cf4.css"],
-      js: [assets + "/_app/start-ff005aac.js", assets + "/_app/chunks/vendor-93654020.js"]
+      file: assets + "/_app/start-7a6dbe9d.js",
+      css: [assets + "/_app/assets/start-d5b4de3e.css", assets + "/_app/assets/vendor-e29c58cb.css"],
+      js: [assets + "/_app/start-7a6dbe9d.js", assets + "/_app/chunks/vendor-37f6029b.js"]
     },
     fetched: void 0,
     floc: false,
@@ -20120,16 +28587,16 @@ async function load_component(file) {
   };
 }
 function render(request, {
-  prerender: prerender3
+  prerender: prerender2
 } = {}) {
   const host = request.headers["host"];
-  return respond({ ...request, host }, options, { prerender: prerender3 });
+  return respond({ ...request, host }, options, { prerender: prerender2 });
 }
-var import_cookie8, __accessCheck, __privateGet, __privateAdd, __privateSet, _map, absolute, scheme, chars, unsafeChars, reserved, escaped$1, objectProtoOwnPropertyNames, subscriber_queue2, escape_json_string_in_html_dict, escape_html_attr_dict, s$1, s, ReadOnlyFormData, is_client, now, raf, tasks, current_component, escaped, missing_component, on_destroy, css6, Root, base2, assets, handle, user_hooks, template, options, default_settings, d, empty, manifest, get_hooks, module_lookup, metadata_lookup;
-var init_app_285ccb28 = __esm({
-  ".svelte-kit/output/server/chunks/app-285ccb28.js"() {
+var import_cookie9, __accessCheck, __privateGet, __privateAdd, __privateSet, _map, absolute, scheme, chars, unsafeChars, reserved, escaped$1, objectProtoOwnPropertyNames, subscriber_queue2, escape_json_string_in_html_dict, escape_html_attr_dict, s$1, s, ReadOnlyFormData, is_client, now, raf, tasks, current_component, escaped, missing_component, on_destroy, css8, Root, base2, assets, handle, user_hooks, template, options, default_settings, d, empty, manifest, get_hooks, module_lookup, metadata_lookup;
+var init_app_095bf1da = __esm({
+  ".svelte-kit/output/server/chunks/app-095bf1da.js"() {
     init_shims();
-    import_cookie8 = __toModule(require_cookie());
+    import_cookie9 = __toModule(require_cookie());
     init_dist();
     __accessCheck = (obj, member, msg) => {
       if (!member.has(obj))
@@ -20250,13 +28717,13 @@ var init_app_285ccb28 = __esm({
     missing_component = {
       $$render: () => ""
     };
-    css6 = {
+    css8 = {
       code: "#svelte-announcer.svelte-1j55zn5{position:absolute;left:0;top:0;clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap;width:1px;height:1px}",
       map: null
     };
     Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let { stores } = $$props;
-      let { page } = $$props;
+      let { page: page2 } = $$props;
       let { components } = $$props;
       let { props_0 = null } = $$props;
       let { props_1 = null } = $$props;
@@ -20265,8 +28732,8 @@ var init_app_285ccb28 = __esm({
       afterUpdate(stores.page.notify);
       if ($$props.stores === void 0 && $$bindings.stores && stores !== void 0)
         $$bindings.stores(stores);
-      if ($$props.page === void 0 && $$bindings.page && page !== void 0)
-        $$bindings.page(page);
+      if ($$props.page === void 0 && $$bindings.page && page2 !== void 0)
+        $$bindings.page(page2);
       if ($$props.components === void 0 && $$bindings.components && components !== void 0)
         $$bindings.components(components);
       if ($$props.props_0 === void 0 && $$bindings.props_0 && props_0 !== void 0)
@@ -20275,9 +28742,9 @@ var init_app_285ccb28 = __esm({
         $$bindings.props_1(props_1);
       if ($$props.props_2 === void 0 && $$bindings.props_2 && props_2 !== void 0)
         $$bindings.props_2(props_2);
-      $$result.css.add(css6);
+      $$result.css.add(css8);
       {
-        stores.page.set(page);
+        stores.page.set(page2);
       }
       return `
 
@@ -20293,14 +28760,14 @@ ${``}`;
     base2 = "";
     assets = "";
     handle = async ({ request, resolve: resolve2 }) => {
-      const cookies = import_cookie8.default.parse(request.headers.cookie || "");
+      const cookies = import_cookie9.default.parse(request.headers.cookie || "");
       request.locals.userid = cookies.userid || v4();
       if (request.query.has("_method")) {
         request.method = request.query.get("_method").toUpperCase();
       }
       const response = await resolve2(request);
       if (!cookies.userid) {
-        response.headers["set-cookie"] = import_cookie8.default.serialize("userid", request.locals.userid, {
+        response.headers["set-cookie"] = import_cookie9.default.serialize("userid", request.locals.userid, {
           path: "/",
           httpOnly: true
         });
@@ -20345,6 +28812,13 @@ ${``}`;
         },
         {
           type: "page",
+          pattern: /^\/sign-in\/?$/,
+          params: empty,
+          a: ["src/routes/__layout.svelte", "src/routes/sign-in.svelte"],
+          b: [".svelte-kit/build/components/error.svelte"]
+        },
+        {
+          type: "page",
           pattern: /^\/about\/?$/,
           params: empty,
           a: ["src/routes/__layout.svelte", "src/routes/about.svelte"],
@@ -20378,15 +28852,16 @@ ${``}`;
       externalFetch: hooks.externalFetch || fetch
     });
     module_lookup = {
-      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_e0db2943(), layout_e0db2943_exports)),
-      ".svelte-kit/build/components/error.svelte": () => Promise.resolve().then(() => (init_error_5d5049d8(), error_5d5049d8_exports)),
-      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_70175c15(), index_70175c15_exports)),
-      "src/routes/settings.svelte": () => Promise.resolve().then(() => (init_settings_da2719e3(), settings_da2719e3_exports)),
-      "src/routes/biobizz.svelte": () => Promise.resolve().then(() => (init_biobizz_e803d416(), biobizz_e803d416_exports)),
-      "src/routes/about.svelte": () => Promise.resolve().then(() => (init_about_a39c48cb(), about_a39c48cb_exports)),
-      "src/routes/todos/index.svelte": () => Promise.resolve().then(() => (init_index_1a0f066f(), index_1a0f066f_exports))
+      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_71b4e1e9(), layout_71b4e1e9_exports)),
+      ".svelte-kit/build/components/error.svelte": () => Promise.resolve().then(() => (init_error_4896efd4(), error_4896efd4_exports)),
+      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_98f005e3(), index_98f005e3_exports)),
+      "src/routes/settings.svelte": () => Promise.resolve().then(() => (init_settings_23b1f853(), settings_23b1f853_exports)),
+      "src/routes/biobizz.svelte": () => Promise.resolve().then(() => (init_biobizz_52db4412(), biobizz_52db4412_exports)),
+      "src/routes/sign-in.svelte": () => Promise.resolve().then(() => (init_sign_in_22ab9574(), sign_in_22ab9574_exports)),
+      "src/routes/about.svelte": () => Promise.resolve().then(() => (init_about_27b2059a(), about_27b2059a_exports)),
+      "src/routes/todos/index.svelte": () => Promise.resolve().then(() => (init_index_f74c1d43(), index_f74c1d43_exports))
     };
-    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-0c3a0438.js", "css": ["assets/pages/__layout.svelte-75a6541a.css", "assets/vendor-3ad34cf4.css"], "js": ["pages/__layout.svelte-0c3a0438.js", "chunks/vendor-93654020.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-ab8a1d1b.js", "css": ["assets/vendor-3ad34cf4.css"], "js": ["error.svelte-ab8a1d1b.js", "chunks/vendor-93654020.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-03b64f37.js", "css": ["assets/vendor-3ad34cf4.css"], "js": ["pages/index.svelte-03b64f37.js", "chunks/vendor-93654020.js"], "styles": [] }, "src/routes/settings.svelte": { "entry": "pages/settings.svelte-7366bc01.js", "css": ["assets/vendor-3ad34cf4.css"], "js": ["pages/settings.svelte-7366bc01.js", "chunks/vendor-93654020.js", "chunks/stores-01305f89.js"], "styles": [] }, "src/routes/biobizz.svelte": { "entry": "pages/biobizz.svelte-e9dc4698.js", "css": ["assets/vendor-3ad34cf4.css"], "js": ["pages/biobizz.svelte-e9dc4698.js", "chunks/vendor-93654020.js", "chunks/stores-01305f89.js"], "styles": [] }, "src/routes/about.svelte": { "entry": "pages/about.svelte-babb16ee.js", "css": ["assets/pages/about.svelte-bf4528fa.css", "assets/vendor-3ad34cf4.css"], "js": ["pages/about.svelte-babb16ee.js", "chunks/vendor-93654020.js"], "styles": [] }, "src/routes/todos/index.svelte": { "entry": "pages/todos/index.svelte-893df454.js", "css": ["assets/pages/todos/index.svelte-784042c1.css", "assets/vendor-3ad34cf4.css"], "js": ["pages/todos/index.svelte-893df454.js", "chunks/vendor-93654020.js"], "styles": [] } };
+    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-24479ecd.js", "css": ["assets/pages/__layout.svelte-74368dc5.css", "assets/vendor-e29c58cb.css"], "js": ["pages/__layout.svelte-24479ecd.js", "chunks/vendor-37f6029b.js", "chunks/supabase-4c3eef37.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-14d1b3fb.js", "css": ["assets/vendor-e29c58cb.css"], "js": ["error.svelte-14d1b3fb.js", "chunks/vendor-37f6029b.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-0fffd698.js", "css": ["assets/pages/index.svelte-f4ce4929.css", "assets/vendor-e29c58cb.css"], "js": ["pages/index.svelte-0fffd698.js", "chunks/vendor-37f6029b.js", "chunks/supabase-4c3eef37.js", "chunks/store-a87eadf0.js"], "styles": [] }, "src/routes/settings.svelte": { "entry": "pages/settings.svelte-7e260bb0.js", "css": ["assets/vendor-e29c58cb.css"], "js": ["pages/settings.svelte-7e260bb0.js", "chunks/vendor-37f6029b.js", "chunks/store-a87eadf0.js"], "styles": [] }, "src/routes/biobizz.svelte": { "entry": "pages/biobizz.svelte-d41b84b6.js", "css": ["assets/vendor-e29c58cb.css"], "js": ["pages/biobizz.svelte-d41b84b6.js", "chunks/vendor-37f6029b.js", "chunks/store-a87eadf0.js"], "styles": [] }, "src/routes/sign-in.svelte": { "entry": "pages/sign-in.svelte-005c313f.js", "css": ["assets/pages/sign-in.svelte-a56fdcbf.css", "assets/vendor-e29c58cb.css"], "js": ["pages/sign-in.svelte-005c313f.js", "chunks/vendor-37f6029b.js", "chunks/supabase-4c3eef37.js"], "styles": [] }, "src/routes/about.svelte": { "entry": "pages/about.svelte-8a2a0016.js", "css": ["assets/pages/about.svelte-bf4528fa.css", "assets/vendor-e29c58cb.css"], "js": ["pages/about.svelte-8a2a0016.js", "chunks/vendor-37f6029b.js"], "styles": [] }, "src/routes/todos/index.svelte": { "entry": "pages/todos/index.svelte-e01a8bb3.js", "css": ["assets/pages/todos/index.svelte-784042c1.css", "assets/vendor-e29c58cb.css"], "js": ["pages/todos/index.svelte-e01a8bb3.js", "chunks/vendor-37f6029b.js"], "styles": [] } };
   }
 });
 
@@ -20439,8 +28914,8 @@ function getRawBody(req) {
 
 // .svelte-kit/output/server/app.js
 init_shims();
-init_app_285ccb28();
-var import_cookie9 = __toModule(require_cookie());
+init_app_095bf1da();
+var import_cookie10 = __toModule(require_cookie());
 init_dist();
 
 // .svelte-kit/vercel/entry.js

@@ -1,5 +1,5 @@
 <script>
-	import { bucketLiters, dateGrowStart, nutesRatio } from '../stores';
+	import { bucketLiters, dateGrowStart, nutesRatio } from '../store';
 	// Icons
 	import FaThermometerFull from 'svelte-icons/fa/FaThermometerFull.svelte';
 	import FaThermometerQuarter from 'svelte-icons/fa/FaThermometerQuarter.svelte';

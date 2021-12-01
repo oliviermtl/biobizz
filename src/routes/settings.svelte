@@ -1,6 +1,6 @@
 <script>
 	import { DateInput } from 'date-picker-svelte';
-	import { bucketLiters, dateGrowStart } from '../stores';
+	import { bucketLiters, dateGrowStart } from '../store';
 </script>
 
 <!-- Starting date -->
