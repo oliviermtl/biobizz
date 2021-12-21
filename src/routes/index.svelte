@@ -1,5 +1,5 @@
 <script>
-	import { user, auth } from '$lib/supabase';
+	import { supabase, user, auth } from '$lib/supabase';
 
 	import { bucketLiters, dateGrowStart, nutesRatio } from '../store';
 	// Icons
@@ -32,7 +32,8 @@
 		biogrow: [0, 2, 2, 2, 3, 3, 4, 4, 4, 4, 0, 0],
 		biobloom: [0, 0, 1, 2, 2, 3, 3, 4, 4, 4, 0, 0],
 		topmax: [0, 0, 1, 1, 1, 1, 1, 4, 4, 4, 0, 0],
-		bioheaven: [2, 2, 2, 2, 3, 4, 4, 5, 5, 5, 0, 0]
+		bioheaven: [2, 2, 2, 2, 3, 4, 4, 5, 5, 5, 0, 0],
+		calmag: [0.3, 0.3, 0.3, 0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8]
 	};
 
 	const nutesToDisplay = () => {
@@ -64,6 +65,13 @@
 			mlPerLiter: 0.1,
 			correction: -0.5
 		}
+	};
+
+	const handleClick = async () => {
+		const { data, error } = await supabase
+			.from('watering')
+			.insert([{ volume: 9, nutesratio: 100 }]);
+		data ? console.log(data) : console.log(error);
 	};
 </script>
 
@@ -129,7 +137,7 @@
 	<div class="grid grid-cols-{nutesToDisplay()}">
 		{#each Object.entries(nutes) as [nute, val]}
 			<div
-				class="	m-2 bg-{nute} {currentWeek > val.length
+				class="bg-{nute} {currentWeek > val.length
 					? val[val.length - 1] === 0
 						? 'hidden'
 						: 'nutes'
@@ -198,6 +206,17 @@
 	</div>
 </div>
 
+<div class="flex flex-col justify-center bg-white rounded sm:p-4 px-2 py-4 mt-2">
+	<h1 class="mb-2">Arrosage</h1>
+
+	<button
+		class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+		on:click={handleClick}
+	>
+		Plouf
+	</button>
+</div>
+
 <style>
 	.icon {
 		width: 17px;
@@ -214,5 +233,8 @@
 	}
 	.grid-ph {
 		grid-template-columns: 1fr 1fr 1fr;
+	}
+	.water-button {
+		background-color: burlywood;
 	}
 </style>
